@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scroll2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="7dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DigitLog"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="133dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Engine#1 data"
+            android:paddingTop="10dp"
+            android:textSize="25dp"
+           android:layout_gravity="center"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="99dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvdatetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1-Feb-2021 10:00 AM"
+            tools:layout_editor_absoluteX="241dp"
+            tools:layout_editor_absoluteY="109dp" />
+
+        <TextView
+            android:id="@+id/tvuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user1 is logged in"
+            android:layout_marginStart="100dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="681dp" />
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:paddingLeft="15dp"
+                android:text="pressure" />
+
+            <EditText
+                android:id="@+id/etpressure"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="70dp"
+                tools:layout_editor_absoluteX="143dp"
+                tools:layout_editor_absoluteY="477dp" />
+            <TextView
+                android:id="@+id/unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="psig" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_marginStart="4dp"
+                android:text="Temperature" />
+
+            <EditText
+                android:id="@+id/ettemp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="48dp"
+                tools:layout_editor_absoluteX="143dp"
+                tools:layout_editor_absoluteY="477dp" />
+            <TextView
+                android:id="@+id/unit2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="C" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/vib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:paddingLeft="15dp"
+                android:text="Vibration" />
+
+            <EditText
+                android:id="@+id/etvib"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="70dp"
+                tools:layout_editor_absoluteX="143dp"
+                tools:layout_editor_absoluteY="477dp" />
+            <TextView
+                android:id="@+id/unit5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="g" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_marginStart="4dp"
+                android:text="flowrate" />
+
+            <EditText
+                android:id="@+id/etflow"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="70dp"
+                tools:layout_editor_absoluteX="143dp"
+                tools:layout_editor_absoluteY="477dp" />
+            <TextView
+                android:id="@+id/unit6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="bbl/d" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/minPres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_marginStart="4dp"
+                android:text="Min Press" />
+
+            <EditText
+                android:id="@+id/etminpress"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="55dp"
+                tools:layout_editor_absoluteX="143dp"
+                tools:layout_editor_absoluteY="477dp" />
+            <TextView
+                android:id="@+id/unit7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="psig" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/maxpress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_marginStart="4dp"
+                android:text="Max Press" />
+
+            <EditText
+                android:id="@+id/etmaxpress"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="50dp"
+                tools:layout_editor_absoluteX="143dp"
+                tools:layout_editor_absoluteY="477dp" />
+            <TextView
+                android:id="@+id/unit8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="psig" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="Next"
+                tools:layout_editor_absoluteX="22dp"
+                tools:layout_editor_absoluteY="565dp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="page 1 out of 6"
+                android:layout_marginStart="150dp"
+            tools:layout_editor_absoluteX="21dp"
+                tools:layout_editor_absoluteY="526dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="Status"
+                tools:layout_editor_absoluteX="154dp"
+                tools:layout_editor_absoluteY="605dp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="data saved to database successfully"
+                android:layout_marginStart="60dp"
+                tools:layout_editor_absoluteX="155dp"
+                tools:layout_editor_absoluteY="636dp" />
+
+        </LinearLayout>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_gravity="center"
+                tools:layout_editor_absoluteX="22dp"
+                tools:layout_editor_absoluteY="624dp" />
+
+
+    </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

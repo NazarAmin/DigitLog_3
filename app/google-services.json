@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "962533946260",
+    "project_id": "digitlogver2",
+    "storage_bucket": "digitlogver2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962533946260:android:24f9a190a3279fee8f1581",
+        "android_client_info": {
+          "package_name": "com.example.digitlog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962533946260-grtccf50dqscg108s1230cdom7nt59a9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC55jVdyTtwV57fRTWUkhjClGUM1swPmpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962533946260-grtccf50dqscg108s1230cdom7nt59a9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
