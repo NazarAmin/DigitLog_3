@@ -14,15 +14,17 @@
 
 
 
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp">
 
@@ -30,8 +32,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_margin="1dp"
                 android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="1dp"
+                    android:foregroundGravity="center"
+                    android:paddingTop="1dp"
+
+                    android:src="@drawable/digit_log2_logo">
+
+                </ImageView>
+                <ProgressBar
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/progressbar"
+                    android:layout_gravity="center"></ProgressBar>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailError"
@@ -44,8 +63,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="@string/prompt_email"
-                        android:inputType="textEmailAddress"
+                        android:hint="User Name"
                         android:maxLines="1"
                         android:paddingStart="5dp"
                         android:singleLine="true" />
@@ -96,14 +114,5 @@
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-      <ImageView
-        android:id="@+id/profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-130dp"
-        android:background="@drawable/round_background"
-        android:padding="15dp"
-        android:src="@drawable/profile"/>
 
 </RelativeLayout>

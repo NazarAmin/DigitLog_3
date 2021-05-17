@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<TextView
+    android:layout_width="wrap_content"
+    android:textStyle="bold|italic"
+
+    android:layout_height="70dp"
+    android:layout_marginTop="10dp"
+    android:text="Engine Parameters"
+    android:textColor="@color/black"
+    android:textSize="40dp"
+    android:gravity="center"
+    android:layout_gravity="center"
+    >
+</TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/black"
+        android:text="Please select one or multiple engine parameters:"
+        android:textSize="14dp"
+        android:gravity="left"
+android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
+        >
+    </TextView>
+
+<ScrollView
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAnimals"
+        android:paddingRight="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+android:layout_marginLeft="10dp"        />
+</ScrollView>
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:textSize="14dp"
+        android:id="@+id/but"
+        android:textColor="@color/white"
+        android:background="@color/green"
+android:layout_marginLeft="10dp"
+        android:text="Plot Selected Items"></Button>
+</LinearLayout>

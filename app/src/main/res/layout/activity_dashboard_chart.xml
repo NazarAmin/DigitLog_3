@@ -25,26 +25,19 @@
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Visualization"
+                android:text="Reports and Visualization"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"></TextView>
 
-            <TextView
-                android:layout_below="@id/tv1"
-                android:layout_marginTop="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6 Items"
-                android:textColor="#52BAFF"
-                android:textSize="12sp"></TextView>
+
 
             <ImageView
                 android:layout_width="62dp"
                 android:layout_height="62dp"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/round_background"
-                android:padding="15dp"
-                android:src="@drawable/profile"></ImageView>
+                android:padding="1dp"
+                android:src="@drawable/log"></ImageView>
 
         </RelativeLayout>
 
@@ -53,49 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
-            android:columnCount="2"
+            android:paddingTop="50dp"
+            android:columnCount="1"
             android:rowCount="3"
             >
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/problems"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/charts"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center"/>
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -115,7 +69,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/faults"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -125,7 +79,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="GT Log Sheet1"
+                        android:text="Faults and Trips Log"
 
                         ></TextView>
 
@@ -152,7 +106,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/visualization"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -162,7 +116,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Log Sheet 2 FO"
+                        android:text="Trends"
 
                         ></TextView>
 
@@ -170,6 +124,8 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +144,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/handover"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -198,7 +154,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Generator Board"
+                        android:text="Reports"
 
                         ></TextView>
 
@@ -206,116 +162,6 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet4"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/button_gradient"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Generation"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet5"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/button_gradient"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Mark V"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet6"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/button_gradient"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Log Sheet 6"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
         </GridLayout>
 
 

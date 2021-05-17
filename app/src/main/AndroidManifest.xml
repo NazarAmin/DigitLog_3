@@ -6,13 +6,30 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/digit_log_logo"
+        android:label="Digit Log"
+        android:roundIcon="@mipmap/digit_log_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Dashboard"></activity>
+        <activity android:name=".Blocks"></activity>
+        <activity android:name=".Handover_Activity" />
+        <activity android:name=".Faults_Trips_Entry" />
+        <activity android:name=".Faults_List" />
+        <activity android:name=".EngineStatus" />
+        <activity android:name=".DataEntry" />
+        <activity android:name=".New_Engine_Dash" />
+        <activity android:name=".Faults_Dash" />
+        <activity android:name=".Chart_List" />
+        <activity android:name=".Dashboard" />
         <activity android:name=".Sheet_1" />
+        <activity android:name=".Sheet_2" />
+        <activity android:name=".Sheet_3" />
+        <activity android:name=".Sheet_4" />
+        <activity android:name=".Sheet_5" />
+        <activity android:name=".Sheet_6" />
+        <activity android:name=".Dashboard_chart" />
+        <activity android:name=".Dashboard_problem" />
+        <activity android:name=".Dashboard_Engines" />
         <activity android:name=".chart" />
         <activity android:name=".Login">
             <intent-filter>

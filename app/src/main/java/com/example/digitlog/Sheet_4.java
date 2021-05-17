@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +20,8 @@ public class Sheet_4 extends AppCompatActivity {
     EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,p16,p17,p18,p19,p20,p21;
     Button button3, button11;
     Data data;
+    TextView textView3;
+    String engine;
     boolean isp1,isp2,isp3,isp4,isp5,isp6,isp7,isp8,isp9,isp10,isp11,
             isp12,isp13, isp14, isp15,isp16, isp17, isp18,isp19, isp20, isp21;
     TextInputLayout emailError, emailError2, emailError3, emailError4, emailError5, emailError6,
@@ -26,32 +30,38 @@ public class Sheet_4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sheet_1r);
+        setContentView(R.layout.sheet_4);
+        engine = GlobalClass.engine_number;
+        textView3 = (TextView) findViewById(R.id.textView3);
+
+        textView3.setText(engine + " Generation");
+
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/OP");
 
-        p1 = (EditText) findViewById(R.id.p1);
-        p2 = (EditText) findViewById(R.id.p2);
-        p3 = (EditText) findViewById(R.id.p3);
-        p4 = (EditText) findViewById(R.id.p4);
-        p5 = (EditText) findViewById(R.id.p5);
-        p6 = (EditText) findViewById(R.id.p6);
-        p7 = (EditText) findViewById(R.id.p7);
-        p8 = (EditText) findViewById(R.id.p8);
-        p9 = (EditText) findViewById(R.id.p9);
-        p10 = (EditText) findViewById(R.id.p10);
+       DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Generation");
 
-        p11 = (EditText) findViewById(R.id.p11);
-        p12 = (EditText) findViewById(R.id.p12);
-        p13 = (EditText) findViewById(R.id.p13);
-        p14 = (EditText) findViewById(R.id.p14);
-        p15 = (EditText) findViewById(R.id.p15);
-        p16 = (EditText) findViewById(R.id.p16);
-        p17 = (EditText) findViewById(R.id.p17);
-        p18 = (EditText) findViewById(R.id.p18);
-        p19 = (EditText) findViewById(R.id.p19);
-        p20 = (EditText) findViewById(R.id.p20);
-        p21 = (EditText) findViewById(R.id.p21);
+        p1 = (EditText) findViewById(R.id.p4p1);
+        p2 = (EditText) findViewById(R.id.p4p2);
+        p3 = (EditText) findViewById(R.id.p4p3);
+        p4 = (EditText) findViewById(R.id.p4p4);
+        p5 = (EditText) findViewById(R.id.p4p5);
+        p6 = (EditText) findViewById(R.id.p4p6);
+        p7 = (EditText) findViewById(R.id.p4p7);
+        p8 = (EditText) findViewById(R.id.p4p8);
+        p9 = (EditText) findViewById(R.id.p4p9);
+        p10 = (EditText) findViewById(R.id.p4p10);
+
+        p11 = (EditText) findViewById(R.id.p4p11);
+        p12 = (EditText) findViewById(R.id.p4p12);
+        p13 = (EditText) findViewById(R.id.p4p13);
+        p14 = (EditText) findViewById(R.id.p4p14);
+        p15 = (EditText) findViewById(R.id.p4p15);
+        p16 = (EditText) findViewById(R.id.p4p16);
+        p17 = (EditText) findViewById(R.id.p4p17);
+        p18 = (EditText) findViewById(R.id.p4p18);
+        p19 = (EditText) findViewById(R.id.p4p19);
+        p20 = (EditText) findViewById(R.id.p4p20);
+        p21 = (EditText) findViewById(R.id.p4p21);
 
         emailError = (TextInputLayout) findViewById(R.id.emailError);
         emailError2 = (TextInputLayout) findViewById(R.id.emailError2);
@@ -94,7 +104,7 @@ public class Sheet_4 extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+try{
 
                 float iip1 = Float.parseFloat(p1.getText().toString().trim());
                 float iip2 = Float.parseFloat(p2.getText().toString().trim());
@@ -119,7 +129,7 @@ public class Sheet_4 extends AppCompatActivity {
                 float iip20 = Float.parseFloat(p20.getText().toString().trim());
 
                 float iip21 = Float.parseFloat(p21.getText().toString().trim());
-                String user = "user 1";
+    String user = GlobalClass.user_name_string;
 
                 data.setIp1(iip1);
                 data.setIp2(iip2);
@@ -132,22 +142,27 @@ public class Sheet_4 extends AppCompatActivity {
                 data.setIp9(iip9);
                 data.setIp10(iip10);
 
-                data.setIp1(iip11);
-                data.setIp2(iip12);
-                data.setIp3(iip13);
-                data.setIp4(iip14);
-                data.setIp5(iip15);
-                data.setIp6(iip16);
-                data.setIp7(iip17);
-                data.setIp8(iip18);
-                data.setIp9(iip19);
-                data.setIp10(iip20);
+                data.setIp11(iip11);
+                data.setIp12(iip12);
+                data.setIp13(iip13);
+                data.setIp14(iip14);
+                data.setIp15(iip15);
+                data.setIp16(iip16);
+                data.setIp17(iip17);
+                data.setIp18(iip18);
+                data.setIp19(iip19);
+                data.setIp20(iip20);
 
                 data.setIp21(iip21);
-                data.setLogsheet("OP");
+                data.setLogsheet("Generation");
                 data.setUser(user);
+    ref2.child(sdf.format(new Date()).toString().trim()).setValue(data);
+    Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
 
-                ref2.child(sdf.format(new Date()).toString().trim()).setValue(data);
+}catch (Exception exception){
+    Toast.makeText(getApplicationContext(), "Failed! ensure all data are entered", Toast.LENGTH_SHORT).show();
+
+}
 
             }
         });

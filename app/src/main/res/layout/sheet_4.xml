@@ -50,6 +50,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingTop="100dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,11 +69,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p1"
+                    android:id="@+id/p4p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p1"
+                    android:hint="@string/gg1"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -86,11 +88,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p2"
+                    android:id="@+id/p4p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p2"
+                    android:hint="@string/gg2"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -105,11 +107,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p3"
+                    android:id="@+id/p4p3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p3"
+                    android:hint="@string/gg3"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -124,11 +126,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p4"
+                    android:id="@+id/p4p4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p4"
+                    android:hint="@string/gg4"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -143,11 +145,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p5"
+                    android:id="@+id/p4p5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p5"
+                    android:hint="@string/gg5"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -162,11 +164,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p6"
+                    android:id="@+id/p4p6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p6"
+                    android:hint="@string/gg6"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -181,11 +183,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p7"
+                    android:id="@+id/p4p7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p7"
+                    android:hint="@string/gg7"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -200,11 +202,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p8"
+                    android:id="@+id/p4p8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p8"
+                    android:hint="@string/gg8"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -219,11 +221,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p9"
+                    android:id="@+id/p4p9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p9"
+                    android:hint="@string/gg9"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -238,11 +240,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p10"
+                    android:id="@+id/p4p10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p10"
+                    android:hint="@string/gg10"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -257,11 +259,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p11"
+                    android:id="@+id/p4p11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p11"
+                    android:hint="@string/gg11"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -276,11 +278,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p12"
+                    android:id="@+id/p4p12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p12"
+                    android:hint="@string/gg12"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -295,11 +297,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p13"
+                    android:id="@+id/p4p13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p13"
+                    android:hint="@string/gg13"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -314,11 +316,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p14"
+                    android:id="@+id/p4p14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p14"
+                    android:hint="@string/gg14"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -333,11 +335,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p15"
+                    android:id="@+id/p4p15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p15"
+                    android:hint="@string/gg15"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -352,11 +354,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p16"
+                    android:id="@+id/p4p16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p16"
+                    android:hint="@string/gg16"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -371,11 +373,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p17"
+                    android:id="@+id/p4p17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p17"
+                    android:hint="@string/gg17"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -390,11 +392,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p18"
+                    android:id="@+id/p4p18"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p18"
+                    android:hint="@string/gg18"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -409,11 +411,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p19"
+                    android:id="@+id/p4p19"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p19"
+                    android:hint="@string/gg19"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -428,11 +430,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p20"
+                    android:id="@+id/p4p20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p20"
+                    android:hint="@string/gg20"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -447,11 +449,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p21"
+                    android:id="@+id/p4p21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p21"
+                    android:hint="@string/gg21"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"

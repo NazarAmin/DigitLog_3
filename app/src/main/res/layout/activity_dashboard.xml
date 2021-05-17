@@ -54,82 +54,10 @@
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
+            android:paddingTop="30dp"
             android:rowCount="3"
             >
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/problems"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                <ImageView
-                    android:src="@drawable/button_gradient"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Problems Log"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/charts"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/button_gradient"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Visualization"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -149,7 +77,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/gt_logsheet1"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -186,7 +114,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/fo"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -222,7 +150,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/generator_board"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -259,7 +187,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/elec"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -295,7 +223,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/mark_v"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
@@ -331,7 +259,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/button_gradient"
+                        android:src="@drawable/data_sheet"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 

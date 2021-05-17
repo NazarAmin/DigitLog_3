@@ -50,6 +50,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingTop="100dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,11 +69,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p1"
+                    android:id="@+id/p3p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p1"
+                    android:hint="@string/gp1"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -86,11 +88,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p2"
+                    android:id="@+id/p3p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p2"
+                    android:hint="@string/gp2"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -105,11 +107,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p3"
+                    android:id="@+id/p3p3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p3"
+                    android:hint="@string/gp3"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -124,11 +126,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p4"
+                    android:id="@+id/p3p4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p4"
+                    android:hint="@string/gp4"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -143,11 +145,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p5"
+                    android:id="@+id/p3p5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p5"
+                    android:hint="@string/gp5"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -162,11 +164,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p6"
+                    android:id="@+id/p3p6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p6"
+                    android:hint="@string/gp6"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -181,11 +183,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p7"
+                    android:id="@+id/p3p7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p7"
+                    android:hint="@string/gp7"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -200,11 +202,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p8"
+                    android:id="@+id/p3p8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p8"
+                    android:hint="@string/gp8"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -219,11 +221,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p9"
+                    android:id="@+id/p3p9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p9"
+                    android:hint="@string/gp9"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -238,11 +240,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p10"
+                    android:id="@+id/p3p10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p10"
+                    android:hint="@string/gp10"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -257,11 +259,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p11"
+                    android:id="@+id/p3p11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p11"
+                    android:hint="@string/gp11"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -276,11 +278,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p12"
+                    android:id="@+id/p3p12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p12"
+                    android:hint="@string/gp12"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -295,11 +297,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p13"
+                    android:id="@+id/p3p13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p13"
+                    android:hint="@string/gp13"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -314,11 +316,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p14"
+                    android:id="@+id/p3p14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p14"
+                    android:hint="@string/gp14"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -333,11 +335,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p15"
+                    android:id="@+id/p3p15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p15"
+                    android:hint="@string/gp15"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -352,11 +354,11 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/p16"
+                    android:id="@+id/p3p16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/p16"
+                    android:hint="@string/gp16"
                     android:inputType="number|numberDecimal"
                     android:maxLines="1"
                     android:paddingStart="5dp"
@@ -364,100 +366,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailError17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <EditText
-                    android:id="@+id/p17"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/p17"
-                    android:inputType="number|numberDecimal"
-                    android:maxLines="1"
-                    android:paddingStart="5dp"
-                    android:singleLine="true" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailError18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <EditText
-                    android:id="@+id/p18"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/p18"
-                    android:inputType="number|numberDecimal"
-                    android:maxLines="1"
-                    android:paddingStart="5dp"
-                    android:singleLine="true" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailError19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <EditText
-                    android:id="@+id/p19"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/p19"
-                    android:inputType="number|numberDecimal"
-                    android:maxLines="1"
-                    android:paddingStart="5dp"
-                    android:singleLine="true" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailError20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <EditText
-                    android:id="@+id/p20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/p20"
-                    android:inputType="number|numberDecimal"
-                    android:maxLines="1"
-                    android:paddingStart="5dp"
-                    android:singleLine="true" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailError21"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <EditText
-                    android:id="@+id/p21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/p21"
-                    android:inputType="number|numberDecimal"
-                    android:maxLines="1"
-                    android:paddingStart="5dp"
-                    android:singleLine="true" />
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

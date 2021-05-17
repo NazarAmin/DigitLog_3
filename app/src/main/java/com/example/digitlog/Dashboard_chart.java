@@ -17,49 +17,30 @@ public class Dashboard_chart extends AppCompatActivity {
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         sheet3 = (LinearLayout) findViewById(R.id.sheet3);
-        sheet4 = (LinearLayout) findViewById(R.id.sheet4);
-        sheet5 = (LinearLayout) findViewById(R.id.sheet5);
-        sheet6 = (LinearLayout) findViewById(R.id.sheet6);
+
 
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Dashboard_chart.this, Sheet_1.class));
+
+                startActivity(new Intent(Dashboard_chart.this, Faults_List.class));
             }
         });
 
         sheet2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Dashboard_chart.this, Sheet_2.class));
+
+                startActivity(new Intent(Dashboard_chart.this, Chart_List.class));
             }
         });
 
         sheet3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Dashboard_chart.this, Sheet_3.class));
-            }
-        });
+                GlobalClass.sheet_number = "Generator_Board";
 
-        sheet4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Dashboard_chart.this, Sheet_4.class));
-            }
-        });
-
-        sheet5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Dashboard_chart.this, Sheet_5.class));
-            }
-        });
-
-        sheet6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Dashboard_chart.this, Sheet_6.class));
+                startActivity(new Intent(Dashboard_chart.this, Chart_List.class));
             }
         });
 

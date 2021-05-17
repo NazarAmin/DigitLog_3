@@ -50,6 +50,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingTop="100dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -464,13 +466,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:text="Check">
 
-                </Button>
 
                 <Button
                     android:id="@+id/button10"
