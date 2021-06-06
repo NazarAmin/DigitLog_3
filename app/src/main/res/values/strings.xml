@@ -148,6 +148,60 @@
     <string name="p617">HCGO Temperature (C)</string>
     <string name="p618">Three Way V/V Position (%)</string>
 
+    <string name="sp1">Load Mw</string>
+    <string name="sp2">Water Level HP Drum mm</string>
+    <string name="sp3">Water Level LP Drum mm</string>
+    <string name="sp4">Drum Pressure HP Mpa</string>
+    <string name="sp5">Drum Pressure LP Mpa</string>
+    <string name="sp6">HP Feed Water Pressure Mpa</string>
+    <string name="sp7">HP Feed Water Flow T/h</string>
+    <string name="sp8">LP Feed Water Pressure Mpa</string>
+    <string name="sp9">LP Feed Water Flow T/h</string>
+    <string name="sp10">Detemp Water Opening Perc %</string>
+    <string name="sp11">LP Steam CV Open Perc %</string>
+    <string name="sp12">LP Steam Pressure Mpa</string>
+    <string name="sp13">85 M Tank Level mm</string>
+    <string name="sp14">CCCW Water Level mm</string>
+    <string name="sp15">Dearetor Pressrue Mpa</string>
+    <string name="sp16">Dearetor Outlet Temp C</string>
+    <string name="sp17">Dearetor Water Level mm</string>
+    <string name="sp18">Circulating Water Inlet Temp C</string>
+    <string name="sp19">Circulating Water Inlet Pressure Mpa</string>
+    <string name="sp20">Cooling Air Inlet C</string>
+    <string name="sp21">Cooling Air Outer C</string>
+    <string name="sp22">Generator Stator Temperature Max C</string>
+
+    <string name="ssp1">Load Mw</string>
+    <string name="ssp2">Freq Hz</string>
+    <string name="ssp3">Speed RPM</string>
+    <string name="ssp4">Min Stop Valve Position %</string>
+    <string name="ssp5">Min Steam Pressure Mpa</string>
+    <string name="ssp6">Min Steam Temperature C</string>
+    <string name="ssp7">Min Steam Flow T/h</string>
+    <string name="ssp8">Eth Temperature C</string>
+    <string name="ssp9">Condenser Vacuum Pressure Mpa</string>
+    <string name="ssp10">Condenser Water Level mm</string>
+    <string name="ssp11">Rear Speed Stage Pressure Mpa</string>
+    <string name="ssp12">Average Pressure Tank Pressure Mpa</string>
+    <string name="ssp13">Average Pressure Tank Temperature C</string>
+    <string name="ssp14">Condensate Water System Pressure Mpa</string>
+    <string name="ssp15">Condensate Water System Flow T/h</string>
+    <string name="ssp16">Condensate Water System Temperature C</string>
+    <string name="ssp17">Condensate Water System Current Amp</string>
+    <string name="ssp18">Oil Pressure Hydr Mpa</string>
+    <string name="ssp19">Oil Pressure Lube Oil Mpa</string>
+    <string name="ssp20">Oil Pressure Min Pump Inlet Mpa</string>
+    <string name="ssp21">Oil Pressure Max Pump Outlet Mpa</string>
+    <string name="ssp22">Oil Cooler Outlet Temperature C</string>
+    <string name="ssp23">Oil Tank Level mm</string>
+    <string name="ssp24">Vibration 1 Um</string>
+    <string name="ssp25">Vibration 2 Um</string>
+    <string name="ssp26">Vibration 3 Um</string>
+    <string name="ssp27">Vibration 4 Um</string>
+    <string name="ssp28">Turbine External L Um</string>
+    <string name="ssp29">Turbine External R Um</string>
+    <string name="ssp30">Unit Axial Replacement Um</string>
+
 
     <string name="digit_log">Digit Log</string>
 </resources>

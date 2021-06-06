@@ -138,7 +138,9 @@
         android:id="@+id/engine_pic"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#6f6f6f"
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textStyle="bold"
         android:textSize="18sp"
         android:text="Operator in Charge:"
 

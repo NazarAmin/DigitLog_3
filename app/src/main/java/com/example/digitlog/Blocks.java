@@ -44,7 +44,7 @@ public class Blocks extends AppCompatActivity {
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
-        sheet3 = (LinearLayout) findViewById(R.id.sheet3);
+       // sheet3 = (LinearLayout) findViewById(R.id.sheet3);
 
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,7 @@ public class Blocks extends AppCompatActivity {
                 startActivity(new Intent(Blocks.this, Dashboard_Engines.class));
             }
         });
-
+/*
         sheet3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +71,7 @@ public class Blocks extends AppCompatActivity {
             }
         });
 
-
+**/
        coloring_layouts("Engine_1", mw1);
        coloring_layouts("Engine_2", mw1); //,"Engine_2","Engine_3"
        coloring_layouts("Engine_3", mw1); //,"Engine_2","Engine_3"

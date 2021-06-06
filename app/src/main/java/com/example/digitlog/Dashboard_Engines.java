@@ -75,7 +75,7 @@ public class Dashboard_Engines extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (GlobalClass.block_number.equals("one")){
-                    GlobalClass.engine_number = "Engine_";
+                    GlobalClass.engine_number = "Engine_2";
                 }else if (GlobalClass.block_number.equals("two")){
                     GlobalClass.engine_number = "Engine_5";
                 }else{
@@ -100,6 +100,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         });
 
         coloring_layouts();
+        coloring_layouts2();
 
 
     }
@@ -108,6 +109,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         super.onStart();
 
         coloring_layouts();
+        coloring_layouts2();
     }
 
     private void coloring_layouts() {
@@ -160,6 +162,8 @@ public class Dashboard_Engines extends AppCompatActivity {
                 }
             });
             int finalCounter1 = counter;
+            String finalEngine1 = engine;
+            int finalCounter = counter;
             ref2.addValueEventListener(new ValueEventListener() {
                 int i = 0;
                 @Override
@@ -171,36 +175,172 @@ public class Dashboard_Engines extends AppCompatActivity {
                             datavals.add(data.getIp1());
                             i = i + 1;
                         }
-                        mw.get(finalCounter1).setText(datavals.get(datavals.size()-1).toString() + " MW");
+
+                        DatabaseReference ref3 = firebaseDatabase.getReference("data/" + finalEngine1 + "/Status");
+
+                        //int finalCounter;
+                        ref3.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                                status.get(finalCounter).setText(snapshot.getValue().toString());
+                                //enstatus1.setText(snapshot.getValue().toString());
+
+                                if (snapshot.getValue().toString().equals("Normal Operation")) {
+                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 255, 102, 102));
+                                } else if (snapshot.getValue().toString().equals("Standby")) {
+                                    sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+                                } else {
+                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 30, 255, 102));
+                                }
+
+                                if (snapshot.getValue().toString().equals("Standby") |
+                                        snapshot.getValue().toString().equals("Forced Shutdown") |
+                                        snapshot.getValue().toString().equals("Planned Shutdown") |
+                                        snapshot.getValue().toString().equals("Trip")) {
+                                    mw.get(finalCounter1).setText("---- MW");
+                                } else {
+                                    mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+
+
                     }
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
                 }
             });
-            DatabaseReference ref3 = firebaseDatabase.getReference("data/" + engine + "/Status");
 
-            int finalCounter = counter;
-            ref3.addValueEventListener(new ValueEventListener() {
+            DatabaseReference ref4 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+            int finalCounter2 = counter;
+            ref4.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    user.get(finalCounter2).setText(snapshot.getValue().toString());
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
 
 
-                    status.get(finalCounter).setText(snapshot.getValue().toString());
-                    //enstatus1.setText(snapshot.getValue().toString());
+    }
 
-                    if (snapshot.getValue().toString().equals("Normal Operation")) {
-                        sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7,255,102,102));
-                    } else if (snapshot.getValue().toString().equals("Standby")){
-                        sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
-                    } else {
-                        sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7,30,255,102));
+
+    private void coloring_layouts2() {
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        if (GlobalClass.block_number.equals("one")){
+            sheets_l = Arrays.asList("Engine_1","Engine_2","Engine_3");
+        }else if (GlobalClass.block_number.equals("two")){
+            sheets_l = Arrays.asList("Engine_4","Engine_5","Engine_6");
+        }else{
+            sheets_l = Arrays.asList("Engine_7","Engine_8","Engine_9");
+        }
+        List<TextView> status = Arrays.asList(enstatus1, enstatus2,enstatus3);
+        List<TextView> mw = Arrays.asList(mw1, mw2, mw3);
+        List<TextView> user = Arrays.asList(fo1, fo2, fo3);
+        List<LinearLayout> sheets_q = Arrays.asList(sheet1, sheet2, sheet3); //, sheet4, sheet5, sheet6
+
+        String engine;
+        //LinearLayout Item_q = null;
+
+        for (int counter = 0; counter < sheets_l.size(); counter++) {
+            engine = sheets_l.get(counter);
+
+            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/LogSheet20_A");
+            //LinearLayout finalItem_q = Item_q;
+
+            String finalEngine = engine;
+            ref2.addListenerForSingleValueEvent(new ValueEventListener(){
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                    if (dataSnapshot.exists()) {
+                        name.clear();
+                        int i = 0;
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
+                            try {
+                                name.add(sdf.parse(d.getKey()));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            i++;
+                        }
                     }
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                public void onCancelled(DatabaseError error) {
 
+                }
+            });
+            int finalCounter1 = counter;
+            String finalEngine1 = engine;
+            int finalCounter = counter;
+            ref2.addValueEventListener(new ValueEventListener() {
+                int i = 0;
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    ArrayList<Float> datavals = new ArrayList<Float>();
+                    if (dataSnapshot.hasChildren()) {
+                        for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                            DataS1 data = mydatasnapshot.getValue(DataS1.class);
+                            datavals.add(data.getIp1());
+                            i = i + 1;
+                        }
+
+                        DatabaseReference ref3 = firebaseDatabase.getReference("data/" + finalEngine1 + "/Status");
+
+                        //int finalCounter;
+                        ref3.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                                status.get(finalCounter).setText(snapshot.getValue().toString());
+                                //enstatus1.setText(snapshot.getValue().toString());
+
+                                if (snapshot.getValue().toString().equals("Normal Operation")) {
+                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 255, 102, 102));
+                                } else if (snapshot.getValue().toString().equals("Standby")) {
+                                    sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+                                } else {
+                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 30, 255, 102));
+                                }
+
+                                if (snapshot.getValue().toString().equals("Standby") |
+                                        snapshot.getValue().toString().equals("Forced Shutdown") |
+                                        snapshot.getValue().toString().equals("Planned Shutdown") |
+                                        snapshot.getValue().toString().equals("Trip")) {
+                                    mw.get(finalCounter1).setText("---- MW");
+                                } else {
+                                    mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+
+
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
                 }
             });
 

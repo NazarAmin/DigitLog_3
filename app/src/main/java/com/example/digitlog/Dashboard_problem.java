@@ -77,7 +77,7 @@ public class Dashboard_problem extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.im_v);
 
         engine = GlobalClass.engine_number;
-        user_2 = GlobalClass.user_name_string;
+        user_2 = GlobalClass.actual_user_name;
         category_type = GlobalClass.Faults_Category;
 
 

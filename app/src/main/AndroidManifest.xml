@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/digit_log_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Blocks"></activity>
+        <activity android:name=".DashboardST"></activity>
+        <activity android:name=".Sheet8" />
+        <activity android:name=".Sheet7" />
+        <activity android:name=".Blocks" />
         <activity android:name=".Handover_Activity" />
         <activity android:name=".Faults_Trips_Entry" />
         <activity android:name=".Faults_List" />

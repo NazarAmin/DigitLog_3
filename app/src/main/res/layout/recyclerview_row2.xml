@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="268dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/vlightblue"
     android:orientation="vertical"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:elevation="10dp"
+    android:background="@drawable/shape2"
     android:padding="10dp">
 
     <LinearLayout
@@ -28,6 +28,7 @@
             android:layout_height="50dp"
             android:text="Fault is here"
             android:id="@+id/fault"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"></TextView>
@@ -50,6 +51,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="Fault is here"
             android:textColor="@color/black"></TextView>
     </LinearLayout>
@@ -69,6 +71,7 @@
             android:layout_height="50dp"
             android:text="Open"
             android:gravity="center"
+            android:textStyle="bold"
             android:id="@+id/urgency"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"></TextView>
@@ -89,6 +92,7 @@
             android:layout_height="50dp"
             android:id="@+id/comment"
             android:text="Category is here"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"></TextView>
@@ -109,6 +113,7 @@
             android:layout_height="50dp"
             android:id="@+id/user"
             android:text="Category is here"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"></TextView>

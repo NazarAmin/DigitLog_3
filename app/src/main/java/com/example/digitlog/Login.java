@@ -84,38 +84,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void SetValidation() {
-        // Check for a valid email address.
-/*
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference ref1 = firebaseDatabase.getReference("data/users");// + email.getText().toString().trim());
-        String key = ref1.child(email.getText().toString().trim()).push().getKey();
-        System.out.println(key);
-        System.out.println("-------------------------------------------------------------------------------");
-        System.out.println(email.getText().toString().trim());
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/users/" + key);
-
-
-        ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-         //       progressBar.setVisibility(View.VISIBLE);
-
-                Users users = dataSnapshot.getValue(Users.class);
-                user_check = users.getUser();
-                GlobalClass.user_name_string = user_check;
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("loadPost:onCancelled", databaseError.toException());
-            }
-        };
-        ref2.addValueEventListener(postListener);
-**/
         email_check = email.getText().toString().trim();
         pass_check = password.getText().toString().trim();
 
@@ -136,7 +105,7 @@ public class Login extends AppCompatActivity {
                             if (dataSnapshot.hasChildren()) {
                                 for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                                     Users user = mydatasnapshot.getValue(Users.class);
-                                    if (user.getEmail().toString().equals(email.getText().toString().trim())) {
+                                    if (user.getEmail().equals(email_check)) {
                                         GlobalClass.actual_user_name = user.getUser();
                                         progressBar.setVisibility(View.GONE);
                                         Toast.makeText(getApplicationContext(), "Logged on as " + user.getUser() + " Successfully", Toast.LENGTH_SHORT).show();
