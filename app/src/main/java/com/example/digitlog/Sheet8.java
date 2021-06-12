@@ -153,7 +153,7 @@ public class Sheet8 extends AppCompatActivity {
 
     public void SetValidation() {
 
-        if ((Float.parseFloat(p1.getText().toString() )> 20) || (Float.parseFloat(p1.getText().toString()) < 3)){
+        if ((ParseDouble(p1.getText().toString() )> 20) || (ParseDouble(p1.getText().toString()) < 3)){
             p1.setError("value entered out of range!, should be (5 - 15 MPa)");
             p1.requestFocus();
         }
@@ -162,10 +162,10 @@ public class Sheet8 extends AppCompatActivity {
         if (p1.getText().toString().isEmpty()) {
             emailError.setError(getResources().getString(R.string.email_error));
             isp1 = false;
-        } else if (Float.parseFloat(p1.getText().toString()) < 0.083) {
+        } else if (ParseDouble(p1.getText().toString()) < 0.083) {
             emailError.setError(getResources().getString(R.string.pmin));
             isp1 = false;
-        } else if (Float.parseFloat(p1.getText().toString()) < 0.0055) {
+        } else if (ParseDouble(p1.getText().toString()) < 0.0055) {
             emailError.setError(getResources().getString(R.string.pll));
             isp1 = false;
         } else  {
@@ -178,7 +178,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p2.getText().toString().isEmpty()) {
             emailError2.setError(getResources().getString(R.string.email_error));
             isp2 = false;
-        } else if (Float.parseFloat(p1.getText().toString()) < 0.042) {
+        } else if (ParseDouble(p1.getText().toString()) < 0.042) {
             emailError2.setError(getResources().getString(R.string.pmin));
             isp2 = false;
         } else  {
@@ -191,7 +191,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p3.getText().toString().isEmpty()) {
             emailError3.setError(getResources().getString(R.string.email_error));
             isp3 = false;
-        } else if (Float.parseFloat(p1.getText().toString()) < 0.0055) {
+        } else if (ParseDouble(p1.getText().toString()) < 0.0055) {
             emailError3.setError(getResources().getString(R.string.pmin));
             isp3 = false;
         } else  {
@@ -204,7 +204,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p4.getText().toString().isEmpty()) {
             emailError4.setError(getResources().getString(R.string.email_error));
             isp4 = false;
-        } else if (Float.parseFloat(p1.getText().toString()) < 0.083) {
+        } else if (ParseDouble(p1.getText().toString()) < 0.083) {
             emailError4.setError(getResources().getString(R.string.pmin));
             isp4 = false;
         } else  {
@@ -217,7 +217,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p6.getText().toString().isEmpty()) {
             emailError6.setError(getResources().getString(R.string.email_error));
             isp6 = false;
-        } else if (Float.parseFloat(p1.getText().toString()) < 7.24) {
+        } else if (ParseDouble(p1.getText().toString()) < 7.24) {
             emailError6.setError(getResources().getString(R.string.pmin));
             isp6 = false;
         } else  {
@@ -230,10 +230,10 @@ public class Sheet8 extends AppCompatActivity {
         if (p7.getText().toString().isEmpty()) {
             emailError7.setError(getResources().getString(R.string.email_error));
             isp7 = false;
-        } else if (Float.parseFloat(p7.getText().toString()) < 0.165) {
+        } else if (ParseDouble(p7.getText().toString()) < 0.165) {
             emailError7.setError(getResources().getString(R.string.pmin));
             isp7 = false;
-        } else if (Float.parseFloat(p7.getText().toString()) < 0.1379) {
+        } else if (ParseDouble(p7.getText().toString()) < 0.1379) {
             emailError7.setError(getResources().getString(R.string.pll));
             isp7 = false;
         } else  {
@@ -246,10 +246,10 @@ public class Sheet8 extends AppCompatActivity {
         if (p8.getText().toString().isEmpty()) {
             emailError8.setError(getResources().getString(R.string.email_error));
             isp8 = false;
-        } else if (Float.parseFloat(p8.getText().toString()) < 0.165) {
+        } else if (ParseDouble(p8.getText().toString()) < 0.165) {
             emailError8.setError(getResources().getString(R.string.pmin));
             isp8 = false;
-        } else if (Float.parseFloat(p8.getText().toString()) < 0.1379) {
+        } else if (ParseDouble(p8.getText().toString()) < 0.1379) {
             emailError8.setError(getResources().getString(R.string.pll));
             isp8 = false;
         } else  {
@@ -262,10 +262,10 @@ public class Sheet8 extends AppCompatActivity {
         if (p10.getText().toString().isEmpty()) {
             emailError10.setError(getResources().getString(R.string.email_error));
             isp10 = false;
-        } else if (Float.parseFloat(p10.getText().toString()) < 0.2) {
+        } else if (ParseDouble(p10.getText().toString()) < 0.2) {
             emailError10.setError(getResources().getString(R.string.pmin));
             isp10 = false;
-        } else if (Float.parseFloat(p10.getText().toString()) > 0.4) {
+        } else if (ParseDouble(p10.getText().toString()) > 0.4) {
             emailError10.setError(getResources().getString(R.string.pmax));
             isp10 = false;
         } else  {
@@ -278,7 +278,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p11.getText().toString().isEmpty()) {
             emailError11.setError(getResources().getString(R.string.email_error));
             isp11 = false;
-        } else if (Float.parseFloat(p11.getText().toString()) > 1.2) {
+        } else if (ParseDouble(p11.getText().toString()) > 1.2) {
             emailError11.setError(getResources().getString(R.string.pmax));
             isp11 = false;
         } else  {
@@ -291,7 +291,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p12.getText().toString().isEmpty()) {
             emailError12.setError(getResources().getString(R.string.email_error));
             isp12 = false;
-        } else if (Float.parseFloat(p12.getText().toString()) > 1.2) {
+        } else if (ParseDouble(p12.getText().toString()) > 1.2) {
             emailError12.setError(getResources().getString(R.string.pmin));
             isp12 = false;
         } else  {
@@ -304,7 +304,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p13.getText().toString().isEmpty()) {
             emailError13.setError(getResources().getString(R.string.email_error));
             isp13 = false;
-        } else if (Float.parseFloat(p13.getText().toString()) > 4) {
+        } else if (ParseDouble(p13.getText().toString()) > 4) {
             emailError13.setError(getResources().getString(R.string.pmax));
             isp13 = false;
 
@@ -318,7 +318,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p14.getText().toString().isEmpty()) {
             emailError14.setError(getResources().getString(R.string.email_error));
             isp14 = false;
-        } else if (Float.parseFloat(p14.getText().toString()) > 4) {
+        } else if (ParseDouble(p14.getText().toString()) > 4) {
             emailError14.setError(getResources().getString(R.string.pmax));
             isp14 = false;
         } else  {
@@ -331,7 +331,7 @@ public class Sheet8 extends AppCompatActivity {
         if (p16.getText().toString().isEmpty()) {
             emailError16.setError(getResources().getString(R.string.email_error));
             isp16 = false;
-        } else if (Float.parseFloat(p16.getText().toString()) > 1.0) {
+        } else if (ParseDouble(p16.getText().toString()) > 1.0) {
             emailError16.setError(getResources().getString(R.string.pmax));
             isp16 = false;
         } else  {
@@ -344,10 +344,10 @@ public class Sheet8 extends AppCompatActivity {
         if (p17.getText().toString().isEmpty()) {
             emailError17.setError(getResources().getString(R.string.email_error));
             isp17 = false;
-        } else if (Float.parseFloat(p17.getText().toString()) > 0.65) {
+        } else if (ParseDouble(p17.getText().toString()) > 0.65) {
             emailError17.setError(getResources().getString(R.string.pmax));
             isp17 = false;
-        } else if (Float.parseFloat(p17.getText().toString()) > 1.49) {
+        } else if (ParseDouble(p17.getText().toString()) > 1.49) {
             emailError17.setError(getResources().getString(R.string.phh));
             isp17 = false;
         } else  {
@@ -365,38 +365,38 @@ public class Sheet8 extends AppCompatActivity {
 
     public void save_function(){
         try{
-            float iip1 = Float.parseFloat(p1.getText().toString().trim());
-            float iip2 = Float.parseFloat(p2.getText().toString().trim());
-            float iip3 = Float.parseFloat(p3.getText().toString().trim());
-            float iip4 = Float.parseFloat(p4.getText().toString().trim());
-            float iip5 = Float.parseFloat(p5.getText().toString().trim());
-            float iip6 = Float.parseFloat(p6.getText().toString().trim());
-            float iip7 = Float.parseFloat(p7.getText().toString().trim());
-            float iip8 = Float.parseFloat(p8.getText().toString().trim());
-            float iip9 = Float.parseFloat(p9.getText().toString().trim());
-            float iip10 = Float.parseFloat(p10.getText().toString().trim());
+            float iip1 = ParseDouble(p1.getText().toString().trim());
+            float iip2 = ParseDouble(p2.getText().toString().trim());
+            float iip3 = ParseDouble(p3.getText().toString().trim());
+            float iip4 = ParseDouble(p4.getText().toString().trim());
+            float iip5 = ParseDouble(p5.getText().toString().trim());
+            float iip6 = ParseDouble(p6.getText().toString().trim());
+            float iip7 = ParseDouble(p7.getText().toString().trim());
+            float iip8 = ParseDouble(p8.getText().toString().trim());
+            float iip9 = ParseDouble(p9.getText().toString().trim());
+            float iip10 = ParseDouble(p10.getText().toString().trim());
 
-            float iip11 = Float.parseFloat(p11.getText().toString().trim());
-            float iip12 = Float.parseFloat(p12.getText().toString().trim());
-            float iip13 = Float.parseFloat(p13.getText().toString().trim());
-            float iip14 = Float.parseFloat(p14.getText().toString().trim());
-            float iip15 = Float.parseFloat(p15.getText().toString().trim());
-            float iip16 = Float.parseFloat(p16.getText().toString().trim());
-            float iip17 = Float.parseFloat(p17.getText().toString().trim());
-            float iip18 = Float.parseFloat(p18.getText().toString().trim());
-            float iip19 = Float.parseFloat(p19.getText().toString().trim());
-            float iip20 = Float.parseFloat(p20.getText().toString().trim());
+            float iip11 = ParseDouble(p11.getText().toString().trim());
+            float iip12 = ParseDouble(p12.getText().toString().trim());
+            float iip13 = ParseDouble(p13.getText().toString().trim());
+            float iip14 = ParseDouble(p14.getText().toString().trim());
+            float iip15 = ParseDouble(p15.getText().toString().trim());
+            float iip16 = ParseDouble(p16.getText().toString().trim());
+            float iip17 = ParseDouble(p17.getText().toString().trim());
+            float iip18 = ParseDouble(p18.getText().toString().trim());
+            float iip19 = ParseDouble(p19.getText().toString().trim());
+            float iip20 = ParseDouble(p20.getText().toString().trim());
 
-            float iip21 = Float.parseFloat(p21.getText().toString().trim());
-            float iip22 = Float.parseFloat(p22.getText().toString().trim());
-            float iip23 = Float.parseFloat(p23.getText().toString().trim());
-            float iip24 = Float.parseFloat(p24.getText().toString().trim());
-            float iip25 = Float.parseFloat(p25.getText().toString().trim());
-            float iip26 = Float.parseFloat(p26.getText().toString().trim());
-            float iip27 = Float.parseFloat(p27.getText().toString().trim());
-            float iip28 = Float.parseFloat(p28.getText().toString().trim());
-            float iip29 = Float.parseFloat(p29.getText().toString().trim());
-            float iip30 = Float.parseFloat(p30.getText().toString().trim());
+            float iip21 = ParseDouble(p21.getText().toString().trim());
+            float iip22 = ParseDouble(p22.getText().toString().trim());
+            float iip23 = ParseDouble(p23.getText().toString().trim());
+            float iip24 = ParseDouble(p24.getText().toString().trim());
+            float iip25 = ParseDouble(p25.getText().toString().trim());
+            float iip26 = ParseDouble(p26.getText().toString().trim());
+            float iip27 = ParseDouble(p27.getText().toString().trim());
+            float iip28 = ParseDouble(p28.getText().toString().trim());
+            float iip29 = ParseDouble(p29.getText().toString().trim());
+            float iip30 = ParseDouble(p30.getText().toString().trim());
 
 
             String user = GlobalClass.user_name_string;
@@ -450,5 +450,16 @@ public class Sheet8 extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Failed! ensure all data are entered", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+    float ParseDouble(String strNumber) {
+        if (strNumber != null && strNumber.length() > 0) {
+            try {
+                return Float.parseFloat(strNumber);
+            } catch(Exception e) {
+                return -1;   // or some value to mark this field is wrong. or make a function validates field first ...
+            }
+        }
+        else return -1;
     }
 }

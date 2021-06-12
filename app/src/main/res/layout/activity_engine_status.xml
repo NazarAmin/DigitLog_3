@@ -42,19 +42,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/rg">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/no"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:checked="true"
-            android:text="Normal Operation"
-            android:textColor="#154"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <RadioButton
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:checked="true"
+                android:text="Normal Operation"
+                android:textColor="#154"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <RadioButton
+            <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fs"
@@ -88,21 +88,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:checked="true"
-            android:text="Standby"
+            android:text="Reserve Shutdown"
             android:textColor="#154"
             android:textSize="20sp"
             android:textStyle="bold" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tr"
-            android:checked="true"
-            android:text="Trip"
-            android:textColor="#154"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+
 
         </RadioGroup>
 
@@ -118,6 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="50dp"
+            android:hint="trip,forced S/D, planned S/D : due to "
             android:textSize="20sp"
             android:id="@+id/esdescription"
             android:textColor="@color/black"></EditText>

@@ -106,7 +106,7 @@
                     android:padding="16dp"
                     android:gravity="center">
                     <ImageView
-                        android:src="@drawable/gt_logsheet1"
+                        android:src="@drawable/data_sheet"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 

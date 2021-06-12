@@ -3,11 +3,12 @@ package com.example.digitlog;
 public class Faults_Trips {
     String category, datetime, urgency, user_2, comment;
 
-    public Faults_Trips(String urgency, String user_2, String comment, String category) {
+    public Faults_Trips(String category, String urgency, String user_2, String comment,String datetime) {
         this.urgency = urgency;
         this.user_2 = user_2;
         this.comment = comment;
         this.category = category;
+        this.datetime = datetime;
     }
 
     public Faults_Trips() {

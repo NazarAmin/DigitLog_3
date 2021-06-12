@@ -64,7 +64,7 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (admin.getText().toString().trim().equals("dig")) {
+                if (admin.getText().toString().trim().equals("admin_dig")) {
 
                     user_name = name.getText().toString();
                     password2 = password.getText().toString().trim();

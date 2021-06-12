@@ -1,9 +1,11 @@
 package com.example.digitlog;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.FrameLayout;
@@ -200,6 +202,61 @@ public class chart extends AppCompatActivity {
         sheet6.add(this.getString(R.string.p617));
         sheet6.add(this.getString(R.string.p618));
 
+        ArrayList<String> sheet7 = new ArrayList<>();
+        sheet7.add(this.getString(R.string.sp1));
+        sheet7.add(this.getString(R.string.sp2));
+        sheet7.add(this.getString(R.string.sp3));
+        sheet7.add(this.getString(R.string.sp4));
+        sheet7.add(this.getString(R.string.sp5));
+        sheet7.add(this.getString(R.string.sp6));
+        sheet7.add(this.getString(R.string.sp7));
+        sheet7.add(this.getString(R.string.sp8));
+        sheet7.add(this.getString(R.string.sp9));
+        sheet7.add(this.getString(R.string.sp10));
+        sheet7.add(this.getString(R.string.sp11));
+        sheet7.add(this.getString(R.string.sp12));
+        sheet7.add(this.getString(R.string.sp13));
+        sheet7.add(this.getString(R.string.sp14));
+        sheet7.add(this.getString(R.string.sp15));
+        sheet7.add(this.getString(R.string.sp16));
+        sheet7.add(this.getString(R.string.sp17));
+        sheet7.add(this.getString(R.string.sp18));
+        sheet7.add(this.getString(R.string.sp19));
+        sheet7.add(this.getString(R.string.sp20));
+        sheet7.add(this.getString(R.string.sp21));
+        sheet7.add(this.getString(R.string.sp22));
+
+
+        ArrayList<String> sheet8 = new ArrayList<>();
+        sheet8.add(this.getString(R.string.ssp2));
+        sheet8.add(this.getString(R.string.ssp3));
+        sheet8.add(this.getString(R.string.ssp4));
+        sheet8.add(this.getString(R.string.ssp5));
+        sheet8.add(this.getString(R.string.ssp6));
+        sheet8.add(this.getString(R.string.ssp7));
+        sheet8.add(this.getString(R.string.ssp8));
+        sheet8.add(this.getString(R.string.ssp9));
+        sheet8.add(this.getString(R.string.ssp10));
+        sheet8.add(this.getString(R.string.ssp11));
+        sheet8.add(this.getString(R.string.ssp12));
+        sheet8.add(this.getString(R.string.ssp13));
+        sheet8.add(this.getString(R.string.ssp14));
+        sheet8.add(this.getString(R.string.ssp15));
+        sheet8.add(this.getString(R.string.ssp16));
+        sheet8.add(this.getString(R.string.ssp17));
+        sheet8.add(this.getString(R.string.ssp18));
+        sheet8.add(this.getString(R.string.ssp19));
+        sheet8.add(this.getString(R.string.ssp20));
+        sheet8.add(this.getString(R.string.ssp21));
+        sheet8.add(this.getString(R.string.ssp22));
+        sheet8.add(this.getString(R.string.ssp23));
+        sheet8.add(this.getString(R.string.ssp24));
+        sheet8.add(this.getString(R.string.ssp25));
+        sheet8.add(this.getString(R.string.ssp26));
+        sheet8.add(this.getString(R.string.ssp27));
+        sheet8.add(this.getString(R.string.ssp28));
+        sheet8.add(this.getString(R.string.ssp29));
+        sheet8.add(this.getString(R.string.ssp30));
 
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
         sheets_main.add(sheet1);
@@ -208,6 +265,9 @@ public class chart extends AppCompatActivity {
         sheets_main.add(sheet4);
         sheets_main.add(sheet5);
         sheets_main.add(sheet6);
+        sheets_main.add(sheet7);
+        sheets_main.add(sheet8);
+
         int counter;
         int inner_counter;
         items = GlobalClass.chart_params;
@@ -223,8 +283,6 @@ public class chart extends AppCompatActivity {
                 for (Object item_i : sheet_i) {
 
                     if (item_i.toString().equals(item)) {
-                        System.out.println("Found!!!");
-                        System.out.println(counter);
 
                         switch (counter) {
                             case 1:
@@ -257,8 +315,17 @@ public class chart extends AppCompatActivity {
                                 inner_counts.add(inner_counter);
                                 inner_counter = 0;
                                 break;
+                            case 7:
+                                final_sheets.add("LogSheet20_A");
+                                inner_counts.add(inner_counter);
+                                inner_counter = 0;
+                                break;
+                            case 8:
+                                final_sheets.add("LogSheet20_B");
+                                inner_counts.add(inner_counter);
+                                inner_counter = 0;
+                                break;
                         }
-                        System.out.println(inner_counter);
                         break outerloop;
                     }
                     inner_counter = inner_counter + 1;
@@ -304,7 +371,7 @@ public class chart extends AppCompatActivity {
         Utils.init(this);
 
         Data_of_Temp = (LineChart) findViewById(R.id.Data_of_Temp);
-        Data_of_Temp.animateX(4000);
+        Data_of_Temp.animateX(1000);
     }
 
     @Override
@@ -345,7 +412,7 @@ public class chart extends AppCompatActivity {
 
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
-                        Data data = mydatasnapshot.getValue(Data.class);
+                        DataS2 data = mydatasnapshot.getValue(DataS2.class);
                         switch (integer){
                             case 0:
                                 datavals.add(new Entry(name.get(i).getTime(), data.getIp1()));
@@ -431,6 +498,42 @@ public class chart extends AppCompatActivity {
                                 datavals.add(new Entry(name.get(i).getTime(), data.getIp21()));
                                 i = i + 1;
                                 break;
+                            case 21:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp22()));
+                                i = i + 1;
+                                break;
+                            case 22:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp23()));
+                                i = i + 1;
+                                break;
+                            case 23:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp24()));
+                                i = i + 1;
+                                break;
+                            case 24:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp25()));
+                                i = i + 1;
+                                break;
+                            case 25:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp26()));
+                                i = i + 1;
+                                break;
+                            case 26:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp27()));
+                                i = i + 1;
+                                break;
+                            case 27:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp28()));
+                                i = i + 1;
+                                break;
+                            case 28:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp29()));
+                                i = i + 1;
+                                break;
+                            case 29:
+                                datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
+                                i = i + 1;
+                                break;
                         }
                     }
 
@@ -477,6 +580,7 @@ public class chart extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public int getRandomNumberUsingInts(int min, int max) {
         Random random = new Random();
         return random.ints(min, max)

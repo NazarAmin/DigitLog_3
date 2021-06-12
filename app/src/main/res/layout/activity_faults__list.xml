@@ -7,10 +7,9 @@
 <TextView
     android:layout_width="wrap_content"
     android:textStyle="bold|italic"
-
     android:layout_height="70dp"
     android:layout_marginTop="10dp"
-    android:text="Engine Faults"
+    android:text="Engine Faults Log"
     android:textColor="@color/black"
     android:textSize="40dp"
     android:gravity="center"
@@ -23,11 +22,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/edittext"
+            android:layout_width="match_parent"
+            android:hint="Search consequence / description"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:outlineProvider="bounds" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp">
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAnimals2"
@@ -40,7 +47,5 @@
         </ScrollView>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

@@ -38,9 +38,10 @@ public class E_Status {
     public E_Status() {
     }
 
-    public E_Status(String status, String description, String user) {
+    public E_Status(String status, String description, String user, String datetime) {
         this.user = user;
         this.status = status;
         this.description = description;
+        this.datetime = datetime;
     }
 }

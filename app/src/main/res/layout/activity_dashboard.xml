@@ -33,7 +33,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8 Items"
+                android:text="6 Items"
                 android:textColor="#52BAFF"
                 android:textSize="12sp"></TextView>
 
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
-            android:columnCount="2"
+            android:columnCount="1"
             android:paddingTop="30dp"
             android:rowCount="3"
             >
@@ -66,7 +66,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                android:layout_margin="30dp"
                 >
 
                 <LinearLayout
@@ -103,7 +103,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                 android:layout_margin="30dp"
                 >
 
                 <LinearLayout
@@ -139,7 +139,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                 android:layout_margin="30dp"
                 >
 
                 <LinearLayout
@@ -176,7 +176,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                 android:layout_margin="30dp"
                 >
 
                 <LinearLayout
@@ -212,7 +212,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                 android:layout_margin="30dp"
                 >
 
                 <LinearLayout
@@ -248,7 +248,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                 android:layout_margin="30dp"
                 >
 
                 <LinearLayout

@@ -17,6 +17,7 @@ public static String Faults_Category;
 public static String actual_user_name;
 public static String engine_focal;
 public static String current_engine_focal;
+public static String general_admin = "Nazar Amin";
 
 public static String block_number;
 public static ArrayList<String> chart_params;

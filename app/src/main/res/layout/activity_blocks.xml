@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold|italic"
-                android:text="Garri 1,2 and 3 Power Plants"
+                android:text="Garri One Power Plant"
                 android:gravity="center"
                 android:textColor="@color/redshine"
                 android:textSize="19sp"></TextView>
@@ -142,81 +142,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="95dp"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="10dp">
-
-                <LinearLayout
-                    android:id="@+id/sheet2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-
-
-                    android:paddingBottom="17dp">
-
-                    <LinearLayout
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-
-                        android:paddingTop="100dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Block 2"
-                            android:textColor="@color/black"
-                            android:textSize="40dp"
-                            android:textStyle="bold|italic"
-
-                            ></TextView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/mw2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
-                            android:text="------"
-                            android:textColor="@color/green"
-                            android:textSize="30dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
-                            android:text="   MW"
-                            android:textColor="@color/green"
-                            android:textSize="30dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
 
 
         </GridLayout>

@@ -3,10 +3,12 @@ package com.example.digitlog;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,6 +36,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
     TextView PIC;
     Handover_c handover_c;
     String general_admin = "admin";
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,25 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         PIC = (TextView) findViewById(R.id.pic);
         comment_hand = (EditText) findViewById(R.id.comment_hand);
         update_hand = (Button) findViewById(R.id.update_hand);
+
+        dialog = new Dialog(Handover_Activity.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                save_function();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
 
@@ -75,15 +97,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         update_hand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handover_c = new Handover_c(current_user, engine_focal, datetime, comment_hand.getText().toString());
-                if (GlobalClass.current_engine_focal.equals(GlobalClass.actual_user_name) | GlobalClass.current_engine_focal.equals(general_admin)){
-                    GlobalClass.current_engine_focal = engine_focal;
-                    ref2.setValue(handover_c);
-                    ref3.setValue(engine_focal);
-                }else{
-                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                            "handover " + engine + " this can be done by " + engine_focal, Toast.LENGTH_LONG).show();
-                }
+                dialog.show();
             }
         });
         // Spinner click listener
@@ -119,6 +133,30 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
 
     }
 
+    private void save_function() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+
+        datetime = sdf.format(new Date());
+        engine = GlobalClass.engine_number;
+        current_user = GlobalClass.actual_user_name;
+
+        DatabaseReference ref2, ref3;
+        ref2 = firebaseDatabase.getReference("data/" + engine + "/OIC_History/" + datetime);
+        ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+
+        handover_c = new Handover_c(current_user, engine_focal, datetime, comment_hand.getText().toString());
+        if (GlobalClass.current_engine_focal.equals(GlobalClass.actual_user_name) | GlobalClass.current_engine_focal.equals(general_admin)){
+            GlobalClass.current_engine_focal = engine_focal;
+            ref2.setValue(handover_c);
+            ref3.setValue(engine_focal);
+        }else{
+            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                    "handover " + engine + " this can be done by " + engine_focal, Toast.LENGTH_LONG).show();
+        }
+        dialog.dismiss();
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
@@ -126,7 +164,6 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         //GlobalClass.engine_focal = engine_focal;
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + engine_focal, Toast.LENGTH_LONG).show();
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub

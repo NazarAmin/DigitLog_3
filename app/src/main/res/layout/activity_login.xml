@@ -43,7 +43,7 @@
                     android:foregroundGravity="center"
                     android:paddingTop="1dp"
 
-                    android:src="@drawable/digit_log2_logo">
+                    android:src="@drawable/digit_log2">
 
                 </ImageView>
                 <ProgressBar

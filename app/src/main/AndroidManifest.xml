@@ -9,40 +9,95 @@
         android:icon="@mipmap/digit_log_logo"
         android:label="Digit Log"
         android:roundIcon="@mipmap/digit_log_logo"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".DashboardST"></activity>
-        <activity android:name=".Sheet8" />
-        <activity android:name=".Sheet7" />
-        <activity android:name=".Blocks" />
-        <activity android:name=".Handover_Activity" />
-        <activity android:name=".Faults_Trips_Entry" />
-        <activity android:name=".Faults_List" />
-        <activity android:name=".EngineStatus" />
-        <activity android:name=".DataEntry" />
-        <activity android:name=".New_Engine_Dash" />
-        <activity android:name=".Faults_Dash" />
-        <activity android:name=".Chart_List" />
-        <activity android:name=".Dashboard" />
-        <activity android:name=".Sheet_1" />
-        <activity android:name=".Sheet_2" />
-        <activity android:name=".Sheet_3" />
-        <activity android:name=".Sheet_4" />
-        <activity android:name=".Sheet_5" />
-        <activity android:name=".Sheet_6" />
-        <activity android:name=".Dashboard_chart" />
-        <activity android:name=".Dashboard_problem" />
-        <activity android:name=".Dashboard_Engines" />
-        <activity android:name=".chart" />
-        <activity android:name=".Login">
+        <activity android:name=".Status_List"></activity>
+        <activity android:name=".TripsList" />
+        <activity android:name=".Trip_Activity" />
+        <activity
+            android:name=".DashboardST"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet8"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet7"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Blocks"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Handover_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Faults_Trips_Entry"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Faults_List"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EngineStatus"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DataEntry"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".New_Engine_Dash"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Faults_Dash"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Chart_List"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Dashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet_1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet_3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet_4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet_5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sheet_6"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Dashboard_chart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Dashboard_problem"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Dashboard_Engines"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chart"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".register" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".register"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

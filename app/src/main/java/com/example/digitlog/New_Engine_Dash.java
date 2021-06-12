@@ -6,13 +6,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class New_Engine_Dash extends AppCompatActivity {
     LinearLayout sheet1, sheet2;
+    FirebaseDatabase firebaseDatabase;
+    String engine;
+    String current_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new__engine__dash);
+
+        //engine = GlobalClass.engine_number;
+        //current_user = GlobalClass.actual_user_name;
+
+        //DatabaseReference ref3;
+        //ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
@@ -29,7 +45,39 @@ public class New_Engine_Dash extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(New_Engine_Dash.this, DataEntry.class));
+
+ /**
+                ref3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        String current_engine_focal_name = dataSnapshot.getValue(String.class);
+                        GlobalClass.current_engine_focal = current_engine_focal_name;
+
+                        if (GlobalClass.current_engine_focal.equals(GlobalClass.actual_user_name)) {//| GlobalClass.current_engine_focal.equals(general_admin)){
+
+
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                    "handover " + engine + " this can be done by " + GlobalClass.current_engine_focal, Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+
+                    }
+                });
+**/
+                    }
+                });
+
+
+
             }
-        });
+
     }
-}
+

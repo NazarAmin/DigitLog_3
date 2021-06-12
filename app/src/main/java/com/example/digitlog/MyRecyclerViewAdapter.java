@@ -9,9 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+    private ArrayList<Faults_Trips> mExampleList;
     private int textSize;
 
     private List<String> mData;
@@ -37,6 +39,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onBindViewHolder(ViewHolder holder, int position) {
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
+
+        holder.myTextView.setSelected(holder.myTextView.isSelected()?true:false);
     }
 
     // total number of rows
@@ -77,5 +81,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+    public void filterList(ArrayList<Faults_Trips> filteredList) {
+        mExampleList = filteredList;
+        notifyDataSetChanged();
     }
 }

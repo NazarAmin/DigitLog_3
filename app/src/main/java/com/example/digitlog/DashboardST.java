@@ -9,6 +9,7 @@ package com.example.digitlog;
         import android.view.View;
         import android.widget.LinearLayout;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import com.google.firebase.database.DataSnapshot;
         import com.google.firebase.database.DatabaseError;
@@ -32,6 +33,8 @@ public class DashboardST extends AppCompatActivity {
     String engine;
     LinearLayout sheet1, sheet2;
     ArrayList<Date> name = new ArrayList<Date>();
+    String general_admin = GlobalClass.general_admin;
+    String current_engine_focal_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,20 +47,56 @@ public class DashboardST extends AppCompatActivity {
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         engine = GlobalClass.engine_number;
 
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference ref3;
+        ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+
         tv3.setText( engine + " Dashboard");
         coloring_layouts();
 
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DashboardST.this, Sheet7.class));
-            }
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+
+                ref3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        current_engine_focal_name = dataSnapshot.getValue(String.class);
+                        GlobalClass.current_engine_focal = current_engine_focal_name;
+                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+                            startActivity(new Intent(DashboardST.this, Sheet7.class));
+                        }else{
+                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });            }
         });
         sheet2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DashboardST.this, Sheet8.class));
-            }
+                ref3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        current_engine_focal_name = dataSnapshot.getValue(String.class);
+                        GlobalClass.current_engine_focal = current_engine_focal_name;
+                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+                            startActivity(new Intent(DashboardST.this, Sheet8.class));
+                        }else{
+                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });            }
         });
 
 

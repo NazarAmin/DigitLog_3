@@ -31,17 +31,19 @@ android:layout_marginLeft="10dp"
         >
     </TextView>
 
-<ScrollView
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="300dp">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAnimals"
-        android:paddingRight="7dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-android:layout_marginLeft="10dp"        />
-</ScrollView>
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAnimals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:defaultFocusHighlightEnabled="true"
+            android:paddingRight="7dp" />
+    </ScrollView>
 
     <Button
         android:layout_marginTop="50dp"

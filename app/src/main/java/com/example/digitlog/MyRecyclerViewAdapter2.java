@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewAdapter2.ViewHolder> {
-    private int textSize;
 
+    private int textSize;
+    private ArrayList<Faults_Trips> mExampleList;
     private List<String> category, urgency, user, comment, datetime;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
@@ -22,44 +24,58 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
     // data is passed into the constructor
     MyRecyclerViewAdapter2(Context context, List<String> category, List<String> urgency, List<String> user,
                            List<String> comment, List<String> datetime) {
+
         this.mInflater = LayoutInflater.from(context);
         this.category = category;
         this.urgency = urgency;
         this.user = user;
         this.datetime = datetime;
         this.comment = comment;
-
         this.textSize = 10;
     }
 
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row2, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_row2, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
+        Faults_Trips current_item = mExampleList.get(position);
+/*
         String category_s = category.get(position);
         String urgency_s = urgency.get(position);
         String user_s = user.get(position);
         String comment_s = comment.get(position);
         String datetime_s = datetime.get(position);
-
+*/
+        holder.category_tv.setText(current_item.getCategory());
+        holder.urgency_tv.setText(current_item.getUrgency());
+        holder.user_tv.setText(current_item.getUser_2());
+        holder.comment_tv.setText(current_item.getComment());
+        holder.datetime_tv.setText(current_item.getDatetime());
+       /**
         holder.category_tv.setText(category_s);
         holder.urgency_tv.setText(urgency_s);
         holder.user_tv.setText(user_s);
         holder.comment_tv.setText(comment_s);
         holder.datetime_tv.setText(datetime_s);
-
+        **/
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return category.size();
+        try {
+           return mExampleList.size();
+            // return category.size();
+        }catch (Exception ex) {
+            return 0;
+        }
     }
 
 
@@ -81,14 +97,28 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
         @Override
         public void onClick(View view) {
 
-
-              if (mClickListener != null){ mClickListener.onItemClick(view, getAdapterPosition()); };
+              if (mClickListener != null){
+                  mClickListener.onItemClick(view, getAdapterPosition());
+              };
         }
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
-        return category.get(id);
+    String getItem(List<String> category2, int id) {
+       //return mExampleList.get(id);
+        return category2.get(id);
+
+    }
+
+
+    String getItem2(List<String> category2,int id) {
+        //return mExampleList.get(id);
+        return category2.get(id);
+    }
+
+    String getItem3(List<String> category2,int id) {
+        //return mExampleList.get(id);
+        return category2.get(id);
     }
 
     // allows clicks events to be caught
@@ -99,5 +129,14 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+    public MyRecyclerViewAdapter2(ArrayList<Faults_Trips> exampleList) {
+        mExampleList = exampleList;
+
+    }
+
+    public void filterList(ArrayList<Faults_Trips> filteredList) {
+        mExampleList = filteredList;
+        notifyDataSetChanged();
     }
 }

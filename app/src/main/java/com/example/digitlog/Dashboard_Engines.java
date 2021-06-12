@@ -1,10 +1,13 @@
 package com.example.digitlog;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,12 +35,14 @@ public class Dashboard_Engines extends AppCompatActivity {
     ArrayList<Date> name = new ArrayList<Date>();
     List<String> sheets_l;
     List<LinearLayout> sheets_q;
-    TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3;
+    TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3, st2, gt3, gt4;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_engines);
+
 
         enstatus1 = (TextView) findViewById(R.id.enstatus1);
         enstatus2 = (TextView) findViewById(R.id.enstatus2);
@@ -49,15 +54,25 @@ public class Dashboard_Engines extends AppCompatActivity {
         fo2 = (TextView) findViewById(R.id.fo2);
         fo3 = (TextView) findViewById(R.id.fo3);
 
+        gt3 = (TextView) findViewById(R.id.gt3);
+        gt4 = (TextView) findViewById(R.id.gt4);
+        st2 = (TextView) findViewById(R.id.st2);
+
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         sheet3 = (LinearLayout) findViewById(R.id.sheet3);
        // sheet4 = (LinearLayout) findViewById(R.id.sheet4);
         //sheet5 = (LinearLayout) findViewById(R.id.sheet5);
         //sheet6 = (LinearLayout) findViewById(R.id.sheet6);
+        try {
+            if (GlobalClass.block_number.equals("one")) {
+                gt3.setText("GT1");
+                gt4.setText("GT2");
+                st2.setText("ST1");
+            }
+        }catch (Exception ex){
 
-
-
+        }
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +116,6 @@ public class Dashboard_Engines extends AppCompatActivity {
 
         coloring_layouts();
         coloring_layouts2();
-
 
     }
 
@@ -189,17 +203,16 @@ public class Dashboard_Engines extends AppCompatActivity {
 
                                 if (snapshot.getValue().toString().equals("Normal Operation")) {
                                     sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 255, 102, 102));
-                                } else if (snapshot.getValue().toString().equals("Standby")) {
+                                } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
                                     sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
                                 } else {
                                     sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 30, 255, 102));
                                 }
 
-                                if (snapshot.getValue().toString().equals("Standby") |
+                                if (snapshot.getValue().toString().equals("Reserve Shutdown") |
                                         snapshot.getValue().toString().equals("Forced Shutdown") |
-                                        snapshot.getValue().toString().equals("Planned Shutdown") |
-                                        snapshot.getValue().toString().equals("Trip")) {
-                                    mw.get(finalCounter1).setText("---- MW");
+                                        snapshot.getValue().toString().equals("Planned Shutdown")) {
+                                    mw.get(finalCounter1).setText("0.0 MW");
                                 } else {
                                     mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
 
@@ -314,17 +327,16 @@ public class Dashboard_Engines extends AppCompatActivity {
 
                                 if (snapshot.getValue().toString().equals("Normal Operation")) {
                                     sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 255, 102, 102));
-                                } else if (snapshot.getValue().toString().equals("Standby")) {
+                                } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
                                     sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
                                 } else {
                                     sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 30, 255, 102));
                                 }
 
-                                if (snapshot.getValue().toString().equals("Standby") |
+                                if (snapshot.getValue().toString().equals("Reserve Shutdown") |
                                         snapshot.getValue().toString().equals("Forced Shutdown") |
-                                        snapshot.getValue().toString().equals("Planned Shutdown") |
-                                        snapshot.getValue().toString().equals("Trip")) {
-                                    mw.get(finalCounter1).setText("---- MW");
+                                        snapshot.getValue().toString().equals("Planned Shutdown")) {
+                                    mw.get(finalCounter1).setText("0.0 MW");
                                 } else {
                                     mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
 
