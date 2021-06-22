@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Sheet_2 extends AppCompatActivity {
     EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,p16,p17,p18,p19,p20,p21;
@@ -108,7 +109,7 @@ public class Sheet_2 extends AppCompatActivity {
 
         button3 = (Button) findViewById(R.id.button10);
         button11 = (Button) findViewById(R.id.button11);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
         String currentdateandTime = sdf.format(new Date());
 
         data = new Data();
@@ -158,7 +159,7 @@ public class Sheet_2 extends AppCompatActivity {
             float iip20 = ParseDouble(p20.getText().toString().trim());
 
             float iip21 = ParseDouble(p21.getText().toString().trim());
-            String user = GlobalClass.user_name_string;
+            String user = GlobalClass.actual_user_name;
 
             data.setIp1(iip1);
             data.setIp2(iip2);
@@ -190,7 +191,7 @@ public class Sheet_2 extends AppCompatActivity {
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
             DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/FO");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
             String currentdateandTime = sdf.format(new Date());
 

@@ -4,15 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.AxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
@@ -35,21 +40,21 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 
 public class chart extends AppCompatActivity {
     LineChart Data_of_Temp;
     ArrayList<String> items;
-    ArrayList<LineDataSet> items_line_dataset;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     String engine = GlobalClass.engine_number;
     int outer_counter = 0;
-   // String sheet = GlobalClass.sheet_number;
+    Button backbutton, home_button;
+    long max_steal = 0;
 
     ArrayList<ILineDataSet> iLineDataSets = new ArrayList<>();
-    LineData lineData = new LineData(iLineDataSets);
-    ValueEventListener valueEventListener;
+    LineData lineData = new LineData();
     ArrayList<Date> name = new ArrayList<Date>();
     List<Integer> colors = new ArrayList<Integer>();
 
@@ -60,14 +65,25 @@ public class chart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+        home_button = (Button) findViewById(R.id.home_button);
 
+        Data_of_Temp = (LineChart) findViewById(R.id.Data_of_Temp);
         String[] colorsTxt = getApplicationContext().getResources().getStringArray(R.array.colors55);
 
-        for(int i = 0; i < colorsTxt.length; i++) {
+        for (int i = 0; i < colorsTxt.length; i++) {
             int newColor = Color.parseColor(colorsTxt[i]);
             colors.add(newColor);
         }
 
+
+        home_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(chart.this, New_Engine_Dash.class));
+            }
+        });
+
+// Adding lists
         ArrayList<String> sheet1 = new ArrayList<>();
         sheet1.add(this.getString(R.string.p1));
         sheet1.add(this.getString(R.string.p2));
@@ -268,6 +284,8 @@ public class chart extends AppCompatActivity {
         sheets_main.add(sheet7);
         sheets_main.add(sheet8);
 
+        // end of adding list
+
         int counter;
         int inner_counter;
         items = GlobalClass.chart_params;
@@ -341,54 +359,35 @@ public class chart extends AppCompatActivity {
         unique_sheets.addAll(set);
 
         // Working to link any label in items arraylist with its parent sheet: --- to put it in get reference path:
-        System.out.println("Number of items are: " + final_sheets.size());
+        // System.out.println("Number of items are: " + final_sheets.size());
+        int chart_c = 0;
+
+
         for (String sheet_i2 : final_sheets) {
             DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + sheet_i2);
-
-            for (String item : items) {
-                draw_chart(ref2, item, inner_counts.get(k));}
+            draw_chart(ref2, items.get(chart_c), inner_counts.get(chart_c));
+            chart_c = chart_c + 1;
         }
-
-          /*
-        LineDataSet lineDataSet = new LineDataSet(null, "Phase A Current Amp");
-        LineDataSet plineDataSet1 = new LineDataSet(null, "Phase B Current Amp");
-        LineDataSet vlineDataSet2 = new LineDataSet(null, "Phase C Current Amp");
-        LineDataSet tlineDataSet3 = new LineDataSet(null, "Excitation Voltage V");
-
-
-
-
-        testing = GlobalClass.chart_params;
-
-        for (int i = 0; i < testing.size(); i++) {
-            System.out.println(testing.get(i));
-
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + sheet);
-            LineDataSet lineDataSet = new LineDataSet(null, testing.get(i));
-
-        }**/
-
-        Utils.init(this);
-
-        Data_of_Temp = (LineChart) findViewById(R.id.Data_of_Temp);
-        Data_of_Temp.animateX(1000);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
+       // onCreate(Bundle savedInstanceState);
 }
+
     public void draw_chart(DatabaseReference ref2, String item, Integer integer){
+        name.clear();
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                 if (dataSnapshot.exists()) {
                     int i = 0;
                     for(DataSnapshot d : dataSnapshot.getChildren()) {
                         try {
                             name.add(sdf.parse(d.getKey()));
+
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
@@ -403,17 +402,15 @@ public class chart extends AppCompatActivity {
             }//onCancelled
         });
 
-
         ref2.addValueEventListener(new ValueEventListener() {
             int i = 0;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<Entry> datavals = new ArrayList<Entry>();
-
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                         DataS2 data = mydatasnapshot.getValue(DataS2.class);
-                        switch (integer){
+                        switch (integer) {
                             case 0:
                                 datavals.add(new Entry(name.get(i).getTime(), data.getIp1()));
                                 i = i + 1;
@@ -538,40 +535,69 @@ public class chart extends AppCompatActivity {
                     }
 
                     LineDataSet lineDataSet = new LineDataSet(null, item);
+                    // LineDataSet lineDataSet = new LineDataSet(null,"");
                     lineDataSet.setValues(datavals);
-                    lineDataSet.setDrawCircleHole(false);
-                    lineDataSet.setLineWidth(3f);
+                    lineDataSet.setLabel(item);
+                    lineDataSet.setValueTextSize(14);
+                    lineDataSet.setDrawCircleHole(true);
+                    lineDataSet.setCircleRadius(3f);
+                    lineDataSet.setLineWidth(2f);
+                    //lineDataSet.setDrawFilled(true);
 
-                    //int a = getRandomNumberUsingInts(10,230);
-                    //int b = getRandomNumberUsingInts(10,230);
-                    //int c = getRandomNumberUsingInts(10,230);
                     k = k + 1;
 
                     //int rand = new Random().nextInt(colors.size());
+
                     try {
                         lineDataSet.setColor(colors.get(k));
-                    }catch (Exception e){}
+                        lineDataSet.setCircleColor(colors.get(k));
+
+                    } catch (Exception e) {
+                    }
                     outer_counter = outer_counter + 1;
-                    iLineDataSets.add(lineDataSet);
-                    lineData = new LineData(iLineDataSets);
+                   // iLineDataSets.add(lineDataSet);
 
-                    long referenceTimestamp = 1451660400; //name.get(0).getTime();
-                    AxisValueFormatter xAxisFormatter = new HourAxisValueFormatter(referenceTimestamp);
-                    XAxis xAxis = Data_of_Temp.getXAxis();
-                    xAxis.setValueFormatter(xAxisFormatter);
+                       //if (iLineDataSets.size() == items.size()) {
 
-                    //MyMarkerView myMarkerView= new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp);
-                    //mChart.setMarkerView(myMarkerView);
-                    Data_of_Temp.clear();
-                    Data_of_Temp.setData(lineData);
+                       // lineData = new LineData(iLineDataSets);
+                        lineData.addDataSet(lineDataSet);
+                        //iLineDataSets.clear();
 
-                    Legend legend = Data_of_Temp.getLegend();
-                    legend.setEnabled(true);
-                    Data_of_Temp.invalidate();
+                        long referenceTimestamp = name.get(0).getTime() / 1000;
+                        AxisValueFormatter xAxisFormatter = new HourAxisValueFormatter(referenceTimestamp);
+                        XAxis xAxis = Data_of_Temp.getXAxis();
+                        xAxis.setAxisMinValue(name.get(0).getTime() - (60*60*12*1000));
 
-                }else{
-                    //Data_of_Temp.clear();
-                    Data_of_Temp.invalidate();
+                        if (max_steal < (name.get(name.size() - 1).getTime() + (60*60*12*1000))){
+                            max_steal = name.get(name.size() - 1).getTime() + (60*60*12*1000);
+                        }
+                        xAxis.setAxisMaxValue(max_steal);
+
+
+                        xAxis.setValueFormatter(xAxisFormatter);
+                        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                        xAxis.setTextSize(14);
+
+
+                        YAxis leftYAxis = Data_of_Temp.getAxisLeft();
+                        leftYAxis.setTextSize(14);
+
+                        YAxis rigtYAxis = Data_of_Temp.getAxisRight();
+                        rigtYAxis.setEnabled(false);
+
+                        //MyMarkerView myMarkerView= new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp);
+                        MyMarkerView myMarkerView = new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp * 1000);
+                        Data_of_Temp.setMarkerView(myMarkerView);
+                        Data_of_Temp.clear();
+                        Data_of_Temp.setData(lineData);
+
+                        Legend legend = Data_of_Temp.getLegend();
+
+                        legend.setEnabled(true);
+                        legend.setWordWrapEnabled(true);
+                        Data_of_Temp.invalidate();
+
+
                 }
             }
             @Override

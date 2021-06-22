@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class EngineStatus extends AppCompatActivity {
 Post post;
@@ -120,7 +121,7 @@ String Current_Status, radioButtonId;
         int selectedId=radioGroup.getCheckedRadioButtonId();
         radioButton = (RadioButton)findViewById(selectedId);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
         datetime = sdf.format(new Date());
 
         engine = GlobalClass.engine_number;

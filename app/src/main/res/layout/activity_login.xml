@@ -43,7 +43,9 @@
                     android:foregroundGravity="center"
                     android:paddingTop="1dp"
 
-                    android:src="@drawable/digit_log2">
+
+
+                    >
 
                 </ImageView>
                 <ProgressBar
@@ -63,7 +65,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="User Name"
+                        android:hint="Email"
+                        android:drawableStart="@drawable/ic_baseline_email_24"
                         android:maxLines="1"
                         android:paddingStart="5dp"
                         android:singleLine="true" />

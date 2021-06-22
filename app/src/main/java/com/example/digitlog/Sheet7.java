@@ -25,6 +25,7 @@ package com.example.digitlog;
 
         import java.text.SimpleDateFormat;
         import java.util.Date;
+        import java.util.Locale;
 
 public class Sheet7 extends AppCompatActivity {
     EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,p16,p17,p18,p19,p20,p21, p22;
@@ -120,7 +121,7 @@ public class Sheet7 extends AppCompatActivity {
 
 
         button3 = (Button) findViewById(R.id.button10);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
         String currentdateandTime = sdf.format(new Date());
 
         data = new DataS1();
@@ -129,7 +130,7 @@ public class Sheet7 extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SetValidation();
+                //SetValidation();
 
                 dialog.show();
 
@@ -381,7 +382,7 @@ public class Sheet7 extends AppCompatActivity {
             float iip21 = ParseDouble(p21.getText().toString().trim());
             float iip22 = ParseDouble(p22.getText().toString().trim());
 
-            String user = GlobalClass.user_name_string;
+            String user = GlobalClass.actual_user_name;
 
 
 
@@ -415,7 +416,7 @@ public class Sheet7 extends AppCompatActivity {
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
             DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/LogSheet20_A");
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());
 
             ref2.child(sdf.format(new Date()).toString().trim()).setValue(data);

@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Sheet_5 extends AppCompatActivity {
 
@@ -50,7 +51,6 @@ public class Sheet_5 extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 save_function();
             }
         });
@@ -120,8 +120,9 @@ public class Sheet_5 extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            SetValidation();
-            save_function();
+                SetValidation();
+
+                dialog.show();
             }
         });
 
@@ -152,7 +153,7 @@ public class Sheet_5 extends AppCompatActivity {
             float iip18 = ParseDouble(p18.getText().toString().trim());
             float iip19 = ParseDouble(p19.getText().toString().trim());
 
-            String user = GlobalClass.user_name_string;
+            String user = GlobalClass.actual_user_name;
 
             data.setIp1(iip1);
             data.setIp2(iip2);
@@ -181,7 +182,7 @@ public class Sheet_5 extends AppCompatActivity {
 
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
             DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Mark_V");
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());
 
             ref2.child(sdf.format(new Date()).toString().trim()).setValue(data);

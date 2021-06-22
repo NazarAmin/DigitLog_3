@@ -36,8 +36,6 @@ public class Blocks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blocks);
 
-
-
         mw1 = (TextView) findViewById(R.id.mw1);
         mw2 = (TextView) findViewById(R.id.mw2);
         mw3 = (TextView) findViewById(R.id.mw3);
@@ -73,9 +71,9 @@ public class Blocks extends AppCompatActivity {
         });
 
 **/
-       coloring_layouts("Engine_1", mw1);
-       coloring_layouts("Engine_2", mw1); //,"Engine_2","Engine_3"
-       coloring_layouts("Engine_3", mw1); //,"Engine_2","Engine_3"
+       coloring_layouts("Engine_1", mw1, "Generation");
+       coloring_layouts("Engine_2", mw1, "Generation"); //,"Engine_2","Engine_3"
+       coloring_layouts("Engine_3", mw1, "LogSheet20_A"); //,"Engine_2","Engine_3"
 /*
         coloring_layouts2("Engine_4", mw2); //,"Engine_2","Engine_3"
         coloring_layouts2("Engine_5", mw2); //,"Engine_2","Engine_3"
@@ -94,45 +92,84 @@ public class Blocks extends AppCompatActivity {
 
     protected void onStart() {
         super.onStart();
+        //mw1.setText("0");
+       // coloring_layouts("Engine_1", mw1);
+        //coloring_layouts("Engine_2", mw1); //,"Engine_2","Engine_3"
+        //coloring_layouts("Engine_3", mw1);
 
        // coloring_layouts();
     }
 
 
-    private void coloring_layouts(String engine, TextView mw) {
+    private void coloring_layouts(String engine, TextView mw, String sheetqq) {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Generation");
-            //LinearLayout finalItem_q = Item_q;
-            ref2.addValueEventListener(new ValueEventListener() {
-                int i = 0;
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    datavals.clear();
-                    if (dataSnapshot.hasChildren()) {
-                        for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
-                            Data data = mydatasnapshot.getValue(Data.class);
-                            datavals.add(data.getIp1());
-                            i = i + 1;
-                        }
-                        //noinspection UnusedAssignment
-                        try {
-                            total = Float.parseFloat(mw.getText().toString()) + datavals.get(i - 1);
-                            mw.setText(df.format(total));
-                            //mw.setText(Float.toString(total));
-                        } catch (Exception e) {
-                        total = datavals.get(i - 1);
-                        mw.setText(df.format(total));
+
+        DatabaseReference ref3 = firebaseDatabase.getReference("data/" + engine + "/Status");
+
+        //int finalCounter;
+        ref3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                String status = snapshot.getValue().toString();
+
+                DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + sheetqq);
+                //LinearLayout finalItem_q = Item_q;
+                ref2.addValueEventListener(new ValueEventListener() {
+                    int i = 0;
+
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        datavals.clear();
+                        if (dataSnapshot.hasChildren()) {
+                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                if (engine.equals("Engine_3")) {
+                                    DataS1 data = mydatasnapshot.getValue(DataS1.class);
+                                    datavals.add(data.getIp1());
+                                    i = i + 1;
+                                }else{
+                                    Data data = mydatasnapshot.getValue(Data.class);
+                                    datavals.add(data.getIp1());
+                                    i = i + 1;
+                                }
+                            }
+                            //noinspection UnusedAssignment
+
+
+                            if (status.equals("Normal Operation")) {
+                                try {
+                                    total = Float.parseFloat(mw.getText().toString()) + datavals.get(i - 1);
+                                    mw.setText(df.format(total));
+                                } catch (Exception e) {
+                                    try {
+                                        total = datavals.get(i - 1);
+                                        mw.setText(df.format(total));
+                                    } catch (Exception exception) {
+
+                                    }
+                                }
+
+
+                            }
                         }
                     }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                }
-            });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         }
 
-    private void coloring_layouts2(String engine, TextView mw) {
+
+            private void coloring_layouts2(String engine, TextView mw) {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Generation");
         //LinearLayout finalItem_q = Item_q;

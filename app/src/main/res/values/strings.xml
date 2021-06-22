@@ -83,7 +83,7 @@
     <string name="gp11">Excitation Output Balance mA</string>
     <string name="gp12">Gen Zero Sequence Voltage VOLT</string>
     <string name="gp13">Power Factor</string>
-    <string name="gp14">Gen Emergency Meter Reading Kw-Hr</string>
+    <string name="gp14">Gen Energy Meter Reading Kw-Hr</string>
     <string name="gp15">Gen KVAR Meter Reading Kvar-Hr</string>
     <string name="gp16">120/DC SWG Voltage VOLT</string>
 

@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp1"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp2"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp3"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp4"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp5"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -168,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp6"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp7"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -206,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp8"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -225,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp9"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -244,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp10"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -263,7 +263,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp11"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -282,7 +282,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp12"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -301,7 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp13"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -320,7 +320,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp14"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -339,7 +339,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp15"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -358,7 +358,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp16"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -377,7 +377,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp17"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -396,7 +396,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp18"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -415,7 +415,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp19"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -434,7 +434,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp20"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -453,7 +453,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp21"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -472,7 +472,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp22"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -488,7 +488,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp23"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -504,7 +504,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp24"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -520,7 +520,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp25"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -536,7 +536,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp26"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -552,7 +552,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp27"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -568,7 +568,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp28"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -584,7 +584,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp29"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />
@@ -600,7 +600,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/ssp30"
-                    android:inputType="number|numberDecimal"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:maxLines="1"
                     android:paddingStart="5dp"
                     android:singleLine="true" />

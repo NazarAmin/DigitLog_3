@@ -6,13 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
-    private ArrayList<Faults_Trips> mExampleList;
+public class MyRecyclerViewAdapter55 extends RecyclerView.Adapter<MyRecyclerViewAdapter55.ViewHolder> {
+    private ArrayList<String> mExampleList;
     private int textSize;
 
     private List<String> mData;
@@ -20,7 +21,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    MyRecyclerViewAdapter55(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.textSize = 10;
@@ -29,14 +30,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
-        return new ViewHolder(view);
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_row, parent, false);
+        return new MyRecyclerViewAdapter55.ViewHolder(view);
+
+      // View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+      //  return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
+        String animal = mExampleList.get(position);
         holder.myTextView.setText(animal);
 
         holder.myTextView.setSelected(holder.myTextView.isSelected()?true:false);
@@ -45,7 +50,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        try {
+            return mExampleList.size();
+            // return category.size();
+        }catch (Exception ex) {
+            return 0;
+        }
     }
 
 
@@ -63,13 +73,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public void onClick(View view) {
 
 
-              if (mClickListener != null){ mClickListener.onItemClick(view, getAdapterPosition()); };
+            if (mClickListener != null){ mClickListener.onItemClick(view, getAdapterPosition()); };
         }
     }
 
     // convenience method for getting data at click position
     String getItem(int id) {
-        return mData.get(id);
+        return mExampleList.get(id);
     }
 
     // allows clicks events to be caught
@@ -77,11 +87,16 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         this.mClickListener = itemClickListener;
     }
 
+    public MyRecyclerViewAdapter55(ArrayList<String> exampleList) {
+        mExampleList = exampleList;
+
+    }
+
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
-    public void filterList(ArrayList<Faults_Trips> filteredList) {
+    public void filterList(ArrayList<String> filteredList) {
         mExampleList = filteredList;
         notifyDataSetChanged();
     }

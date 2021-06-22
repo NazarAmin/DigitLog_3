@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:textStyle="bold|italic"
         android:textColor="@color/black"
         android:text="Please select one or multiple engine parameters:"
@@ -31,28 +31,46 @@ android:layout_marginLeft="10dp"
         >
     </TextView>
 
-    <ScrollView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="20dp">
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold|italic"
+        android:id="@+id/chart_search"
+        android:textColor="@color/black"
+        android:layout_marginRight="10dp"
+        android:hint="Please select one or multiple engine parameters:"
+        android:textSize="14dp"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
+        >
+    </EditText>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvAnimals"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:defaultFocusHighlightEnabled="true"
-            android:paddingRight="7dp" />
-    </ScrollView>
+           <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp">
 
-    <Button
-        android:layout_marginTop="50dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAnimals"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:defaultFocusHighlightEnabled="true"
+                    android:paddingRight="7dp" />
+            </ScrollView>
+
+            <Button
+        android:layout_marginTop="10dp"
         android:layout_width="180dp"
         android:layout_height="50dp"
         android:textSize="14dp"
         android:id="@+id/but"
         android:textColor="@color/white"
         android:background="@color/green"
-android:layout_marginLeft="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Plot Selected Items"></Button>
 </LinearLayout>

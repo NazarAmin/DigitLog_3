@@ -19,13 +19,14 @@ public class MyMarkerView extends MarkerView {
     private long referenceTimestamp;  // minimum timestamp in your data set
     private DateFormat mDataFormat;
     private Date mDate;
-
-    public MyMarkerView (Context context, int layoutResource, long referenceTimestamp) {
+    TextView tvContent;
+    long currentTimestamp;
+    public MyMarkerView (Context context, int layoutResource, long referenceTimestamp){
         super(context, layoutResource);
         // this markerview only displays a textview
-     //   tvContent = (TextView) findViewById(R.id.tvContent);
+        tvContent = (TextView) findViewById(R.id.tvContent);
         this.referenceTimestamp = referenceTimestamp;
-        this.mDataFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+        this.mDataFormat = new SimpleDateFormat("d/M HH:mm:ss", Locale.ENGLISH);
         this.mDate = new Date();
     }
 
@@ -33,9 +34,11 @@ public class MyMarkerView extends MarkerView {
     // content (user-interface)
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-        long currentTimestamp = (int)e.getX() + referenceTimestamp;
-
-      //  tvContent.setText(e.getY() + "% at " + getTimedate(currentTimestamp)); // set the entry-value as the display text
+        //currentTimestamp = (int)e.getX() + referenceTimestamp;
+       // mDate.setTime((int)e.getX() + referenceTimestamp);
+        //mDataFormat.format(mDate);
+          tvContent.setText("Value = " + e.getY());
+       // tvContent.setText(String.format("%s at %s", e.getY(), mDataFormat.format(mDate))); // set the entry-value as the display text
     }
 
     @Override
@@ -53,7 +56,7 @@ public class MyMarkerView extends MarkerView {
     private String getTimedate(long timestamp){
 
         try{
-            mDate.setTime(timestamp*1000);
+            mDate.setTime(timestamp);
             return mDataFormat.format(mDate);
         }
         catch(Exception ex){

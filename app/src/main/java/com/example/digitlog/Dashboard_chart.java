@@ -42,9 +42,9 @@ public class Dashboard_chart extends AppCompatActivity {
         sheet3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Reports are under design with management", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Reports are under design with management", Toast.LENGTH_SHORT).show();
 
-                //startActivity(new Intent(Dashboard_chart.this, Chart_List.class));
+                startActivity(new Intent(Dashboard_chart.this, Excel_Export.class));
             }
         });
 

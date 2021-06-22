@@ -3,6 +3,8 @@
     package="com.example.digitlog">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,8 @@
         android:roundIcon="@mipmap/digit_log_logo"
         android:supportsRtl="false"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Status_List"></activity>
+        <activity android:name=".Excel_Export"></activity>
+        <activity android:name=".Status_List" />
         <activity android:name=".TripsList" />
         <activity android:name=".Trip_Activity" />
         <activity

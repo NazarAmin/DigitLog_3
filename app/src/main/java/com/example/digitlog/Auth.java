@@ -10,6 +10,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Auth {
     boolean a = false;
@@ -24,7 +25,7 @@ public class Auth {
 
     public boolean authentication(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
         DatabaseReference ref3;
         ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");

@@ -58,6 +58,7 @@ public class MyRecyclerViewAdapter3 extends RecyclerView.Adapter<MyRecyclerViewA
         holder.user_tv.setText(current_item.getUser_2());
         holder.comment_tv.setText(current_item.getComment());
         holder.datetime_tv.setText(current_item.getDatetime());
+        holder.fuel_tv.setText(current_item.getFuel());
         /**
          holder.category_tv.setText(category_s);
          holder.urgency_tv.setText(urgency_s);
@@ -81,7 +82,7 @@ public class MyRecyclerViewAdapter3 extends RecyclerView.Adapter<MyRecyclerViewA
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView datetime_tv, category_tv, urgency_tv, user_tv, comment_tv;
+        TextView datetime_tv, category_tv, urgency_tv, user_tv, comment_tv, fuel_tv;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -90,6 +91,7 @@ public class MyRecyclerViewAdapter3 extends RecyclerView.Adapter<MyRecyclerViewA
             urgency_tv = itemView.findViewById(R.id.urgency4);
             comment_tv = itemView.findViewById(R.id.comment4);
             user_tv = itemView.findViewById(R.id.user4);
+            fuel_tv = itemView.findViewById(R.id.fuel4);
 
             itemView.setOnClickListener(this);
         }

@@ -7,6 +7,7 @@ package com.example.digitlog;
         import android.os.Bundle;
         import android.util.Log;
         import android.view.View;
+        import android.widget.ImageView;
         import android.widget.LinearLayout;
         import android.widget.TextView;
         import android.widget.Toast;
@@ -27,6 +28,7 @@ package com.example.digitlog;
         import java.util.Collections;
         import java.util.Date;
         import java.util.List;
+        import java.util.Locale;
 
 public class DashboardST extends AppCompatActivity {
     TextView tv3;
@@ -35,6 +37,7 @@ public class DashboardST extends AppCompatActivity {
     ArrayList<Date> name = new ArrayList<Date>();
     String general_admin = GlobalClass.general_admin;
     String current_engine_focal_name;
+    ImageView sim_1,sim_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class DashboardST extends AppCompatActivity {
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         engine = GlobalClass.engine_number;
+
+        sim_1 = (ImageView) findViewById(R.id.sim_1);
+        sim_2 = (ImageView) findViewById(R.id.sim_2);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref3;
@@ -114,6 +120,8 @@ public class DashboardST extends AppCompatActivity {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         List<String> sheets_l = Arrays.asList("LogSheet20_A", "LogSheet20_B");
+        List<ImageView> images = Arrays.asList(sim_1,sim_2);
+
         List<LinearLayout> sheets_q = Arrays.asList(sheet1, sheet2);
 
         String Item_l;
@@ -127,7 +135,7 @@ public class DashboardST extends AppCompatActivity {
             ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                     //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
                     if (dataSnapshot.exists()) {
@@ -142,11 +150,17 @@ public class DashboardST extends AppCompatActivity {
                             i++;
                         }
 
+                        Long start_long, end_long;
                         Calendar cal = Calendar.getInstance();
                         int time_now = cal.get(Calendar.HOUR_OF_DAY);
+                        Date now = new Date();
+                        start_long = now.getTime();
                         Date s = name.get(i - 1);
+                        end_long = s.getTime();
 
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+
+
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                         String sl = formatter.format(s);
                         String[] first = sl.split(" ");
 
@@ -154,14 +168,21 @@ public class DashboardST extends AppCompatActivity {
                         int hour = Integer.parseInt(hourMin[0]);
 
                         long difference = Math.abs(time_now - hour);
+                        long diff2 = start_long - end_long;
+                        float diff3 = diff2/1000/60/60;
+                        System.out.println("Current Difference   ############: " + diff3);
+                        if (diff3 <= 4) {
+                            //images.get(i).setBackgroundResource(R.drawable.ic_baseline_done_24);
 
+                            finalItem_q.setBackgroundColor(Color.GREEN);
+                        } else if ((diff3 > 4) && (diff3 < 5)) {
+                            //images.get(i).setBackgroundResource(R.drawable.warning_dashboard);
 
-                        if (difference <= 1) {
-                            finalItem_q.setBackgroundColor(Color.argb((float) 0.7,255,102,102));
-                        } else if ((difference > 1) && (difference < 3)) {
-                            finalItem_q.setBackgroundColor(Color.YELLOW);
+                             finalItem_q.setBackgroundColor(Color.YELLOW);
                         } else {
-                            finalItem_q.setBackgroundColor(Color.argb((float) 0.7,102,255,102));
+                           // images.get(i).setBackgroundResource(R.drawable.ic_baseline_do_disturb_24);
+
+                            finalItem_q.setBackgroundColor(Color.LTGRAY);
                         }
                     }
                 }//onDataChange

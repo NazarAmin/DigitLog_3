@@ -24,6 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class Status_List extends AppCompatActivity implements MyRecyclerViewAdapter4.ItemClickListener {
 
@@ -63,7 +64,7 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                 if (dataSnapshot.exists()) {
                     int i = 0;
                     for (DataSnapshot d : dataSnapshot.getChildren()) {
@@ -104,7 +105,7 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
 
                     ArrayList<String> name_string = new ArrayList<String>();
 
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
                     for (Date dateString : name) {
                         name_string.add(sdf.format(dateString));
@@ -112,9 +113,14 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
 
                     mExampleList = new ArrayList<E_Status>();
 
-                    for (i = 0; i<status.size();i++){
+                    for (i = (status.size() - 1); i>=0 ; i--){
+
                         //Status_Activity(String status, String user_2, String comment, String datetime)
-                        mExampleList.add(new E_Status(status.get(i), comment.get(i), user.get(i), name_string.get(i)));
+                        try {
+                            mExampleList.add(new E_Status(status.get(i), comment.get(i), user.get(i), name_string.get(i)));
+                        }catch (Exception exception){
+
+                        }
                     }
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     try {

@@ -39,6 +39,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Locale;
 
 public class Dashboard_problem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText category, comment;
@@ -62,7 +63,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     Faults_Trips faults_trips;
     ImageView image;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
     String currentdateandTime = sdf.format(new Date());
 
     @Override

@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Handover_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
@@ -69,7 +70,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
             }
         });
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
         datetime = sdf.format(new Date());
         engine = GlobalClass.engine_number;
@@ -135,7 +136,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
 
     private void save_function() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
         datetime = sdf.format(new Date());
         engine = GlobalClass.engine_number;

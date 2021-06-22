@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Dashboard_Engines extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
@@ -129,13 +130,13 @@ public class Dashboard_Engines extends AppCompatActivity {
     private void coloring_layouts() {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        if (GlobalClass.block_number.equals("one")){
+//        if (GlobalClass.block_number.equals("one")){
             sheets_l = Arrays.asList("Engine_1","Engine_2","Engine_3");
-        }else if (GlobalClass.block_number.equals("two")){
-            sheets_l = Arrays.asList("Engine_4","Engine_5","Engine_6");
-        }else{
-            sheets_l = Arrays.asList("Engine_7","Engine_8","Engine_9");
-        }
+   //     }else if (GlobalClass.block_number.equals("two")){
+            //sheets_l = Arrays.asList("Engine_4","Engine_5","Engine_6");
+     //   }else{
+  //          sheets_l = Arrays.asList("Engine_7","Engine_8","Engine_9");
+   //     }
         List<TextView> status = Arrays.asList(enstatus1, enstatus2,enstatus3);
         List<TextView> mw = Arrays.asList(mw1, mw2, mw3);
         List<TextView> user = Arrays.asList(fo1, fo2, fo3);
@@ -154,7 +155,7 @@ public class Dashboard_Engines extends AppCompatActivity {
             ref2.addListenerForSingleValueEvent(new ValueEventListener(){
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                     //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                     if (dataSnapshot.exists()) {
                         name.clear();
@@ -200,23 +201,26 @@ public class Dashboard_Engines extends AppCompatActivity {
 
                                 status.get(finalCounter).setText(snapshot.getValue().toString());
                                 //enstatus1.setText(snapshot.getValue().toString());
+   //         try {
+                if (snapshot.getValue().toString().equals("Normal Operation")) {
+                     sheets_q.get(finalCounter).setBackgroundColor(Color.GREEN);
+                } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
+                     sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+                } else {
+                    sheets_q.get(finalCounter).setBackgroundColor(Color.LTGRAY);
+                }
 
-                                if (snapshot.getValue().toString().equals("Normal Operation")) {
-                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 255, 102, 102));
-                                } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
-                                    sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
-                                } else {
-                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 30, 255, 102));
-                                }
+                if (snapshot.getValue().toString().equals("Reserve Shutdown") |
+                        snapshot.getValue().toString().equals("Forced Shutdown") |
+                        snapshot.getValue().toString().equals("Planned Shutdown")) {
+                    mw.get(finalCounter1).setText("0.0 MW");
+                } else {
+                    mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
 
-                                if (snapshot.getValue().toString().equals("Reserve Shutdown") |
-                                        snapshot.getValue().toString().equals("Forced Shutdown") |
-                                        snapshot.getValue().toString().equals("Planned Shutdown")) {
-                                    mw.get(finalCounter1).setText("0.0 MW");
-                                } else {
-                                    mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
+                }
+        //    }catch (Exception exception){
 
-                                }
+         //   }
                             }
 
                             @Override
@@ -278,7 +282,7 @@ public class Dashboard_Engines extends AppCompatActivity {
             ref2.addListenerForSingleValueEvent(new ValueEventListener(){
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                     //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                     if (dataSnapshot.exists()) {
                         name.clear();
@@ -325,12 +329,14 @@ public class Dashboard_Engines extends AppCompatActivity {
                                 status.get(finalCounter).setText(snapshot.getValue().toString());
                                 //enstatus1.setText(snapshot.getValue().toString());
 
+                           //      try {
+
                                 if (snapshot.getValue().toString().equals("Normal Operation")) {
-                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 255, 102, 102));
+                                   sheets_q.get(finalCounter).setBackgroundColor(Color.GREEN);
                                 } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
-                                    sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+                                   sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
                                 } else {
-                                    sheets_q.get(finalCounter).setBackgroundColor(Color.argb((float) 0.7, 30, 255, 102));
+                                   sheets_q.get(finalCounter).setBackgroundColor(Color.LTGRAY);
                                 }
 
                                 if (snapshot.getValue().toString().equals("Reserve Shutdown") |
@@ -341,6 +347,9 @@ public class Dashboard_Engines extends AppCompatActivity {
                                     mw.get(finalCounter1).setText(datavals.get(datavals.size() - 1).toString() + " MW");
 
                                 }
+                        //    }catch (Exception exception){
+
+                       //     }
                             }
 
                             @Override

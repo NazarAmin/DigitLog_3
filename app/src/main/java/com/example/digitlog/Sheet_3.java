@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Sheet_3 extends AppCompatActivity {
     EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,p16;
@@ -50,7 +51,6 @@ public class Sheet_3 extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 save_function();
             }
         });
@@ -105,7 +105,7 @@ public class Sheet_3 extends AppCompatActivity {
 
         button3 = (Button) findViewById(R.id.button10);
         button11 = (Button) findViewById(R.id.button11);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
         String currentdateandTime = sdf.format(new Date());
 
         data = new Data3();
@@ -120,7 +120,9 @@ public class Sheet_3 extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SetValidation();
 
+                dialog.show();
 
             }
         });
@@ -148,7 +150,7 @@ public class Sheet_3 extends AppCompatActivity {
             float iip15 = ParseDouble(p15.getText().toString().trim());
             float iip16 = ParseDouble(p16.getText().toString().trim());
 
-            String user = GlobalClass.user_name_string;
+            String user = GlobalClass.actual_user_name;
 
             data.setIp1(iip1);
             data.setIp2(iip2);
@@ -173,7 +175,7 @@ public class Sheet_3 extends AppCompatActivity {
 
             DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Generator_Board");
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());
             ref2.child(sdf.format(new Date()).toString().trim()).setValue(data);
             Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();

@@ -25,6 +25,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class Faults_List extends AppCompatActivity implements MyRecyclerViewAdapter2.ItemClickListener {
 
@@ -78,7 +79,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
                         ArrayList<String> name_string = new ArrayList<String>();
 
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
                         for (Date dateString : name) {
                                 name_string.add(sdf.format(dateString));
@@ -86,7 +87,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
                         mExampleList = new ArrayList<>();
 
-                        for (i = 0; i<category.size();i++){
+                        for (i = (category.size() - 1); i>=0 ; i--){
                                 mExampleList.add(new Faults_Trips(category.get(i), urgency.get(i), user.get(i), comment.get(i), name_string.get(i)));
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

@@ -20,6 +20,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="50dp"
+            android:textSize="12dp"
             android:text="Fault Type:"
             android:gravity="center"
             android:textColor="@color/black"></TextView>
@@ -27,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Fault is here"
+            android:textSize="12dp"
             android:id="@+id/fault"
             android:textStyle="bold"
             android:gravity="center"
@@ -40,6 +42,7 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="90dp"
+            android:textSize="12dp"
             android:layout_height="50dp"
             android:text="DateTime:"
             android:gravity="center"
@@ -49,6 +52,7 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textSize="12dp"
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:textStyle="bold"
@@ -63,6 +67,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="50dp"
+            android:textSize="12dp"
             android:text="Conseq."
             android:gravity="center"
             android:textColor="@color/black"></TextView>
@@ -70,6 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Open"
+            android:textSize="12dp"
             android:gravity="center"
             android:textStyle="bold"
             android:id="@+id/urgency"
@@ -85,6 +91,7 @@
             android:layout_width="90dp"
             android:layout_height="50dp"
             android:text="Comment:"
+            android:textSize="12dp"
             android:gravity="center"
             android:textColor="@color/black"></TextView>
         <TextView
@@ -92,6 +99,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/comment"
             android:text="Category is here"
+            android:textSize="12dp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_marginLeft="10dp"
@@ -105,6 +113,7 @@
         <TextView
             android:layout_width="90dp"
             android:layout_height="50dp"
+            android:textSize="12dp"
             android:text="User:"
             android:gravity="center"
             android:textColor="@color/black"></TextView>
@@ -112,6 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/user"
+            android:textSize="12dp"
             android:text="Category is here"
             android:textStyle="bold"
             android:gravity="center"

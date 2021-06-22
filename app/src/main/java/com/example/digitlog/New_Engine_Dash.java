@@ -2,9 +2,11 @@ package com.example.digitlog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -18,7 +20,9 @@ public class New_Engine_Dash extends AppCompatActivity {
     LinearLayout sheet1, sheet2;
     FirebaseDatabase firebaseDatabase;
     String engine;
+    ImageView home;
     String current_user;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +36,14 @@ public class New_Engine_Dash extends AppCompatActivity {
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
+        home = (ImageView) findViewById(R.id.home_image);
 
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(New_Engine_Dash.this, Blocks.class));
+            }
+        });
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

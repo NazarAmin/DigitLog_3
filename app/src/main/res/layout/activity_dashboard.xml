@@ -91,6 +91,12 @@
 
                         ></TextView>
 
+                    <ImageView
+                        android:id="@+id/im_1"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"/>
+
 
                 </LinearLayout>
 
@@ -128,6 +134,11 @@
 
                         ></TextView>
 
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/im_2"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"/>
 
                 </LinearLayout>
 
@@ -164,6 +175,11 @@
 
                         ></TextView>
 
+                    <ImageView
+                        android:id="@+id/im_3"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"/>
 
                 </LinearLayout>
 
@@ -202,6 +218,11 @@
                         ></TextView>
 
 
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/im_4"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -237,6 +258,11 @@
 
                         ></TextView>
 
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/im_5"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"/>
 
                 </LinearLayout>
 
@@ -274,6 +300,11 @@
                         ></TextView>
 
 
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/im_6"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

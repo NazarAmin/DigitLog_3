@@ -2,6 +2,7 @@
 package com.example.digitlog;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -50,8 +51,9 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
-public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTimeChangedListener, DatePickerDialog.OnDateSetListener {
+public class Trip_Activity extends AppCompatActivity  {
     EditText category, comment;
     TextView title, engine_n, datetimetv, alarms, description5;
     private StorageReference storageRef;
@@ -61,7 +63,8 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
     Dialog dialog;
     String conseq;
     String day, monthe, yeare, houre, minutee;
-
+    String dateformat5;
+    int ho, mi, ye, mo, da;
 
     Button save;
     CheckBox ldo, hcgo;
@@ -70,7 +73,7 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
     ImageView image;
     String checkchoise;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
     String currentdateandTime = sdf.format(new Date());
 
     @Override
@@ -83,9 +86,25 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
         ldo = (CheckBox) findViewById(R.id.ldo);
         hcgo = (CheckBox) findViewById(R.id.hcgo);
 
+        try{
+            if (GlobalClass.engine_number.equals("Engine_3")){
+
+            }
+        }catch (Exception exception){
+            startActivity(new Intent(Trip_Activity.this, Blocks.class));
+        }
+
+        if (GlobalClass.engine_number.equals("Engine_3")) {
+
+            ldo.setText("HSRG_1");
+            hcgo.setText("HSRG_2");
+        }
+
         description5 = (TextView) findViewById(R.id.description);
         alarms = (TextView) findViewById(R.id.alarms);
         datetimetv = (TextView) findViewById(R.id.datetimetv);
+
+
 
         dialog = new Dialog(Trip_Activity.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);
@@ -123,7 +142,7 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
         //category_type = GlobalClass.Faults_Category;
         engine_n.setText(engine);
 
-
+/*
         try {
             Categoy = getIntent().getStringExtra("Categoy");
             description = getIntent().getStringExtra("description");
@@ -133,11 +152,13 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
         }catch (Exception ex){
 
         }
-
+**/
         trip_class = new Trip_Class();
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 dialog.show();
 
@@ -146,24 +167,48 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
 
     }
 
-    public void save_function(){
-        String dateformat5;
+    public void save_function() {
+        //new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH)
         dateformat5 = yeare + "_" + monthe + "_" + day + " " + houre + ":" + minutee + ":00";
-        datetimetv.setText(dateformat5);
 
-        int selectedId=radioGroup.getCheckedRadioButtonId();
-        radioButton = (RadioButton)findViewById(selectedId);
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        radioButton = (RadioButton) findViewById(selectedId);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/tips_log");
-/*
-        if (comment.getText().toString() != null && !comment.getText().toString().isEmpty()) {
-            t_co = comment.getText().toString();
-        } else {
-            t_co = "NSet";
-        }
-**/
+
         // Trip_Class(String load, String fuel, String user_2, String comment,String datetime, String alarms)
+
+        try{
+            if (GlobalClass.engine_number.equals("Engine_3")){
+
+            }
+        }catch (Exception exception){
+            startActivity(new Intent(Trip_Activity.this, Blocks.class));
+        }
+
+        if (GlobalClass.engine_number.equals("Engine_3")) {
+
+            if (ldo.isChecked() & hcgo.isChecked()) {
+                checkchoise = "HSRG_1, HSRG_2";
+            } else if (ldo.isChecked() & !hcgo.isChecked()) {
+                checkchoise = "HSRG_1";
+            } else {
+                checkchoise = "HSRG_2";
+            }
+        } else {
+
+            if (ldo.isChecked() & hcgo.isChecked()) {
+                checkchoise = "LDO, HCGO";
+            } else if (ldo.isChecked() & !hcgo.isChecked()) {
+                checkchoise = "LDO";
+            } else {
+                checkchoise = "HCGO";
+            }
+        }
+
+
+
         trip_class = new Trip_Class(radioButton.getText().toString(), checkchoise,user_2, description5.getText().toString(), dateformat5, alarms.getText().toString());
 
         ref2.child(sdf.format(new Date()).trim()).setValue(trip_class);
@@ -173,12 +218,57 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
     }
 
     public void showTimePickerDialog(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "timePicker");
+       // DialogFragment newFragment = new TimePickerFragment();
+        //newFragment.show(getSupportFragmentManager(), "timePicker");
+
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                houre = String.valueOf(hourOfDay);
+                ho = hourOfDay;
+                mi = minute;
+                minutee = String.valueOf(minute);
+                try {
+                    datetimetv.setText(yeare + "_" + monthe + "_" + day + " " + houre + ":" + minutee + ":00");
+                }catch (Exception ex){
+
+                }
+            }
+        };
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                this, AlertDialog.THEME_DEVICE_DEFAULT_DARK, onTimeSetListener,
+                ho, mi,true);
+
+        timePickerDialog.setTitle("Select Time:");
+        timePickerDialog.show();
+
     }
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+        //DialogFragment newFragment = new DatePickerFragment();
+        //newFragment.show(getSupportFragmentManager(), "datePicker");
+
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                yeare = String.valueOf(year);
+                day = String.valueOf(dayOfMonth);
+                monthe = String.valueOf(month);
+                ye = year;
+                mo = month;
+                da = dayOfMonth;
+            }
+        };
+
+        Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, mYear, mMonth, mDay);
+        datePickerDialog.setTitle("Select Date:");
+        datePickerDialog.show();
     }
 
     @Override
@@ -186,44 +276,8 @@ public class Trip_Activity extends AppCompatActivity implements TimePicker.OnTim
 
     }
 
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.ldo:
-                if (checked) {
-                    checkchoise = "LDO";
-                }
-            else {
-                    // Remove the meat
-                }
-                break;
-            case R.id.hcgo:
-                if (checked) {
-                    checkchoise = "HCGO";
-                }
-            else {
-                    // I'm lactose intolerant
-                }
-                break;
-            // TODO: Veggie sandwich
-        }
-    }
-
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        day = String.valueOf(dayOfMonth);
-        monthe = String.valueOf(month);
-        yeare = String.valueOf(year);
-
 
     }
 
-    @Override
-    public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-        houre = String.valueOf(hourOfDay);
-        minutee = String.valueOf(minute);
-    }
-}
+
+

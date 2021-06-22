@@ -26,6 +26,7 @@ package com.example.digitlog;
         import java.text.SimpleDateFormat;
         import java.util.ArrayList;
         import java.util.Date;
+        import java.util.Locale;
 
 public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapter3.ItemClickListener {
 
@@ -42,6 +43,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
     ArrayList<String> load = new ArrayList<>();
     ArrayList<String> alarms = new ArrayList<>();
     ArrayList<Date> name = new ArrayList<>();
+    ArrayList<String> name_2 = new ArrayList<>();
 
 
     @Override
@@ -66,7 +68,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                 if (dataSnapshot.exists()) {
                     int i = 0;
                     for (DataSnapshot d : dataSnapshot.getChildren()) {
@@ -105,11 +107,12 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
                         comment.add(Trip_Class.getComment());
                         load.add(Trip_Class.getLoad());
                         alarms.add(Trip_Class.getAlarms());
+                        name_2.add(Trip_Class.getDatetime());
                     }
 
                     ArrayList<String> name_string = new ArrayList<String>();
 
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
                     for (Date dateString : name) {
                         name_string.add(sdf.format(dateString));
@@ -117,8 +120,9 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
 
                     mExampleList = new ArrayList<>();
                     try {
-                        for (i = 0; i < name_string.size(); i++) {
-                            mExampleList.add(new Trip_Class(load.get(i), fuel.get(i), user.get(i), comment.get(i), name_string.get(i), alarms.get(i)));
+                        for (i = (name_string.size() - 1); i>=0 ; i--){
+
+                            mExampleList.add(new Trip_Class(load.get(i), fuel.get(i), user.get(i), comment.get(i), name_2.get(i), alarms.get(i)));
                         }
                     }catch (Exception e){
 

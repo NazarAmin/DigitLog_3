@@ -64,7 +64,7 @@ public class DataEntry extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | actual_user.equals(general_admin)) {
+                        if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
                             startActivity(new Intent(DataEntry.this, EngineStatus.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -90,7 +90,7 @@ public class DataEntry extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 actual_user = dataSnapshot.getValue(String.class);
                                 //GlobalClass.current_engine_focal = actual_user;
-                                if (actual_user.equals(GlobalClass.actual_user_name) | actual_user.equals(general_admin)) {
+                                if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
                                     startActivity(new Intent(DataEntry.this, Handover_Activity.class));
                                 } else {
                                     Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -111,12 +111,14 @@ public class DataEntry extends AppCompatActivity {
                 sheet1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if ((engine.equals("Engine_3")) | (engine.equals("Engine_6"))) {
-                            startActivity(new Intent(DataEntry.this, DashboardST.class));
-                        } else {
-                            startActivity(new Intent(DataEntry.this, Dashboard.class));
-                        }
-                    }
+
+                                    if ((engine.equals("Engine_3")) | (engine.equals("Engine_6"))) {
+                                        startActivity(new Intent(DataEntry.this, DashboardST.class));
+                                    } else {
+                                        startActivity(new Intent(DataEntry.this, Dashboard.class));
+                                    }
+                                }
+
                 });
                 sheet2.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -127,7 +129,7 @@ public class DataEntry extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 actual_user = dataSnapshot.getValue(String.class);
                                 //GlobalClass.current_engine_focal = actual_user;
-                                if (actual_user.equals(GlobalClass.actual_user_name) | actual_user.equals(general_admin)) {
+                                if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
                                     startActivity(new Intent(DataEntry.this, Dashboard_problem.class));
                                 } else {
                                     Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -156,7 +158,7 @@ public class DataEntry extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | actual_user.equals(general_admin)) {
+                        if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
                             startActivity(new Intent(DataEntry.this, Trip_Activity.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
