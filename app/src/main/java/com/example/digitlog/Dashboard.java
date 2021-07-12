@@ -1,11 +1,15 @@
 package com.example.digitlog;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -40,10 +44,27 @@ public class Dashboard extends AppCompatActivity {
     String current_engine_focal_name;
     ImageView im_1,im_2,im_3,im_4,im_5,im_6;
 
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+      //  drawerLayout = findViewById(R.id.mydrawerlayout);
+    //    actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+    //    drawerLayout.addDrawerListener(actionBarDrawerToggle);
+     //   actionBarDrawerToggle.syncState();
+
+        // to make the Navigation drawer icon always appear on the action bar
+  //      this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tv3 = (TextView) findViewById(R.id.tv1);
         //prob = (LinearLayout) findViewById(R.id.problems);
        // charts = (LinearLayout) findViewById(R.id.charts);
@@ -217,6 +238,15 @@ public class Dashboard extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
 
@@ -232,12 +262,14 @@ public class Dashboard extends AppCompatActivity {
 
         String Item_l;
         LinearLayout Item_q;
+        int counter = 0;
         for (int i = 0; i < sheets_l.size(); i++) {
             Item_l = sheets_l.get(i);
             Item_q = sheets_q.get(i);
 
             DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + Item_l);
             LinearLayout finalItem_q = Item_q;
+            int finalCounter = counter;
             ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -279,14 +311,14 @@ public class Dashboard extends AppCompatActivity {
  try{
                         if (diff3 <= 4) {
 
-                            //images.get(i).setBackgroundResource(R.drawable.ic_baseline_done_24);
-                           finalItem_q.setBackgroundColor(Color.GREEN);
+                            images.get(finalCounter).setBackgroundResource(R.drawable.ic_baseline_done_24);
+                           //finalItem_q.setBackgroundColor(Color.GREEN);
                         } else if ((diff3 > 4) && (diff3 < 5)) {
-                           // images.get(i).setBackgroundResource(R.drawable.faults);
-                            finalItem_q.setBackgroundColor(Color.YELLOW);
+                           images.get(finalCounter).setBackgroundResource(R.drawable.waiting);
+                            //finalItem_q.setBackgroundColor(Color.YELLOW);
                         } else {
-                           // images.get(i).setBackgroundResource(R.drawable.ic_baseline_do_disturb_24);
-                           finalItem_q.setBackgroundColor(Color.LTGRAY);
+                            images.get(finalCounter).setBackgroundResource(R.drawable.time_over);
+                           //finalItem_q.setBackgroundColor(Color.LTGRAY);
                         }
 
 }catch (Exception ex) {
@@ -300,7 +332,7 @@ public class Dashboard extends AppCompatActivity {
 
                 }//onCancelled
             });
-
+    counter+=1;
         }
 
     }

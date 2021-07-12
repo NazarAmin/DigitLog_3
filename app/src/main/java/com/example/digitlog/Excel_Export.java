@@ -3,10 +3,13 @@ package com.example.digitlog;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.Toast;
@@ -40,19 +43,46 @@ public class Excel_Export extends AppCompatActivity {
 
     //private EditText editTextExcel;
     ArrayList<String> name = new ArrayList<>();
+
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath = new File(Environment.getExternalStorageDirectory() + "/Digit Log Data" + engine + "_" + sdf.format(new Date()) + ".xls");
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Digit Log Data " + engine + "_" + sdf.format(new Date()) + ".xls");
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports";
+    HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel__export);
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if ((getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            && (getApplicationContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
+            prepare_work();
+            }else{
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE},1);
+            }
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1){
+            if ((grantResults[0] == PackageManager.PERMISSION_GRANTED) && (grantResults[1] == PackageManager.PERMISSION_GRANTED)){
+                prepare_work();
+            }else{
+                Toast.makeText(getApplicationContext(),"Permissions Denied", Toast.LENGTH_LONG).show();
+                this.finish();
+            }
+        }
+    }
 
 
+    public void prepare_work(){
         ArrayList<String> sheet1 = new ArrayList<>();
         sheet1.add(this.getString(R.string.p1));
         sheet1.add(this.getString(R.string.p2));
@@ -259,14 +289,15 @@ public class Excel_Export extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
         int kn = 0;
+        int kso = 6;
 
-        HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
-       // String engine = GlobalClass.engine_number;
+        // String engine = GlobalClass.engine_number;
         if (engine.equals("Engine_3")){
             for (String item : sheets2) {
                 DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + item);
 
-                getDatawork(item, hssfWorkbook, ref2, kn, 0, sheets_main.get(kn));
+                getDatawork(item, hssfWorkbook, ref2, kn, 0, sheets_main.get(kso));
+                kso++;
                 kn++;
             }
         }else{
@@ -277,8 +308,7 @@ public class Excel_Export extends AppCompatActivity {
             }
         }
     }
-
-        private void getDatawork(String item, HSSFWorkbook hssfWorkbook, DatabaseReference ref2, int kn, int type, ArrayList<ArrayList> sheet_nsme) {
+    private void getDatawork(String item, HSSFWorkbook hssfWorkbook, DatabaseReference ref2, int kn, int type, ArrayList<ArrayList> sheet_nsme) {
 
             HSSFSheet hssfSheet = hssfWorkbook.createSheet(item);
             int kkl, length5;
@@ -313,9 +343,8 @@ public class Excel_Export extends AppCompatActivity {
                     length5 = 16;
                     break;
 
-
-
             }
+
             HSSFRow hssfRow = hssfSheet.createRow(0);
 
             for (kkl = 0; kkl<length5; kkl++){
@@ -329,11 +358,11 @@ public class Excel_Export extends AppCompatActivity {
                 }
             }
 
-
             ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+                    name.clear();
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
                             try {
@@ -414,49 +443,103 @@ public class Excel_Export extends AppCompatActivity {
                             col15.setCellValue(String.valueOf(data.getIp15()));
 
                             HSSFCell col16 = hssfRow.createCell(16);
-                            col16.setCellValue(String.valueOf(data.getIp16()));
+                            if(String.valueOf(data.getIp16()).equals("0.0")){
+                                col16.setCellValue("");
+                            }else{
+                                col16.setCellValue(String.valueOf(data.getIp16()));
+                            }
 
                             HSSFCell col17 = hssfRow.createCell(17);
-                            col17.setCellValue(String.valueOf(data.getIp17()));
+                            if(String.valueOf(data.getIp17()).equals("0.0")){
+                                col17.setCellValue("");
+                            }else {
+                                col17.setCellValue(String.valueOf(data.getIp17()));
+                            }
 
                             HSSFCell col18 = hssfRow.createCell(18);
-                            col18.setCellValue(String.valueOf(data.getIp18()));
+                            if(String.valueOf(data.getIp18()).equals("0.0")){
+                                col18.setCellValue("");
+                            }else {
+                                col18.setCellValue(String.valueOf(data.getIp18()));
+                            }
 
                             HSSFCell col19 = hssfRow.createCell(19);
-                            col19.setCellValue(String.valueOf(data.getIp19()));
+                            if(String.valueOf(data.getIp19()).equals("0.0")){
+                                col19.setCellValue("");
+                            }else {
+                                col19.setCellValue(String.valueOf(data.getIp19()));
+                            }
 
                             HSSFCell col20 = hssfRow.createCell(20);
-                            col20.setCellValue(String.valueOf(data.getIp20()));
 
+                            if(String.valueOf(data.getIp20()).equals("0.0")){
+                                col20.setCellValue("");
+                            }else {
+                                col20.setCellValue(String.valueOf(data.getIp20()));
+                            }
                             HSSFCell col21 = hssfRow.createCell(21);
-                            col21.setCellValue(String.valueOf(data.getIp21()));
-
+                            if(String.valueOf(data.getIp21()).equals("0.0")) {
+                                col21.setCellValue("");
+                            }else {
+                                col21.setCellValue(String.valueOf(data.getIp21()));
+                            }
                             HSSFCell col22 = hssfRow.createCell(22);
-                            col22.setCellValue(String.valueOf(data.getIp22()));
-
+                            if(String.valueOf(data.getIp22()).equals("0.0")) {
+                                col22.setCellValue("");
+                            }else {
+                                col22.setCellValue(String.valueOf(data.getIp22()));
+                            }
                             HSSFCell col23 = hssfRow.createCell(23);
-                            col23.setCellValue(String.valueOf(data.getIp23()));
-
+                            if(String.valueOf(data.getIp23()).equals("0.0")) {
+                                col23.setCellValue("");
+                            }else {
+                                col23.setCellValue(String.valueOf(data.getIp23()));
+                            }
                             HSSFCell col24 = hssfRow.createCell(24);
-                            col24.setCellValue(String.valueOf(data.getIp24()));
-
+                            if(String.valueOf(data.getIp24()).equals("0.0")) {
+                                col24.setCellValue("");
+                            }else {
+                                col24.setCellValue(String.valueOf(data.getIp24()));
+                            }
                             HSSFCell col25 = hssfRow.createCell(25);
-                            col25.setCellValue(String.valueOf(data.getIp25()));
-
+                            if(String.valueOf(data.getIp25()).equals("0.0")) {
+                                col25.setCellValue("");
+                            }else {
+                                col25.setCellValue(String.valueOf(data.getIp25()));
+                            }
                             HSSFCell col26 = hssfRow.createCell(26);
-                            col26.setCellValue(String.valueOf(data.getIp26()));
-
+                            if(String.valueOf(data.getIp26()).equals("0.0")) {
+                                col26.setCellValue("");
+                            }else {
+                                col26.setCellValue(String.valueOf(data.getIp26()));
+                            }
                             HSSFCell col27 = hssfRow.createCell(27);
-                            col27.setCellValue(String.valueOf(data.getIp27()));
-
+                            if(String.valueOf(data.getIp27()).equals("0.0")) {
+                                col27.setCellValue("");
+                            }else {
+                                col27.setCellValue(String.valueOf(data.getIp27()));
+                            }
                             HSSFCell col28 = hssfRow.createCell(28);
-                            col28.setCellValue(String.valueOf(data.getIp28()));
+                            if(String.valueOf(data.getIp28()).equals("0.0")) {
+                                col28.setCellValue("");}else{
+                                col28.setCellValue(String.valueOf(data.getIp28()));
+
+                            }
 
                             HSSFCell col29 = hssfRow.createCell(29);
-                            col29.setCellValue(String.valueOf(data.getIp29()));
-
+                            if(String.valueOf(data.getIp29()).equals("0.0")) {
+                                col29.setCellValue("");
+                            }else {
+                                col29.setCellValue(String.valueOf(data.getIp29()));
+                            }
                             HSSFCell col30 = hssfRow.createCell(30);
-                            col30.setCellValue(String.valueOf(data.getIp30()));
+                            if(String.valueOf(data.getIp30()).equals("0.0")) {
+                                col30.setCellValue("");
+                            }else{
+
+                                col30.setCellValue(String.valueOf(data.getIp30()));
+
+                            }
 
                             int index_o = 0;
                             if (item.equals("FO")) {
@@ -481,49 +564,91 @@ public class Excel_Export extends AppCompatActivity {
                             i++;
                         }
 
-
-
                             if (type == 0 && kn == 1) {
                                 try {
                                     if (!filePath.exists()) {
-                                        filePath.createNewFile();
+
+                                        filePath.mkdirs();
+                                        File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                                        if (!f1.exists()) {
+                                            f1.mkdirs();
+                                            FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
+
+                                            hssfWorkbook.write(fileOutputStream);
+
+
+                                            if (fileOutputStream != null) {
+
+                                                fileOutputStream.flush();
+                                                fileOutputStream.close();
+                                            }
+                                            Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
+                                            openFolder();
+                                        }
                                     }
 
-                                    FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+                                    FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
 
                                     hssfWorkbook.write(fileOutputStream);
 
+
                                     if (fileOutputStream != null) {
+
                                         fileOutputStream.flush();
                                         fileOutputStream.close();
                                     }
+                                    Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
+                                    openFolder();
+
                                 } catch (Exception e) {
                                     Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
-
                                     e.printStackTrace();
+                                    startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 }
-                                Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
+
                             }else if (type == 1 && kn == 5) {
                                 try {
+
                                     if (!filePath.exists()) {
-                                        filePath.createNewFile();
+
+                                        filePath.mkdirs();
+                                        File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                                        if (!f1.exists()) {
+                                            f1.mkdirs();
+                                            FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
+
+                                            hssfWorkbook.write(fileOutputStream);
+
+
+                                            if (fileOutputStream != null) {
+
+                                                fileOutputStream.flush();
+                                                fileOutputStream.close();
+                                            }
+                                            Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
+                                            openFolder();
+                                        }
                                     }
 
-                                    FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+                                    FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
 
                                     hssfWorkbook.write(fileOutputStream);
 
+
                                     if (fileOutputStream != null) {
+
                                         fileOutputStream.flush();
                                         fileOutputStream.close();
                                     }
+                                    Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
+                                    openFolder();
+
+                                    //startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 } catch (Exception e) {
                                     Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
                                     e.printStackTrace();
+                                    startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 }
-                                Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
 
                             }
                         }
@@ -541,6 +666,37 @@ public class Excel_Export extends AppCompatActivity {
 
 
         }
+
+    public void openFolder(){
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+
+ //       File TEST = new File(Environment.getExternalStorageDirectory(), "TEST");
+   //     TEST.mkdir(); // make directory may want to check return value
+     //   String path = TEST.getAbsolutePath();
+
+   //     File file = new File(path);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+
+        Uri photoURI = FileProvider.getUriForFile(getApplicationContext(), Excel_Export.this.getApplicationContext().getPackageName() + ".provider", filePath2);
+        Toast.makeText(getApplicationContext(), "Excel file saved in: " + file_path_string, Toast.LENGTH_LONG).show();
+
+        intent.setDataAndType(photoURI,"application/vnd.ms-excel");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(intent);
+
+
+        /**
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+
+        Uri uri = Uri.parse(String.valueOf(Environment.getExternalStorageDirectory()));
+              //  + "/Digit Log Data " + engine + "_" + sdf.format(new Date()) + ".xls");
+         intent.setType("application/vnd.ms-excel");
+         intent.setData(uri);
+        startActivity(Intent.createChooser(intent, "Open folder"));
+
+*/
+    }
+
 
         }
 

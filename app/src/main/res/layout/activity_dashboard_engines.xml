@@ -1,544 +1,536 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:background="@color/white"
         android:orientation="vertical"
-        tools:context=".Dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:paddingBottom="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical"
-            android:paddingBottom="10dp"
->
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_background"
-                android:src="@drawable/log"></ImageView>
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingTop="10dp"
-                android:textStyle="bold|italic"
-                android:text="Sudanese Themal Power Generating Co. Ltd."
-                android:textColor="@color/black"
-                android:textSize="18sp"></TextView>
+            android:layout_gravity="center"
+            android:fontFamily="@font/microbrew_soft_one_inline"
 
-            <TextView
-                android:layout_below="@id/tv1"
-                android:layout_marginTop="6dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold|italic"
-                android:text="Garri One Power Plant"
-                android:gravity="center"
-                android:textColor="@color/redshine"
-                android:textSize="19sp"></TextView>
+            android:paddingTop="10dp"
+            android:text="Sudanese Thermal Power Generating Co. Ltd."
+            android:textColor="@color/black"
+            android:textSize="19dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+
+            android:fontFamily="@font/microbrew_soft_one_inline"
+            android:gravity="center"
+            android:text="Garri 1, 2 Power Plants"
+            android:textColor="@color/redshine"
+            android:textSize="16dp"></TextView>
 
 
+    </LinearLayout>
 
-        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/gradient"
-        android:gravity="center"
-        >
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <GridLayout
-            android:columnOrderPreserved="false"
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:layout_height="match_parent"
-            android:paddingTop="20dp"
-            android:columnCount="1"
-            android:rowCount="3"
-            >
+            android:background="@color/white"
+            android:gravity="center">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="10dp">
+                android:layout_height="match_parent">
 
-                <LinearLayout
+                <GridLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sheet1"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:paddingTop="20dp"
+                    android:rowCount="3">
 
-                    <LinearLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="10dp">
 
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/engine3" />
-
-                        <TextView
-                            android:id="@+id/gt3"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/sheet1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:text="GT_1"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold|italic"
 
-                            ></TextView>
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_marginTop="7dp"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/gt3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="GT_1"
+                                        android:textColor="@color/black"
+                                        android:textSize="25dp"
+                                        android:textStyle="bold|italic"
+
+                                        ></TextView>
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:id="@+id/gt_image1" />
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginTop="7dp"
+                                    android:layout_marginRight="2dp"
+                                    android:background="#7E000000" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/gt_new" />
 
 
-                    </LinearLayout>
+                            </LinearLayout>
 
-                    <LinearLayout
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/enstatus1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:gravity="center"
+                                    android:text="-------"
+                                    android:textColor="@color/black"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold|italic"></TextView>
+
+
+                                <TextView
+                                    android:id="@+id/mw1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="20dp"
+                                    android:gravity="center"
+                                    android:text="---------"
+                                    android:textColor="#FF5722"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold|italic">
+
+                                </TextView>
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_toLeftOf="@id/fo1"
+                                    android:gravity="center"
+                                    android:src="@drawable/person_2"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold|italic">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/fo1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:gravity="center"
+                                    android:text="----------------"
+                                    android:textColor="@color/black"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold|italic">
+
+                                </TextView>
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal">
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="10dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/sheet2"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
 
-                            android:layout_gravity="center"
-                            android:text="Status"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
+                            android:orientation="vertical">
 
-                        </TextView>
-                        <TextView
-                            android:id="@+id/enstatus1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                        </TextView>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
 
-                    </LinearLayout>
+                                    <TextView
+                                        android:id="@+id/gt4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="GT_1"
+                                        android:textColor="@color/black"
+                                        android:textSize="25dp"
+                                        android:textStyle="bold|italic"
 
-                    <LinearLayout
+                                        ></TextView>
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:id="@+id/gt_image2"/>
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginTop="7dp"
+                                    android:layout_marginRight="2dp"
+                                    android:background="#7E000000" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/gt_new" />
+
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/enstatus2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:gravity="center"
+                                    android:text="-------"
+                                    android:textColor="@color/black"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold|italic"></TextView>
+
+
+                                <TextView
+                                    android:id="@+id/mw2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="20dp"
+                                    android:gravity="center"
+                                    android:text="---------"
+                                    android:textColor="#FF5722"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold|italic">
+
+                                </TextView>
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_toLeftOf="@id/fo2"
+                                    android:gravity="center"
+                                    android:src="@drawable/person_2"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold|italic">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/fo2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:gravity="center"
+                                    android:text="----------------"
+                                    android:textColor="@color/black"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold|italic">
+
+                                </TextView>
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal">
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="10dp">
 
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_electrical_services_24"
-                            android:textColor="@color/green"
-                            android:textStyle="bold|italic">
-
-                        </ImageView>
-                        <TextView
-                            android:id="@+id/mw1"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/sheet3"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:src="@drawable/ic_baseline_person_24"
-                            android:layout_gravity="center"
-                            android:textColor="@color/green"
-                            android:textStyle="bold|italic">
-
-                        </ImageView>
-                        <TextView
-                            android:id="@+id/fo1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sheet2"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/engine3" />
-
-                        <TextView
-                            android:id="@+id/gt4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:text="GT_1"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold|italic"
-
-                            ></TextView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-
-                            android:layout_gravity="center"
-                            android:text="Status"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-                        <TextView
-                            android:id="@+id/enstatus2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_electrical_services_24"
-                            android:textColor="@color/green"
-                            android:textStyle="bold|italic">
-
-                        </ImageView>
-                        <TextView
-                            android:id="@+id/mw2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:src="@drawable/ic_baseline_person_24"
-                            android:layout_gravity="center"
-                            android:textColor="@color/green"
-                            android:textStyle="bold|italic">
-
-                        </ImageView>
-                        <TextView
-                            android:id="@+id/fo2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sheet3"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/st" />
-
-                        <TextView
-                            android:id="@+id/st2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:text="GT_1"
-                            android:textColor="@color/black"
-                            android:textSize="25dp"
-                            android:textStyle="bold|italic"
-
-                            ></TextView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-
-                            android:layout_gravity="center"
-                            android:text="Status"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-                        <TextView
-                            android:id="@+id/enstatus3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_electrical_services_24"
-                            android:textColor="@color/green"
-                            android:textStyle="bold|italic">
-
-                        </ImageView>
-                        <TextView
-                            android:id="@+id/mw3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:src="@drawable/ic_baseline_person_24"
-                            android:layout_gravity="center"
-                            android:textColor="@color/green"
-                            android:textStyle="bold|italic">
-
-                        </ImageView>
-                        <TextView
-                            android:id="@+id/fo3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_gravity="center"
-
-                            android:text="----------------"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            android:textStyle="bold|italic">
-
-                        </TextView>
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </GridLayout>
-        </LinearLayout>
-    </ScrollView>
+
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/st2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="GT_1"
+                                        android:textColor="@color/black"
+                                        android:textSize="25dp"
+                                        android:textStyle="bold|italic"
+
+                                        ></TextView>
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:id="@+id/gt_image3"/>
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginTop="7dp"
+                                    android:layout_marginRight="2dp"
+                                    android:background="#7E000000" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/st_new_2" />
+
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/enstatus3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:gravity="center"
+                                    android:text="-------"
+                                    android:textColor="@color/black"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold|italic"></TextView>
+
+
+                                <TextView
+                                    android:id="@+id/mw3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="20dp"
+                                    android:gravity="center"
+                                    android:text="---------"
+                                    android:textColor="#FF5722"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold|italic">
+
+                                </TextView>
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_toLeftOf="@id/fo3"
+                                    android:gravity="center"
+                                    android:src="@drawable/person_2"
+                                    android:textColor="@color/green"
+                                    android:textStyle="bold|italic">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:id="@+id/fo3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:gravity="center"
+                                    android:text="----------------"
+                                    android:textColor="@color/black"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold|italic">
+
+                                </TextView>
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </GridLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
-    </LinearLayout>
+</LinearLayout>
 

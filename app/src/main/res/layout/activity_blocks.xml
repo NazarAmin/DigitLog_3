@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@color/white"
     android:gravity="center"
     tools:context=".Dashboard">
 
@@ -14,13 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="10dp"
             android:background="@color/white"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
-            >
+            android:paddingBottom="10dp">
+
+
             <ImageView
                 android:layout_width="62dp"
                 android:layout_height="62dp"
@@ -30,30 +34,34 @@
                 android:src="@drawable/log"></ImageView>
             <TextView
                 android:id="@+id/tv1"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/microbrew_soft_one_inline"
+
                 android:paddingTop="10dp"
-                android:textStyle="bold|italic"
-                android:text="Sudanese Themal Power Generating Co. Ltd."
+                android:text="Sudanese Thermal Power Generating Co. Ltd."
                 android:textColor="@color/black"
-                android:textSize="18sp"></TextView>
+                android:textSize="19dp"></TextView>
 
             <TextView
-                android:layout_below="@id/tv1"
-                android:layout_marginTop="6dp"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold|italic"
-                android:text="Garri One Power Plant"
-                android:gravity="center"
-                android:textColor="@color/redshine"
-                android:textSize="19sp"></TextView>
+                android:layout_below="@id/tv1"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
 
+                android:fontFamily="@font/microbrew_soft_one_inline"
+                android:gravity="center"
+                android:text="Garri 1, 2 Power Plants"
+                android:textColor="@color/redshine"
+                android:textSize="16dp"></TextView>
 
 
         </LinearLayout>
+
+
 
         <GridLayout
             android:layout_width="match_parent"
@@ -78,9 +86,12 @@
 
                 <LinearLayout
                     android:id="@+id/sheet1"
+                    android:background="#0D918F8F"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
+                    android:elevation="30dp"
 
 
                     android:paddingBottom="17dp">
@@ -100,7 +111,7 @@
                             android:layout_marginTop="12dp"
                             android:text="Block 1"
                             android:textColor="@color/black"
-                            android:textSize="40dp"
+                            android:textSize="28dp"
                             android:textStyle="bold|italic"
 
                             ></TextView>
@@ -120,7 +131,7 @@
                             android:paddingTop="20dp"
                             android:text="------"
                             android:textColor="@color/green"
-                            android:textSize="30dp"
+                            android:textSize="28dp"
                             android:textStyle="bold|italic">
 
                         </TextView>
@@ -131,7 +142,7 @@
                             android:paddingTop="20dp"
                             android:text="   MW"
                             android:textColor="@color/green"
-                            android:textSize="30dp"
+                            android:textSize="22dp"
                             android:textStyle="bold|italic">
 
                         </TextView>

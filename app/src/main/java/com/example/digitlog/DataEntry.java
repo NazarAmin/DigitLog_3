@@ -16,13 +16,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
+
 public class DataEntry extends AppCompatActivity {
     LinearLayout status, handover, sheet1, sheet2, sheet9;
     TextView engine_pic;
-    String general_admin = "Khalid Abbadi";
     String actual_user;
     String engine = GlobalClass.engine_number;
-
+    String arr[] = {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,9 @@ public class DataEntry extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
+
+
                             startActivity(new Intent(DataEntry.this, EngineStatus.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -90,7 +93,7 @@ public class DataEntry extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 actual_user = dataSnapshot.getValue(String.class);
                                 //GlobalClass.current_engine_focal = actual_user;
-                                if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
+                                if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
                                     startActivity(new Intent(DataEntry.this, Handover_Activity.class));
                                 } else {
                                     Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -129,7 +132,7 @@ public class DataEntry extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 actual_user = dataSnapshot.getValue(String.class);
                                 //GlobalClass.current_engine_focal = actual_user;
-                                if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
+                                if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
                                     startActivity(new Intent(DataEntry.this, Dashboard_problem.class));
                                 } else {
                                     Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -158,7 +161,7 @@ public class DataEntry extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | GlobalClass.actual_user_name.equals(general_admin)) {
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
                             startActivity(new Intent(DataEntry.this, Trip_Activity.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +

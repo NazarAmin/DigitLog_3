@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@color/white"
     android:gravity="center"
     tools:context=".Dashboard">
 
@@ -25,19 +25,12 @@
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:text="Reports and Visualization"
-                android:textColor="#FFFFFF"
+                android:textColor="#032BF4"
                 android:textSize="22dp"></TextView>
 
-
-
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/round_background"
-                android:padding="1dp"
-                android:src="@drawable/log"></ImageView>
 
         </RelativeLayout>
 
@@ -46,11 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
-            android:paddingTop="50dp"
-            android:columnCount="1"
+            android:paddingTop="40dp"
+            android:columnCount="2"
             android:rowCount="3"
             >
-
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -59,7 +51,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="30dp"
+                android:layout_margin="15dp"
                 >
 
                 <LinearLayout
@@ -96,7 +88,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="30dp"
+                android:layout_margin="15dp"
                 >
 
                 <LinearLayout
@@ -133,7 +125,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="30dp"
+                android:layout_margin="15dp"
                 >
 
                 <LinearLayout
@@ -171,7 +163,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="30dp"
+                android:layout_margin="15dp"
                 >
 
                 <LinearLayout
@@ -208,7 +200,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="30dp"
+                android:layout_margin="15dp"
                 >
 
                 <LinearLayout

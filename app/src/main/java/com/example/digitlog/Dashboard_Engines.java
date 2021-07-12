@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,17 +35,22 @@ import java.util.Locale;
 
 public class Dashboard_Engines extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
+    ImageView gt_image1, gt_image2,gt_image3;
     ArrayList<Date> name = new ArrayList<Date>();
     List<String> sheets_l;
     List<LinearLayout> sheets_q;
     TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3, st2, gt3, gt4;
     Dialog dialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_engines);
 
+        gt_image1 = (ImageView) findViewById(R.id.gt_image1);
+        gt_image2 = (ImageView) findViewById(R.id.gt_image2);
+        gt_image3 = (ImageView) findViewById(R.id.gt_image3);
 
         enstatus1 = (TextView) findViewById(R.id.enstatus1);
         enstatus2 = (TextView) findViewById(R.id.enstatus2);
@@ -65,6 +72,7 @@ public class Dashboard_Engines extends AppCompatActivity {
        // sheet4 = (LinearLayout) findViewById(R.id.sheet4);
         //sheet5 = (LinearLayout) findViewById(R.id.sheet5);
         //sheet6 = (LinearLayout) findViewById(R.id.sheet6);
+
         try {
             if (GlobalClass.block_number.equals("one")) {
                 gt3.setText("GT1");
@@ -141,6 +149,8 @@ public class Dashboard_Engines extends AppCompatActivity {
         List<TextView> mw = Arrays.asList(mw1, mw2, mw3);
         List<TextView> user = Arrays.asList(fo1, fo2, fo3);
         List<LinearLayout> sheets_q = Arrays.asList(sheet1, sheet2, sheet3); //, sheet4, sheet5, sheet6
+        List<ImageView> images = Arrays.asList(gt_image1,gt_image2,gt_image3);
+
 
         String engine;
         //LinearLayout Item_q = null;
@@ -202,13 +212,23 @@ public class Dashboard_Engines extends AppCompatActivity {
                                 status.get(finalCounter).setText(snapshot.getValue().toString());
                                 //enstatus1.setText(snapshot.getValue().toString());
    //         try {
-                if (snapshot.getValue().toString().equals("Normal Operation")) {
-                     sheets_q.get(finalCounter).setBackgroundColor(Color.GREEN);
-                } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
-                     sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
-                } else {
-                    sheets_q.get(finalCounter).setBackgroundColor(Color.LTGRAY);
-                }
+
+
+                                if (snapshot.getValue().toString().equals("Normal Operation")) {
+                                    images.get(finalCounter).setBackgroundResource(R.drawable.on);
+
+                                    //  sheets_q.get(finalCounter).setBackgroundColor(Color.GREEN);
+                                } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
+                                    images.get(finalCounter).setBackgroundResource(R.drawable.standby);
+
+                                    //  sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+
+                                } else {
+                                    images.get(finalCounter).setBackgroundResource(R.drawable.off);
+
+                                    // sheets_q.get(finalCounter).setBackgroundColor(Color.LTGRAY);
+                                }
+
 
                 if (snapshot.getValue().toString().equals("Reserve Shutdown") |
                         snapshot.getValue().toString().equals("Forced Shutdown") |
@@ -268,6 +288,8 @@ public class Dashboard_Engines extends AppCompatActivity {
         List<TextView> mw = Arrays.asList(mw1, mw2, mw3);
         List<TextView> user = Arrays.asList(fo1, fo2, fo3);
         List<LinearLayout> sheets_q = Arrays.asList(sheet1, sheet2, sheet3); //, sheet4, sheet5, sheet6
+        List<ImageView> images = Arrays.asList(gt_image1,gt_image2,gt_image3);
+
 
         String engine;
         //LinearLayout Item_q = null;
@@ -332,11 +354,18 @@ public class Dashboard_Engines extends AppCompatActivity {
                            //      try {
 
                                 if (snapshot.getValue().toString().equals("Normal Operation")) {
-                                   sheets_q.get(finalCounter).setBackgroundColor(Color.GREEN);
+                                    images.get(finalCounter).setBackgroundResource(R.drawable.on);
+
+                                  //  sheets_q.get(finalCounter).setBackgroundColor(Color.GREEN);
                                 } else if (snapshot.getValue().toString().equals("Reserve Shutdown")) {
-                                   sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+                                    images.get(finalCounter).setBackgroundResource(R.drawable.standby);
+
+                                  //  sheets_q.get(finalCounter).setBackgroundColor(Color.YELLOW);
+
                                 } else {
-                                   sheets_q.get(finalCounter).setBackgroundColor(Color.LTGRAY);
+                                     images.get(finalCounter).setBackgroundResource(R.drawable.off);
+
+                                   // sheets_q.get(finalCounter).setBackgroundColor(Color.LTGRAY);
                                 }
 
                                 if (snapshot.getValue().toString().equals("Reserve Shutdown") |

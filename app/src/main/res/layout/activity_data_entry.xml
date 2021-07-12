@@ -5,80 +5,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@color/white"
     android:gravity="center"
-    tools:context=".Dashboard">
+    tools:context=".DataEntry">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="20dp">
+            android:paddingTop="20dp"
+            android:elevation="30dp"
+            >
 
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Engine Data Entry"
-                android:textColor="#FFFFFF"
+                android:text="Data Entry"
+                android:layout_marginLeft="20dp"
+                android:textColor="#2144F3"
                 android:textSize="24sp"></TextView>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv1"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="20dp"
+                android:text="6 Items"
+                android:id="@+id/test"
+                android:textColor="#52BAFF"
+                android:textSize="12sp"></TextView>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="2dp"
+                android:layout_below="@id/test"
+                android:background="#7E000000" />
 
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/round_background"
-                android:padding="1dp"
-                android:src="@drawable/log"></ImageView>
 
         </RelativeLayout>
 
+
         <GridLayout
-            android:columnOrderPreserved="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alignmentMode="alignMargins"
-            android:paddingTop="10dp"
-            android:columnCount="1"
-            android:rowCount="4"
-            >
+            android:columnCount="2"
+            android:paddingTop="40dp"
+            android:paddingRight="5dp"
+            android:rowCount="3">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/status"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <ImageView
-                        android:src="@drawable/status"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/status" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
                         android:text="Engine Status"
+                        android:textColor="#6f6f6f"
+                        android:textSize="15dp"
 
                         ></TextView>
 
@@ -86,101 +99,91 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/handover"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
                     <ImageView
-                        android:src="@drawable/handover"
                         android:layout_width="40dp"
-                        android:layout_height="40dp"/>
+                        android:layout_height="40dp"
+                        android:src="@drawable/handover" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
                         android:text="Engine Handover"
+                        android:textColor="#6f6f6f"
+                        android:textSize="15dp"
 
                         ></TextView>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:textColor="#6f6f6f"
-        android:textSize="18sp"
-        android:text="Operator in Charge:"
 
-        ></TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/engine_pic"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="10dp"
-        android:gravity="center"
-        android:textColor="@color/green"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:text="Operator in Charge:"
+                        <TextView
+                            android:id="@+id/engine_pic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center"
+                            android:text="Operator in Charge:"
+                            android:textColor="@color/green"
+                            android:textSize="10dp"
+                            android:textStyle="bold"
 
-        ></TextView>
+                            ></TextView>
 
-</LinearLayout>
 
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/sheet1"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <ImageView
-                        android:src="@drawable/data_sheet"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/data_sheet" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
                         android:text="Log Sheet Entry"
+                        android:textColor="#6f6f6f"
+                        android:textSize="15dp"
 
                         ></TextView>
 
@@ -191,32 +194,33 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/sheet2"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <ImageView
-                        android:src="@drawable/faults"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/faults" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
                         android:text="Faults Entry"
+                        android:textColor="#6f6f6f"
+                        android:textSize="15dp"
 
                         ></TextView>
 
@@ -228,32 +232,33 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="6dp"
                 app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/sheet9"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_gravity="fill"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <ImageView
-                        android:src="@drawable/ic_baseline_warning_24"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_baseline_warning_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
                         android:text="Trips Entry"
+                        android:textColor="#6f6f6f"
+                        android:textSize="15dp"
 
                         ></TextView>
 
@@ -264,7 +269,6 @@
 
 
         </GridLayout>
-
 
     </LinearLayout>
 

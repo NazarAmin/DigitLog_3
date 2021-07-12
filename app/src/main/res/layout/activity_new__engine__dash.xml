@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@color/white"
     android:gravity="center"
     tools:context=".Dashboard">
 
@@ -26,8 +26,11 @@
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="Engine Data"
-                android:textColor="#FFFFFF"
+                android:layout_centerHorizontal="true"
+
+                android:textColor="#0048FF"
                 android:textSize="24sp"></TextView>
 
             <ImageView
@@ -36,18 +39,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="76dp"
                 android:id="@+id/home_image"
+                android:visibility="invisible"
                 android:background="@drawable/home_white"
                 android:padding="1dp"></ImageView>
 
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/round_background"
-                android:padding="1dp"
-                android:src="@drawable/log"></ImageView>
+
 
         </RelativeLayout>
+
 
         <GridLayout
             android:columnOrderPreserved="false"

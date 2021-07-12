@@ -8,17 +8,21 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.EventLogTags;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.ScatterChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.ScatterData;
+import com.github.mikephil.charting.data.ScatterDataSet;
 import com.github.mikephil.charting.formatter.AxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.Utils;
@@ -535,13 +539,17 @@ public class chart extends AppCompatActivity {
                     }
 
                     LineDataSet lineDataSet = new LineDataSet(null, item);
+
                     // LineDataSet lineDataSet = new LineDataSet(null,"");
                     lineDataSet.setValues(datavals);
                     lineDataSet.setLabel(item);
-                    lineDataSet.setValueTextSize(14);
+                 //   lineDataSet.setValueTextSize(14);
+                    lineDataSet.setDrawValues(false);
+
                     lineDataSet.setDrawCircleHole(true);
                     lineDataSet.setCircleRadius(3f);
                     lineDataSet.setLineWidth(2f);
+
                     //lineDataSet.setDrawFilled(true);
 
                     k = k + 1;
@@ -550,7 +558,7 @@ public class chart extends AppCompatActivity {
 
                     try {
                         lineDataSet.setColor(colors.get(k));
-                        lineDataSet.setCircleColor(colors.get(k));
+                       lineDataSet.setCircleColor(colors.get(k));
 
                     } catch (Exception e) {
                     }
@@ -560,7 +568,10 @@ public class chart extends AppCompatActivity {
                        //if (iLineDataSets.size() == items.size()) {
 
                        // lineData = new LineData(iLineDataSets);
-                        lineData.addDataSet(lineDataSet);
+                  //  lineDataSet.setDrawCubic(true);
+                    lineDataSet.setDrawHighlightIndicators(true);
+                    lineDataSet.setMode(LineDataSet.Mode.LINEAR);
+                    lineData.addDataSet(lineDataSet);
                         //iLineDataSets.clear();
 
                         long referenceTimestamp = name.get(0).getTime() / 1000;
@@ -588,13 +599,14 @@ public class chart extends AppCompatActivity {
                         //MyMarkerView myMarkerView= new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp);
                         MyMarkerView myMarkerView = new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp * 1000);
                         Data_of_Temp.setMarkerView(myMarkerView);
+
                         Data_of_Temp.clear();
                         Data_of_Temp.setData(lineData);
 
-                        Legend legend = Data_of_Temp.getLegend();
 
-                        legend.setEnabled(true);
-                        legend.setWordWrapEnabled(true);
+                        Data_of_Temp.getLegend().setEnabled(true);
+                        Data_of_Temp.getLegend().setWordWrapEnabled(true);
+                        Data_of_Temp.setDescription(null);
                         Data_of_Temp.invalidate();
 
 

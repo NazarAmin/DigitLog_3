@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -147,14 +148,20 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
 
         handover_c = new Handover_c(current_user, engine_focal, datetime, comment_hand.getText().toString());
-        if (GlobalClass.current_engine_focal.equals(GlobalClass.actual_user_name) | GlobalClass.current_engine_focal.equals(general_admin)){
+
+
+    //    if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
+
+
+
+     //   if (GlobalClass.current_engine_focal.equals(GlobalClass.actual_user_name) | GlobalClass.current_engine_focal.equals(general_admin)){
             GlobalClass.current_engine_focal = engine_focal;
             ref2.setValue(handover_c);
             ref3.setValue(engine_focal);
-        }else{
-            Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                    "handover " + engine + " this can be done by " + engine_focal, Toast.LENGTH_LONG).show();
-        }
+    //    }else{
+    //        Toast.makeText(getApplicationContext(), "You are not authorized to " +
+    //               "handover " + engine + " this can be done by " + engine_focal, Toast.LENGTH_LONG).show();
+     //   }
         dialog.dismiss();
     }
 

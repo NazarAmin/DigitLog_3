@@ -10,13 +10,30 @@
         android:allowBackup="true"
         android:icon="@mipmap/digit_log_logo"
         android:label="Digit Log"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/digit_log_logo"
         android:supportsRtl="false"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Excel_Export"></activity>
+        <activity
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Excel_Export" />
         <activity android:name=".Status_List" />
         <activity android:name=".TripsList" />
         <activity android:name=".Trip_Activity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity
             android:name=".DashboardST"
             android:screenOrientation="portrait" />
@@ -41,9 +58,7 @@
         <activity
             android:name=".EngineStatus"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".DataEntry"
-            android:screenOrientation="portrait" />
+        <activity android:name=".DataEntry" />
         <activity
             android:name=".New_Engine_Dash"
             android:screenOrientation="portrait" />
@@ -53,9 +68,7 @@
         <activity
             android:name=".Chart_List"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Dashboard"
-            android:screenOrientation="portrait" />
+        <activity android:name=".Dashboard" />
         <activity
             android:name=".Sheet_1"
             android:screenOrientation="portrait" />
@@ -87,7 +100,7 @@
             android:name=".chart"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Login"
+            android:name=".FirstScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

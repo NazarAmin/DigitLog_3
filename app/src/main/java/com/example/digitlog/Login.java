@@ -44,13 +44,12 @@ public class Login extends AppCompatActivity {
     boolean isEmailValid, isPasswordValid;
     TextInputLayout emailError, passError;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
 
+        mAuth = FirebaseAuth.getInstance();
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
@@ -77,8 +76,11 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // redirect to RegisterActivity
+
                Intent intent = new Intent(getApplicationContext(), register.class);
                startActivity(intent);
+             //  Toast.makeText(getApplicationContext(), "Please call admin for adding new user", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -123,6 +125,8 @@ public class Login extends AppCompatActivity {
 
 
                 }else{
+                    progressBar.setVisibility(View.GONE);
+
                     Toast.makeText(getApplicationContext(), "Failed! Please check credentials", Toast.LENGTH_SHORT).show();
                 }
             }
