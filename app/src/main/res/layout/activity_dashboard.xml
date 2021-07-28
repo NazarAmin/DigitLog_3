@@ -14,45 +14,61 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:elevation="20dp"
             android:orientation="vertical">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
+                android:layout_marginTop="10dp"
                 >
 
                 <TextView
                     android:id="@+id/tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Digit Log Dashboard"
+                    android:text="Log Sheet Dashboard"
+                    android:fontFamily="@font/microbrew_soft_one_inline"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:textColor="#2144F3"
                     android:textSize="24sp"></TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv1"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="6 Items"
-                    android:textColor="#52BAFF"
-                    android:id="@+id/test2"
-                    android:textSize="12sp"></TextView>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_marginLeft="2dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="25dp"
                     android:layout_marginRight="2dp"
-                    android:layout_below="@id/test2"
+                    android:layout_below="@id/tv1"
                     android:background="#7E000000" />
 
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_height="50dp"
+
+                    android:layout_centerVertical="true"
+                    android:onClick="go_home"
+                    android:layout_toLeftOf="@id/sign_out"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/home_image"
+                    android:src="@drawable/home"
+                    ></ImageView>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:onClick="go_out"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/sign_out"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/sign_out"
+                    ></ImageView>
             </RelativeLayout>
 
             <GridLayout
@@ -110,7 +126,6 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginTop="7dp"
                             android:layout_marginRight="2dp"
-                            android:layout_below="@id/test"
                             android:background="#7E000000" />
                         <ImageView
                             android:layout_width="80dp"
@@ -169,7 +184,6 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginTop="7dp"
                             android:layout_marginRight="2dp"
-                            android:layout_below="@id/test"
                             android:background="#7E000000" />
                         <ImageView
                             android:layout_width="80dp"
@@ -234,7 +248,6 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginTop="7dp"
                             android:layout_marginRight="2dp"
-                            android:layout_below="@id/test"
                             android:background="#7E000000" />
                         <ImageView
                             android:layout_width="80dp"
@@ -293,7 +306,6 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginTop="7dp"
                             android:layout_marginRight="2dp"
-                            android:layout_below="@id/test"
                             android:background="#7E000000" />
                         <ImageView
                             android:layout_width="80dp"
@@ -352,7 +364,6 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginTop="7dp"
                             android:layout_marginRight="2dp"
-                            android:layout_below="@id/test"
                             android:background="#7E000000" />
                         <ImageView
                             android:layout_width="80dp"
@@ -410,7 +421,6 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginTop="7dp"
                             android:layout_marginRight="2dp"
-                            android:layout_below="@id/test"
                             android:background="#7E000000" />
                         <ImageView
                             android:layout_width="80dp"

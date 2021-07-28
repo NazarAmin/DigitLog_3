@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,13 +33,32 @@ String engine, user;
 String datetime;
 EditText esdescription;
 E_Status e_status;
-Dialog dialog;
+Dialog dialog, dialog2;
 String Current_Status, radioButtonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_engine_status);
+
+        dialog2 = new Dialog(EngineStatus.this);
+        dialog2.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok2 = dialog2.findViewById(R.id.save);
+        Button cancel2 = dialog2.findViewById(R.id.cancel);
+        ok2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                EngineStatus.this.finishAffinity();
+            }
+        });
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         update = (Button) findViewById(R.id.update);
         radioGroup = (RadioGroup) findViewById(R.id.rg);
@@ -145,5 +165,14 @@ String Current_Status, radioButtonId;
             dialog.dismiss();
             this.finish();
         }
+    }
+
+    public void go_home(View view) {
+        startActivity(new Intent(EngineStatus.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
+
     }
 }

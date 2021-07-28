@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.util.EventLogTags;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -61,7 +63,7 @@ public class chart extends AppCompatActivity {
     LineData lineData = new LineData();
     ArrayList<Date> name = new ArrayList<Date>();
     List<Integer> colors = new ArrayList<Integer>();
-
+    Dialog dialog;
     int k = 0;
 
 
@@ -69,7 +71,27 @@ public class chart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
-        home_button = (Button) findViewById(R.id.home_button);
+
+
+        dialog = new Dialog(chart.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                chart.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
 
         Data_of_Temp = (LineChart) findViewById(R.id.Data_of_Temp);
         String[] colorsTxt = getApplicationContext().getResources().getStringArray(R.array.colors55);
@@ -80,12 +102,7 @@ public class chart extends AppCompatActivity {
         }
 
 
-        home_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(chart.this, New_Engine_Dash.class));
-            }
-        });
+
 
 // Adding lists
         ArrayList<String> sheet1 = new ArrayList<>();
@@ -624,6 +641,15 @@ public class chart extends AppCompatActivity {
         return random.ints(min, max)
                 .findFirst()
                 .getAsInt();
+    }
+
+    public void go_home(View view) {
+        startActivity(new Intent(chart.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
+
     }
 }
 

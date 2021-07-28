@@ -72,6 +72,7 @@ public class Trip_Activity extends AppCompatActivity  {
     Trip_Class trip_class;
     ImageView image;
     String checkchoise;
+    Dialog dialog2;
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
     String currentdateandTime = sdf.format(new Date());
@@ -80,6 +81,27 @@ public class Trip_Activity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_);
+
+
+        dialog2 = new Dialog(Trip_Activity.this);
+        dialog2.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok2 = dialog2.findViewById(R.id.save);
+        Button cancel2 = dialog2.findViewById(R.id.cancel);
+        ok2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Trip_Activity.this.finishAffinity();
+            }
+        });
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog2.dismiss();
+            }
+        });
+
 
         radioGroup = (RadioGroup) findViewById(R.id.rg);
 
@@ -277,7 +299,18 @@ public class Trip_Activity extends AppCompatActivity  {
     }
 
 
+
+    public void go_home(View view) {
+        startActivity(new Intent(Trip_Activity.this, Dashboard_Engines.class));
     }
+
+    public void go_out(View view) {
+        dialog2.show();
+
+    }
+
+
+}
 
 
 

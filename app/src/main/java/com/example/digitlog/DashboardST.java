@@ -2,11 +2,14 @@ package com.example.digitlog;
 
         import androidx.appcompat.app.AppCompatActivity;
 
+        import android.app.Dialog;
         import android.content.Intent;
         import android.graphics.Color;
         import android.os.Bundle;
         import android.util.Log;
         import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
         import android.widget.ImageView;
         import android.widget.LinearLayout;
         import android.widget.TextView;
@@ -38,11 +41,32 @@ public class DashboardST extends AppCompatActivity {
     String general_admin = GlobalClass.general_admin;
     String current_engine_focal_name;
     ImageView sim_1,sim_2;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_s_t);
+        dialog = new Dialog(DashboardST.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DashboardST.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
         tv3 = (TextView) findViewById(R.id.tv1);
         //prob = (LinearLayout) findViewById(R.id.problems);
         // charts = (LinearLayout) findViewById(R.id.charts);
@@ -194,6 +218,14 @@ public class DashboardST extends AppCompatActivity {
             });
 
         }
+
+    }
+    public void go_home(View view) {
+        startActivity(new Intent(DashboardST.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
 
     }
 }

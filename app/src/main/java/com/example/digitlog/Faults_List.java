@@ -1,10 +1,12 @@
 package com.example.digitlog;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -41,12 +46,34 @@ public class Faults_List extends AppCompatActivity implements MyRecyclerViewAdap
         ArrayList<String> user = new ArrayList<>();
         ArrayList<String> comment = new ArrayList<>();
         ArrayList<String> category = new ArrayList<>();
+        ArrayList<String> images = new ArrayList<>();
+        private StorageReference storageRef;
+        Dialog dialog;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faults__list);
         recyclerView = (RecyclerView) findViewById(R.id.rvAnimals2);
+
+        dialog = new Dialog(Faults_List.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                        Faults_List.this.finishAffinity();
+                }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        dialog.dismiss();
+                }
+        });
 
         editText = (EditText) findViewById(R.id.edittext);
 
@@ -75,6 +102,7 @@ protected void onCreate(Bundle savedInstanceState) {
                                 user.add(faults_trips.getUser_2());
                                 comment.add(faults_trips.getComment());
                                 category.add(faults_trips.getCategory());
+                                images.add(faults_trips.getImage_name());
                         }
 
                         ArrayList<String> name_string = new ArrayList<String>();
@@ -88,7 +116,7 @@ protected void onCreate(Bundle savedInstanceState) {
                         mExampleList = new ArrayList<>();
 
                         for (i = (category.size() - 1); i>=0 ; i--){
-                                mExampleList.add(new Faults_Trips(category.get(i), urgency.get(i), user.get(i), comment.get(i), name_string.get(i)));
+                                mExampleList.add(new Faults_Trips(category.get(i), urgency.get(i), user.get(i), comment.get(i), name_string.get(i), images.get(i)));
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         try {
@@ -146,14 +174,29 @@ protected void onCreate(Bundle savedInstanceState) {
         @Override
         public void onItemClick(View view, int position) {
 
-        /*
-        Intent secondActivity = new Intent(Faults_List.this, Dashboard_problem.class);
+                String image_location = adapter.getItem4(images, images.size()-1 - position);
+                System.out.println(image_location + "############################################# ////////");
+                System.out.println(position + "############################################# ////////");
+                Intent i = new Intent(Faults_List.this, Fault_Trip_Image.class);
+                i.putExtra("Loc", image_location + ".jpeg");
+                startActivity(i);
 
-                secondActivity.putExtra("Categoy", adapter.getItem(category, position));
-                secondActivity.putExtra("description", adapter.getItem2(urgency, position));
-                secondActivity.putExtra("comment", adapter.getItem3(comment, position));
+               /**
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
 
-                startActivity(secondActivity);
-*/
+
+                storageRef = FirebaseStorage.getInstance().getReference();
+
+                StorageReference pathReference = storageRef.child(image_location + ".JPEG");
+**/
                 }
+        public void go_home(View view) {
+                startActivity(new Intent(Faults_List.this, Dashboard_Engines.class));
+        }
+
+        public void go_out(View view) {
+                dialog.show();
+
+        }
         }

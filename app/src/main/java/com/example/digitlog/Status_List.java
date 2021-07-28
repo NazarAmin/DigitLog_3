@@ -1,11 +1,13 @@
 
 package com.example.digitlog;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,12 +43,32 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
     ArrayList<String> user = new ArrayList<>();
     ArrayList<String> comment = new ArrayList<>();
     ArrayList<Date> name = new ArrayList<>();
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status__list);
         recyclerView = (RecyclerView) findViewById(R.id.rvAnimals4);
+
+        dialog = new Dialog(Status_List.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Status_List.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         editText = (EditText) findViewById(R.id.edittext);
 
@@ -191,6 +213,15 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    public void go_home(View view) {
+        startActivity(new Intent(Status_List.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
 
     }
 }

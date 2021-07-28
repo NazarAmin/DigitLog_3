@@ -5,14 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/mydrawerlayout"
     android:background="@color/white"
     android:gravity="center"
-    tools:context=".Dashboard_chart">
+    android:orientation="vertical"
+    tools:context=".Reports_Activity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,7 +27,7 @@
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Visualization"
+                android:text="Reports"
                 android:fontFamily="@font/microbrew_soft_one_inline"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
@@ -69,160 +72,125 @@
         </RelativeLayout>
 
         <GridLayout
-            android:columnOrderPreserved="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alignmentMode="alignMargins"
-            android:paddingTop="40dp"
-            android:columnCount="2"
-            android:rowCount="3"
-            >
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet2"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/visualization"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Trends"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet9"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/ic_baseline_warning_24"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Trips Log"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet10"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/ic_baseline_auto_stories_24"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Status Log"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            android:columnCount="1"
+            android:paddingTop="10dp"
+            android:rowCount="3">
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
                 android:layout_margin="15dp"
-                >
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
 
                 <LinearLayout
                     android:id="@+id/sheet1"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/faults"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Faults Log"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Engine Parameters"
+                        android:fontFamily="@font/microbrew_soft_one_inline"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
 
-                        ></TextView>
+            </androidx.cardview.widget.CardView>
 
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+
+                <LinearLayout
+                    android:id="@+id/sheet2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:text="Operators Handover"
+                        android:fontFamily="@font/microbrew_soft_one_inline"
+                        android:textSize="30dp"
+                        />
+
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+
+                <LinearLayout
+                    android:id="@+id/sheet3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Faults Report"
+                        android:fontFamily="@font/microbrew_soft_one_inline"
+                        android:textSize="30dp"
+                        />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -230,42 +198,82 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
                 android:layout_margin="15dp"
-                >
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
 
                 <LinearLayout
-                    android:id="@+id/sheet3"
-                    android:orientation="vertical"
+                    android:id="@+id/sheet4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/handover"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Reports"
-
-                        ></TextView>
-
-
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Trips Report"
+                        android:fontFamily="@font/microbrew_soft_one_inline"
+                        android:textSize="30dp"
+                        />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-        </GridLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
+
+                <LinearLayout
+                    android:id="@+id/sheet5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="Engine Status Report"
+                        android:fontFamily="@font/microbrew_soft_one_inline"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
 
     </LinearLayout>
 
 </ScrollView>
+
+    <!--this the navigation view which draws
+and shows the navigation drawer-->
+

@@ -1,10 +1,12 @@
 package com.example.digitlog;
 
+        import android.app.Dialog;
         import android.content.Intent;
         import android.os.Bundle;
         import android.text.Editable;
         import android.text.TextWatcher;
         import android.view.View;
+        import android.view.ViewGroup;
         import android.widget.Adapter;
         import android.widget.Button;
         import android.widget.EditText;
@@ -44,13 +46,32 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
     ArrayList<String> alarms = new ArrayList<>();
     ArrayList<Date> name = new ArrayList<>();
     ArrayList<String> name_2 = new ArrayList<>();
-
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips_list);
         recyclerView = (RecyclerView) findViewById(R.id.rvAnimals9);
+
+        dialog = new Dialog(TripsList.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TripsList.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         editText = (EditText) findViewById(R.id.edittext);
 
@@ -196,6 +217,14 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+    public void go_home(View view) {
+        startActivity(new Intent(TripsList.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
 
     }
 }

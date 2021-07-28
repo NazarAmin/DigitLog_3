@@ -48,8 +48,9 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     String Categoy, description, cat;
     Spinner spinner;
     Spinner spinner2;
-    Dialog dialog;
+    Dialog dialog, dialog2;
     String conseq;
+    String current_date;
 
 
     private Uri mImageUri = null;
@@ -70,8 +71,30 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_problems);
+
+        dialog2 = new Dialog(Dashboard_problem.this);
+        dialog2.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok2 = dialog2.findViewById(R.id.save);
+        Button cancel2 = dialog2.findViewById(R.id.cancel);
+        ok2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Dashboard_problem.this.finishAffinity();
+            }
+        });
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog2.dismiss();
+            }
+        });
+
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner2 = (Spinner) findViewById(R.id.spinner_c);
+
+        current_date = sdf.format(new Date()).trim();
 
         dialog = new Dialog(Dashboard_problem.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);
@@ -163,35 +186,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
 
     }
 
-    /**
-    public void Upload_image(View v) {
 
-        final String title_val = "Test";//mPostTitle.getText().toString().trim();
-        final String desc_val = "Trial"; // mPostDesc.getText().toString().trim();
-        if (!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(desc_val) && mImageUri != null) {
-
-            StorageReference filepath = storageRef.child("Faults_Trips/" + engine + "/" + sdf.format(new Date()).trim()).child(mImageUri.getLastPathSegment());
-
-            filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                   // Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    Uri downloadUrl = taskSnapshot.getUploadSessionUri();
-
-                    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                    DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
-
-                    DatabaseReference newPost = ref2.child("Category").push();
-                    newPost.child(GlobalClass.Faults_Category + "/" + sdf.format(new Date()).trim()).setValue(downloadUrl.toString());
-
-
-                    //startActivity(new Intent(simpleblog2.emily.example.com.simpleblog2.PostActivity.this, MainActivity.class));
-                }
-            });
-        }
-
-    }
-**/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -234,6 +229,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         uploadToFirebase(bb);
 
     }
+    //   storageRef.getName()
 
     public void save_function(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -245,7 +241,8 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
             t_co = "NSet";
         }
 
-        faults_trips = new Faults_Trips(cat, conseq,user_2, t_co, sdf.format(new Date()).trim());
+        faults_trips = new Faults_Trips(cat, conseq,user_2, t_co, sdf.format(new Date()).trim(), "Faults_Trips/" + engine + "/" +
+                GlobalClass.Faults_Category + "/" + current_date);
 
         ref2.child(sdf.format(new Date()).trim()).setValue(faults_trips);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
@@ -255,23 +252,12 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
 
     private void uploadToFirebase(byte[] bb) {
         StorageReference filepath = storageRef.child("Faults_Trips/" + engine + "/" +
-                GlobalClass.Faults_Category + "/" + sdf.format(new Date()).trim());
+                GlobalClass.Faults_Category + "/" + current_date + ".jpeg");
 
         filepath.putBytes(bb).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                /**Uri downloadUrl = taskSnapshot.getUploadSessionUri();
 
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
-
-                DatabaseReference newPost = ref2.child("blog").push();
-                newPost.child("title").setValue(title_val);
-                newPost.child("desc").setValue(desc_val);
-                newPost.child("image").setValue(downloadUrl.toString());
-                 //startActivity(new Intent(simpleblog2.emily.example.com.simpleblog2.PostActivity.this, MainActivity.class));
-            */
                 Toast.makeText(Dashboard_problem.this, "Successfully !", Toast.LENGTH_LONG).show();
 
             }
@@ -281,6 +267,9 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
                 Toast.makeText(Dashboard_problem.this, "Failed !", Toast.LENGTH_LONG).show();
             }
         });
+        String image_url = filepath.getDownloadUrl().toString();
+        System.out.println(image_url);
+
 
     }
 
@@ -324,17 +313,13 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         }
 
     }
+    public void go_home(View view) {
+        startActivity(new Intent(Dashboard_problem.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog2.show();
+
+    }
+
 }
-
-/**
- *
- * Get the images from Database
- StorageReference pathReference = storageRef.child("images/stars.jpg");
-
- // Create a reference to a file from a Cloud Storage URI
- StorageReference gsReference = storage.getReferenceFromUrl("gs://bucket/images/stars.jpg");
-
- // Create a reference from an HTTPS URL
- // Note that in the URL, characters are URL escaped!
- StorageReference httpsReference = storage.getReferenceFromUrl("https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg");
- */

@@ -3,9 +3,12 @@ package com.example.digitlog;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +25,7 @@ public class DataEntry extends AppCompatActivity {
     LinearLayout status, handover, sheet1, sheet2, sheet9;
     TextView engine_pic;
     String actual_user;
+    Dialog dialog;
     String engine = GlobalClass.engine_number;
     String arr[] = {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain"};
 
@@ -29,6 +33,27 @@ public class DataEntry extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_entry);
+
+
+
+        dialog = new Dialog(DataEntry.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DataEntry.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet9 = (LinearLayout) findViewById(R.id.sheet9);
@@ -180,5 +205,15 @@ public class DataEntry extends AppCompatActivity {
             }
         });
             }
+
+    public void go_home(View view) {
+        startActivity(new Intent(DataEntry.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
+
+    }
+
 
 }

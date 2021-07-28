@@ -5,12 +5,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,6 +46,7 @@ public class Dashboard extends AppCompatActivity {
     String general_admin = GlobalClass.general_admin;
     String current_engine_focal_name;
     ImageView im_1,im_2,im_3,im_4,im_5,im_6;
+    Dialog dialog;
 
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
@@ -51,6 +55,26 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+
+        dialog = new Dialog(Dashboard.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Dashboard.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
@@ -337,5 +361,14 @@ public class Dashboard extends AppCompatActivity {
 
     }
 
+
+    public void go_home(View view) {
+        startActivity(new Intent(Dashboard.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog.show();
+
+    }
 
 }

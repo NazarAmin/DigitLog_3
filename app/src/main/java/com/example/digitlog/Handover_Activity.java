@@ -38,13 +38,32 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
     TextView PIC;
     Handover_c handover_c;
     String general_admin = "admin";
-    Dialog dialog;
+    Dialog dialog, dialog2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handover_);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+        dialog2 = new Dialog(Handover_Activity.this);
+        dialog2.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok2 = dialog2.findViewById(R.id.save);
+        Button cancel2 = dialog2.findViewById(R.id.cancel);
+        ok2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Handover_Activity.this.finishAffinity();
+            }
+        });
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog2.dismiss();
+            }
+        });
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spinner);
@@ -175,5 +194,13 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
+    }
+    public void go_home(View view) {
+        startActivity(new Intent(Handover_Activity.this, Dashboard_Engines.class));
+    }
+
+    public void go_out(View view) {
+        dialog2.show();
+
     }
 }

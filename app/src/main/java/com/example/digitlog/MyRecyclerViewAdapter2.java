@@ -120,6 +120,10 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
         //return mExampleList.get(id);
         return category2.get(id);
     }
+    String getItem4(List<String> category2,int id) {
+        //return mExampleList.get(id);
+        return category2.get(id);
+    }
 
     // allows clicks events to be caught
     void setClickListener(ItemClickListener itemClickListener) {

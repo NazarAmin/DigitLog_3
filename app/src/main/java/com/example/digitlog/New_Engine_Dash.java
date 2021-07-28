@@ -3,9 +3,12 @@ package com.example.digitlog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -21,12 +24,32 @@ public class New_Engine_Dash extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     String engine;
     ImageView home;
+    Dialog dialog;
     String current_user;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new__engine__dash);
+
+        dialog = new Dialog(New_Engine_Dash.this);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok = dialog.findViewById(R.id.save);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                New_Engine_Dash.this.finishAffinity();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         //engine = GlobalClass.engine_number;
         //current_user = GlobalClass.actual_user_name;
@@ -89,6 +112,15 @@ public class New_Engine_Dash extends AppCompatActivity {
 
 
             }
+            public void go_home(){
+                startActivity(new Intent(New_Engine_Dash.this, Dashboard_Engines.class));
+            }
+
+
+    public void go_out(View view) {
+        dialog.show();
+
+    }
 
     }
 

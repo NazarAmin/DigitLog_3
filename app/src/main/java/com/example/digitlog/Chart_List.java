@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,13 +28,34 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
         EditText chart_search;
         ArrayList<String> mExampleList = new ArrayList<>();
         ArrayList<String> chart_params2 = new ArrayList<>();
+        Dialog dialog;
 
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart__list);
+
         chart_search = (EditText) findViewById(R.id.chart_search);
+
+                dialog = new Dialog(Chart_List.this);
+                dialog.setContentView(R.layout.custom_dialoge_feedback2);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                Button ok = dialog.findViewById(R.id.save);
+                Button cancel = dialog.findViewById(R.id.cancel);
+                ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                                Chart_List.this.finishAffinity();
+                        }
+                });
+                cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                dialog.dismiss();
+                        }
+                });
 
         animalNames = new ArrayList<>();
 
@@ -299,6 +322,14 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
 
         @Override
         public void onPointerCaptureChanged(boolean hasCapture) {
+
+        }
+        public void go_home(View view) {
+                startActivity(new Intent(Chart_List.this, Dashboard_Engines.class));
+        }
+
+        public void go_out(View view) {
+                dialog.show();
 
         }
 }
