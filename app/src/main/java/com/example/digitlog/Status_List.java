@@ -217,7 +217,7 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
     }
 
     public void go_home(View view) {
-        startActivity(new Intent(Status_List.this, Dashboard_Engines.class));
+        startActivity(new Intent(Status_List.this, Blocks.class));
     }
 
     public void go_out(View view) {

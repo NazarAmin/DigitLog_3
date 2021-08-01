@@ -41,9 +41,9 @@ public class Status_Reports extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/" + engine + " Status Report " + sdf.format(new Date()) + ".xls");
-    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log");
-    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports";
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Status/" + engine + " Status Report " + sdf.format(new Date()) + ".xls");
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Engine Status");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Engine Status";
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
     @Override
@@ -81,7 +81,7 @@ public class Status_Reports extends AppCompatActivity {
         HSSFSheet hssfSheet = hssfWorkbook.createSheet("Engine Status Report");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Status_Histroy");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Status_History");
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -148,7 +148,7 @@ public class Status_Reports extends AppCompatActivity {
                         if (!filePath.exists()) {
 
                             filePath.mkdirs();
-                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Engine Status");
                             if (!f1.exists()) {
                                 f1.mkdirs();
                                 FileOutputStream fileOutputStream = new FileOutputStream(filePath2);

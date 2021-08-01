@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
 
                Intent intent = new Intent(getApplicationContext(), register.class);
                startActivity(intent);
-             //  Toast.makeText(getApplicationContext(), "Please call admin for adding new user", Toast.LENGTH_SHORT).show();
+              //Toast.makeText(getApplicationContext(), "Please call admin for adding new user", Toast.LENGTH_SHORT).show();
 
             }
         });

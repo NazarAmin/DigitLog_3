@@ -644,7 +644,7 @@ public class chart extends AppCompatActivity {
     }
 
     public void go_home(View view) {
-        startActivity(new Intent(chart.this, Dashboard_Engines.class));
+        startActivity(new Intent(chart.this, Blocks.class));
     }
 
     public void go_out(View view) {

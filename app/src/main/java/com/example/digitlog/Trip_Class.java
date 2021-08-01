@@ -2,18 +2,27 @@ package com.example.digitlog;
 
 public class Trip_Class {
 
-    String load, datetime, fuel, user_2, comment, alarms;
+    String load, datetime, fuel, user_2, comment, alarms, image_name;
 
-    public Trip_Class(String load, String fuel, String user_2, String comment,String datetime, String alarms) {
+    public Trip_Class(String load, String fuel, String user_2, String comment,String datetime, String alarms, String image_name) {
         this.load = load;
         this.user_2 = user_2;
         this.comment = comment;
         this.fuel = fuel;
         this.datetime = datetime;
         this.alarms = alarms;
+        this.image_name = image_name;
     }
 
     public Trip_Class() {
+    }
+
+    public String getImage_name() {
+        return image_name;
+    }
+
+    public void setImage_name(String image_name) {
+        this.image_name = image_name;
     }
 
     public String getLoad() {

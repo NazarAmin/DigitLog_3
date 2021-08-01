@@ -192,7 +192,7 @@ protected void onCreate(Bundle savedInstanceState) {
 **/
                 }
         public void go_home(View view) {
-                startActivity(new Intent(Faults_List.this, Dashboard_Engines.class));
+                startActivity(new Intent(Faults_List.this, Blocks.class));
         }
 
         public void go_out(View view) {

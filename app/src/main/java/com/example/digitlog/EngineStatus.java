@@ -168,7 +168,7 @@ String Current_Status, radioButtonId;
     }
 
     public void go_home(View view) {
-        startActivity(new Intent(EngineStatus.this, Dashboard_Engines.class));
+        startActivity(new Intent(EngineStatus.this, Blocks.class));
     }
 
     public void go_out(View view) {

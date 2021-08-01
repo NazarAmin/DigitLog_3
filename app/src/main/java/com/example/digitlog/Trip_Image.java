@@ -1,17 +1,16 @@
 package com.example.digitlog;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class Fault_Trip_Image extends AppCompatActivity {
+public class Trip_Image extends AppCompatActivity {
     private StorageReference storageRef;
     ImageView image_work;
     String engine;
@@ -29,7 +28,7 @@ public class Fault_Trip_Image extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fault__trip__image);
 
-        dialog = new Dialog(Fault_Trip_Image.this);
+        dialog = new Dialog(Trip_Image.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         Button ok = dialog.findViewById(R.id.save);
@@ -38,7 +37,7 @@ public class Fault_Trip_Image extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Fault_Trip_Image.this.finishAffinity();
+                Trip_Image.this.finishAffinity();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +51,7 @@ public class Fault_Trip_Image extends AppCompatActivity {
         engine = GlobalClass.engine_number;
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/tips_log");
 
 
         String newString;
@@ -82,7 +81,7 @@ public class Fault_Trip_Image extends AppCompatActivity {
     }
 
     public void go_home(View view) {
-        startActivity(new Intent(Fault_Trip_Image.this, Blocks.class));
+        startActivity(new Intent(Trip_Image.this, Blocks.class));
     }
 
     public void go_out(View view) {

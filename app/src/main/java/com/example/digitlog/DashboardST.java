@@ -42,6 +42,8 @@ public class DashboardST extends AppCompatActivity {
     String current_engine_focal_name;
     ImageView sim_1,sim_2;
     Dialog dialog;
+    String actual_user;
+    String arr[] = {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +96,16 @@ public class DashboardST extends AppCompatActivity {
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
+
+
+                    //    current_engine_focal_name = dataSnapshot.getValue(String.class);
+                     //   GlobalClass.current_engine_focal = current_engine_focal_name;
+                     //   if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
                             startActivity(new Intent(DashboardST.this, Sheet7.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -114,9 +123,14 @@ public class DashboardST extends AppCompatActivity {
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
+
+                      //  current_engine_focal_name = dataSnapshot.getValue(String.class);
+                    //    GlobalClass.current_engine_focal = current_engine_focal_name;
+                   //     if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
                             startActivity(new Intent(DashboardST.this, Sheet8.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -221,7 +235,7 @@ public class DashboardST extends AppCompatActivity {
 
     }
     public void go_home(View view) {
-        startActivity(new Intent(DashboardST.this, Dashboard_Engines.class));
+        startActivity(new Intent(DashboardST.this, Blocks.class));
     }
 
     public void go_out(View view) {

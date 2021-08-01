@@ -34,16 +34,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class Faults_Reports extends AppCompatActivity {
+public class Mid_Night_Report extends AppCompatActivity {
 
     //private EditText editTextExcel;
     ArrayList<String> name = new ArrayList<>();
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Faults/" + engine + " Faults Report " + sdf.format(new Date()) + ".xls");
-    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Faults");
-    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Faults";
+
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Mid Night/" + engine + " Mid_Night Report " + sdf.format(new Date()) + ".xls");
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Mid Nigh");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Mid Nigh";
+
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
     @Override
@@ -78,10 +80,10 @@ public class Faults_Reports extends AppCompatActivity {
 
     private void getDatawork(){
 
-        HSSFSheet hssfSheet = hssfWorkbook.createSheet("Faults Report");
+        HSSFSheet hssfSheet = hssfWorkbook.createSheet("MidNight Report");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/mid_night");
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -114,37 +116,48 @@ public class Faults_Reports extends AppCompatActivity {
                 HSSFCell hssfCell1 = hssfRow2.createCell(0);
                 hssfCell1.setCellValue("Date");
                 HSSFCell hssfCell2 = hssfRow2.createCell(1);
-                hssfCell2.setCellValue("Category");
+                hssfCell2.setCellValue("Cumulative Generation GWH");
                 HSSFCell hssfCell3 = hssfRow2.createCell(2);
-                hssfCell3.setCellValue("Consequences");
+                hssfCell3.setCellValue("Fuel Consumption Tons");
+                hssfCell3.setCellValue("Fuel");
                 HSSFCell hssfCell4 = hssfRow2.createCell(3);
-                hssfCell4.setCellValue("Operator");
+                hssfCell4.setCellValue("HP Filter bar");
                 HSSFCell hssfCell5 = hssfRow2.createCell(4);
-                hssfCell5.setCellValue("Description");
-
+                hssfCell5.setCellValue("LP Filter bar");
+                HSSFCell hssfCell6 = hssfRow2.createCell(5);
+                hssfCell6.setCellValue("Duplex Filter bar");
+                HSSFCell hssfCell7 = hssfRow2.createCell(6);
+                hssfCell7.setCellValue("Duplex Side");
 
                 if (dataSnapshot.hasChildren()) {
-
                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                        Faults_Trips data = mydatasnapshot.getValue(Faults_Trips.class);
+                        Mid_Night_Class data = mydatasnapshot.getValue(Mid_Night_Class.class);
 
                         HSSFRow hssfRow = hssfSheet.createRow(i + 1);
-
                         HSSFCell hssfCell = hssfRow.createCell(0);
                         hssfCell.setCellValue(name.get(i));
 
+
                         HSSFCell col2 = hssfRow.createCell(1);
-                        col2.setCellValue(String.valueOf(data.getCategory()));
+                        col2.setCellValue(String.valueOf(data.getGen()));
 
                         HSSFCell col3 = hssfRow.createCell(2);
-                        col3.setCellValue(String.valueOf(data.getUrgency()));
+                        col3.setCellValue(String.valueOf(data.getFuel()));
+
 
                         HSSFCell col4 = hssfRow.createCell(3);
-                        col4.setCellValue(String.valueOf(data.getUser_2()));
+                        col4.setCellValue(String.valueOf(data.getHp()));
 
                         HSSFCell col5 = hssfRow.createCell(4);
-                        col5.setCellValue(String.valueOf(data.getComment()));
+                        col5.setCellValue(String.valueOf(data.getLp()));
+
+                        HSSFCell col6 = hssfRow.createCell(5);
+                        col6.setCellValue(String.valueOf(data.getDf()));
+
+                        HSSFCell col7 = hssfRow.createCell(6);
+                        col7.setCellValue(String.valueOf(data.getDs()));
+
 
                         i = i + 1;
 
@@ -154,12 +167,13 @@ public class Faults_Reports extends AppCompatActivity {
                         if (!filePath.exists()) {
 
                             filePath.mkdirs();
-                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Faults");
+                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Mid Night");
                             if (!f1.exists()) {
                                 f1.mkdirs();
                                 FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
 
                                 hssfWorkbook.write(fileOutputStream);
+
 
                                 if (fileOutputStream != null) {
 
@@ -189,7 +203,7 @@ public class Faults_Reports extends AppCompatActivity {
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
-                        startActivity(new Intent(Faults_Reports.this, Dashboard_chart.class));
+                        startActivity(new Intent(Mid_Night_Report.this, Dashboard_chart.class));
                     }
 
                 }
@@ -209,7 +223,7 @@ public class Faults_Reports extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
 
-        Uri photoURI = FileProvider.getUriForFile(getApplicationContext(), Faults_Reports.this.getApplicationContext().getPackageName() + ".provider", filePath2);
+        Uri photoURI = FileProvider.getUriForFile(getApplicationContext(), Mid_Night_Report.this.getApplicationContext().getPackageName() + ".provider", filePath2);
         Toast.makeText(getApplicationContext(), "Excel file saved in: " + file_path_string, Toast.LENGTH_LONG).show();
 
         intent.setDataAndType(photoURI,"application/vnd.ms-excel");

@@ -113,7 +113,7 @@ public class New_Engine_Dash extends AppCompatActivity {
 
             }
             public void go_home(){
-                startActivity(new Intent(New_Engine_Dash.this, Dashboard_Engines.class));
+                startActivity(new Intent(New_Engine_Dash.this, Blocks.class));
             }
 
 

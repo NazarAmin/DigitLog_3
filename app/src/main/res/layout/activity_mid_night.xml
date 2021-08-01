@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MidNight">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MidNight Data"
+                android:fontFamily="@font/microbrew_soft_one_inline"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:textColor="#2144F3"
+                android:textSize="24sp"></TextView>
+            <TextView
+                android:id="@+id/engine_n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Engine_1"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv1"
+                android:textColor="@color/white"
+                android:textSize="24sp"></TextView>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="2dp"
+                android:layout_below="@id/tv1"
+                android:background="#7E000000" />
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_marginTop="0dp"
+                android:layout_height="50dp"
+
+                android:layout_centerVertical="true"
+                android:onClick="go_home"
+                android:layout_toLeftOf="@id/sign_out"
+                android:layout_marginRight="20dp"
+                android:id="@+id/home_image"
+                android:src="@drawable/home"
+                ></ImageView>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:onClick="go_out"
+                android:layout_marginRight="20dp"
+                android:id="@+id/sign_out"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/sign_out"
+                ></ImageView>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scroll2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            >
+            <LinearLayout
+                android:paddingTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Generation and Consumption Data:"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="#252DEC"
+                    >
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Total Accumulated Generation"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    >
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:inputType="number|numberDecimal|numberSigned"
+                        android:id="@+id/generation_MN"
+                        />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Gwh"
+                        android:layout_marginLeft="30dp"
+                        ></TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Fuel Consumption"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    >
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:inputType="number|numberDecimal|numberSigned"
+                        android:id="@+id/fuel_MN"
+                        />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="Tons"
+                        android:layout_marginLeft="30dp"
+                        ></TextView>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filter Data:"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="#3651FF"
+                    >
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="HP Filter"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    >
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:inputType="number|numberDecimal|numberSigned"
+                        android:id="@+id/hp_MN"
+                        />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bar"
+                        android:layout_marginLeft="30dp"
+                        ></TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="LP Filter"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    >
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:inputType="number|numberDecimal|numberSigned"
+                        android:id="@+id/lp_MN"
+                        />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bar"
+                        android:layout_marginLeft="30dp"
+                        ></TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Duplix Filter"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    >
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:inputType="number|numberDecimal|numberSigned"
+                        android:id="@+id/df_MN"
+                        />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bar"
+                        android:layout_marginLeft="30dp"
+                        ></TextView>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    android:text="Duplex Side"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rg">
+
+                        <RadioButton
+                            android:id="@+id/bl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:checked="true"
+                            android:text="Side A"
+
+                            />
+                        <RadioButton
+                            android:id="@+id/pl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:checked="false"
+                            android:text="Side B"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:text="save"
+                    android:textStyle="bold"
+                    android:id="@+id/sub_btn"
+                    tools:ignore="OnClick"></Button>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -196,7 +196,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         // TODO Auto-generated method stub
     }
     public void go_home(View view) {
-        startActivity(new Intent(Handover_Activity.this, Dashboard_Engines.class));
+        startActivity(new Intent(Handover_Activity.this, Blocks.class));
     }
 
     public void go_out(View view) {

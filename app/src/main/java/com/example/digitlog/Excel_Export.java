@@ -46,10 +46,10 @@ public class Excel_Export extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/" + engine + " Parameters Report " + sdf.format(new Date()) + ".xls");
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Parameters/" + engine + " Parameters Report " + sdf.format(new Date()) + ".xls");
 
-    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log");
-    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports";
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Engine Parameters");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Engine Parameters";
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
     @Override
@@ -293,7 +293,7 @@ public class Excel_Export extends AppCompatActivity {
         int kso = 6;
 
         // String engine = GlobalClass.engine_number;
-        if (engine.equals("Engine_3")){
+        if ((engine.equals("Engine_3")) | (engine.equals("Engine_9"))){
             for (String item : sheets2) {
                 DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + item);
 
@@ -570,7 +570,7 @@ public class Excel_Export extends AppCompatActivity {
                                     if (!filePath.exists()) {
 
                                         filePath.mkdirs();
-                                        File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                                        File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Engine Parameters");
                                         if (!f1.exists()) {
                                             f1.mkdirs();
                                             FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
@@ -613,7 +613,7 @@ public class Excel_Export extends AppCompatActivity {
                                     if (!filePath.exists()) {
 
                                         filePath.mkdirs();
-                                        File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                                        File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Engine Parameters");
                                         if (!f1.exists()) {
                                             f1.mkdirs();
                                             FileOutputStream fileOutputStream = new FileOutputStream(filePath2);

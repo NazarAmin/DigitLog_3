@@ -363,7 +363,7 @@ public class Dashboard extends AppCompatActivity {
 
 
     public void go_home(View view) {
-        startActivity(new Intent(Dashboard.this, Dashboard_Engines.class));
+        startActivity(new Intent(Dashboard.this,Blocks.class));
     }
 
     public void go_out(View view) {

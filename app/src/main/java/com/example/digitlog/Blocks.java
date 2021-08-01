@@ -24,6 +24,7 @@ import java.util.List;
 public class Blocks extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet3;
     float total = 0;
+    float total2 = 0;
     ArrayList<Float> datavals = new ArrayList<Float>();
 
     TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3;
@@ -41,7 +42,7 @@ public class Blocks extends AppCompatActivity {
         mw3 = (TextView) findViewById(R.id.mw3);
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
-        //sheet2 = (LinearLayout) findViewById(R.id.sheet2);
+        sheet2 = (LinearLayout) findViewById(R.id.sheet2);
        // sheet3 = (LinearLayout) findViewById(R.id.sheet3);
 
         sheet1.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +52,7 @@ public class Blocks extends AppCompatActivity {
                 startActivity(new Intent(Blocks.this, Dashboard_Engines.class));
             }
         });
-      /*
+
         sheet2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +61,7 @@ public class Blocks extends AppCompatActivity {
                 startActivity(new Intent(Blocks.this, Dashboard_Engines.class));
             }
         });
-
+/*
         sheet3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,11 +75,11 @@ public class Blocks extends AppCompatActivity {
        coloring_layouts("Engine_1", mw1, "Generation");
        coloring_layouts("Engine_2", mw1, "Generation"); //,"Engine_2","Engine_3"
        coloring_layouts("Engine_3", mw1, "LogSheet20_A"); //,"Engine_2","Engine_3"
-/*
-        coloring_layouts2("Engine_4", mw2); //,"Engine_2","Engine_3"
-        coloring_layouts2("Engine_5", mw2); //,"Engine_2","Engine_3"
-        coloring_layouts2("Engine_6", mw2); //,"Engine_2","Engine_3"
 
+        coloring_layouts2("Engine_7", mw2); //,"Engine_2","Engine_3"
+        coloring_layouts2("Engine_8", mw2); //,"Engine_2","Engine_3"
+        coloring_layouts2("Engine_9", mw2); //,"Engine_2","Engine_3"
+/*
         coloring_layouts3("Engine_7", mw3); //,"Engine_2","Engine_3"
         coloring_layouts3("Engine_8", mw3); //,"Engine_2","Engine_3"
         coloring_layouts3("Engine_9", mw3); //,"Engine_2","Engine_3"
@@ -186,11 +187,16 @@ public class Blocks extends AppCompatActivity {
                     }
                     //noinspection UnusedAssignment
                     try {
-                        total = Float.parseFloat(mw.getText().toString()) + datavals.get(i - 1);
-                        mw.setText(df.format(total));
+                        total2 = Float.parseFloat(mw.getText().toString()) + datavals.get(i - 1);
+                        mw.setText(df.format(total2));
                     } catch (Exception e) {
-                        total = datavals.get(i - 1);
-                        mw.setText(df.format(total));
+                        try{
+                            total2 = datavals.get(i - 1);
+                            mw2.setText(df.format(total2));
+                        }catch (Exception ex){
+                            mw2.setText("----");
+                        }
+
                     }
                 }
             }

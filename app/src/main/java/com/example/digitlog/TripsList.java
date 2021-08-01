@@ -46,6 +46,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
     ArrayList<String> alarms = new ArrayList<>();
     ArrayList<Date> name = new ArrayList<>();
     ArrayList<String> name_2 = new ArrayList<>();
+    ArrayList<String> images = new ArrayList<>();
     Dialog dialog;
 
     @Override
@@ -121,14 +122,15 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                        Trip_Class Trip_Class = mydatasnapshot.getValue(Trip_Class.class);
+                        Trip_Class trip_class = mydatasnapshot.getValue(Trip_Class.class);
 
-                        fuel.add(Trip_Class.getFuel());
-                        user.add(Trip_Class.getUser_2());
-                        comment.add(Trip_Class.getComment());
-                        load.add(Trip_Class.getLoad());
-                        alarms.add(Trip_Class.getAlarms());
-                        name_2.add(Trip_Class.getDatetime());
+                        fuel.add(trip_class.getFuel());
+                        user.add(trip_class.getUser_2());
+                        comment.add(trip_class.getComment());
+                        load.add(trip_class.getLoad());
+                        alarms.add(trip_class.getAlarms());
+                        name_2.add(trip_class.getDatetime());
+                        images.add(trip_class.getImage_name());
                     }
 
                     ArrayList<String> name_string = new ArrayList<String>();
@@ -143,7 +145,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
                     try {
                         for (i = (name_string.size() - 1); i>=0 ; i--){
 
-                            mExampleList.add(new Trip_Class(load.get(i), fuel.get(i), user.get(i), comment.get(i), name_2.get(i), alarms.get(i)));
+                            mExampleList.add(new Trip_Class(load.get(i), fuel.get(i), user.get(i), comment.get(i), name_2.get(i), alarms.get(i), images.get(i)));
                         }
                     }catch (Exception e){
 
@@ -204,15 +206,12 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
     @Override
     public void onItemClick(View view, int position) {
 
-        /*
-        Intent secondActivity = new Intent(Faults_List.this, Dashboard_problem.class);
-
-                secondActivity.putExtra("Categoy", adapter.getItem(category, position));
-                secondActivity.putExtra("description", adapter.getItem2(urgency, position));
-                secondActivity.putExtra("comment", adapter.getItem3(comment, position));
-
-                startActivity(secondActivity);
-*/
+        String image_location = adapter.getItem4(images, images.size()-1 - position);
+        System.out.println(image_location + "############################################# ////////");
+        System.out.println(position + "############################################# ////////");
+        Intent i = new Intent(TripsList.this, Fault_Trip_Image.class);
+        i.putExtra("Loc", image_location + ".jpeg");
+        startActivity(i);
     }
 
     @Override
@@ -220,7 +219,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
 
     }
     public void go_home(View view) {
-        startActivity(new Intent(TripsList.this, Dashboard_Engines.class));
+        startActivity(new Intent(TripsList.this, Blocks.class));
     }
 
     public void go_out(View view) {

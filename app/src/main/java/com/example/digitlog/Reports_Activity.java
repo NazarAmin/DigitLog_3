@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 
 public class Reports_Activity extends AppCompatActivity {
 
-    LinearLayout sheet1, sheet2, sheet3, sheet4, sheet5;
+    LinearLayout sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
     Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class Reports_Activity extends AppCompatActivity {
         sheet3 = (LinearLayout) findViewById(R.id.sheet3);
         sheet4 = (LinearLayout) findViewById(R.id.sheet4);
         sheet5 = (LinearLayout) findViewById(R.id.sheet5);
+        sheet6 = (LinearLayout) findViewById(R.id.sheet6);
 
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,10 +79,16 @@ public class Reports_Activity extends AppCompatActivity {
                 startActivity(new Intent(Reports_Activity.this, Status_Reports.class));
             }
         });
+        sheet6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Reports_Activity.this, Mid_Night_Report.class));
+            }
+        });
     }
 
     public void go_home(View view) {
-        startActivity(new Intent(Reports_Activity.this, Dashboard_Engines.class));
+        startActivity(new Intent(Reports_Activity.this, Blocks.class));
     }
 
     public void go_out(View view) {

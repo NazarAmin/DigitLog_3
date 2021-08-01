@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/digit_log_logo"
         android:supportsRtl="false"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Reports_Activity"></activity>
+        <activity android:name=".Mid_Night_Report"></activity>
+        <activity android:name=".MidNight" />
+        <activity android:name=".Reports_Activity" />
         <activity android:name=".Fault_Trip_Image" />
         <activity
             android:name=".MainActivity2"
@@ -28,7 +30,6 @@
         <activity android:name=".Operator_Handover" />
         <activity android:name=".Status_Reports" />
         <activity android:name=".Faults_Reports" />
-
         <activity android:name=".Trip_Activity" />
 
         <provider

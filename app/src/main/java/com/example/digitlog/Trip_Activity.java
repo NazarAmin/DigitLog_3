@@ -73,6 +73,9 @@ public class Trip_Activity extends AppCompatActivity  {
     ImageView image;
     String checkchoise;
     Dialog dialog2;
+    TextView fuel_nasr;
+    String current_date;
+    private static final int CAMERA_REQUEST_CODE = 1;
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
     String currentdateandTime = sdf.format(new Date());
@@ -81,7 +84,7 @@ public class Trip_Activity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_);
-
+        fuel_nasr = (TextView) findViewById(R.id.fuel_nasr);
 
         dialog2 = new Dialog(Trip_Activity.this);
         dialog2.setContentView(R.layout.custom_dialoge_feedback2);
@@ -91,7 +94,6 @@ public class Trip_Activity extends AppCompatActivity  {
         ok2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Trip_Activity.this.finishAffinity();
             }
         });
@@ -102,7 +104,7 @@ public class Trip_Activity extends AppCompatActivity  {
             }
         });
 
-
+        current_date = sdf.format(new Date()).trim();
         radioGroup = (RadioGroup) findViewById(R.id.rg);
 
         ldo = (CheckBox) findViewById(R.id.ldo);
@@ -121,12 +123,16 @@ public class Trip_Activity extends AppCompatActivity  {
             ldo.setText("HSRG_1");
             hcgo.setText("HSRG_2");
         }
+        if (GlobalClass.engine_number.equals("Engine_9")) {
+
+            ldo.setText("HSRG_7");
+            hcgo.setText("HSRG_8");
+            fuel_nasr.setText("Run with");
+        }
 
         description5 = (TextView) findViewById(R.id.description);
         alarms = (TextView) findViewById(R.id.alarms);
         datetimetv = (TextView) findViewById(R.id.datetimetv);
-
-
 
         dialog = new Dialog(Trip_Activity.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);
@@ -147,46 +153,76 @@ public class Trip_Activity extends AppCompatActivity  {
             }
         });
 
-
-        //spinner.setId();
-        //spinner.setText(categy);
-        //comment.setText(description);
-
         title = (TextView) findViewById(R.id.title);
         engine_n = (TextView) findViewById(R.id.engine_n);
 
-        //category = (EditText) findViewById(R.id.c_code);
         comment = (EditText) findViewById(R.id.comment_code);
         save = (Button) findViewById(R.id.sub_btn);
+        image = (ImageView) findViewById(R.id.im_v);
 
         engine = GlobalClass.engine_number;
         user_2 = GlobalClass.actual_user_name;
-        //category_type = GlobalClass.Faults_Category;
         engine_n.setText(engine);
 
-/*
-        try {
-            Categoy = getIntent().getStringExtra("Categoy");
-            description = getIntent().getStringExtra("description");
-            String comment5 = getIntent().getStringExtra("comment");
-            comment.setText(comment5);
-
-        }catch (Exception ex){
-
-        }
-**/
         trip_class = new Trip_Class();
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 dialog.show();
-
             }
         });
+        storageRef = FirebaseStorage.getInstance().getReference();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            onCaptureImageResult(data);
+        }
+    }
+
+    private void onCaptureImageResult(Intent data) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        byte bb[] = bytes.toByteArray();
+        image.setImageBitmap(thumbnail);
+        uploadToFirebase(bb);
+    }
+
+
+    private void uploadToFirebase(byte[] bb) {
+        StorageReference filepath = storageRef.child("Trips/" + engine + "/" +
+                GlobalClass.Faults_Category + "/" + current_date + ".jpeg");
+
+        filepath.putBytes(bb).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                Toast.makeText(Trip_Activity.this, "Successfully !", Toast.LENGTH_LONG).show();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Trip_Activity.this, "Failed !", Toast.LENGTH_LONG).show();
+            }
+        });
+        String image_url = filepath.getDownloadUrl().toString();
+        System.out.println(image_url);
+
+
+    }
+
+    public void select_image(View view) {
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, CAMERA_REQUEST_CODE);
+        }
     }
 
     public void save_function() {
@@ -231,7 +267,8 @@ public class Trip_Activity extends AppCompatActivity  {
 
 
 
-        trip_class = new Trip_Class(radioButton.getText().toString(), checkchoise,user_2, description5.getText().toString(), dateformat5, alarms.getText().toString());
+        trip_class = new Trip_Class(radioButton.getText().toString(), checkchoise,user_2, description5.getText().toString(), dateformat5, alarms.getText().toString(),
+                "Trips/" + engine + "/" + GlobalClass.Faults_Category + "/" + current_date);
 
         ref2.child(sdf.format(new Date()).trim()).setValue(trip_class);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
@@ -301,7 +338,7 @@ public class Trip_Activity extends AppCompatActivity  {
 
 
     public void go_home(View view) {
-        startActivity(new Intent(Trip_Activity.this, Dashboard_Engines.class));
+        startActivity(new Intent(Trip_Activity.this, Blocks.class));
     }
 
     public void go_out(View view) {

@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Arrays;
 
 public class DataEntry extends AppCompatActivity {
-    LinearLayout status, handover, sheet1, sheet2, sheet9;
+    LinearLayout status, handover, sheet1, sheet2, sheet9, sheet10;
     TextView engine_pic;
     String actual_user;
     Dialog dialog;
@@ -57,6 +57,7 @@ public class DataEntry extends AppCompatActivity {
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet9 = (LinearLayout) findViewById(R.id.sheet9);
+        sheet10 = (LinearLayout) findViewById(R.id.sheet10);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         status = (LinearLayout) findViewById(R.id.status);
         handover = (LinearLayout) findViewById(R.id.handover);
@@ -140,7 +141,7 @@ public class DataEntry extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                                    if ((engine.equals("Engine_3")) | (engine.equals("Engine_6"))) {
+                                    if ((engine.equals("Engine_3")) | (engine.equals("Engine_6"))| (engine.equals("Engine_9"))) {
                                         startActivity(new Intent(DataEntry.this, DashboardST.class));
                                     } else {
                                         startActivity(new Intent(DataEntry.this, Dashboard.class));
@@ -204,10 +205,38 @@ public class DataEntry extends AppCompatActivity {
 
             }
         });
+
+        sheet10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ref3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
+                            startActivity(new Intent(DataEntry.this, MidNight.class));
+                        } else {
+                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+            }
+        });
             }
 
     public void go_home(View view) {
-        startActivity(new Intent(DataEntry.this, Dashboard_Engines.class));
+        startActivity(new Intent(DataEntry.this, Blocks.class));
     }
 
     public void go_out(View view) {

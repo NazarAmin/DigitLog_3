@@ -193,30 +193,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         // if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             onCaptureImageResult(data);
-
-            //mImageUri = data.getData();
-            //image.setImageURI(mImageUri);
-
-          //  CropImage.activity(mImageUri)
-         //           .setGuidelines(CropImageView.Guidelines.ON)
-         //           .setAspectRatio(1, 1)
-         //           .start(this);
-
         }
-/**
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-                Uri resultUri = result.getUri();
-
-                image.setImageURI(resultUri);
-                mImageUri = resultUri;
-
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
-            }
-        }
-*/
     }
 
     private void onCaptureImageResult(Intent data) {
@@ -225,11 +202,9 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
         byte bb[] = bytes.toByteArray();
         image.setImageBitmap(thumbnail);
-
         uploadToFirebase(bb);
-
     }
-    //   storageRef.getName()
+
 
     public void save_function(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -314,7 +289,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
 
     }
     public void go_home(View view) {
-        startActivity(new Intent(Dashboard_problem.this, Dashboard_Engines.class));
+        startActivity(new Intent(Dashboard_problem.this, Blocks.class));
     }
 
     public void go_out(View view) {

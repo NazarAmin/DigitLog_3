@@ -94,7 +94,7 @@ public class Dashboard_chart extends AppCompatActivity {
         });
     }
     public void go_home(View view) {
-        startActivity(new Intent(Dashboard_chart.this, Dashboard_Engines.class));
+        startActivity(new Intent(Dashboard_chart.this, Blocks.class));
     }
 
     public void go_out(View view) {

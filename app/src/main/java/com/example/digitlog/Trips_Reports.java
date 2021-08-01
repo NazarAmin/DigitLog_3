@@ -41,9 +41,11 @@ public class Trips_Reports extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/" + engine + " Trips Report " + sdf.format(new Date()) + ".xls");
-    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log");
-    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports";
+
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Trips/" + engine + " Trips Report " + sdf.format(new Date()) + ".xls");
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Trips");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Trips";
+
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
     @Override
@@ -116,6 +118,11 @@ public class Trips_Reports extends AppCompatActivity {
                 HSSFCell hssfCell2 = hssfRow2.createCell(1);
                 hssfCell2.setCellValue("Alarms");
                 HSSFCell hssfCell3 = hssfRow2.createCell(2);
+                if((engine.equals("Engine_3"))|(engine.equals("Engine_9"))){
+                    hssfCell3.setCellValue("Run With");
+                }else{
+                    hssfCell3.setCellValue("Fuel");
+                }
                 hssfCell3.setCellValue("Fuel");
                 HSSFCell hssfCell4 = hssfRow2.createCell(3);
                 hssfCell4.setCellValue("Load");
@@ -160,7 +167,7 @@ public class Trips_Reports extends AppCompatActivity {
                         if (!filePath.exists()) {
 
                             filePath.mkdirs();
-                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Trips");
                             if (!f1.exists()) {
                                 f1.mkdirs();
                                 FileOutputStream fileOutputStream = new FileOutputStream(filePath2);

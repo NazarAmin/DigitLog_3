@@ -41,9 +41,9 @@ public class Operator_Handover extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/" + engine + " Operators Handover Report " + sdf.format(new Date()) + ".xls");
-    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log");
-    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports";
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Handover/" + engine + " Operators Handover Report " + sdf.format(new Date()) + ".xls");
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Handover");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Handover";
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
     @Override
@@ -147,7 +147,7 @@ public class Operator_Handover extends AppCompatActivity {
                             if (!filePath.exists()) {
 
                                 filePath.mkdirs();
-                                File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log", "Reports");
+                                File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Handover");
                                 if (!f1.exists()) {
                                     f1.mkdirs();
                                     FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
