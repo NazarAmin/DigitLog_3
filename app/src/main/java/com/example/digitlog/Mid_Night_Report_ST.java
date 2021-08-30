@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,12 +29,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
-public class Trips_Reports extends AppCompatActivity {
+public class Mid_Night_Report_ST extends AppCompatActivity {
 
     //private EditText editTextExcel;
     ArrayList<String> name = new ArrayList<>();
@@ -43,9 +40,9 @@ public class Trips_Reports extends AppCompatActivity {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
 
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Trips/" + engine + " Trips Report " + sdf.format(new Date()) + ".xls");
-    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Trips");
-    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Trips";
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Mid Night/" + engine + " Mid_Night Report " + sdf.format(new Date()) + ".xls");
+    private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Mid Night");
+    String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Mid Night";
 
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
 
@@ -53,9 +50,6 @@ public class Trips_Reports extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel__export);
-
-        TextView eng = (TextView) findViewById(R.id.eng);
-        eng.setText(GlobalClass.engine_number);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
@@ -84,10 +78,10 @@ public class Trips_Reports extends AppCompatActivity {
 
     private void getDatawork(){
 
-        HSSFSheet hssfSheet = hssfWorkbook.createSheet("Trips Report");
+        HSSFSheet hssfSheet = hssfWorkbook.createSheet("MidNight Report");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/tips_log");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/mid_night");
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -120,25 +114,19 @@ public class Trips_Reports extends AppCompatActivity {
                 HSSFCell hssfCell1 = hssfRow2.createCell(0);
                 hssfCell1.setCellValue("Date");
                 HSSFCell hssfCell2 = hssfRow2.createCell(1);
-                hssfCell2.setCellValue("Alarms");
+                hssfCell2.setCellValue("Cumulative Generation MWH");
                 HSSFCell hssfCell3 = hssfRow2.createCell(2);
-                if((engine.equals("ST_1"))|(engine.equals("ST_3"))){
-                    hssfCell3.setCellValue("Run With");
-                }else{
-                    hssfCell3.setCellValue("Fuel");
-                }
-                hssfCell3.setCellValue("Fuel");
+                hssfCell3.setCellValue("Cumulative Generation MVAR");
                 HSSFCell hssfCell4 = hssfRow2.createCell(3);
-                hssfCell4.setCellValue("Load");
+                hssfCell4.setCellValue("Number of Starts");
                 HSSFCell hssfCell5 = hssfRow2.createCell(4);
-                hssfCell5.setCellValue("Operator");
-                HSSFCell hssfCell6 = hssfRow2.createCell(5);
-                hssfCell6.setCellValue("Description");
+                hssfCell5.setCellValue("Dem Water Tons");
+
 
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                        Trip_Class data = mydatasnapshot.getValue(Trip_Class.class);
+                        Mid_Night_Class_ST data = mydatasnapshot.getValue(Mid_Night_Class_ST.class);
 
                         HSSFRow hssfRow = hssfSheet.createRow(i + 1);
                         HSSFCell hssfCell = hssfRow.createCell(0);
@@ -146,20 +134,18 @@ public class Trips_Reports extends AppCompatActivity {
 
 
                         HSSFCell col2 = hssfRow.createCell(1);
-                        col2.setCellValue(String.valueOf(data.getAlarms()));
+                        col2.setCellValue(String.valueOf(data.getGen()));
 
                         HSSFCell col3 = hssfRow.createCell(2);
-                        col3.setCellValue(String.valueOf(data.getFuel()));
+                        col3.setCellValue(String.valueOf(data.getGen_mv()));
 
 
                         HSSFCell col4 = hssfRow.createCell(3);
-                        col4.setCellValue(String.valueOf(data.getLoad()));
+                        col4.setCellValue(String.valueOf(data.getStarts()));
 
                         HSSFCell col5 = hssfRow.createCell(4);
-                        col5.setCellValue(String.valueOf(data.getUser_2()));
+                        col5.setCellValue(String.valueOf(data.getDem_w()));
 
-                        HSSFCell col6 = hssfRow.createCell(5);
-                        col6.setCellValue(String.valueOf(data.getComment()));
 
 
 
@@ -171,7 +157,7 @@ public class Trips_Reports extends AppCompatActivity {
                         if (!filePath.exists()) {
 
                             filePath.mkdirs();
-                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Trips");
+                            File f1 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports", "Mid Night");
                             if (!f1.exists()) {
                                 f1.mkdirs();
                                 FileOutputStream fileOutputStream = new FileOutputStream(filePath2);
@@ -207,7 +193,7 @@ public class Trips_Reports extends AppCompatActivity {
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
-                        startActivity(new Intent(Trips_Reports.this, Dashboard_chart.class));
+                        startActivity(new Intent(Mid_Night_Report_ST.this, Dashboard_chart.class));
                     }
 
                 }
@@ -227,7 +213,7 @@ public class Trips_Reports extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
 
-        Uri photoURI = FileProvider.getUriForFile(getApplicationContext(), Trips_Reports.this.getApplicationContext().getPackageName() + ".provider", filePath2);
+        Uri photoURI = FileProvider.getUriForFile(getApplicationContext(), Mid_Night_Report_ST.this.getApplicationContext().getPackageName() + ".provider", filePath2);
         Toast.makeText(getApplicationContext(), "Excel file saved in: " + file_path_string, Toast.LENGTH_LONG).show();
 
         intent.setDataAndType(photoURI,"application/vnd.ms-excel");

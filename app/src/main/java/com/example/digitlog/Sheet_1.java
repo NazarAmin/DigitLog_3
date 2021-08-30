@@ -46,6 +46,9 @@ public class Sheet_1 extends AppCompatActivity {
         engine = GlobalClass.engine_number;
         textView3 = (TextView) findViewById(R.id.textView3);
 
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
+
         textView3.setText(engine + " GT_Log");
 
         dialog = new Dialog(Sheet_1.this);

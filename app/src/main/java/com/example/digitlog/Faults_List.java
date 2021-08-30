@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -55,6 +56,9 @@ protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faults__list);
         recyclerView = (RecyclerView) findViewById(R.id.rvAnimals2);
+
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(Faults_List.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -115,7 +119,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
                         mExampleList = new ArrayList<>();
 
-                        for (i = (category.size() - 1); i>=0 ; i--){
+                        for (i = (category.size() - 2); i>=0 ; i--){
                                 mExampleList.add(new Faults_Trips(category.get(i), urgency.get(i), user.get(i), comment.get(i), name_string.get(i), images.get(i)));
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -125,7 +129,6 @@ protected void onCreate(Bundle savedInstanceState) {
                                 adapter.setClickListener(Faults_List.this);
                                 recyclerView.setAdapter(adapter);
                         }catch(Exception e){
-
                                 }
 
                         editText.addTextChangedListener(new TextWatcher() {

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-
-    tools:context=".MainActivity">
+    tools:context=".Handover_Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,15 +18,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             >
-
+            <TextView
+                android:id="@+id/eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GT_1"
+                android:fontFamily="@font/microbrew_soft_one_inline"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:textColor="#FF5722"
+                android:textSize="24sp"></TextView>
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Engine Status"
+                android:text="Handover"
                 android:fontFamily="@font/microbrew_soft_one_inline"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="57dp"
                 android:textColor="#2144F3"
                 android:textSize="24sp"></TextView>
 
@@ -87,8 +95,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Currently the engine is under: "
-                android:textColor="#000"
+                android:text="Handover From: "
+                android:textColor="#3F51B5"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -97,41 +105,102 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/pic"
                 android:text="operator in charge"
+                android:layout_marginTop="20dp"
+                android:textColor="#4CAF50"
 
-                android:textColor="@color/redshine"
-                android:textSize="20dp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="2dp"
+                android:layout_below="@id/tv1"
+                android:background="#7E000000" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="50dp"
-                android:text="the engine is to be handed over to: "
-                android:textColor="#000"
+                android:layout_marginTop="20dp"
+                android:text="Handover to: "
+                android:textColor="#3F51B5"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp">
 
-            <Spinner
-                android:layout_width="170dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Operator Name:"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+    <Spinner
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+
+        android:layout_gravity="center"
+        android:textColor="@color/green"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinner"
-                android:textColor="@color/green"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shift Name:"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    ></TextView>
 
+                <Spinner
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner2"
+
+                    android:layout_gravity="center"
+                    android:textColor="@color/green"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="2dp"
+                android:layout_below="@id/tv1"
+                android:background="#7E000000" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="50dp"
+                android:layout_marginTop="20dp"
                 android:textSize="20dp"
-                android:textColor="@color/black"
-                android:text="Comment:"></TextView>
+                android:textColor="#3F51B5"
+                android:textStyle="bold"
+                android:text="Handover Notes:"></TextView>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="50dp"
+                android:hint="Must be entered\ne.g alarms shown\nresolved alarms\ngeneral notes\n"
                 android:id="@+id/comment_hand"
                 android:textSize="20dp"
                 android:textColor="@color/black"></EditText>

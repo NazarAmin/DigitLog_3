@@ -65,7 +65,6 @@ public class Trip_Activity extends AppCompatActivity  {
     String day, monthe, yeare, houre, minutee;
     String dateformat5;
     int ho, mi, ye, mo, da;
-
     Button save;
     CheckBox ldo, hcgo;
     String engine, f_co, t_co, user_2, category_type;
@@ -85,6 +84,9 @@ public class Trip_Activity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_);
         fuel_nasr = (TextView) findViewById(R.id.fuel_nasr);
+
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog2 = new Dialog(Trip_Activity.this);
         dialog2.setContentView(R.layout.custom_dialoge_feedback2);
@@ -111,19 +113,19 @@ public class Trip_Activity extends AppCompatActivity  {
         hcgo = (CheckBox) findViewById(R.id.hcgo);
 
         try{
-            if (GlobalClass.engine_number.equals("Engine_3")){
+            if (GlobalClass.engine_number.equals("ST_1")){
 
             }
         }catch (Exception exception){
             startActivity(new Intent(Trip_Activity.this, Blocks.class));
         }
 
-        if (GlobalClass.engine_number.equals("Engine_3")) {
+        if (GlobalClass.engine_number.equals("ST_1")) {
 
             ldo.setText("HSRG_1");
             hcgo.setText("HSRG_2");
         }
-        if (GlobalClass.engine_number.equals("Engine_9")) {
+        if (GlobalClass.engine_number.equals("ST_3")) {
 
             ldo.setText("HSRG_7");
             hcgo.setText("HSRG_8");
@@ -238,14 +240,14 @@ public class Trip_Activity extends AppCompatActivity  {
         // Trip_Class(String load, String fuel, String user_2, String comment,String datetime, String alarms)
 
         try{
-            if (GlobalClass.engine_number.equals("Engine_3")){
+            if (GlobalClass.engine_number.equals("ST_1")){
 
             }
         }catch (Exception exception){
             startActivity(new Intent(Trip_Activity.this, Blocks.class));
         }
 
-        if (GlobalClass.engine_number.equals("Engine_3")) {
+        if (GlobalClass.engine_number.equals("ST_1")) {
 
             if (ldo.isChecked() & hcgo.isChecked()) {
                 checkchoise = "HSRG_1, HSRG_2";

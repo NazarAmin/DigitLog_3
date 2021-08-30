@@ -59,18 +59,224 @@
                 android:textSize="16dp"></TextView>
 
 
-        </LinearLayout>
 
+
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:elevation="100dp"
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="2dp"
+        android:background="#7E000000" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:text="Garri 1"
+    android:textColor="@color/black"
+    android:textSize="20dp"
+    android:textStyle="bold|italic"
+    android:layout_gravity="center">
+
+</TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#32FBFBFB"
+            android:padding="8dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/im11"
+                android:src="@drawable/ic_baseline_electrical_services_24"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                >
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/gen_l"
+                android:layout_toRightOf="@id/im11"
+                android:text="Total Generation"
+                android:textSize="13dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                >
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tot_gen"
+                android:layout_toRightOf="@id/gen_l"
+                android:layout_marginLeft="30dp"
+                android:text="-----"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:textStyle="bold|italic"
+                android:textColor="@color/redshine"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tot_gen"
+                android:layout_marginLeft="30dp"
+                android:text="MW"
+                android:textSize="13dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                >
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="100dp"
+            android:gravity="center"
+            android:background="#32FFFFFF"
+            android:padding="8dp"
+
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/im1234"
+                android:src="@drawable/ic_baseline_local_gas_station_24"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                >
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fue_l"
+                android:text="Fuel Stock"
+                android:textSize="13dp"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@id/im1234"
+                android:layout_centerVertical="true"
+
+                android:textColor="@color/black"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tot_fue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_toRightOf="@id/fue_l"
+                android:text="-----"
+                android:textColor="@color/redshine"
+                android:textSize="20dp"
+                android:textStyle="bold|italic">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tot_fue"
+                android:layout_marginLeft="30dp"
+                android:text="Tons"
+                android:textSize="13dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                >
+
+            </TextView>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp">
+
+            <ProgressBar
+                android:id="@+id/chart_1"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="250dp"
+                android:layout_centerVertical="true"
+                android:layout_height="10dp"
+                android:progressDrawable="@drawable/green_progress_drawable"
+
+                android:layout_marginLeft="10dp"
+                android:max="240"
+                android:outlineAmbientShadowColor="@color/grey"
+                android:outlineSpotShadowColor="@color/green">
+
+            </ProgressBar>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/temp99_1"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="--- % of"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/chart_1"
+                android:layout_marginLeft="10dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/temp55"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="240 Mw"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/temp99_1"
+                android:layout_marginLeft="10dp"></TextView>
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:id="@+id/arr_1"
+                android:layout_centerVertical="true"
+                android:src="@drawable/upward"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/temp55">
+
+            </ImageView>
+
+        </RelativeLayout>
 
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
-            android:columnCount="1"
+            android:columnCount="2"
             android:columnOrderPreserved="false"
-            android:paddingTop="50dp"
-            android:rowCount="3">
+
+            android:rowCount="1">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="95dp"
@@ -78,45 +284,22 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                android:paddingTop="200dp"
-                android:layout_marginTop="100dp"
-
                 app:cardCornerRadius="12dp"
+                android:padding="20dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
                     android:id="@+id/sheet1"
-                    android:background="#0D918F8F"
+                    android:background="#08918F8F"
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:elevation="30dp"
+                    android:padding="14dp"
 
 
-                    android:paddingBottom="17dp">
-
-                    <LinearLayout
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-
-                        android:paddingTop="100dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Block 1"
-                            android:textColor="@color/black"
-                            android:textSize="28dp"
-                            android:textStyle="bold|italic"
-
-                            ></TextView>
-
-                    </LinearLayout>
+             >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -124,28 +307,37 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
+
+>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold|italic"
+                            android:text="Block 1"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+
+
+                            ></TextView>
+
+
+
+
+
                         <TextView
                             android:id="@+id/mw1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
+                            android:layout_marginLeft="20dp"
                             android:text="------"
                             android:textColor="@color/green"
-                            android:textSize="28dp"
+                            android:textSize="15dp"
                             android:textStyle="bold|italic">
 
                         </TextView>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
-                            android:text="   MW"
-                            android:textColor="@color/green"
-                            android:textSize="22dp"
-                            android:textStyle="bold|italic">
 
-                        </TextView>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -166,37 +358,15 @@
 
                 <LinearLayout
                     android:id="@+id/sheet2"
-                    android:background="#0D918F8F"
-
+                    android:background="#08918F8F"
+                    android:padding="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:elevation="30dp"
 
 
-                    android:paddingBottom="17dp">
-
-                    <LinearLayout
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-
-                        android:paddingTop="100dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Block 4"
-                            android:textColor="@color/black"
-                            android:textSize="28dp"
-                            android:textStyle="bold|italic"
-
-                            ></TextView>
-
-                    </LinearLayout>
+     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -205,27 +375,30 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold|italic"
+                            android:text="Block 2"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+
+
+                            ></TextView>
+
+
+                        <TextView
                             android:id="@+id/mw2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
+                            android:layout_marginLeft="20dp"
                             android:text="------"
                             android:textColor="@color/green"
-                            android:textSize="28dp"
+                            android:textSize="15dp"
                             android:textStyle="bold|italic">
 
                         </TextView>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
-                            android:text="   MW"
-                            android:textColor="@color/green"
-                            android:textSize="22dp"
-                            android:textStyle="bold|italic">
 
-                        </TextView>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -236,7 +409,360 @@
 
         </GridLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="2dp"
+        android:background="#7E000000" />
+</LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:elevation="100dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Garri 2"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                android:layout_gravity="center">
+
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#32FBFBFB"
+                android:padding="8dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:layout_marginTop="10dp"
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/im12"
+                    android:src="@drawable/ic_baseline_electrical_services_24"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    >
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:id="@+id/gen_l2"
+                    android:layout_toRightOf="@id/im12"
+                    android:text="Total Generation"
+                    android:textSize="13dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    >
+
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tot_gen2"
+                    android:layout_toRightOf="@id/gen_l2"
+                    android:layout_marginLeft="30dp"
+                    android:text="-----"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/redshine"
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tot_gen2"
+                    android:layout_marginLeft="30dp"
+                    android:text="MW"
+                    android:textSize="13dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    >
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="100dp"
+                android:gravity="center"
+                android:background="#32FFFFFF"
+                android:padding="8dp"
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/im123"
+                    android:src="@drawable/ic_baseline_local_gas_station_24"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    >
+
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fue_l2"
+                    android:text="Fuel Stock"
+                    android:textSize="13dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/im123"
+                    android:layout_centerVertical="true"
+
+                    android:textColor="@color/black"
+                    >
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tot_fue2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_toRightOf="@id/fue_l2"
+                    android:text="-----"
+                    android:textColor="@color/redshine"
+                    android:textSize="20dp"
+                    android:textStyle="bold|italic">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tot_fue2"
+                    android:layout_marginLeft="30dp"
+                    android:text="Tons"
+                    android:textSize="13dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    >
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="35dp">
+                <ProgressBar
+                    android:layout_marginLeft="10dp"
+                    android:outlineAmbientShadowColor="@color/grey"
+                    android:outlineSpotShadowColor="@color/green"
+                    android:id="@+id/chart_2"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="250dp"
+                    android:layout_centerVertical="true"
+                    android:layout_height="10dp"
+                    android:progressDrawable="@drawable/green_progress_drawable"
+                    android:max="240"
+                    >
+
+                </ProgressBar>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/temp99_2"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="--- % of"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@id/chart_2"
+                    android:layout_marginLeft="10dp"></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/temp66"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="240 MW"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
+                    android:layout_toRightOf="@id/temp99_2"
+                    android:layout_marginLeft="10dp"></TextView>
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:id="@+id/arr_2"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/upward"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/temp66">
+
+                </ImageView>
+
+            </RelativeLayout>
+
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+
+                android:rowCount="1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="12dp"
+                    android:padding="20dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/sheet3"
+                        android:background="#08918F8F"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:elevation="30dp"
+                        android:padding="14dp"
+
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold|italic"
+                                android:text="Block 3"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+
+
+                                ></TextView>
+
+
+
+
+
+                            <TextView
+                                android:id="@+id/mw12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="------"
+                                android:textColor="@color/green"
+                                android:textSize="15dp"
+                                android:textStyle="bold|italic">
+
+                            </TextView>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    android:layout_marginTop="10dp"
+
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/sheet4"
+                        android:background="#08918F8F"
+                        android:padding="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:elevation="30dp"
+
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold|italic"
+                                android:text="Block 4"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+
+
+                                ></TextView>
+
+
+                            <TextView
+                                android:id="@+id/mw23"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="------"
+                                android:textColor="@color/green"
+                                android:textSize="15dp"
+                                android:textStyle="bold|italic">
+
+                            </TextView>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </GridLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="2dp"
+                android:background="#7E000000" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

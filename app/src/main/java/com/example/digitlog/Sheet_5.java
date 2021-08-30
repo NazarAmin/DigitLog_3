@@ -40,6 +40,9 @@ public class Sheet_5 extends AppCompatActivity {
         engine = GlobalClass.engine_number;
         textView3 = (TextView) findViewById(R.id.textView3);
 
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
+
         textView3.setText(engine + " Mark_v");
 
 

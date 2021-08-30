@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -35,7 +36,8 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart__list);
-
+                TextView eng = (TextView) findViewById(R.id.eng);
+                eng.setText(GlobalClass.engine_number);
         chart_search = (EditText) findViewById(R.id.chart_search);
 
                 dialog = new Dialog(Chart_List.this);
@@ -61,13 +63,13 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
 
         but = (Button) findViewById(R.id.but);
         try{
-                if (GlobalClass.engine_number.equals("Engine_3")){
+                if (GlobalClass.engine_number.equals("ST_1")){
 
                 }
         }catch (Exception exception){
                 startActivity(new Intent(Chart_List.this, Blocks.class));
         }
-        if (GlobalClass.engine_number.equals("Engine_3")){
+        if (GlobalClass.engine_number.equals("ST_1")){
                 mExampleList.add(this.getString(R.string.sp1));
                 mExampleList.add(this.getString(R.string.sp2));
                 mExampleList.add(this.getString(R.string.sp3));

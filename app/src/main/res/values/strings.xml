@@ -19,6 +19,7 @@
     <string name="title_activity_full_data">full_data</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pmax">Maximum Limit Exceeded !</string>
@@ -76,10 +77,10 @@
     <string name="gp4">Excitation Voltage VOLT</string>
     <string name="gp5">System Voltage VOLT</string>
     <string name="gp6">Generator Voltage VOLT</string>
-    <string name="gp7">Generator MW MW</string>
+    <string name="gp7">Generator MW</string>
     <string name="gp8">Excitation Current AMP</string>
     <string name="gp9">System Frequency Hz</string>
-    <string name="gp10">Generator MVAR MVAR</string>
+    <string name="gp10">Generator MVAR</string>
     <string name="gp11">Excitation Output Balance mA</string>
     <string name="gp12">Gen Zero Sequence Voltage VOLT</string>
     <string name="gp13">Power Factor</string>
@@ -110,11 +111,11 @@
     <string name="gg21">GAVRV V</string>
 
     <string name="mp1">Turbine Speed TNH (%)</string>
-    <string name="mp2">Turbine Speen TNH_RPM (RPM)</string>
+    <string name="mp2">Turbine Speen TNH (RPM)</string>
     <string name="mp3">Generator Output DWATT (MW)</string>
-    <string name="mp4">Generator MVAR (MVAR)</string>
+    <string name="mp4">Generator (MVAR)</string>
     <string name="mp5">FSR (%)</string>
-    <string name="mp6">Inlet Air Temp CTIF(C)</string>
+    <string name="mp6">Inlet Air Temp CTIF (C)</string>
     <string name="mp7">Compressor Discharge Pressure CPD (Bar)</string>
     <string name="mp8">Compressor Discharge Temp CTDA (C)</string>
     <string name="mp9">IGV Position GSGV (Deg)</string>
@@ -202,9 +203,7 @@
     <string name="ssp29">Turbine External R Um</string>
     <string name="ssp30">Unit Axial Replacement Um</string>
 
-
     <string name="digit_log">Digit Log</string>
-
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="title_activity_main2">MainActivity</string>
@@ -214,7 +213,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>

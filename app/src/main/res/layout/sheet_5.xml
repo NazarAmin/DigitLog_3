@@ -17,23 +17,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/scroll2">
-
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/eng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="GT_1"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Digit Log"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:fontFamily="@font/microbrew_soft_one_inline"
+            android:layout_centerVertical="true"
+            android:textColor="#2259FF"
+            android:textSize="40dp"></TextView>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/redshine"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:text="Log Sheet OP"

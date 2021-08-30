@@ -37,6 +37,9 @@ public class Sheet_6 extends AppCompatActivity {
         setContentView(R.layout.sheet_6);
         engine = GlobalClass.engine_number;
 
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
+
         textView3 = (TextView) findViewById(R.id.textView3);
 
         textView3.setText(engine + " Log_Sheet_6");

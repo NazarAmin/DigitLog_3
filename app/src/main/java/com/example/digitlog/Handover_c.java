@@ -2,7 +2,7 @@ package com.example.digitlog;
 
 public class Handover_c {
 
-    String user, PIC, datetime, description;
+    String user, PIC, datetime, description, shift;
 
     public String getUser() {
         return user;
@@ -15,11 +15,20 @@ public class Handover_c {
     public Handover_c() {
     }
 
-    public Handover_c(String user, String PIC, String datetime, String description) {
+    public Handover_c(String user, String PIC, String datetime, String description, String shift) {
         this.user = user;
         this.PIC = PIC;
         this.datetime = datetime;
         this.description = description;
+        this.shift = shift;
+    }
+
+    public String getShift() {
+        return shift;
+    }
+
+    public void setShift(String shift) {
+        this.shift = shift;
     }
 
     public String getPIC() {

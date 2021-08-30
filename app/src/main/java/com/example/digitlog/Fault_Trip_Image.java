@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -24,10 +26,14 @@ public class Fault_Trip_Image extends AppCompatActivity {
     ImageView image_work;
     String engine;
     Dialog dialog;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fault__trip__image);
+        progressBar = (ProgressBar) findViewById(R.id.pbar);
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(Fault_Trip_Image.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -76,6 +82,7 @@ public class Fault_Trip_Image extends AppCompatActivity {
             public void onSuccess(byte[] bytes) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 image_work.setImageBitmap(bitmap);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 

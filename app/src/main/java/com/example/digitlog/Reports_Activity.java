@@ -9,15 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class Reports_Activity extends AppCompatActivity {
 
     LinearLayout sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
     Dialog dialog;
+    String engine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reports_);
+        engine = GlobalClass.engine_number;
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(Reports_Activity.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -82,7 +87,13 @@ public class Reports_Activity extends AppCompatActivity {
         sheet6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Reports_Activity.this, Mid_Night_Report.class));
+
+                if ((engine.equals("ST_1")) | (engine.equals("ST_2"))| (engine.equals("ST_3"))| (engine.equals("ST_4"))) {
+                    startActivity(new Intent(Reports_Activity.this, Mid_Night_Report_ST.class));
+                } else {
+                    startActivity(new Intent(Reports_Activity.this, Mid_Night_Report.class));
+                }
+
             }
         });
     }

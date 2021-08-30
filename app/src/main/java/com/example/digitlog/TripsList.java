@@ -10,6 +10,7 @@ package com.example.digitlog;
         import android.widget.Adapter;
         import android.widget.Button;
         import android.widget.EditText;
+        import android.widget.TextView;
         import android.widget.Toast;
 
         import androidx.annotation.NonNull;
@@ -54,6 +55,9 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips_list);
         recyclerView = (RecyclerView) findViewById(R.id.rvAnimals9);
+
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(TripsList.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);

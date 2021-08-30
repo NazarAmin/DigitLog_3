@@ -19,15 +19,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             >
+            <TextView
+                android:id="@+id/eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GT_1"
+                android:fontFamily="@font/microbrew_soft_one_inline"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:textColor="#FF5722"
+                android:textSize="24sp"></TextView>
 
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Engine Data"
+                android:text="Data"
                 android:fontFamily="@font/microbrew_soft_one_inline"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="57dp"
                 android:textColor="#2144F3"
                 android:textSize="24sp"></TextView>
 
@@ -78,6 +88,42 @@
             android:columnCount="1"
             android:rowCount="2"
             >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/sheet2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <ImageView
+                        android:src="@drawable/data_sheet"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp"
+                        android:text="Engine Data Entry"
+
+                        ></TextView>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -116,42 +162,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sheet2"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/data_sheet"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Engine Data Entry"
-
-                        ></TextView>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
 
 

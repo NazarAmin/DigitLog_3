@@ -19,15 +19,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             >
+            <TextView
+                android:id="@+id/eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GT_1"
+                android:fontFamily="@font/microbrew_soft_one_inline"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:textColor="#FF5722"
+                android:textSize="24sp"></TextView>
 
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ST Dashboard"
+                android:text="Digital Logs"
                 android:fontFamily="@font/microbrew_soft_one_inline"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="57dp"
                 android:textColor="#2144F3"
                 android:textSize="24sp"></TextView>
 

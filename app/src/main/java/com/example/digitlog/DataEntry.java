@@ -34,7 +34,8 @@ public class DataEntry extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_entry);
 
-
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(DataEntry.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -141,7 +142,7 @@ public class DataEntry extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                                    if ((engine.equals("Engine_3")) | (engine.equals("Engine_6"))| (engine.equals("Engine_9"))) {
+                                    if ((engine.equals("ST_1")) | (engine.equals("ST_2"))| (engine.equals("ST_3"))| (engine.equals("ST_4"))) {
                                         startActivity(new Intent(DataEntry.this, DashboardST.class));
                                     } else {
                                         startActivity(new Intent(DataEntry.this, Dashboard.class));
@@ -216,7 +217,13 @@ public class DataEntry extends AppCompatActivity {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
                         if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
-                            startActivity(new Intent(DataEntry.this, MidNight.class));
+
+                            if ((engine.equals("ST_1")) | (engine.equals("ST_2"))| (engine.equals("ST_3"))| (engine.equals("ST_4"))) {
+                                startActivity(new Intent(DataEntry.this, MidNight_ST.class));
+                            } else {
+                                startActivity(new Intent(DataEntry.this, MidNight.class));
+                            }
+
                         } else {
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
                                     "enter data to " + engine, Toast.LENGTH_LONG).show();

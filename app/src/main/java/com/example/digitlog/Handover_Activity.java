@@ -31,20 +31,24 @@ import java.util.List;
 import java.util.Locale;
 
 public class Handover_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Spinner spinner;
-    String engine, engine_focal, current_user, datetime, current_engine_focal_name;
+    Spinner spinner, spinner2;
+    String engine, engine_focal, current_user, datetime, current_engine_focal_name, shift_name;
     EditText comment_hand;
     Button update_hand;
     TextView PIC;
     Handover_c handover_c;
     String general_admin = "admin";
     Dialog dialog, dialog2;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handover_);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog2 = new Dialog(Handover_Activity.this);
         dialog2.setContentView(R.layout.custom_dialoge_feedback2);
@@ -67,6 +71,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
 
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
         PIC = (TextView) findViewById(R.id.pic);
         comment_hand = (EditText) findViewById(R.id.comment_hand);
         update_hand = (Button) findViewById(R.id.update_hand);
@@ -123,7 +128,14 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         });
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
-
+        spinner2.setOnItemSelectedListener(this);
+        String shifts[] = {"A", "B", "C", "D", "E", "F"};
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, shifts);
+        // Drop down layout style - list view with radio button
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        spinner2.setAdapter(dataAdapter2);
+        
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
         DatabaseReference ref9 = firebaseDatabase.getReference("data/users");
@@ -166,7 +178,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         ref2 = firebaseDatabase.getReference("data/" + engine + "/OIC_History/" + datetime);
         ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
 
-        handover_c = new Handover_c(current_user, engine_focal, datetime, comment_hand.getText().toString());
+        handover_c = new Handover_c(current_user, engine_focal, datetime, comment_hand.getText().toString(), shift_name);
 
 
     //    if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
@@ -188,10 +200,12 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
         engine_focal = parent.getItemAtPosition(position).toString();
+        shift_name = parent.getItemAtPosition(position).toString();
         //GlobalClass.engine_focal = engine_focal;
 
         // Showing selected spinner item
     }
+
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }

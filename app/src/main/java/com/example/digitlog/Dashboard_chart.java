@@ -1,25 +1,37 @@
 package com.example.digitlog;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+
 public class Dashboard_chart extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet3, sheet9, sheet10, sheet6;
     Dialog dialog;
+    Button date_from, date_to;
+    String day, monthe, yeare, houre, minutee;
+    String dateformat5;
+    int ho, mi, ye, mo, da;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_chart);
 
-
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(Dashboard_chart.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -100,6 +112,33 @@ public class Dashboard_chart extends AppCompatActivity {
     public void go_out(View view) {
         dialog.show();
 
+    }
+
+    public void showDatePickerDialog(View v) {
+        //DialogFragment newFragment = new DatePickerFragment();
+        //newFragment.show(getSupportFragmentManager(), "datePicker");
+
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                yeare = String.valueOf(year);
+                day = String.valueOf(dayOfMonth);
+                monthe = String.valueOf(month);
+                ye = year;
+                mo = month;
+                da = dayOfMonth;
+            }
+        };
+
+        Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, mYear, mMonth, mDay);
+        datePickerDialog.setTitle("Select Date:");
+        datePickerDialog.show();
     }
 
 }

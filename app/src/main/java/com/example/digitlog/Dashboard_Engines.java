@@ -78,7 +78,15 @@ public class Dashboard_Engines extends AppCompatActivity {
                 gt3.setText("GT1");
                 gt4.setText("GT2");
                 st2.setText("ST1");
-            }else{
+            }else if (GlobalClass.block_number.equals("two")){
+                gt3.setText("GT3");
+                gt4.setText("GT4");
+                st2.setText("ST2");
+            }else if (GlobalClass.block_number.equals("three")){
+                gt3.setText("GT5");
+                gt4.setText("GT6");
+                st2.setText("ST3");
+            }else {
                 gt3.setText("GT7");
                 gt4.setText("GT8");
                 st2.setText("ST4");
@@ -90,11 +98,13 @@ public class Dashboard_Engines extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (GlobalClass.block_number.equals("one")){
-                    GlobalClass.engine_number = "Engine_1";
+                    GlobalClass.engine_number = "GT_1";
                 }else if (GlobalClass.block_number.equals("two")){
-                    GlobalClass.engine_number = "Engine_7";
-                }else{
-                    GlobalClass.engine_number = "Engine_10";
+                    GlobalClass.engine_number = "GT_3";
+                }else if (GlobalClass.block_number.equals("three")){
+                    GlobalClass.engine_number = "GT_5";
+                }else {
+                    GlobalClass.engine_number = "GT_7";
                 }
                 startActivity(new Intent(Dashboard_Engines.this, New_Engine_Dash.class));
             }
@@ -103,11 +113,13 @@ public class Dashboard_Engines extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (GlobalClass.block_number.equals("one")){
-                    GlobalClass.engine_number = "Engine_2";
+                    GlobalClass.engine_number = "GT_2";
                 }else if (GlobalClass.block_number.equals("two")){
-                    GlobalClass.engine_number = "Engine_8";
-                }else{
-                    GlobalClass.engine_number = "Engine_11";
+                    GlobalClass.engine_number = "GT_4";
+                }else if (GlobalClass.block_number.equals("three")){
+                    GlobalClass.engine_number = "GT_6";
+                }else {
+                    GlobalClass.engine_number = "GT_8";
                 }
                 startActivity(new Intent(Dashboard_Engines.this, New_Engine_Dash.class));
             }
@@ -117,11 +129,13 @@ public class Dashboard_Engines extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (GlobalClass.block_number.equals("one")){
-                    GlobalClass.engine_number = "Engine_3";
+                    GlobalClass.engine_number = "ST_1";
                 }else if (GlobalClass.block_number.equals("two")){
-                    GlobalClass.engine_number = "Engine_9";
-                }else{
-                    GlobalClass.engine_number = "Engine_12";
+                    GlobalClass.engine_number = "ST_2";
+                }else if (GlobalClass.block_number.equals("three")){
+                    GlobalClass.engine_number = "ST_3";
+                }else {
+                    GlobalClass.engine_number = "ST_4";
                 }
                 startActivity(new Intent(Dashboard_Engines.this, New_Engine_Dash.class));
             }
@@ -143,12 +157,16 @@ public class Dashboard_Engines extends AppCompatActivity {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         if (GlobalClass.block_number.equals("one")){
-            sheets_l = Arrays.asList("Engine_1","Engine_2","Engine_3");
+            sheets_l = Arrays.asList("GT_1","GT_2","ST_1");
         }else if (GlobalClass.block_number.equals("two")) {
-            sheets_l = Arrays.asList("Engine_7", "Engine_8", "Engine_9");
+            sheets_l = Arrays.asList("GT_3", "GT_4", "ST_2");
+        }else if (GlobalClass.block_number.equals("three")) {
+            sheets_l = Arrays.asList("GT_5", "GT_6", "ST_3");
+        }else {
+            sheets_l = Arrays.asList("GT_7", "GT_8", "ST_4");
         }
      //   }else{
-  //          sheets_l = Arrays.asList("Engine_7","Engine_8","Engine_9");
+  //          sheets_l = Arrays.asList("GT_5","GT_6","ST_3");
    //     }
         List<TextView> status = Arrays.asList(enstatus1, enstatus2,enstatus3);
         List<TextView> mw = Arrays.asList(mw1, mw2, mw3);
@@ -283,11 +301,13 @@ public class Dashboard_Engines extends AppCompatActivity {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         if (GlobalClass.block_number.equals("one")){
-            sheets_l = Arrays.asList("Engine_1","Engine_2","Engine_3");
-        }else if (GlobalClass.block_number.equals("two")){
-            sheets_l = Arrays.asList("Engine_7","Engine_8","Engine_9");
-        }else{
-            sheets_l = Arrays.asList("Engine_10","Engine_11","Engine_12");
+            sheets_l = Arrays.asList("GT_1","GT_2","ST_1");
+        }else if (GlobalClass.block_number.equals("two")) {
+            sheets_l = Arrays.asList("GT_3", "GT_4", "ST_2");
+        }else if (GlobalClass.block_number.equals("three")) {
+            sheets_l = Arrays.asList("GT_5", "GT_6", "ST_3");
+        }else {
+            sheets_l = Arrays.asList("GT_7", "GT_8", "ST_4");
         }
         List<TextView> status = Arrays.asList(enstatus1, enstatus2,enstatus3);
         List<TextView> mw = Arrays.asList(mw1, mw2, mw3);

@@ -55,7 +55,8 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(Dashboard.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -114,7 +115,7 @@ public class Dashboard extends AppCompatActivity {
         ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
 
 
-        tv3.setText( engine + " Dashboard");
+        //tv3.setText( engine + " Dashboard");
         coloring_layouts();
 /**
         charts.setOnClickListener(new View.OnClickListener() {

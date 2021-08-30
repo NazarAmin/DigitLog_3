@@ -40,6 +40,9 @@ public class Sheet_3 extends AppCompatActivity {
         engine = GlobalClass.engine_number;
         textView3 = (TextView) findViewById(R.id.textView3);
 
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
+
         textView3.setText(engine + " Generator_Board");
 
 

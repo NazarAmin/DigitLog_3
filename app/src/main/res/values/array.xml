@@ -2,11 +2,11 @@
 <resources>
     <string-array name="colors55">
         <item>#ff0000</item>
-        <item>#00ff00</item>
-        <item>#0000ff</item>
-        <item>#567714</item>
-        <item>#0D7C75</item>
-        <item>#AAAAB3</item>
+        <item>#FA9602</item>
+        <item>#B00000FF</item>
+        <item>#4CAF50</item>
+        <item>#7C0D30</item>
+        <item>#8D000000</item>
         <item>#A510F4</item>
         <item>#D110F4</item>
         <item>#F410EA</item>

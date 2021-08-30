@@ -293,7 +293,7 @@ public class Excel_Export extends AppCompatActivity {
         int kso = 6;
 
         // String engine = GlobalClass.engine_number;
-        if ((engine.equals("Engine_3")) | (engine.equals("Engine_9"))){
+        if ((engine.equals("ST_1")) | (engine.equals("ST_3"))){
             for (String item : sheets2) {
                 DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + item);
 

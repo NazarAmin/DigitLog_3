@@ -51,6 +51,10 @@ public class DashboardST extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard_s_t);
         dialog = new Dialog(DashboardST.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
+
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
+
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         Button ok = dialog.findViewById(R.id.save);
         Button cancel = dialog.findViewById(R.id.cancel);
@@ -83,7 +87,7 @@ public class DashboardST extends AppCompatActivity {
         DatabaseReference ref3;
         ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
 
-        tv3.setText( engine + " Dashboard");
+      //  tv3.setText( engine + " Dashboard");
         coloring_layouts();
 
         sheet1.setOnClickListener(new View.OnClickListener() {

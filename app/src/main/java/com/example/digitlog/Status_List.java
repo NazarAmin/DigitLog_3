@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +51,9 @@ public class Status_List extends AppCompatActivity implements MyRecyclerViewAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status__list);
         recyclerView = (RecyclerView) findViewById(R.id.rvAnimals4);
+
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(Status_List.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);

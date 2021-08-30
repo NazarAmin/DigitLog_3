@@ -16,15 +16,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         >
-
+        <TextView
+            android:id="@+id/eng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GT_1"
+            android:fontFamily="@font/microbrew_soft_one_inline"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:textColor="#FF5722"
+            android:textSize="24sp"></TextView>
         <TextView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Engine Status"
+            android:text="Fault Image"
             android:fontFamily="@font/microbrew_soft_one_inline"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="57dp"
             android:textColor="#2144F3"
             android:textSize="24sp"></TextView>
 
@@ -66,9 +75,23 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/image_work"></ImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/image_work"></ImageView>
+            <ProgressBar
+                style="?android:attr/preferenceScreenStyle"
+                android:layout_width="wrap_content"
+                android:id="@+id/pbar"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="visible"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

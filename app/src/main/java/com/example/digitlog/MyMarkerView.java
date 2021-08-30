@@ -5,8 +5,10 @@ import android.content.Context;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.components.MarkerView;
+import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.utils.Utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -34,11 +36,15 @@ public class MyMarkerView extends MarkerView {
     // content (user-interface)
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-        //currentTimestamp = (int)e.getX() + referenceTimestamp;
+        currentTimestamp = (int)e.getX() + referenceTimestamp;
         //mDate.setTime((int)e.getX()); //(int)e.getX() + referenceTimestamp
         //mDataFormat.format(mDate);
-        tvContent.setText("Value = " + e.getY());
-       //tvContent.setText(String.format("%s at %s", e.getY(), mDataFormat.format((int)e.getX()))); // set the entry-value as the display text
+        //tvContent.setText("Value: " + e.getVal());
+
+        //super.refreshContent(e, highlight);
+
+       //tvContent.setText(String.format("%s at %s", e.getY(), e.getX()));
+        tvContent.setText("" + e.getY() + " at " + mDataFormat.format(e.getX()));// set the entry-value as the display text
     }
 
     @Override

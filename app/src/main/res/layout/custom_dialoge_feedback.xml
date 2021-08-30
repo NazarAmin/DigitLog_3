@@ -5,14 +5,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    app:layout_constraintCircleRadius="20dp"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    android:background="@drawable/curved_button_yes"
+    tools:context=".Dashboard">
 
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="270dp"
+        android:layout_height="235dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,11 +23,13 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:textColor="@color/green"
+            android:textColor="#817F7F"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/microbrew_soft_one_inline"
+
             android:layout_marginTop="10dp"
-            android:text="Confirm Saving"
+            android:text="Save Confirmation"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,61 +37,65 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:textColor="@color/green"
+            android:textColor="#817F7F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="Are you sure you want to save?"
             android:textSize="20dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-    <LinearLayout
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:weightSum="2" >
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:weightSum="2" >
 
-        <Button
-            android:id="@+id/save"
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:background="@color/green"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:typeface="sans"
-            android:layout_gravity="center"
-            android:text="Save"></Button>
-    </LinearLayout>
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/curved_button"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    android:typeface="sans"
+                    android:layout_gravity="center"
+                    android:text="Yes"></Button>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:weightSum="2" >
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2" >
 
-        <Button
-            android:id="@+id/cancel"
-            android:layout_width="154dp"
-            android:layout_height="70dp"
-            android:typeface="sans"
-            android:background="@color/redshine"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:text="Cancel"></Button>
-    </LinearLayout>
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="154dp"
+                    android:layout_height="70dp"
+                    android:typeface="sans"
+                    android:background="@drawable/curved_button_yes"
+                    android:layout_marginTop="20dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:text="No"></Button>
+            </LinearLayout>
 
-</LinearLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>

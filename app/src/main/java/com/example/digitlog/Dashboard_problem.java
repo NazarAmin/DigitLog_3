@@ -71,7 +71,8 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_problems);
-
+        TextView eng = (TextView) findViewById(R.id.eng);
+        eng.setText(GlobalClass.engine_number);
         dialog2 = new Dialog(Dashboard_problem.this);
         dialog2.setContentView(R.layout.custom_dialoge_feedback2);
         dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
