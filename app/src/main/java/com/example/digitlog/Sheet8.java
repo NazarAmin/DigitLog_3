@@ -49,7 +49,7 @@ public class Sheet8 extends AppCompatActivity {
 
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
-        textView3.setText(engine + " LogSheet20_B");
+        //textView3.setText(engine + " LogSheet20_B");
 
         dialog = new Dialog(Sheet8.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);

@@ -69,7 +69,8 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
         }catch (Exception exception){
                 startActivity(new Intent(Chart_List.this, Blocks.class));
         }
-        if (GlobalClass.engine_number.equals("ST_1")){
+        if ((GlobalClass.engine_number.equals("ST_1")) | (GlobalClass.engine_number.equals("ST_2"))
+                | (GlobalClass.engine_number.equals("ST_3")) | (GlobalClass.engine_number.equals("ST_4"))){
                 mExampleList.add(this.getString(R.string.sp1));
                 mExampleList.add(this.getString(R.string.sp2));
                 mExampleList.add(this.getString(R.string.sp3));

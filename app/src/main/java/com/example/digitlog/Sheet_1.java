@@ -49,7 +49,7 @@ public class Sheet_1 extends AppCompatActivity {
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
 
-        textView3.setText(engine + " GT_Log");
+        //textView3.setText(engine + " GT_Log");
 
         dialog = new Dialog(Sheet_1.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);

@@ -41,7 +41,7 @@ public class Sheet_2 extends AppCompatActivity {
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
 
-        textView3.setText(engine + " FO");
+        //textView3.setText(engine + " FO");
 
         dialog = new Dialog(Sheet_2.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);

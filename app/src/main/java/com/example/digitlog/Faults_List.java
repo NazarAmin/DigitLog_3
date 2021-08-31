@@ -119,7 +119,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
                         mExampleList = new ArrayList<>();
 
-                        for (i = (category.size() - 2); i>=0 ; i--){
+                        for (i = (category.size() - 1); i>=0 ; i--){
                                 mExampleList.add(new Faults_Trips(category.get(i), urgency.get(i), user.get(i), comment.get(i), name_string.get(i), images.get(i)));
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

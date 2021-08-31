@@ -43,7 +43,7 @@ public class Sheet_3 extends AppCompatActivity {
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
 
-        textView3.setText(engine + " Generator_Board");
+        //textView3.setText(engine + " Generator_Board");
 
 
         dialog = new Dialog(Sheet_3.this);

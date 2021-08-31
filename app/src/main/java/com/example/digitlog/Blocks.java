@@ -35,7 +35,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
     float total, total_f, total_f_2 = 0;
     float total2 = 0;
     ImageView arr_1, arr_2;
-    ProgressBar simpleProgressBar, simpleProgressBar2;
+    ProgressBar simpleProgressBar, simpleProgressBar2, pbblocks;
     float tot;
     float gen_1 = 0;
     float gen_2 = 0;
@@ -69,7 +69,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blocks);
 
-
+        pbblocks = (ProgressBar) findViewById(R.id.pbblocks);
         simpleProgressBar=(ProgressBar) findViewById(R.id.chart_1);// initiate the progress bar
         simpleProgressBar2=(ProgressBar) findViewById(R.id.chart_2); // initiate the progress bar
 
@@ -170,8 +170,6 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
                 }
                 if (engine.equals("GT_1")) {
                     coloring_layouts("GT_2");
-                } else if (engine.equals("GT_2")) {
-                    coloring_layouts("ST_1");
                 }
             }
         }
@@ -291,8 +289,6 @@ public void coloring_generation(String engine, String sheet) {
                     }
                     if (engine.equals("GT_5")) {
                         coloring_layouts2("GT_6");
-                    } else if (engine.equals("GT_6")) {
-                        coloring_layouts2("ST_3");
                     }
                 }
             }
@@ -355,6 +351,7 @@ public void coloring_generation(String engine, String sheet) {
                             tot_gen_2.setText(String.valueOf(total_f));
                             simpleProgressBar2.setProgress((int) total_f);
                             temp2.setText(String.valueOf(df.format(total_f/240 * 100)) + " %   of");
+                            pbblocks.setVisibility(View.INVISIBLE);
                         }
                     }
 

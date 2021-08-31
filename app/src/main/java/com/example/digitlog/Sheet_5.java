@@ -43,7 +43,7 @@ public class Sheet_5 extends AppCompatActivity {
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
 
-        textView3.setText(engine + " Mark_v");
+        //textView3.setText(engine + " Mark_v");
 
 
         dialog = new Dialog(Sheet_5.this);

@@ -77,18 +77,32 @@
         android:layout_marginTop="7dp"
         android:layout_marginRight="2dp"
         android:background="#7E000000" />
-
-<TextView
-    android:layout_width="wrap_content"
+<RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="25dp"
-    android:text="Garri 1"
-    android:textColor="@color/black"
-    android:textSize="20dp"
-    android:textStyle="bold|italic"
-    android:layout_gravity="center">
+    android:layout_marginTop="25dp">
 
-</TextView>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:id="@+id/pbblocks">
+
+    </ProgressBar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Garri 1"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        >
+
+    </TextView>
+</RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"

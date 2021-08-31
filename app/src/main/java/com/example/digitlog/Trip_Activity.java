@@ -124,8 +124,21 @@ public class Trip_Activity extends AppCompatActivity  {
 
             ldo.setText("HSRG_1");
             hcgo.setText("HSRG_2");
+            fuel_nasr.setText("Run with");
+        }
+        if (GlobalClass.engine_number.equals("ST_2")) {
+
+            ldo.setText("HSRG_3");
+            hcgo.setText("HSRG_4");
+            fuel_nasr.setText("Run with");
         }
         if (GlobalClass.engine_number.equals("ST_3")) {
+
+            ldo.setText("HSRG_5");
+            hcgo.setText("HSRG_6");
+            fuel_nasr.setText("Run with");
+        }
+        if (GlobalClass.engine_number.equals("ST_4")) {
 
             ldo.setText("HSRG_7");
             hcgo.setText("HSRG_8");
@@ -197,8 +210,7 @@ public class Trip_Activity extends AppCompatActivity  {
 
 
     private void uploadToFirebase(byte[] bb) {
-        StorageReference filepath = storageRef.child("Trips/" + engine + "/" +
-                GlobalClass.Faults_Category + "/" + current_date + ".jpeg");
+        StorageReference filepath = storageRef.child("Trips/" + engine + "/" + "/" + current_date + ".jpeg");
 
         filepath.putBytes(bb).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -247,14 +259,37 @@ public class Trip_Activity extends AppCompatActivity  {
             startActivity(new Intent(Trip_Activity.this, Blocks.class));
         }
 
-        if (GlobalClass.engine_number.equals("ST_1")) {
+        if ((GlobalClass.engine_number.equals("ST_1"))){
 
             if (ldo.isChecked() & hcgo.isChecked()) {
                 checkchoise = "HSRG_1, HSRG_2";
             } else if (ldo.isChecked() & !hcgo.isChecked()) {
                 checkchoise = "HSRG_1";
             } else {
-                checkchoise = "HSRG_2";
+                checkchoise = "HSRG_2";}
+            } else if (GlobalClass.engine_number.equals("ST_2")){
+                if (ldo.isChecked() & hcgo.isChecked()) {
+                    checkchoise = "HSRG_3, HSRG_4";
+                } else if (ldo.isChecked() & !hcgo.isChecked()) {
+                    checkchoise = "HSRG_3";
+                } else {
+                    checkchoise = "HSRG_4";
+            }
+        } else if (GlobalClass.engine_number.equals("ST_3")){
+            if (ldo.isChecked() & hcgo.isChecked()) {
+                checkchoise = "HSRG_5, HSRG_6";
+            } else if (ldo.isChecked() & !hcgo.isChecked()) {
+                checkchoise = "HSRG_5";
+            } else {
+                checkchoise = "HSRG_6";
+            }
+        } else if (GlobalClass.engine_number.equals("ST_4")){
+            if (ldo.isChecked() & hcgo.isChecked()) {
+                checkchoise = "HSRG_7, HSRG_8";
+            } else if (ldo.isChecked() & !hcgo.isChecked()) {
+                checkchoise = "HSRG_7";
+            } else {
+                checkchoise = "HSRG_8";
             }
         } else {
 
@@ -270,7 +305,7 @@ public class Trip_Activity extends AppCompatActivity  {
 
 
         trip_class = new Trip_Class(radioButton.getText().toString(), checkchoise,user_2, description5.getText().toString(), dateformat5, alarms.getText().toString(),
-                "Trips/" + engine + "/" + GlobalClass.Faults_Category + "/" + current_date);
+                "Trips/" + engine + "/" + current_date);
 
         ref2.child(sdf.format(new Date()).trim()).setValue(trip_class);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();

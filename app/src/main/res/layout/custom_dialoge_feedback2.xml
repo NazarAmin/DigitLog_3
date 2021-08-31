@@ -61,25 +61,6 @@
         android:layout_weight="1"
         android:weightSum="2" >
 
-        <Button
-            android:id="@+id/save"
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:background="@drawable/curved_button_yes"
-            android:textColor="#A6A3A3"
-            android:textSize="15sp"
-            android:layout_marginTop="20dp"
-            android:typeface="sans"
-            android:layout_gravity="center"
-            android:text="Yes"></Button>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:weightSum="2" >
 
         <Button
             android:id="@+id/cancel"
@@ -92,6 +73,28 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:text="No"></Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:background="@drawable/curved_button_yes"
+            android:textColor="#A6A3A3"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:typeface="sans"
+            android:layout_gravity="center"
+            android:text="Yes"></Button>
+
     </LinearLayout>
 
 

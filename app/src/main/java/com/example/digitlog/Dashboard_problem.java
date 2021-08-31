@@ -218,7 +218,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         }
 
         faults_trips = new Faults_Trips(cat, conseq,user_2, t_co, sdf.format(new Date()).trim(), "Faults_Trips/" + engine + "/" +
-                GlobalClass.Faults_Category + "/" + current_date);
+                cat + "/" + current_date);
 
         ref2.child(sdf.format(new Date()).trim()).setValue(faults_trips);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
@@ -228,7 +228,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
 
     private void uploadToFirebase(byte[] bb) {
         StorageReference filepath = storageRef.child("Faults_Trips/" + engine + "/" +
-                GlobalClass.Faults_Category + "/" + current_date + ".jpeg");
+                cat + "/" + current_date + ".jpeg");
 
         filepath.putBytes(bb).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
