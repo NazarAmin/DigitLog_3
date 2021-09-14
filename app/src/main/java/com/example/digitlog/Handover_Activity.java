@@ -129,7 +129,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
-        String shifts[] = {"A", "B", "C", "D", "E", "F"};
+        String shifts[] = {"A", "B", "C", "D", "E"};
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, shifts);
         // Drop down layout style - list view with radio button
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -199,8 +199,15 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
-        engine_focal = parent.getItemAtPosition(position).toString();
-        shift_name = parent.getItemAtPosition(position).toString();
+
+        switch(parent.getId()){
+            case R.id.spinner:
+                engine_focal = parent.getItemAtPosition(position).toString();
+                break;
+            case R.id.spinner2:
+                shift_name = parent.getItemAtPosition(position).toString();
+        }
+
         //GlobalClass.engine_focal = engine_focal;
 
         // Showing selected spinner item

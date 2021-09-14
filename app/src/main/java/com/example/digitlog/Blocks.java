@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +35,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
     LinearLayout sheet1, sheet2, sheet3, sheet4;
     float total, total_f, total_f_2 = 0;
     float total2 = 0;
-    ImageView arr_1, arr_2;
+    ImageView arr_1, arr_2, im1234, im123;
     ProgressBar simpleProgressBar, simpleProgressBar2, pbblocks;
     float tot;
     float gen_1 = 0;
@@ -42,6 +43,8 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
     String engine;
     ArrayList<Float> datavals = new ArrayList<Float>();
     BarChart chart1;
+    ArrayList<String> arr;
+
 
     TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3, tot_gen, tot_fuel, tot_gen_2, fue_l2, mw12, mw23, temp1, temp2;
 
@@ -96,6 +99,10 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
         sheet3 = (LinearLayout) findViewById(R.id.sheet3);
         sheet4 = (LinearLayout) findViewById(R.id.sheet4);
 
+        im1234 = (ImageView) findViewById(R.id.im1234);
+        im123 = (ImageView) findViewById(R.id.im123);
+
+        arr = new ArrayList<String>();
 
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,21 +138,128 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
             }
         });
 
-        total = 0;
-        total_f = 0;
-        coloring_layouts("GT_1"); // LogSheet20_A
+        coloring_layouts(); // LogSheet20_A
         coloring_generation("GT_1", "Generation");
-
-        coloring_layouts2("GT_5"); // LogSheet20_A
+        coloring_layouts2(); // LogSheet20_A
         coloring_generation2("GT_5", "Generation");
 
+        im1234.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arr.clear();
+                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                ref9.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        if (dataSnapshot.hasChildren()) {
+                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                arr.add(mydatasnapshot.getValue(String.class));
+                            }
+
+                        }
+
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Plant_1");
+                        ref9.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if (dataSnapshot.hasChildren()) {
+                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                        //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                        arr.add(mydatasnapshot.getValue(String.class));
+                                    }
+
+                                    if (arr.contains(GlobalClass.actual_user_name)) {
+
+                                        startActivity(new Intent(Blocks.this, Fuel_Management_1.class));
+                                    } else {
+                                       // Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                             //   "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
+
+        im123.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arr.clear();
+                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                ref9.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        if (dataSnapshot.hasChildren()) {
+                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                arr.add(mydatasnapshot.getValue(String.class));
+                            }
+
+                        }
+
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Plant_2");
+                        ref9.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if (dataSnapshot.hasChildren()) {
+                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                        //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                        arr.add(mydatasnapshot.getValue(String.class));
+                                    }
+
+                                    if (arr.contains(GlobalClass.actual_user_name)) {
+
+                                        startActivity(new Intent(Blocks.this, Fuel_Management_2.class));
+                                    } else {
+                                       // Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                            //    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
     }
 
 
+    private void coloring_layouts() {
 
-    private void coloring_layouts(String engine) {
-
-    DatabaseReference ref99 = firebaseDatabase.getReference("data/" + engine + "/mid_night");
+    DatabaseReference ref99 = firebaseDatabase.getReference("data/Plant_1_Fuel");
     ref99.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -154,9 +268,9 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
             int i = 0;
             if (snapshot.hasChildren()) {
                 for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
-                    Mid_Night_Class data = mydatasnapshot.getValue(Mid_Night_Class.class);
+                    Fuel_Mgt data = mydatasnapshot.getValue(Fuel_Mgt.class);
                     try {
-                        datavals2.add(Float.parseFloat(data.getEfs()));
+                        datavals2.add(Float.parseFloat(data.getStock()));
                     } catch (Exception e) {
                         datavals2.add((float) 0);
                     }
@@ -168,9 +282,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
                 } catch (Exception ex) {
                     tot_fuel.setText("___");
                 }
-                if (engine.equals("GT_1")) {
-                    coloring_layouts("GT_2");
-                }
+
             }
         }
         @Override
@@ -198,15 +310,22 @@ public void coloring_generation(String engine, String sheet) {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     datavals.clear();
+                    if (engine.equals("GT_1")) {
+                        total = 0;
+                    }
                     if (dataSnapshot.hasChildren()) {
                         for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                             if (engine.substring(0, 2).equals("ST")) {
                                 DataS1 data = mydatasnapshot.getValue(DataS1.class);
-                                datavals.add(data.getIp1());
+                                    datavals.add(data.getIp1());
+
+
                                 i = i + 1;
                             } else {
-                                Data data = mydatasnapshot.getValue(Data.class);
-                                datavals.add(data.getIp1());
+
+                                    Data data = mydatasnapshot.getValue(Data.class);
+                                    datavals.add(data.getIp1());
+
                                 i = i + 1;
                             }
                         }
@@ -223,30 +342,19 @@ public void coloring_generation(String engine, String sheet) {
                     } else if (engine.equals("GT_2")) {
                         coloring_generation("ST_1", "LogSheet20_A");
                     } else if (engine.equals("ST_1")){
-                        mw1.setText(String.valueOf(total));
+                        mw1.setText(String.valueOf(df.format(total)));
                         coloring_generation("GT_3", "Generation");
                     } else if (engine.equals("GT_3")) {
                         coloring_generation("GT_4", "Generation");
                     } else if (engine.equals("GT_4")){
                         coloring_generation("ST_2", "LogSheet20_A");
                     } else if (engine.equals("ST_2")) {
-                        mw2.setText(String.valueOf(total - Float.parseFloat(mw1.getText().toString())));
-                        tot_gen.setText(String.valueOf(total));
+                        mw2.setText(df.format(total - Float.parseFloat(mw1.getText().toString())));
+                        tot_gen.setText(df.format(total));
                         simpleProgressBar.setProgress((int) total);
-                        temp1.setText(String.valueOf(df.format(total/240 * 100)) + " %   of");
+                        temp1.setText(df.format(total/180 * 100) + " %   of");
                     }
 
-
-/**
-                    ArrayList<BarEntry> visitors = new ArrayList<>();
-                    visitors.add(new BarEntry(0, total));
-                    BarDataSet barDataSet = new BarDataSet(visitors, "Generation");
-                    barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-                    BarData barData = new BarData(barDataSet);
-                    chart1.setFitBars(true);
-                    chart1.setData(barData);
-                    chart1.animateY(2000);
-**/
                 }
 
                 @Override
@@ -262,9 +370,9 @@ public void coloring_generation(String engine, String sheet) {
     });
 }
 
-    private void coloring_layouts2(String engine) {
+    private void coloring_layouts2() {
 
-        DatabaseReference ref99 = firebaseDatabase.getReference("data/" + engine + "/mid_night");
+        DatabaseReference ref99 = firebaseDatabase.getReference("data/Plant_2_Fuel");
         ref99.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -273,22 +381,19 @@ public void coloring_generation(String engine, String sheet) {
                 int i = 0;
                 if (snapshot.hasChildren()) {
                     for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
-                        Mid_Night_Class data = mydatasnapshot.getValue(Mid_Night_Class.class);
+                        Fuel_Mgt data = mydatasnapshot.getValue(Fuel_Mgt.class);
                         try {
-                            datavals2.add(Float.parseFloat(data.getEfs()));
+                            datavals2.add(Float.parseFloat(data.getStock()));
                         } catch (Exception e) {
                             datavals2.add((float) 0);
                         }
                         i = i + 1;
                     }
                     try {
-                        total_f_2 = datavals2.get(i - 1);
-                        fue_l2.setText(df.format(total_f_2));
+                        total2 = datavals2.get(i - 1);
+                        fue_l2.setText(df.format(total2));
                     } catch (Exception ex) {
                         fue_l2.setText("___");
-                    }
-                    if (engine.equals("GT_5")) {
-                        coloring_layouts2("GT_6");
                     }
                 }
             }
@@ -314,6 +419,9 @@ public void coloring_generation(String engine, String sheet) {
 
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (engine.equals("GT_5")) {
+                            total_f = 0;
+                        }
                         datavals.clear();
                         if (dataSnapshot.hasChildren()) {
                             for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
@@ -340,17 +448,17 @@ public void coloring_generation(String engine, String sheet) {
                         } else if (engine.equals("GT_6")) {
                             coloring_generation2("ST_3", "LogSheet20_A");
                         } else if (engine.equals("ST_3")){
-                            mw12.setText(String.valueOf(total_f));
+                            mw12.setText(df.format(total_f));
                             coloring_generation2("GT_7", "Generation");
                         } else if (engine.equals("GT_7")) {
                             coloring_generation2("GT_8", "Generation");
                         } else if (engine.equals("GT_8")){
                             coloring_generation2("ST_4", "LogSheet20_A");
                         } else if (engine.equals("ST_4")) {
-                            mw23.setText(String.valueOf(total_f - Float.parseFloat(mw12.getText().toString())));
-                            tot_gen_2.setText(String.valueOf(total_f));
+                            mw23.setText(df.format(total_f - Float.parseFloat(mw12.getText().toString())));
+                            tot_gen_2.setText(df.format(total_f));
                             simpleProgressBar2.setProgress((int) total_f);
-                            temp2.setText(String.valueOf(df.format(total_f/240 * 100)) + " %   of");
+                            temp2.setText(df.format(total_f/180 * 100) + " %   of");
                             pbblocks.setVisibility(View.INVISIBLE);
                         }
                     }

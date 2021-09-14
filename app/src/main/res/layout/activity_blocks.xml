@@ -138,18 +138,17 @@
                 >
 
             </TextView>
+
             <TextView
+                android:id="@+id/tot_gen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tot_gen"
-                android:layout_toRightOf="@id/gen_l"
                 android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/gen_l"
                 android:text="-----"
-                android:textSize="20dp"
-                android:layout_centerVertical="true"
-                android:textStyle="bold|italic"
                 android:textColor="@color/redshine"
-                >
+                android:textSize="20dp"
+                android:textStyle="bold|italic">
 
             </TextView>
 
@@ -243,7 +242,7 @@
                 android:progressDrawable="@drawable/green_progress_drawable"
 
                 android:layout_marginLeft="10dp"
-                android:max="240"
+                android:max="180"
                 android:outlineAmbientShadowColor="@color/grey"
                 android:outlineSpotShadowColor="@color/green">
 
@@ -264,7 +263,7 @@
                 android:id="@+id/temp55"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="240 Mw"
+                android:text="180 Mw"
                 android:textSize="12dp"
                 android:textColor="@color/black"
                 android:layout_toRightOf="@id/temp99_1"
@@ -525,14 +524,14 @@
                 android:padding="8dp"
 
                 >
+
                 <ImageView
+                    android:id="@+id/im123"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:id="@+id/im123"
-                    android:src="@drawable/ic_baseline_local_gas_station_24"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    >
+                    android:src="@drawable/ic_baseline_local_gas_station_24">
 
                 </ImageView>
                 <TextView
@@ -591,7 +590,7 @@
                     android:layout_centerVertical="true"
                     android:layout_height="10dp"
                     android:progressDrawable="@drawable/green_progress_drawable"
-                    android:max="240"
+                    android:max="180"
                     >
 
                 </ProgressBar>
@@ -611,7 +610,7 @@
                     android:id="@+id/temp66"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="240 MW"
+                    android:text="180 Mw"
                     android:textSize="12dp"
                     android:textColor="@color/black"
                     android:layout_toRightOf="@id/temp99_2"

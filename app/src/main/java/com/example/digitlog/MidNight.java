@@ -65,7 +65,7 @@ public class MidNight extends AppCompatActivity {
         generation_MN = (EditText) findViewById(R.id.generation_MN);
         generation_MV = (EditText) findViewById(R.id.generation_MV);
         fuel_MV = (EditText) findViewById(R.id.fuel_MV);
-        hp_efs = (EditText) findViewById(R.id.hp_efs);
+        //hp_efs = (EditText) findViewById(R.id.hp_efs);
 
         fuel_MN = (EditText) findViewById(R.id.fuel_MN);
         hp_MN = (EditText) findViewById(R.id.hp_MN);
@@ -96,8 +96,8 @@ public class MidNight extends AppCompatActivity {
                 df_MN.getText().toString(),
                 radioButton.getText().toString(),
                 generation_MV.getText().toString(),
-                fuel_MV.getText().toString(),
-                hp_efs.getText().toString());
+                fuel_MV.getText().toString());
+               // hp_efs.getText().toString());
 
         ref2.child(sdf.format(new Date()).trim()).setValue(mid_night_class);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();

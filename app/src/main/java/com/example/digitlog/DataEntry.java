@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DataEntry extends AppCompatActivity {
@@ -27,12 +29,17 @@ public class DataEntry extends AppCompatActivity {
     String actual_user;
     Dialog dialog;
     String engine = GlobalClass.engine_number;
-    String arr[] = {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain"};
+    ArrayList<String> arr; //= {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain", "Imad Hussein"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_entry);
+
+        arr = new ArrayList<String>();
+
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
@@ -65,7 +72,6 @@ public class DataEntry extends AppCompatActivity {
         engine_pic = (TextView) findViewById(R.id.engine_pic);
 
 
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref3;
         ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
 
@@ -85,21 +91,41 @@ public class DataEntry extends AppCompatActivity {
         status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                arr.clear();
                 ref3.addValueEventListener(new ValueEventListener() {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
+
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                        ref9.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if (dataSnapshot.hasChildren()) {
+                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                        //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                        arr.add(mydatasnapshot.getValue(String.class));
+                                    }
+
+                                }
+                                if (actual_user.equals(GlobalClass.actual_user_name) | arr.contains(GlobalClass.actual_user_name)) {
 
 
-                            startActivity(new Intent(DataEntry.this, EngineStatus.class));
-                        } else {
-                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
-                        }
+                                    startActivity(new Intent(DataEntry.this, EngineStatus.class));
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                            "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
                     }
 
@@ -113,19 +139,42 @@ public class DataEntry extends AppCompatActivity {
                 handover.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        arr.clear();
                         ref3.addValueEventListener(new ValueEventListener() {
 
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 actual_user = dataSnapshot.getValue(String.class);
                                 //GlobalClass.current_engine_focal = actual_user;
-                                if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
-                                    startActivity(new Intent(DataEntry.this, Handover_Activity.class));
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                                            "enter data to " + engine, Toast.LENGTH_LONG).show();
-                                }
+
+                                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                                ref9.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if (dataSnapshot.hasChildren()) {
+                                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                                //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                                arr.add(mydatasnapshot.getValue(String.class));
+                                            }
+
+                                        }
+                                        if (actual_user.equals(GlobalClass.actual_user_name) | arr.contains(GlobalClass.actual_user_name)) {
+                                            startActivity(new Intent(DataEntry.this, Handover_Activity.class));
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                        }
+
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+
 
                             }
 
@@ -141,7 +190,7 @@ public class DataEntry extends AppCompatActivity {
                 sheet1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        arr.clear();
                                     if ((engine.equals("ST_1")) | (engine.equals("ST_2"))| (engine.equals("ST_3"))| (engine.equals("ST_4"))) {
                                         startActivity(new Intent(DataEntry.this, DashboardST.class));
                                     } else {
@@ -153,18 +202,40 @@ public class DataEntry extends AppCompatActivity {
                 sheet2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        arr.clear();
                         ref3.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 actual_user = dataSnapshot.getValue(String.class);
-                                //GlobalClass.current_engine_focal = actual_user;
-                                if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
-                                    startActivity(new Intent(DataEntry.this, Dashboard_problem.class));
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                                            "enter data to " + engine, Toast.LENGTH_LONG).show();
-                                }
+
+
+
+                                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                                ref9.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if (dataSnapshot.hasChildren()) {
+                                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                                //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                                arr.add(mydatasnapshot.getValue(String.class));
+                                            }
+
+                                        }
+                                        if (actual_user.equals(GlobalClass.actual_user_name) | arr.contains(GlobalClass.actual_user_name)) {
+                                            startActivity(new Intent(DataEntry.this, Dashboard_problem.class));
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                        }
+
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
 
                             }
 
@@ -182,18 +253,40 @@ public class DataEntry extends AppCompatActivity {
         sheet9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                arr.clear();
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
-                        //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
-                            startActivity(new Intent(DataEntry.this, Trip_Activity.class));
-                        } else {
-                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
-                        }
+
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                        ref9.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if (dataSnapshot.hasChildren()) {
+                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                        //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                        arr.add(mydatasnapshot.getValue(String.class));
+
+                                    }
+
+                                }
+                                if (actual_user.equals(GlobalClass.actual_user_name) | arr.contains(GlobalClass.actual_user_name)) {
+                                    startActivity(new Intent(DataEntry.this, Trip_Activity.class));
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                            "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
 
                     }
 
@@ -210,24 +303,44 @@ public class DataEntry extends AppCompatActivity {
         sheet10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                arr.clear();
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
-                        //GlobalClass.current_engine_focal = actual_user;
-                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)) {
 
-                            if ((engine.equals("ST_1")) | (engine.equals("ST_2"))| (engine.equals("ST_3"))| (engine.equals("ST_4"))) {
-                                startActivity(new Intent(DataEntry.this, MidNight_ST.class));
-                            } else {
-                                startActivity(new Intent(DataEntry.this, MidNight.class));
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                        ref9.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if (dataSnapshot.hasChildren()) {
+                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                        //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                        arr.add(mydatasnapshot.getValue(String.class));
+                                    }
+
+                                }
+                                //GlobalClass.current_engine_focal = actual_user;
+                                if ((actual_user.equals(GlobalClass.actual_user_name) ) | (arr.contains(GlobalClass.actual_user_name))) {
+
+                                    if ((engine.equals("ST_1")) | (engine.equals("ST_2"))| (engine.equals("ST_3"))| (engine.equals("ST_4"))) {
+                                        startActivity(new Intent(DataEntry.this, MidNight_ST.class));
+                                    } else {
+                                        startActivity(new Intent(DataEntry.this, MidNight.class));
+                                    }
+
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                            "enter data to " + engine, Toast.LENGTH_LONG).show();
+                                }
+
                             }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                        } else {
-                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
-                        }
+                            }
+                        });
 
                     }
 

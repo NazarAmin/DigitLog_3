@@ -219,9 +219,14 @@ public class Dashboard_Engines extends AppCompatActivity {
                     ArrayList<Float> datavals = new ArrayList<Float>();
                     if (dataSnapshot.hasChildren()) {
                         for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
-                            Data data = mydatasnapshot.getValue(Data.class);
-                            datavals.add(data.getIp1());
-                            i = i + 1;
+                            try{
+                                Data data = mydatasnapshot.getValue(Data.class);
+                                datavals.add(data.getIp1());
+                                i = i + 1;
+                            }catch (Exception e){
+
+                            }
+
                         }
 
                         DatabaseReference ref3 = firebaseDatabase.getReference("data/" + finalEngine1 + "/Status");

@@ -43,7 +43,7 @@ public class Dashboard extends AppCompatActivity {
     LinearLayout prob, charts, sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
     ArrayList<Date> name = new ArrayList<Date>();
     Auth auth;
-    String general_admin = GlobalClass.general_admin;
+    String general_admin = "Nazar Amin";
     String current_engine_focal_name;
     ImageView im_1,im_2,im_3,im_4,im_5,im_6;
     Dialog dialog;
@@ -139,6 +139,7 @@ public class Dashboard extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         current_engine_focal_name = dataSnapshot.getValue(String.class);
+
                         GlobalClass.current_engine_focal = current_engine_focal_name;
                         if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
                             startActivity(new Intent(Dashboard.this, Sheet_1.class));

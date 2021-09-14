@@ -1,5 +1,6 @@
 package com.example.digitlog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -20,12 +21,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class New_Engine_Dash extends AppCompatActivity {
-    LinearLayout sheet1, sheet2;
+    LinearLayout sheet1, sheet2, sheet5;
     FirebaseDatabase firebaseDatabase;
     String engine;
     ImageView home;
     Dialog dialog;
+    ArrayList<String> arr;
     String current_user;
     @SuppressLint("WrongViewCast")
     @Override
@@ -33,8 +37,12 @@ public class New_Engine_Dash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new__engine__dash);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
+
+        arr = new ArrayList<String>();
 
         dialog = new Dialog(New_Engine_Dash.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -44,7 +52,6 @@ public class New_Engine_Dash extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 New_Engine_Dash.this.finishAffinity();
             }
         });
@@ -63,6 +70,8 @@ public class New_Engine_Dash extends AppCompatActivity {
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
+        sheet5 = (LinearLayout) findViewById(R.id.sheet5);
+
         home = (ImageView) findViewById(R.id.home_image);
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -71,45 +80,55 @@ public class New_Engine_Dash extends AppCompatActivity {
                 startActivity(new Intent(New_Engine_Dash.this, Blocks.class));
             }
         });
-        sheet1.setOnClickListener(new View.OnClickListener() {
+
+        sheet5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(New_Engine_Dash.this, Dashboard_chart.class));
-            }
-        });
-        sheet2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(New_Engine_Dash.this, DataEntry.class));
-
- /**
-                ref3.addValueEventListener(new ValueEventListener() {
+                arr.clear();
+                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                ref9.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        String current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        if (GlobalClass.current_engine_focal.equals(GlobalClass.actual_user_name)) {//| GlobalClass.current_engine_focal.equals(general_admin)){
+                        if (dataSnapshot.hasChildren()) {
+                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                arr.add(mydatasnapshot.getValue(String.class));
+                            }
 
+                        }
+                        if (arr.contains(GlobalClass.actual_user_name)) {
 
+                            startActivity(new Intent(New_Engine_Dash.this, Correction_Base.class));
+                        } else {
 
-                        }else{
-                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
-                                    "handover " + engine + " this can be done by " + GlobalClass.current_engine_focal, Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(New_Engine_Dash.this, Correction_Base2.class));
+
                         }
 
                     }
-
                     @Override
-                    public void onCancelled(DatabaseError error) {
+                    public void onCancelled(@NonNull DatabaseError error) {
 
                     }
                 });
-**/
+
+            }
+        });
+
+        sheet1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(New_Engine_Dash.this, Dashboard_chart.class));
+            }
+        });
+
+        sheet2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(New_Engine_Dash.this, DataEntry.class));
+
                     }
                 });
 

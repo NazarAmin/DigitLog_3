@@ -14,9 +14,12 @@
         android:roundIcon="@mipmap/digit_log_logo"
         android:supportsRtl="false"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Mid_Night_Report"></activity>
-        <activity android:name=".Mid_Night_Report_ST"></activity>
-
+        <activity android:name=".Correction_Base"></activity>
+        <activity android:name=".Correction_Base2"></activity>
+        <activity android:name=".Fuel_Management_1" />
+        <activity android:name=".Fuel_Management_2" />
+        <activity android:name=".Mid_Night_Report" />
+        <activity android:name=".Mid_Night_Report_ST" />
         <activity android:name=".MidNight" />
         <activity android:name=".MidNight_ST" />
         <activity android:name=".Reports_Activity" />

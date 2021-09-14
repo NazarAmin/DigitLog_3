@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Correction_Base">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints">
+
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Correction"
+            android:fontFamily="@font/microbrew_soft_one_inline"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="#2144F3"
+            android:textSize="24sp"></TextView>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="2dp"
+            android:layout_below="@id/tv1"
+            android:background="#7E000000" />
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_marginTop="0dp"
+            android:layout_height="50dp"
+
+            android:layout_centerVertical="true"
+            android:onClick="go_home"
+            android:layout_toLeftOf="@id/sign_out"
+            android:layout_marginRight="20dp"
+            android:id="@+id/home_image"
+            android:src="@drawable/home"
+            ></ImageView>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:onClick="go_out"
+            android:layout_marginRight="20dp"
+            android:id="@+id/sign_out"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/sign_out"
+            ></ImageView>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_marginTop="60dp"
+        android:id="@+id/scroll2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/black"
+        android:text="Please select the data parent:"
+        android:textSize="14dp"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
+        >
+    </TextView>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Spinner
+            android:id="@+id/rvAnimals"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingRight="7dp" />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/black"
+        android:text="Please select the data sheet:"
+        android:textSize="14dp"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
+        >
+    </TextView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Spinner
+            android:id="@+id/rvAnimals2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:defaultFocusHighlightEnabled="true"
+            android:paddingRight="7dp" />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/black"
+        android:text="Please select the date:"
+        android:textSize="14dp"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
+        >
+    </TextView>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Spinner
+            android:id="@+id/rvAnimals3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:defaultFocusHighlightEnabled="true"
+            android:paddingRight="7dp" />
+    </ScrollView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/black"
+                android:text="Please select the Parameter:"
+                android:textSize="14dp"
+                android:gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="left"
+                >
+            </TextView>
+
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
+
+                <Spinner
+                    android:id="@+id/rvAnimals4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:defaultFocusHighlightEnabled="true"
+                    android:paddingRight="7dp" />
+            </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:textStyle="bold|italic"
+    android:textColor="@color/black"
+    android:text="Old Value:">
+
+</TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/param">
+
+        </EditText>
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold|italic"
+
+                    android:text="New Value:">
+
+                </TextView>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/param2">
+
+                </EditText>
+
+            </LinearLayout>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:textSize="14dp"
+        android:id="@+id/but"
+        android:textColor="@color/white"
+        android:background="@color/green"
+        android:layout_marginLeft="10dp"
+        android:text="Update"></Button>
+</LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

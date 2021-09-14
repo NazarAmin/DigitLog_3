@@ -143,10 +143,9 @@
         ></TextView>
 
     <Spinner
-        android:layout_width="170dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
-
         android:layout_gravity="center"
         android:textColor="@color/green"
         android:textSize="20dp"
@@ -170,10 +169,10 @@
                     ></TextView>
 
                 <Spinner
-                    android:layout_width="170dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spinner2"
-
+                    android:layout_marginLeft="25dp"
                     android:layout_gravity="center"
                     android:textColor="@color/green"
                     android:textSize="20dp"
