@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,9 +40,12 @@ public class Dashboard_Engines extends AppCompatActivity {
     ArrayList<Date> name = new ArrayList<Date>();
     List<String> sheets_l;
     List<LinearLayout> sheets_q;
-    TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3, st2, gt3, gt4;
+    TextView enstatus1, enstatus2,enstatus3,mw1, mw2, mw3, fo1, fo2, fo3, st2, gt3, gt4, ani, ani2, ani3;
     Dialog dialog;
-
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference ref20;
+    String engine;
+    ArrayList<String> datavals = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,11 @@ public class Dashboard_Engines extends AppCompatActivity {
         gt_image1 = (ImageView) findViewById(R.id.gt_image1);
         gt_image2 = (ImageView) findViewById(R.id.gt_image2);
         gt_image3 = (ImageView) findViewById(R.id.gt_image3);
+
+        ani = (TextView) findViewById(R.id.ani);
+        ani2 = (TextView) findViewById(R.id.ani2);
+        ani3 = (TextView) findViewById(R.id.ani3);
+
 
         enstatus1 = (TextView) findViewById(R.id.enstatus1);
         enstatus2 = (TextView) findViewById(R.id.enstatus2);
@@ -73,27 +82,50 @@ public class Dashboard_Engines extends AppCompatActivity {
         //sheet5 = (LinearLayout) findViewById(R.id.sheet5);
         //sheet6 = (LinearLayout) findViewById(R.id.sheet6);
 
+        TranslateAnimation animation = new TranslateAnimation(800.0f, -800.0f, 0.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
+
+        animation.setDuration(15000); // animation duration, change accordingly
+        animation.setRepeatCount(-1); // animation repeat count
+        animation.setFillAfter(false);
+
         try {
             if (GlobalClass.block_number.equals("one")) {
                 gt3.setText("GT1");
+                get_text_ani(ani, "GT_1", 0);
                 gt4.setText("GT2");
+                get_text_ani(ani2, "GT_2", 0);
                 st2.setText("ST1");
+                get_text_ani(ani3, "ST_1", 0);
             }else if (GlobalClass.block_number.equals("two")){
                 gt3.setText("GT3");
+                get_text_ani(ani, "GT_3", 0);
                 gt4.setText("GT4");
+                get_text_ani(ani2, "GT_4", 0);
                 st2.setText("ST2");
+                get_text_ani(ani3, "ST_2", 0);
             }else if (GlobalClass.block_number.equals("three")){
                 gt3.setText("GT5");
+                get_text_ani(ani, "GT_5", 0);
                 gt4.setText("GT6");
+                get_text_ani(ani2, "GT_6", 0);
                 st2.setText("ST3");
+                get_text_ani(ani3, "ST_3", 0);
             }else {
                 gt3.setText("GT7");
+                get_text_ani(ani, "GT_7", 0);
                 gt4.setText("GT8");
+                get_text_ani(ani2, "GT_8", 0);
                 st2.setText("ST4");
+                get_text_ani(ani3, "ST_4", 0);
             }
         }catch (Exception ex){
 
         }
+
+        ani.startAnimation(animation);//your_view for which you need animation
+        ani2.startAnimation(animation);//your_view for which you need animation
+        ani3.startAnimation(animation);//your_view for which you need animation
+
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,10 +172,47 @@ public class Dashboard_Engines extends AppCompatActivity {
                 startActivity(new Intent(Dashboard_Engines.this, New_Engine_Dash.class));
             }
         });
-
         coloring_layouts();
         coloring_layouts2();
 
+    }
+
+    private void get_text_ani(TextView ani, String engine, int i) {
+        datavals.clear();
+        ref20 = firebaseDatabase.getReference("data2/" + engine + "/Status_History");
+        ref20.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.hasChildren()) {
+                    for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
+                        try {
+                            E_Status data = mydatasnapshot.getValue(E_Status.class);
+                            datavals.add(data.getDescription());
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+              //  try{
+                System.out.println("||||||||||||||\n");
+
+                System.out.println(datavals.get(datavals.size()-1));
+                System.out.println(datavals.get(1));
+
+
+                ani.setText(datavals.get(datavals.size()-1));
+
+             //   }catch (Exception e){
+                 //   ani.setText("No Error");
+
+               // }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     protected void onStart() {
@@ -155,7 +224,6 @@ public class Dashboard_Engines extends AppCompatActivity {
 
     private void coloring_layouts() {
 
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         if (GlobalClass.block_number.equals("one")){
             sheets_l = Arrays.asList("GT_1","GT_2","ST_1");
         }else if (GlobalClass.block_number.equals("two")) {
@@ -181,7 +249,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         for (int counter = 0; counter < sheets_l.size(); counter++) {
             engine = sheets_l.get(counter);
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Generation");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/Generation");
             //LinearLayout finalItem_q = Item_q;
 
             String finalEngine = engine;
@@ -229,7 +297,7 @@ public class Dashboard_Engines extends AppCompatActivity {
 
                         }
 
-                        DatabaseReference ref3 = firebaseDatabase.getReference("data/" + finalEngine1 + "/Status");
+                        DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + finalEngine1 + "/Status");
 
                         //int finalCounter;
                         ref3.addValueEventListener(new ValueEventListener() {
@@ -284,7 +352,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                 }
             });
 
-            DatabaseReference ref4 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+            DatabaseReference ref4 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
             int finalCounter2 = counter;
             ref4.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -327,7 +395,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         for (int counter = 0; counter < sheets_l.size(); counter++) {
             engine = sheets_l.get(counter);
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/LogSheet20_A");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_A");
             //LinearLayout finalItem_q = Item_q;
 
             String finalEngine = engine;
@@ -370,7 +438,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                             i = i + 1;
                         }
 
-                        DatabaseReference ref3 = firebaseDatabase.getReference("data/" + finalEngine1 + "/Status");
+                        DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + finalEngine1 + "/Status");
 
                         //int finalCounter;
                         ref3.addValueEventListener(new ValueEventListener() {
@@ -424,7 +492,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                 }
             });
 
-            DatabaseReference ref4 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+            DatabaseReference ref4 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
             int finalCounter2 = counter;
             ref4.addValueEventListener(new ValueEventListener() {
                 @Override

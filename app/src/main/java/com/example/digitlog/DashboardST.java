@@ -85,7 +85,7 @@ public class DashboardST extends AppCompatActivity {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref3;
-        ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
 
       //  tv3.setText( engine + " Dashboard");
         coloring_layouts();
@@ -95,7 +95,7 @@ public class DashboardST extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference ref3;
-                ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+                ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
 
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -172,7 +172,7 @@ public class DashboardST extends AppCompatActivity {
             Item_l = sheets_l.get(i);
             Item_q = sheets_q.get(i);
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + Item_l);
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + Item_l);
             LinearLayout finalItem_q = Item_q;
             ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

@@ -87,7 +87,7 @@ public class Trips_Reports extends AppCompatActivity {
         HSSFSheet hssfSheet = hssfWorkbook.createSheet("Trips Report");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/tips_log");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/tips_log");
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

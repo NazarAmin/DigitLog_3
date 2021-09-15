@@ -61,9 +61,9 @@ public class Post {
         DatabaseReference ref2;
 
         if (check) {
-            ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips/" + datetime);
+            ref2 = firebaseDatabase.getReference("data2/" + engine + "/faults_trips/" + datetime);
         } else {
-            ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips/");
+            ref2 = firebaseDatabase.getReference("data2/" + engine + "/faults_trips/");
         }
         return ref2;
     }

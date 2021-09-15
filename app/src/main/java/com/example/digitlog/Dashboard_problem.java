@@ -137,7 +137,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         //category_type = GlobalClass.Faults_Category;
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/faults_trips");
 
         engine_n.setText(engine);
 
@@ -209,7 +209,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
 
     public void save_function(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/faults_trips");
 
         if (comment.getText().toString() != null && !comment.getText().toString().isEmpty()) {
             t_co = comment.getText().toString();

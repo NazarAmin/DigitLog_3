@@ -99,7 +99,7 @@ public class Login extends AppCompatActivity {
                 if (task.isSuccessful()){
                     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-                    DatabaseReference ref3 = firebaseDatabase.getReference("data/users");
+                    DatabaseReference ref3 = firebaseDatabase.getReference("data2/users");
                     ref3.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

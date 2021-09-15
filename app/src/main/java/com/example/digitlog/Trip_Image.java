@@ -55,7 +55,7 @@ public class Trip_Image extends AppCompatActivity {
         engine = GlobalClass.engine_number;
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/tips_log");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/tips_log");
 
 
         String newString;

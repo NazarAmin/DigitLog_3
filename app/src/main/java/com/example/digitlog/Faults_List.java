@@ -186,7 +186,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
                /**
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/faults_trips");
+                DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/faults_trips");
 
 
                 storageRef = FirebaseStorage.getInstance().getReference();

@@ -178,7 +178,7 @@ public class Sheet_6 extends AppCompatActivity {
 
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Log_Sheet_6");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/Log_Sheet_6");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());
 

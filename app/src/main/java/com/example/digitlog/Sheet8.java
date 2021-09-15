@@ -72,7 +72,7 @@ public class Sheet8 extends AppCompatActivity {
 
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/LogSheet20_B");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_B");
 
         p1 = (EditText) findViewById(R.id.p1);
         p2 = (EditText) findViewById(R.id.p2);
@@ -441,7 +441,7 @@ public class Sheet8 extends AppCompatActivity {
             data.setUser(user);
 
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/LogSheet20_B");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_B");
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());

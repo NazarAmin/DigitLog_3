@@ -73,7 +73,7 @@ public class DataEntry extends AppCompatActivity {
 
 
         DatabaseReference ref3;
-        ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
 
         ref3.addValueEventListener(new ValueEventListener() {
             @Override
@@ -99,7 +99,7 @@ public class DataEntry extends AppCompatActivity {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
 
-                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
                         ref9.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -147,7 +147,7 @@ public class DataEntry extends AppCompatActivity {
                                 actual_user = dataSnapshot.getValue(String.class);
                                 //GlobalClass.current_engine_focal = actual_user;
 
-                                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
                                 ref9.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -169,21 +169,14 @@ public class DataEntry extends AppCompatActivity {
                                     }
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
-
                                     }
                                 });
 
-
-
-
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
                         });
-
                     }
                 });
 
@@ -210,7 +203,7 @@ public class DataEntry extends AppCompatActivity {
 
 
 
-                                DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
                                 ref9.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -259,7 +252,7 @@ public class DataEntry extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
 
-                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
                         ref9.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -309,7 +302,7 @@ public class DataEntry extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         actual_user = dataSnapshot.getValue(String.class);
 
-                        DatabaseReference ref9 = firebaseDatabase.getReference("data/Admins");
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
                         ref9.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -27,7 +27,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Correction_Base extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button but;
@@ -35,12 +37,19 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     String item_o, path2, path3, path4, path5;
     ArrayList<String> animalNames;// = new ArrayList<>();
     EditText chart_search,chart_search2,chart_search3,chart_search4;
-    ArrayList<String> mExampleList = new ArrayList<>();
-    ArrayList<String> mExampleList2 = new ArrayList<>();
-    ArrayList<String> mExampleList3 = new ArrayList<>();
-    ArrayList<String> mExampleList4 = new ArrayList<>();
+    ArrayList<String> LogSheet20_B = new ArrayList<>();
+    ArrayList<String> LogSheet20_A = new ArrayList<>();
+    ArrayList<String> GT_Log = new ArrayList<>();
+    ArrayList<String> FO = new ArrayList<>();
+    ArrayList<String> Generation = new ArrayList<>();
+    ArrayList<String> Generator_Board = new ArrayList<>();
+    ArrayList<String> Mark_V = new ArrayList<>();
+    ArrayList<String> Log_Sheet_6 = new ArrayList<>();
+    ArrayList<String> parameters3 = new ArrayList<>();
+    int counter = 0;
 
-    ArrayList<String> chart_params2 = new ArrayList<>();
+    Map<String, String> map = new HashMap<String, String>();
+
     Dialog dialog;
     Spinner spinner,spinner2,spinner3,spinner4;
     FirebaseDatabase firebaseDatabase;
@@ -110,6 +119,224 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                 }
             }
         });
+
+
+
+         GT_Log.add(this.getString(R.string.p1));
+         GT_Log.add(this.getString(R.string.p2));
+         GT_Log.add(this.getString(R.string.p3));
+         GT_Log.add(this.getString(R.string.p4));
+         GT_Log.add(this.getString(R.string.p5));
+         GT_Log.add(this.getString(R.string.p6));
+         GT_Log.add(this.getString(R.string.p7));
+         GT_Log.add(this.getString(R.string.p8));
+         GT_Log.add(this.getString(R.string.p9));
+         GT_Log.add(this.getString(R.string.p10));
+         GT_Log.add(this.getString(R.string.p11));
+         GT_Log.add(this.getString(R.string.p12));
+         GT_Log.add(this.getString(R.string.p13));
+         GT_Log.add(this.getString(R.string.p14));
+         GT_Log.add(this.getString(R.string.p15));
+         GT_Log.add(this.getString(R.string.p16));
+         GT_Log.add(this.getString(R.string.p17));
+         GT_Log.add(this.getString(R.string.p18));
+         GT_Log.add(this.getString(R.string.p19));
+         GT_Log.add(this.getString(R.string.p20));
+         GT_Log.add(this.getString(R.string.p21));
+
+        FO.add(this.getString(R.string.pp1));
+        FO.add(this.getString(R.string.pp2));
+        FO.add(this.getString(R.string.pp3));
+        FO.add(this.getString(R.string.pp4));
+        FO.add(this.getString(R.string.pp5));
+        FO.add(this.getString(R.string.pp6));
+        FO.add(this.getString(R.string.pp7));
+        FO.add(this.getString(R.string.pp8));
+        FO.add(this.getString(R.string.pp9));
+        FO.add(this.getString(R.string.pp10));
+        FO.add(this.getString(R.string.pp11));
+        FO.add(this.getString(R.string.pp12));
+        FO.add(this.getString(R.string.pp13));
+        FO.add(this.getString(R.string.pp14));
+        FO.add(this.getString(R.string.pp15));
+        FO.add(this.getString(R.string.pp16));
+        FO.add(this.getString(R.string.pp17));
+        FO.add(this.getString(R.string.pp18));
+        FO.add(this.getString(R.string.pp19));
+        FO.add(this.getString(R.string.pp20));
+        FO.add(this.getString(R.string.pp21));
+
+        Generator_Board.add(this.getString(R.string.gp1));
+        Generator_Board.add(this.getString(R.string.gp2));
+        Generator_Board.add(this.getString(R.string.gp3));
+        Generator_Board.add(this.getString(R.string.gp4));
+        Generator_Board.add(this.getString(R.string.gp5));
+        Generator_Board.add(this.getString(R.string.gp6));
+        Generator_Board.add(this.getString(R.string.gp7));
+        Generator_Board.add(this.getString(R.string.gp8));
+        Generator_Board.add(this.getString(R.string.gp9));
+        Generator_Board.add(this.getString(R.string.gp10));
+        Generator_Board.add(this.getString(R.string.gp11));
+        Generator_Board.add(this.getString(R.string.gp12));
+        Generator_Board.add(this.getString(R.string.gp13));
+        Generator_Board.add(this.getString(R.string.gp14));
+        Generator_Board.add(this.getString(R.string.gp15));
+        Generator_Board.add(this.getString(R.string.gp16));
+
+        Generation.add(this.getString(R.string.gg1));
+        Generation.add(this.getString(R.string.gg2));
+        Generation.add(this.getString(R.string.gg3));
+        Generation.add(this.getString(R.string.gg4));
+        Generation.add(this.getString(R.string.gg5));
+        Generation.add(this.getString(R.string.gg6));
+        Generation.add(this.getString(R.string.gg7));
+        Generation.add(this.getString(R.string.gg8));
+        Generation.add(this.getString(R.string.gg9));
+        Generation.add(this.getString(R.string.gg10));
+        Generation.add(this.getString(R.string.gg11));
+        Generation.add(this.getString(R.string.gg12));
+        Generation.add(this.getString(R.string.gg13));
+        Generation.add(this.getString(R.string.gg14));
+        Generation.add(this.getString(R.string.gg15));
+        Generation.add(this.getString(R.string.gg16));
+        Generation.add(this.getString(R.string.gg17));
+        Generation.add(this.getString(R.string.gg18));
+        Generation.add(this.getString(R.string.gg19));
+        Generation.add(this.getString(R.string.gg20));
+        Generation.add(this.getString(R.string.gg21));
+
+        Mark_V.add(this.getString(R.string.mp1));
+        Mark_V.add(this.getString(R.string.mp2));
+        Mark_V.add(this.getString(R.string.mp3));
+        Mark_V.add(this.getString(R.string.mp4));
+        Mark_V.add(this.getString(R.string.mp5));
+        Mark_V.add(this.getString(R.string.mp6));
+        Mark_V.add(this.getString(R.string.mp7));
+        Mark_V.add(this.getString(R.string.mp8));
+        Mark_V.add(this.getString(R.string.mp9));
+        Mark_V.add(this.getString(R.string.mp10));
+        Mark_V.add(this.getString(R.string.mp11));
+        Mark_V.add(this.getString(R.string.mp12));
+        Mark_V.add(this.getString(R.string.mp13));
+        Mark_V.add(this.getString(R.string.mp14));
+        Mark_V.add(this.getString(R.string.mp15));
+        Mark_V.add(this.getString(R.string.mp16));
+        Mark_V.add(this.getString(R.string.mp17));
+        Mark_V.add(this.getString(R.string.mp18));
+        Mark_V.add(this.getString(R.string.mp19));
+
+        Log_Sheet_6.add(this.getString(R.string.p61));
+        Log_Sheet_6.add(this.getString(R.string.p62));
+        Log_Sheet_6.add(this.getString(R.string.p63));
+        Log_Sheet_6.add(this.getString(R.string.p64));
+        Log_Sheet_6.add(this.getString(R.string.p65));
+        Log_Sheet_6.add(this.getString(R.string.p66));
+        Log_Sheet_6.add(this.getString(R.string.p67));
+        Log_Sheet_6.add(this.getString(R.string.p68));
+        Log_Sheet_6.add(this.getString(R.string.p69));
+        Log_Sheet_6.add(this.getString(R.string.p610));
+        Log_Sheet_6.add(this.getString(R.string.p611));
+        Log_Sheet_6.add(this.getString(R.string.p612));
+        Log_Sheet_6.add(this.getString(R.string.p613));
+        Log_Sheet_6.add(this.getString(R.string.p614));
+        Log_Sheet_6.add(this.getString(R.string.p615));
+        Log_Sheet_6.add(this.getString(R.string.p616));
+        Log_Sheet_6.add(this.getString(R.string.p617));
+        Log_Sheet_6.add(this.getString(R.string.p618));
+
+        LogSheet20_A.add(this.getString(R.string.sp1));
+        LogSheet20_A.add(this.getString(R.string.sp2));
+        LogSheet20_A.add(this.getString(R.string.sp3));
+        LogSheet20_A.add(this.getString(R.string.sp4));
+        LogSheet20_A.add(this.getString(R.string.sp5));
+        LogSheet20_A.add(this.getString(R.string.sp6));
+        LogSheet20_A.add(this.getString(R.string.sp7));
+        LogSheet20_A.add(this.getString(R.string.sp8));
+        LogSheet20_A.add(this.getString(R.string.sp9));
+        LogSheet20_A.add(this.getString(R.string.sp10));
+        LogSheet20_A.add(this.getString(R.string.sp11));
+        LogSheet20_A.add(this.getString(R.string.sp12));
+        LogSheet20_A.add(this.getString(R.string.sp13));
+        LogSheet20_A.add(this.getString(R.string.sp14));
+        LogSheet20_A.add(this.getString(R.string.sp15));
+        LogSheet20_A.add(this.getString(R.string.sp16));
+        LogSheet20_A.add(this.getString(R.string.sp17));
+        LogSheet20_A.add(this.getString(R.string.sp18));
+        LogSheet20_A.add(this.getString(R.string.sp19));
+        LogSheet20_A.add(this.getString(R.string.sp20));
+        LogSheet20_A.add(this.getString(R.string.sp21));
+        LogSheet20_A.add(this.getString(R.string.sp22));
+
+        LogSheet20_B.add(this.getString(R.string.ssp2));
+        LogSheet20_B.add(this.getString(R.string.ssp3));
+        LogSheet20_B.add(this.getString(R.string.ssp4));
+        LogSheet20_B.add(this.getString(R.string.ssp5));
+        LogSheet20_B.add(this.getString(R.string.ssp6));
+        LogSheet20_B.add(this.getString(R.string.ssp7));
+        LogSheet20_B.add(this.getString(R.string.ssp8));
+        LogSheet20_B.add(this.getString(R.string.ssp9));
+        LogSheet20_B.add(this.getString(R.string.ssp10));
+        LogSheet20_B.add(this.getString(R.string.ssp11));
+        LogSheet20_B.add(this.getString(R.string.ssp12));
+        LogSheet20_B.add(this.getString(R.string.ssp13));
+        LogSheet20_B.add(this.getString(R.string.ssp14));
+        LogSheet20_B.add(this.getString(R.string.ssp15));
+        LogSheet20_B.add(this.getString(R.string.ssp16));
+        LogSheet20_B.add(this.getString(R.string.ssp17));
+        LogSheet20_B.add(this.getString(R.string.ssp18));
+        LogSheet20_B.add(this.getString(R.string.ssp19));
+        LogSheet20_B.add(this.getString(R.string.ssp20));
+        LogSheet20_B.add(this.getString(R.string.ssp21));
+        LogSheet20_B.add(this.getString(R.string.ssp22));
+        LogSheet20_B.add(this.getString(R.string.ssp23));
+        LogSheet20_B.add(this.getString(R.string.ssp24));
+        LogSheet20_B.add(this.getString(R.string.ssp25));
+        LogSheet20_B.add(this.getString(R.string.ssp26));
+        LogSheet20_B.add(this.getString(R.string.ssp27));
+        LogSheet20_B.add(this.getString(R.string.ssp28));
+        LogSheet20_B.add(this.getString(R.string.ssp29));
+        LogSheet20_B.add(this.getString(R.string.ssp30));
+
+        parameters3.add("ip1");
+        parameters3.add("ip2");
+        parameters3.add("ip3");
+        parameters3.add("ip4");
+        parameters3.add("ip5");
+        parameters3.add("ip6");
+        parameters3.add("ip7");
+        parameters3.add("ip8");
+        parameters3.add("ip9");
+        parameters3.add("ip10");
+        parameters3.add("ip11");
+        parameters3.add("ip12");
+        parameters3.add("ip13");
+        parameters3.add("ip14");
+        parameters3.add("ip15");
+        parameters3.add("ip16");
+        parameters3.add("ip17");
+        parameters3.add("ip18");
+        parameters3.add("ip19");
+        parameters3.add("ip20");
+        parameters3.add("ip21");
+        parameters3.add("ip22");
+        parameters3.add("ip23");
+        parameters3.add("ip24");
+        parameters3.add("ip25");
+        parameters3.add("ip26");
+        parameters3.add("ip27");
+        parameters3.add("ip28");
+        parameters3.add("ip29");
+
+        ArrayList<ArrayList> sheets_main = new ArrayList<>();
+        sheets_main.add(GT_Log);
+        sheets_main.add(FO);
+        sheets_main.add(Generation);
+        sheets_main.add(Generator_Board);
+        sheets_main.add(Mark_V);
+        sheets_main.add(Log_Sheet_6);
+        sheets_main.add(LogSheet20_A);
+        sheets_main.add(LogSheet20_B);
+
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -119,20 +346,84 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                 prepare_recycle_view(parent.getItemAtPosition(position).toString());
                 break;
             case R.id.rvAnimals2:
+               // prepare_recycle_view2(parent.getItemAtPosition(position).toString());
                 prepare_recycle_view2(parent.getItemAtPosition(position).toString());
+                counter = position;
+                item_o = parent.getItemAtPosition(position).toString();
                 break;
             case R.id.rvAnimals3:
-                prepare_recycle_view3(parent.getItemAtPosition(position).toString());
+                //prepare_recycle_view3(parent.getItemAtPosition(position).toString());
+                System.out.println(parent.getItemAtPosition(position).toString());
+                switch (item_o){
+                    case "GT_Log":
+                        get_alias(GT_Log, spinner4);
+                        break;
+                    case "FO":
+                        get_alias(FO, spinner4);
+                        break;
+                    case "Generation":
+                        get_alias(Generation, spinner4);
+                        break;
+                    case "Generator_Board":
+                        get_alias(Generator_Board, spinner4);
+                        break;
+                    case "Mark_V":
+                        get_alias(Mark_V, spinner4);
+                        break;
+                    case "Log_Sheet_6":
+                        get_alias(Log_Sheet_6, spinner4);
+                        break;
+                    case "LogSheet20_A":
+                        get_alias(LogSheet20_A, spinner4);
+                        break;
+                    case "LogSheet20_B":
+                        get_alias(LogSheet20_B, spinner4);
+                        break;
+                    default:
+                        prepare_recycle_view3(parent.getItemAtPosition(position).toString());
+                        break;
+                }
+                path4 = path3 + "/" + parent.getItemAtPosition(position).toString();
                 break;
             case R.id.rvAnimals4:
-                prepare_recycle_view4(parent.getItemAtPosition(position).toString());
+                if ((item_o.equals("OIC_History")) | (item_o.equals("faults_trips")) | (item_o.equals("tips_log"))
+                        | (item_o.equals("mid_night")) | (item_o.equals("Status_History"))){
+                    prepare_recycle_view5(parent.getItemAtPosition(position).toString());
+                }else{
+                    prepare_recycle_view4(position);
+                }
                 break;
         } }
 
+    private void prepare_recycle_view5(String item) {
+
+        DatabaseReference ref9 = firebaseDatabase.getReference(path4 + "/" + item);
+        path5 = path4 + "/" + item;
+        ref9.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try{
+                    param.setText(snapshot.getValue().toString());
+                }catch (Exception e){
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }});
+    }
+
+    private void get_alias(ArrayList sheet, Spinner spinner) {
+
+        ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, sheet);
+        dataAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter4);
+    }
+
     void prepare_recycle_view(String item){
-        DatabaseReference ref9 = firebaseDatabase.getReference("data/" + item);
+        DatabaseReference ref9 = firebaseDatabase.getReference("data2/" + item);
         ArrayList<String> newList = new ArrayList<>();
-        path2 = "data/" + item;
+        path2 = "data2/" + item;
         ref9.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -158,7 +449,6 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         }
 
     void prepare_recycle_view2(String item){
-        System.out.println(path2 + item);
         DatabaseReference ref9 = firebaseDatabase.getReference(path2 +"/" +  item);
 
         ArrayList<String> newList2 = new ArrayList<>();
@@ -168,12 +458,10 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChildren()) {
                     for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
-                        if ((mydatasnapshot.getKey().equals("OIC")) |(mydatasnapshot.getKey().equals("Status"))){
-                            continue;
-                        }else {
                             newList2.add(mydatasnapshot.getKey());
-                        }
+
                     }
+
                     ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, newList2);
                     // Drop down layout style - list view with radio button
                     dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -208,7 +496,9 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
             }});
     }
 
-    void prepare_recycle_view4(String item){
+    void prepare_recycle_view4(int item5){
+
+        String item = parameters3.get(item5);
 
         DatabaseReference ref9 = firebaseDatabase.getReference(path4 + "/" + item);
         path5 = path4 + "/" + item;

@@ -247,7 +247,7 @@ public class Trip_Activity extends AppCompatActivity  {
         radioButton = (RadioButton) findViewById(selectedId);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/tips_log");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/tips_log");
 
         // Trip_Class(String load, String fuel, String user_2, String comment,String datetime, String alarms)
 

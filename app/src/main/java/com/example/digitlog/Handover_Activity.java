@@ -102,8 +102,8 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         current_user = GlobalClass.actual_user_name;
 
         DatabaseReference ref2, ref3;
-        ref2 = firebaseDatabase.getReference("data/" + engine + "/OIC_History/" + datetime);
-        ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+        ref2 = firebaseDatabase.getReference("data2/" + engine + "/OIC_History/" + datetime);
+        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
         ref3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -138,7 +138,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
-        DatabaseReference ref9 = firebaseDatabase.getReference("data/users");
+        DatabaseReference ref9 = firebaseDatabase.getReference("data2/users");
         ref9.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -175,8 +175,8 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         current_user = GlobalClass.actual_user_name;
 
         DatabaseReference ref2, ref3;
-        ref2 = firebaseDatabase.getReference("data/" + engine + "/OIC_History/" + datetime);
-        ref3 = firebaseDatabase.getReference("data/" + engine + "/OIC");
+        ref2 = firebaseDatabase.getReference("data2/" + engine + "/OIC_History/" + datetime);
+        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
 
         handover_c = new Handover_c(current_user, engine_focal, datetime, comment_hand.getText().toString(), shift_name);
 

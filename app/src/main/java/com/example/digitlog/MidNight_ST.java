@@ -81,7 +81,7 @@ public class MidNight_ST extends AppCompatActivity {
         engine = GlobalClass.engine_number;
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/mid_night");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/mid_night");
 
         mid_night_class = new Mid_Night_Class_ST(generation_MN.getText().toString(),
                 starts.getText().toString(),

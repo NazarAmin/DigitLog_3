@@ -13,25 +13,40 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Dashboard_chart extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet3, sheet9, sheet10, sheet6;
     Dialog dialog;
     Button date_from, date_to;
-    String day, monthe, yeare, houre, minutee;
+    String day, monthe, yeare, houre, minutee, actual_user, engine;
     String dateformat5;
     int ho, mi, ye, mo, da;
+    DatabaseReference ref3;
+    ArrayList<String> arr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_chart);
+        engine = GlobalClass.engine_number;
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
 
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
+
+        arr = new ArrayList<String>();
 
         dialog = new Dialog(Dashboard_chart.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -83,7 +98,80 @@ public class Dashboard_chart extends AppCompatActivity {
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(), "Reports are under design with management", Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(Dashboard_chart.this, Reports_Activity.class));
+                arr.clear();
+                ref3.addValueEventListener(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+
+                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
+                        ref9.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if (dataSnapshot.hasChildren()) {
+                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                        //Admins admin = mydatasnapshot.getValue(Admins.class);
+                                        arr.add(mydatasnapshot.getValue(String.class));
+                                    }
+                                }
+
+                                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Plant_1");
+                                ref9.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if (dataSnapshot.hasChildren()) {
+                                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                                arr.add(mydatasnapshot.getValue(String.class));
+                                            }
+
+                                        }
+                                        DatabaseReference ref10 = firebaseDatabase.getReference("data2/Plant_2");
+
+                                        ref10.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                                if (dataSnapshot.hasChildren()) {
+                                                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                                                        arr.add(mydatasnapshot.getValue(String.class));
+                                                    }
+
+                                                }
+
+                                                if ((actual_user.equals(GlobalClass.actual_user_name)) | (arr.contains(GlobalClass.actual_user_name))) {
+                                                    startActivity(new Intent(Dashboard_chart.this, Reports_Activity.class));
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                                            "download reports", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
             }
         });
 

@@ -295,7 +295,7 @@ public class Excel_Export extends AppCompatActivity {
         // String engine = GlobalClass.engine_number;
         if ((engine.equals("ST_1")) | (engine.equals("ST_3"))){
             for (String item : sheets2) {
-                DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + item);
+                DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + item);
 
                 getDatawork(item, hssfWorkbook, ref2, kn, 0, sheets_main.get(kso));
                 kso++;
@@ -303,7 +303,7 @@ public class Excel_Export extends AppCompatActivity {
             }
         }else{
             for (String item : sheets) {
-                DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/" + item);
+                DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + item);
                 getDatawork(item, hssfWorkbook, ref2, kn, 1, sheets_main.get(kn));
                 kn++;
             }

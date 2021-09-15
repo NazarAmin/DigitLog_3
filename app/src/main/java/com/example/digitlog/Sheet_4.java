@@ -193,7 +193,7 @@ public class Sheet_4 extends AppCompatActivity {
 
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/Generation");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/Generation");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());
 

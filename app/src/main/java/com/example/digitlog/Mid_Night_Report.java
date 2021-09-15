@@ -83,7 +83,7 @@ public class Mid_Night_Report extends AppCompatActivity {
         HSSFSheet hssfSheet = hssfWorkbook.createSheet("MidNight Report");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data/" + engine + "/mid_night");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/mid_night");
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
