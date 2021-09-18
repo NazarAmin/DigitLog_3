@@ -51,6 +51,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     Dialog dialog, dialog2;
     String conseq;
     String current_date;
+    ImageView help;
 
 
     private Uri mImageUri = null;
@@ -75,6 +76,9 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         eng.setText(GlobalClass.engine_number);
         dialog2 = new Dialog(Dashboard_problem.this);
         dialog2.setContentView(R.layout.custom_dialoge_feedback2);
+
+        help = (ImageView) findViewById(R.id.help2);
+
         dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         Button ok2 = dialog2.findViewById(R.id.save);
         Button cancel2 = dialog2.findViewById(R.id.cancel);
@@ -296,6 +300,10 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     public void go_out(View view) {
         dialog2.show();
 
+    }
+
+    public void go_to_manual(View view) {
+        startActivity(new Intent(Dashboard_problem.this, Troubleshooting.class));
     }
 
 }

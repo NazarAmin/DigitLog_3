@@ -82,9 +82,9 @@ public class Dashboard_Engines extends AppCompatActivity {
         //sheet5 = (LinearLayout) findViewById(R.id.sheet5);
         //sheet6 = (LinearLayout) findViewById(R.id.sheet6);
 
-        TranslateAnimation animation = new TranslateAnimation(800.0f, -800.0f, 0.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
+        TranslateAnimation animation = new TranslateAnimation(650.0f, -650.0f, 0.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
 
-        animation.setDuration(15000); // animation duration, change accordingly
+        animation.setDuration(10000); // animation duration, change accordingly
         animation.setRepeatCount(-1); // animation repeat count
         animation.setFillAfter(false);
 

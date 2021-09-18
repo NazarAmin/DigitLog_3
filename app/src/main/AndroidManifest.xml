@@ -22,6 +22,10 @@
         <activity android:name=".Mid_Night_Report_ST" />
         <activity android:name=".MidNight" />
         <activity android:name=".MidNight_ST" />
+        <activity
+            android:name=".Troubleshooting"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".Reports_Activity" />
         <activity android:name=".Fault_Trip_Image" />
         <activity

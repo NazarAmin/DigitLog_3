@@ -1,7 +1,9 @@
 package com.example.digitlog;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -45,6 +47,7 @@ public class MyRecyclerViewAdapter55 extends RecyclerView.Adapter<MyRecyclerView
         holder.myTextView.setText(animal);
 
         holder.myTextView.setSelected(holder.myTextView.isSelected()?true:false);
+
     }
 
     // total number of rows
@@ -58,7 +61,6 @@ public class MyRecyclerViewAdapter55 extends RecyclerView.Adapter<MyRecyclerView
         }
     }
 
-
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
@@ -67,7 +69,13 @@ public class MyRecyclerViewAdapter55 extends RecyclerView.Adapter<MyRecyclerView
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvAnimalName);
             itemView.setOnClickListener(this);
+
+
+
         }
+
+
+
 
         @Override
         public void onClick(View view) {
@@ -97,7 +105,12 @@ public class MyRecyclerViewAdapter55 extends RecyclerView.Adapter<MyRecyclerView
         void onItemClick(View view, int position);
     }
     public void filterList(ArrayList<String> filteredList) {
-        mExampleList = filteredList;
-        notifyDataSetChanged();
+       try{
+           mExampleList = filteredList;
+           notifyDataSetChanged();
+       }catch (Exception e){
+
+       }
+
     }
 }

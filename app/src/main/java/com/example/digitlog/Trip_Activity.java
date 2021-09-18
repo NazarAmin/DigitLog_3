@@ -9,6 +9,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapRegionDecoder;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -55,6 +56,7 @@ import java.util.Locale;
 
 public class Trip_Activity extends AppCompatActivity  {
     EditText category, comment;
+    ImageView help;
     TextView title, engine_n, datetimetv, alarms, description5;
     private StorageReference storageRef;
     String Categoy, description, cat;
@@ -87,6 +89,8 @@ public class Trip_Activity extends AppCompatActivity  {
 
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
+
+        help = (ImageView) findViewById(R.id.help);
 
         dialog2 = new Dialog(Trip_Activity.this);
         dialog2.setContentView(R.layout.custom_dialoge_feedback2);
@@ -384,6 +388,9 @@ public class Trip_Activity extends AppCompatActivity  {
     }
 
 
+    public void go_to_manual(View view) {
+        startActivity(new Intent(Trip_Activity.this, Troubleshooting.class));
+    }
 }
 
 

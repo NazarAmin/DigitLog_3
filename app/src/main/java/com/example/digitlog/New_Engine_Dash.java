@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class New_Engine_Dash extends AppCompatActivity {
-    LinearLayout sheet1, sheet2, sheet5;
+    LinearLayout sheet1, sheet2, sheet5, sheet20;
     FirebaseDatabase firebaseDatabase;
     String engine;
     ImageView home;
@@ -71,6 +71,8 @@ public class New_Engine_Dash extends AppCompatActivity {
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         sheet5 = (LinearLayout) findViewById(R.id.sheet5);
+        sheet20 = (LinearLayout) findViewById(R.id.sheet20);
+
 
         home = (ImageView) findViewById(R.id.home_image);
 
@@ -121,6 +123,13 @@ public class New_Engine_Dash extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(New_Engine_Dash.this, Dashboard_chart.class));
+            }
+        });
+
+        sheet20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(New_Engine_Dash.this, Troubleshooting.class));
             }
         });
 

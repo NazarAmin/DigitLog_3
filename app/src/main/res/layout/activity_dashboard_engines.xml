@@ -190,11 +190,11 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:id="@+id/ani"
-                                    android:layout_height="20dp"
+                                    android:layout_height="wrap_content"
                                     android:text="engine vibration high high alarm"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:gravity="left"
+                                    android:gravity="center"
                                     android:textStyle="bold|italic"
 
                                     android:textColor="@color/green"
@@ -361,11 +361,11 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:id="@+id/ani2"
-                                    android:layout_height="20dp"
+                                    android:layout_height="wrap_content"
                                     android:text="engine vibration high high alarm"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:gravity="left"
+                                    android:gravity="center"
                                     android:textStyle="bold|italic"
 
                                     android:textColor="@color/green"
@@ -534,11 +534,11 @@
                                     android:id="@+id/ani3"
                                     android:textStyle="bold|italic"
 
-                                    android:layout_height="20dp"
+                                    android:layout_height="wrap_content"
                                     android:text="engine vibration high high alarm"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:gravity="left"
+                                    android:gravity="center"
                                     android:textColor="@color/green"
                                     android:textSize="11dp">
 
