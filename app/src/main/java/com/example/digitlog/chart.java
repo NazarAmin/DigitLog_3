@@ -388,7 +388,7 @@ public class chart extends AppCompatActivity {
         // System.out.println("Number of items are: " + final_sheets.size());
         int chart_c = 0;
         for (String sheet_i2 : final_sheets) {
-            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + sheet_i2);
+            DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + sheet_i2);
             draw_chart(ref2, items.get(chart_c), inner_counts.get(chart_c));
             chart_c = chart_c + 1;
         }

@@ -179,7 +179,7 @@ public class Dashboard_Engines extends AppCompatActivity {
 
     private void get_text_ani(TextView ani, String engine, int i) {
         datavals.clear();
-        ref20 = firebaseDatabase.getReference("data2/" + engine + "/Status_History");
+        ref20 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Status_History");
         ref20.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -249,7 +249,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         for (int counter = 0; counter < sheets_l.size(); counter++) {
             engine = sheets_l.get(counter);
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/Generation");
+            DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Generation");
             //LinearLayout finalItem_q = Item_q;
 
             String finalEngine = engine;
@@ -297,7 +297,7 @@ public class Dashboard_Engines extends AppCompatActivity {
 
                         }
 
-                        DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + finalEngine1 + "/Status");
+                        DatabaseReference ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + finalEngine1 + "/Status");
 
                         //int finalCounter;
                         ref3.addValueEventListener(new ValueEventListener() {
@@ -352,7 +352,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                 }
             });
 
-            DatabaseReference ref4 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
+            DatabaseReference ref4 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
             int finalCounter2 = counter;
             ref4.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -395,7 +395,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         for (int counter = 0; counter < sheets_l.size(); counter++) {
             engine = sheets_l.get(counter);
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_B");
+            DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/LogSheet20_B");
             //LinearLayout finalItem_q = Item_q;
 
             String finalEngine = engine;
@@ -438,7 +438,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                             i = i + 1;
                         }
 
-                        DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + finalEngine1 + "/Status");
+                        DatabaseReference ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + finalEngine1 + "/Status");
 
                         //int finalCounter;
                         ref3.addValueEventListener(new ValueEventListener() {
@@ -492,7 +492,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                 }
             });
 
-            DatabaseReference ref4 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
+            DatabaseReference ref4 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
             int finalCounter2 = counter;
             ref4.addValueEventListener(new ValueEventListener() {
                 @Override

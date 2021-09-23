@@ -321,7 +321,7 @@ public class Excel_Export extends AppCompatActivity {
         if ((engine.equals("ST_1")) | (engine.equals("ST_2"))|
                 (engine.equals("ST_3")) | (engine.equals("ST_4"))){
             for (String item : sheets2) {
-                DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + item);
+                DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + item);
 
                 getDatawork(item, hssfWorkbook, ref2, kn, 0, sheets_main.get(kso));
                 kso++;
@@ -329,7 +329,7 @@ public class Excel_Export extends AppCompatActivity {
             }
         }else{
             for (String item : sheets) {
-                DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + item);
+                DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + item);
                 getDatawork(item, hssfWorkbook, ref2, kn, 1, sheets_main.get(kn));
                 kn++;
             }

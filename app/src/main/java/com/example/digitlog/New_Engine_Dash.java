@@ -68,7 +68,7 @@ public class New_Engine_Dash extends AppCompatActivity {
         //current_user = GlobalClass.actual_user_name;
 
         //DatabaseReference ref3;
-        //ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
+        //ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
@@ -95,7 +95,7 @@ public class New_Engine_Dash extends AppCompatActivity {
             public void onClick(View v) {
 
                 arr.clear();
-                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
+                DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Admins");
                 ref9.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

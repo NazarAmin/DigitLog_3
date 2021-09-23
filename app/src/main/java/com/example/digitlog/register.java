@@ -103,7 +103,7 @@ public class register extends AppCompatActivity {
 public void save_function() {
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-    DatabaseReference ref2 = firebaseDatabase.getReference("data2/users");
+    DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/users");
     if (admin.getText().toString().trim().equals("admin_dig_123")) {
 
         user_name = name.getText().toString();

@@ -457,9 +457,9 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
 
     void prepare_recycle_view(String item){
 
-        DatabaseReference ref9 = firebaseDatabase.getReference("data2/" + item);
+        DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/" + item);
         ArrayList<String> newList = new ArrayList<>();
-        path2 = "data2/" + item;
+        path2 = GlobalClass.database + "/" + item;
         ref9.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

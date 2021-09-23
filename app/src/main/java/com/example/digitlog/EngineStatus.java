@@ -71,7 +71,7 @@ String Current_Status, radioButtonId;
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + GlobalClass.engine_number + "/Status");
+        DatabaseReference ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + GlobalClass.engine_number + "/Status");
         ref3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -94,7 +94,7 @@ String Current_Status, radioButtonId;
             }
         });
 
-        /**DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + finalEngine1 + "/Status");
+        /**DatabaseReference ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + finalEngine1 + "/Status");
 
         //int finalCounter;
         ref3.addValueEventListener(new ValueEventListener() {
@@ -153,8 +153,8 @@ String Current_Status, radioButtonId;
         user = GlobalClass.actual_user_name;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref2, ref3;
-        ref2 = firebaseDatabase.getReference("data2/" + engine + "/Status_History/" + datetime);
-        ref3 = firebaseDatabase.getReference("data2/" + engine + "/Status");
+        ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Status_History/" + datetime);
+        ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Status");
         if (esdescription.getText().toString().isEmpty()){
             Toast.makeText(EngineStatus.this,
                     "Please enter the description",

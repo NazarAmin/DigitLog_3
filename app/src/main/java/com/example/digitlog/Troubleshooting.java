@@ -35,7 +35,7 @@ public class Troubleshooting extends AppCompatActivity implements MyRecyclerView
         Dialog dialog;
         TextView t_cause, t_actions, signal_selected, short_name;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data2/Alarms");
+        DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/Alarms");
         DatabaseReference ref3;
 
         @Override
@@ -155,7 +155,7 @@ try{
         public void onItemClick(View view, int position) {
         item_o = adapter.getItem(position);
         signal_selected.setText(item_o);
-        ref3 = firebaseDatabase.getReference("data2/Alarms/" + item_o);
+        ref3 = firebaseDatabase.getReference(GlobalClass.database + "/Alarms/" + item_o);
         ref3.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

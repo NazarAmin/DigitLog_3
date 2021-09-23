@@ -150,7 +150,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
             @Override
             public void onClick(View v) {
                 arr.clear();
-                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
+                DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Admins");
                 ref9.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -163,7 +163,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
 
                         }
 
-                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Plant_1");
+                        DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_1");
                         ref9.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -206,7 +206,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
             @Override
             public void onClick(View v) {
                 arr.clear();
-                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
+                DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Admins");
                 ref9.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -219,7 +219,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
 
                         }
 
-                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Plant_2");
+                        DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_2");
                         ref9.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -262,7 +262,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
 
     private void coloring_layouts() {
 
-    DatabaseReference ref99 = firebaseDatabase.getReference("data2/Plant_1_Fuel");
+    DatabaseReference ref99 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_1_Fuel");
     ref99.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -295,7 +295,7 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
 }
 
 public void coloring_generation(String engine, String sheet) {
-    DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + engine + "/Status");
+    DatabaseReference ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Status");
 
     //int finalCounter;
     ref3.addValueEventListener(new ValueEventListener() {
@@ -305,7 +305,7 @@ public void coloring_generation(String engine, String sheet) {
 
             String status = snapshot.getValue().toString();
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + sheet);
+            DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + sheet);
             //LinearLayout finalItem_q = Item_q;
             ref2.addValueEventListener(new ValueEventListener() {
                 int i = 0;
@@ -395,7 +395,7 @@ public void coloring_generation(String engine, String sheet) {
 
     private void coloring_layouts2() {
 
-        DatabaseReference ref99 = firebaseDatabase.getReference("data2/Plant_2_Fuel");
+        DatabaseReference ref99 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_2_Fuel");
         ref99.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -427,7 +427,7 @@ public void coloring_generation(String engine, String sheet) {
     }
 
     public void coloring_generation2(String engine, String sheet) {
-        DatabaseReference ref3 = firebaseDatabase.getReference("data2/" + engine + "/Status");
+        DatabaseReference ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Status");
 
         //int finalCounter;
         ref3.addValueEventListener(new ValueEventListener() {
@@ -435,7 +435,7 @@ public void coloring_generation(String engine, String sheet) {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 String status = snapshot.getValue().toString();
-                DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + sheet);
+                DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + sheet);
                 //LinearLayout finalItem_q = Item_q;
                 ref2.addValueEventListener(new ValueEventListener() {
                     int i = 0;

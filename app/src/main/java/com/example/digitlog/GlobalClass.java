@@ -19,6 +19,7 @@ public static String actual_user_name;
 public static String engine_focal;
 public static String current_engine_focal;
 public static String general_admin = "Nazar Amin";
+public static String database = "data";
 
 
 public static String block_number;

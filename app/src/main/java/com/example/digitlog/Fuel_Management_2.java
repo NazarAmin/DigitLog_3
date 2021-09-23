@@ -31,7 +31,7 @@ public class Fuel_Management_2 extends AppCompatActivity {
         setContentView(R.layout.activity_fuel__management_2);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data2/Plant_2_Fuel");
+        DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_2_Fuel");
 
         dialog2 = new Dialog(Fuel_Management_2.this);
 

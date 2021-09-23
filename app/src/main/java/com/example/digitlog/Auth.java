@@ -28,7 +28,7 @@ public class Auth {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
         DatabaseReference ref3;
-        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
+        ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
         ref3.addValueEventListener(new ValueEventListener() {
 
             @Override

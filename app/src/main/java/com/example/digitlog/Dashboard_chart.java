@@ -41,7 +41,7 @@ public class Dashboard_chart extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard_chart);
         engine = GlobalClass.engine_number;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        ref3 = firebaseDatabase.getReference("data2/" + engine + "/OIC");
+        ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
 
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
@@ -106,7 +106,7 @@ public class Dashboard_chart extends AppCompatActivity {
                         actual_user = dataSnapshot.getValue(String.class);
                         //GlobalClass.current_engine_focal = actual_user;
 
-                        DatabaseReference ref9 = firebaseDatabase.getReference("data2/Admins");
+                        DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Admins");
                         ref9.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -118,7 +118,7 @@ public class Dashboard_chart extends AppCompatActivity {
                                     }
                                 }
 
-                                DatabaseReference ref9 = firebaseDatabase.getReference("data2/Plant_1");
+                                DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_1");
                                 ref9.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -129,7 +129,7 @@ public class Dashboard_chart extends AppCompatActivity {
                                             }
 
                                         }
-                                        DatabaseReference ref10 = firebaseDatabase.getReference("data2/Plant_2");
+                                        DatabaseReference ref10 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_2");
 
                                         ref10.addValueEventListener(new ValueEventListener() {
                                             @Override

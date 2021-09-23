@@ -89,7 +89,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
         DatabaseReference ref2;
 
 
-        ref2 = firebaseDatabase.getReference("data2/" + engine + "/tips_log");
+        ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/tips_log");
 
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -81,7 +81,7 @@ public class Status_Reports extends AppCompatActivity {
         HSSFSheet hssfSheet = hssfWorkbook.createSheet("Engine Status Report");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/Status_History");
+        DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/Status_History");
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

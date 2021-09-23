@@ -58,7 +58,7 @@ public class Fault_Trip_Image extends AppCompatActivity {
         engine = GlobalClass.engine_number;
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/faults_trips");
+        DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/faults_trips");
 
 
         String newString;
