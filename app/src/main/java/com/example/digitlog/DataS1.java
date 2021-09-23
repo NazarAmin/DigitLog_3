@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class DataS1 {
 
-    private float ip1;
     private float ip2;
     private float ip3;
     private float ip4;
@@ -135,13 +134,6 @@ public class DataS1 {
         this.logsheet = logsheet;
     }
 
-    public float getIp1() {
-        return ip1;
-    }
-
-    public void setIp1(float ip1) {
-        this.ip1 = ip1;
-    }
 
     public float getIp2() {
         return ip2;

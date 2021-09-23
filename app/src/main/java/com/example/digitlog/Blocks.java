@@ -27,9 +27,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class Blocks extends AppCompatActivity implements LifecycleObserver {
     LinearLayout sheet1, sheet2, sheet3, sheet4;
@@ -316,7 +319,7 @@ public void coloring_generation(String engine, String sheet) {
                     if (dataSnapshot.hasChildren()) {
                         for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                             if (engine.substring(0, 2).equals("ST")) {
-                                DataS1 data = mydatasnapshot.getValue(DataS1.class);
+                                DataS2 data = mydatasnapshot.getValue(DataS2.class);
                                     datavals.add(data.getIp1());
 
 
@@ -340,16 +343,36 @@ public void coloring_generation(String engine, String sheet) {
                     if (engine.equals("GT_1")) {
                         coloring_generation("GT_2", "Generation");
                     } else if (engine.equals("GT_2")) {
-                        coloring_generation("ST_1", "LogSheet20_A");
+                        coloring_generation("ST_1", "LogSheet20_B");
                     } else if (engine.equals("ST_1")){
                         mw1.setText(String.valueOf(df.format(total)));
                         coloring_generation("GT_3", "Generation");
                     } else if (engine.equals("GT_3")) {
                         coloring_generation("GT_4", "Generation");
                     } else if (engine.equals("GT_4")){
-                        coloring_generation("ST_2", "LogSheet20_A");
+                        coloring_generation("ST_2", "LogSheet20_B");
                     } else if (engine.equals("ST_2")) {
-                        mw2.setText(df.format(total - Float.parseFloat(mw1.getText().toString())));
+
+                        try {
+                            mw2.setText(df.format(total - Float.parseFloat(mw1.getText().toString())));
+                        }catch (Exception e){
+
+                            Locale EASTERN_ARABIC_NUMBERS_LOCALE = new Locale.Builder()
+                                    .setLanguage("ar")
+                                    .setExtension('u', "nu-arab")
+                                    .build();
+                            float f = 0;
+                            try {
+                                f = NumberFormat.getInstance(EASTERN_ARABIC_NUMBERS_LOCALE)
+                                        .parse(mw1.getText().toString())
+                                        .floatValue();
+                            } catch (ParseException parseException) {
+                                parseException.printStackTrace();
+                            }
+
+
+                            mw2.setText(df.format(total - f));
+                        }
                         tot_gen.setText(df.format(total));
                         simpleProgressBar.setProgress((int) total);
                         temp1.setText(df.format(total/180 * 100) + " %   of");
@@ -426,7 +449,7 @@ public void coloring_generation(String engine, String sheet) {
                         if (dataSnapshot.hasChildren()) {
                             for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                                 if (engine.substring(0, 2).equals("ST")) {
-                                    DataS1 data = mydatasnapshot.getValue(DataS1.class);
+                                    DataS2 data = mydatasnapshot.getValue(DataS2.class);
                                     datavals.add(data.getIp1());
                                     i = i + 1;
                                 } else {
@@ -446,16 +469,35 @@ public void coloring_generation(String engine, String sheet) {
                         if (engine.equals("GT_5")) {
                             coloring_generation2("GT_6", "Generation");
                         } else if (engine.equals("GT_6")) {
-                            coloring_generation2("ST_3", "LogSheet20_A");
+                            coloring_generation2("ST_3", "LogSheet20_B");
                         } else if (engine.equals("ST_3")){
                             mw12.setText(df.format(total_f));
                             coloring_generation2("GT_7", "Generation");
                         } else if (engine.equals("GT_7")) {
                             coloring_generation2("GT_8", "Generation");
                         } else if (engine.equals("GT_8")){
-                            coloring_generation2("ST_4", "LogSheet20_A");
+                            coloring_generation2("ST_4", "LogSheet20_B");
                         } else if (engine.equals("ST_4")) {
-                            mw23.setText(df.format(total_f - Float.parseFloat(mw12.getText().toString())));
+                            try{
+                                mw23.setText(df.format(total_f - Float.parseFloat(mw12.getText().toString())));
+                            }catch (Exception e){
+
+                                Locale EASTERN_ARABIC_NUMBERS_LOCALE = new Locale.Builder()
+                                        .setLanguage("ar")
+                                        .setExtension('u', "nu-arab")
+                                        .build();
+                                float f = 0;
+                                try {
+                                    f = NumberFormat.getInstance(EASTERN_ARABIC_NUMBERS_LOCALE)
+                                            .parse(mw12.getText().toString())
+                                            .floatValue();
+                                } catch (ParseException parseException) {
+                                    parseException.printStackTrace();
+                                }
+
+
+                                mw23.setText(df.format(total_f - f));
+                            }
                             tot_gen_2.setText(df.format(total_f));
                             simpleProgressBar2.setProgress((int) total_f);
                             temp2.setText(df.format(total_f/180 * 100) + " %   of");

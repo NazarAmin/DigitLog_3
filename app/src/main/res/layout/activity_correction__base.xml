@@ -78,35 +78,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"
-        android:text="Please select the data parent:"
-        android:textSize="14dp"
-        android:gravity="left"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="left"
-        >
-    </TextView>
 
 
-
-    <ScrollView
+            <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <Spinner
-            android:id="@+id/rvAnimals"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:paddingRight="7dp" />
-    </ScrollView>
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"

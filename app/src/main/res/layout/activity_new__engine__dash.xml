@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradient"
     android:gravity="center"
     tools:context=".Dashboard">
 
@@ -17,6 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:layout_marginTop="10dp"
             >
             <TextView
@@ -85,7 +86,7 @@
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
             android:paddingTop="50dp"
-            android:columnCount="1"
+            android:columnCount="2"
             android:rowCount="2"
             >
             <androidx.cardview.widget.CardView
@@ -114,9 +115,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:text="Engine Data Entry"
+                        android:text="Entry"
 
                         ></TextView>
 
@@ -151,9 +153,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:text="View Engine Data"
+                        android:textStyle="bold|italic"
+                        android:text="View"
 
                         ></TextView>
 
@@ -189,9 +192,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textColor="@color/black"
+                        android:textStyle="bold|italic"
                         android:textSize="18sp"
-                        android:text="Data Correction"
+                        android:text="Update"
 
                         ></TextView>
 
@@ -203,6 +207,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/card5"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
@@ -226,9 +231,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textColor="@color/black"
+                        android:textStyle="bold|italic"
                         android:textSize="18sp"
-                        android:text="Alarms Manual"
+                        android:text="Manual"
 
                         ></TextView>
 

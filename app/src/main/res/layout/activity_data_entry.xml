@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="12dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
@@ -114,9 +114,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Engine Status"
-                        android:textColor="#6f6f6f"
-                        android:textSize="15dp"
+                        android:text="Status"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
 
                         ></TextView>
 
@@ -130,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="12dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
@@ -152,9 +153,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Engine Handover"
-                        android:textColor="#6f6f6f"
-                        android:textSize="15dp"
+                        android:text="Handover"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
 
                         ></TextView>
 
@@ -184,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="12dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
@@ -206,9 +208,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Log Sheet Entry"
-                        android:textColor="#6f6f6f"
-                        android:textSize="15dp"
+                        android:text="LogSheet"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
 
                         ></TextView>
 
@@ -221,7 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="12dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
@@ -243,9 +246,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Faults Entry"
-                        android:textColor="#6f6f6f"
-                        android:textSize="15dp"
+                        android:text="Faults"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
 
                         ></TextView>
 
@@ -259,7 +263,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="12dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
@@ -281,9 +285,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Trips Entry"
-                        android:textColor="#6f6f6f"
-                        android:textSize="15dp"
+                        android:text="Trips"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
 
                         ></TextView>
 
@@ -298,7 +303,7 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="12dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
@@ -320,9 +325,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="MidNight Data"
-                        android:textColor="#6f6f6f"
-                        android:textSize="15dp"
+                        android:text="MidNight"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
 
                         ></TextView>
 

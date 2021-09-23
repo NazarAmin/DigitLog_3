@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@id/gen_l"
-                android:text="-----"
+                android:text="--------"
                 android:textColor="@color/redshine"
                 android:textSize="20dp"
                 android:textStyle="bold|italic">
@@ -207,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_toRightOf="@id/fue_l"
-                android:text="-----"
+                android:text="--------"
                 android:textColor="@color/redshine"
                 android:textSize="20dp"
                 android:textStyle="bold|italic">
@@ -485,18 +485,17 @@
                     >
 
                 </TextView>
+
                 <TextView
+                    android:id="@+id/tot_gen2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tot_gen2"
-                    android:layout_toRightOf="@id/gen_l2"
                     android:layout_marginLeft="30dp"
-                    android:text="-----"
-                    android:textSize="20dp"
-                    android:layout_centerVertical="true"
-                    android:textStyle="bold|italic"
+                    android:layout_toRightOf="@id/gen_l2"
+                    android:text="--------"
                     android:textColor="@color/redshine"
-                    >
+                    android:textSize="20dp"
+                    android:textStyle="bold|italic">
 
                 </TextView>
 
@@ -555,7 +554,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="70dp"
                     android:layout_toRightOf="@id/fue_l2"
-                    android:text="-----"
+                    android:text="--------"
                     android:textColor="@color/redshine"
                     android:textSize="20dp"
                     android:textStyle="bold|italic">

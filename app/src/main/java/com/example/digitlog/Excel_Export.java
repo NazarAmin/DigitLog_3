@@ -219,7 +219,6 @@ public class Excel_Export extends AppCompatActivity {
         sheet6.add(this.getString(R.string.p618));
 
         ArrayList<String> sheet7 = new ArrayList<>();
-        sheet7.add(this.getString(R.string.sp1));
         sheet7.add(this.getString(R.string.sp2));
         sheet7.add(this.getString(R.string.sp3));
         sheet7.add(this.getString(R.string.sp4));
@@ -244,6 +243,7 @@ public class Excel_Export extends AppCompatActivity {
 
 
         ArrayList<String> sheet8 = new ArrayList<>();
+        sheet8.add(this.getString(R.string.ssp1));
         sheet8.add(this.getString(R.string.ssp2));
         sheet8.add(this.getString(R.string.ssp3));
         sheet8.add(this.getString(R.string.ssp4));
@@ -274,6 +274,30 @@ public class Excel_Export extends AppCompatActivity {
         sheet8.add(this.getString(R.string.ssp29));
         sheet8.add(this.getString(R.string.ssp30));
 
+
+        ArrayList<String> sheet9 = new ArrayList<>();
+        sheet9.add(this.getString(R.string.qsp2));
+        sheet9.add(this.getString(R.string.qsp3));
+        sheet9.add(this.getString(R.string.qsp4));
+        sheet9.add(this.getString(R.string.qsp5));
+        sheet9.add(this.getString(R.string.qsp6));
+        sheet9.add(this.getString(R.string.qsp7));
+        sheet9.add(this.getString(R.string.qsp8));
+        sheet9.add(this.getString(R.string.qsp9));
+        sheet9.add(this.getString(R.string.qsp10));
+        sheet9.add(this.getString(R.string.qsp11));
+        sheet9.add(this.getString(R.string.qsp12));
+        sheet9.add(this.getString(R.string.qsp13));
+        sheet9.add(this.getString(R.string.qsp14));
+        sheet9.add(this.getString(R.string.qsp15));
+        sheet9.add(this.getString(R.string.qsp16));
+        sheet9.add(this.getString(R.string.qsp17));
+        sheet9.add(this.getString(R.string.qsp18));
+        sheet9.add(this.getString(R.string.qsp19));
+        sheet9.add(this.getString(R.string.qsp20));
+        sheet9.add(this.getString(R.string.qsp21));
+        sheet9.add(this.getString(R.string.qsp22));
+
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
         sheets_main.add(sheet1);
         sheets_main.add(sheet2);
@@ -282,10 +306,11 @@ public class Excel_Export extends AppCompatActivity {
         sheets_main.add(sheet5);
         sheets_main.add(sheet6);
         sheets_main.add(sheet7);
+        sheets_main.add(sheet9);
         sheets_main.add(sheet8);
 
         List<String> sheets = Arrays.asList("GT_Log", "FO","Generator_Board","Generation", "Mark_V","Log_Sheet_6");
-        List<String> sheets2 = Arrays.asList("LogSheet20_A","LogSheet20_B");
+        List<String> sheets2 = Arrays.asList("HSRG_A","HSRG_B","LogSheet20_B");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -293,7 +318,8 @@ public class Excel_Export extends AppCompatActivity {
         int kso = 6;
 
         // String engine = GlobalClass.engine_number;
-        if ((engine.equals("ST_1")) | (engine.equals("ST_3"))){
+        if ((engine.equals("ST_1")) | (engine.equals("ST_2"))|
+                (engine.equals("ST_3")) | (engine.equals("ST_4"))){
             for (String item : sheets2) {
                 DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + item);
 
@@ -555,8 +581,10 @@ public class Excel_Export extends AppCompatActivity {
                                 index_o = 17;}
                             else if (item.equals("Log_Sheet_6")) {
                                 index_o = 19;}
-                            else if (item.equals("LogSheet20_A")) {
-                                index_o = 23;}
+                            else if (item.equals("HSRG_A")) {
+                                index_o = 22;}
+                            else if (item.equals("HSRG_B")) {
+                                index_o = 22;}
                             else if (item.equals("LogSheet20_B")) {
                                 index_o = 31;}
 
@@ -602,7 +630,7 @@ public class Excel_Export extends AppCompatActivity {
                                     openFolder();
 
                                 } catch (Exception e) {
-                                    Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Problem, excel might not installed", Toast.LENGTH_LONG).show();
                                     e.printStackTrace();
                                     startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 }

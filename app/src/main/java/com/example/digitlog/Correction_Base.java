@@ -38,7 +38,8 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     ArrayList<String> animalNames;// = new ArrayList<>();
     EditText chart_search,chart_search2,chart_search3,chart_search4;
     ArrayList<String> LogSheet20_B = new ArrayList<>();
-    ArrayList<String> LogSheet20_A = new ArrayList<>();
+    ArrayList<String> HSRG_A = new ArrayList<>();
+    ArrayList<String> HSRG_B = new ArrayList<>();
     ArrayList<String> GT_Log = new ArrayList<>();
     ArrayList<String> FO = new ArrayList<>();
     ArrayList<String> Generation = new ArrayList<>();
@@ -47,26 +48,28 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     ArrayList<String> Log_Sheet_6 = new ArrayList<>();
     ArrayList<String> parameters3 = new ArrayList<>();
     int counter = 0;
-
     Map<String, String> map = new HashMap<String, String>();
 
     Dialog dialog;
     Spinner spinner,spinner2,spinner3,spinner4;
     FirebaseDatabase firebaseDatabase;
     EditText param, param2;
-
+    String engine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_correction__base);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        engine = GlobalClass.engine_number;
+        prepare_recycle_view(engine);
 
 
-        spinner = (Spinner) findViewById(R.id.rvAnimals);
+        //  spinner = (Spinner) findViewById(R.id.rvAnimals);
         spinner2 = (Spinner) findViewById(R.id.rvAnimals2);
         spinner3 = (Spinner) findViewById(R.id.rvAnimals3);
         spinner4 = (Spinner) findViewById(R.id.rvAnimals4);
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
+
 
         param = (EditText) findViewById(R.id.param);
         param2 = (EditText) findViewById(R.id.param2);
@@ -91,7 +94,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
             }
         });
 
-        spinner.setOnItemSelectedListener(this);
+       // spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
         spinner3.setOnItemSelectedListener(this);
         spinner4.setOnItemSelectedListener(this);
@@ -102,10 +105,10 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
 
      //   if ((GlobalClass.engine_number.equals("ST_1")) | (GlobalClass.engine_number.equals("ST_2"))
      //           | (GlobalClass.engine_number.equals("ST_3")) | (GlobalClass.engine_number.equals("ST_4"))){
-        String shifts[] = {"GT_1","GT_2","GT_3","GT_4","GT_5","GT_6","GT_7","GT_8","ST_1","ST_2","ST_3","ST_4"};
-        ArrayAdapter<String> dataAdapter90 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, shifts);
-        dataAdapter90.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter90);
+       // String shifts[] = {"GT_1","GT_2","GT_3","GT_4","GT_5","GT_6","GT_7","GT_8","ST_1","ST_2","ST_3","ST_4"};
+        //ArrayAdapter<String> dataAdapter90 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, shifts);
+        //dataAdapter90.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //spinner.setAdapter(dataAdapter90);
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,8 +117,14 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                 DatabaseReference ref9 = firebaseDatabase.getReference(path5);
                 try{
                     ref9.setValue(Float.parseFloat(param2.getText().toString()));
+                    Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
                 }catch (Exception e){
-                    ref9.setValue(param2.getText().toString());
+                    try{
+                        ref9.setValue(param2.getText().toString());
+                        Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
+                    }catch (Exception ex){
+                        Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -244,29 +253,51 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         Log_Sheet_6.add(this.getString(R.string.p617));
         Log_Sheet_6.add(this.getString(R.string.p618));
 
-        LogSheet20_A.add(this.getString(R.string.sp1));
-        LogSheet20_A.add(this.getString(R.string.sp2));
-        LogSheet20_A.add(this.getString(R.string.sp3));
-        LogSheet20_A.add(this.getString(R.string.sp4));
-        LogSheet20_A.add(this.getString(R.string.sp5));
-        LogSheet20_A.add(this.getString(R.string.sp6));
-        LogSheet20_A.add(this.getString(R.string.sp7));
-        LogSheet20_A.add(this.getString(R.string.sp8));
-        LogSheet20_A.add(this.getString(R.string.sp9));
-        LogSheet20_A.add(this.getString(R.string.sp10));
-        LogSheet20_A.add(this.getString(R.string.sp11));
-        LogSheet20_A.add(this.getString(R.string.sp12));
-        LogSheet20_A.add(this.getString(R.string.sp13));
-        LogSheet20_A.add(this.getString(R.string.sp14));
-        LogSheet20_A.add(this.getString(R.string.sp15));
-        LogSheet20_A.add(this.getString(R.string.sp16));
-        LogSheet20_A.add(this.getString(R.string.sp17));
-        LogSheet20_A.add(this.getString(R.string.sp18));
-        LogSheet20_A.add(this.getString(R.string.sp19));
-        LogSheet20_A.add(this.getString(R.string.sp20));
-        LogSheet20_A.add(this.getString(R.string.sp21));
-        LogSheet20_A.add(this.getString(R.string.sp22));
+        HSRG_A.add(this.getString(R.string.sp2));
+        HSRG_A.add(this.getString(R.string.sp3));
+        HSRG_A.add(this.getString(R.string.sp4));
+        HSRG_A.add(this.getString(R.string.sp5));
+        HSRG_A.add(this.getString(R.string.sp6));
+        HSRG_A.add(this.getString(R.string.sp7));
+        HSRG_A.add(this.getString(R.string.sp8));
+        HSRG_A.add(this.getString(R.string.sp9));
+        HSRG_A.add(this.getString(R.string.sp10));
+        HSRG_A.add(this.getString(R.string.sp11));
+        HSRG_A.add(this.getString(R.string.sp12));
+        HSRG_A.add(this.getString(R.string.sp13));
+        HSRG_A.add(this.getString(R.string.sp14));
+        HSRG_A.add(this.getString(R.string.sp15));
+        HSRG_A.add(this.getString(R.string.sp16));
+        HSRG_A.add(this.getString(R.string.sp17));
+        HSRG_A.add(this.getString(R.string.sp18));
+        HSRG_A.add(this.getString(R.string.sp19));
+        HSRG_A.add(this.getString(R.string.sp20));
+        HSRG_A.add(this.getString(R.string.sp21));
+        HSRG_A.add(this.getString(R.string.sp22));
 
+        HSRG_B.add(this.getString(R.string.qsp2));
+        HSRG_B.add(this.getString(R.string.qsp3));
+        HSRG_B.add(this.getString(R.string.qsp4));
+        HSRG_B.add(this.getString(R.string.qsp5));
+        HSRG_B.add(this.getString(R.string.qsp6));
+        HSRG_B.add(this.getString(R.string.qsp7));
+        HSRG_B.add(this.getString(R.string.qsp8));
+        HSRG_B.add(this.getString(R.string.qsp9));
+        HSRG_B.add(this.getString(R.string.qsp10));
+        HSRG_B.add(this.getString(R.string.qsp11));
+        HSRG_B.add(this.getString(R.string.qsp12));
+        HSRG_B.add(this.getString(R.string.qsp13));
+        HSRG_B.add(this.getString(R.string.qsp14));
+        HSRG_B.add(this.getString(R.string.qsp15));
+        HSRG_B.add(this.getString(R.string.qsp16));
+        HSRG_B.add(this.getString(R.string.qsp17));
+        HSRG_B.add(this.getString(R.string.qsp18));
+        HSRG_B.add(this.getString(R.string.qsp19));
+        HSRG_B.add(this.getString(R.string.qsp20));
+        HSRG_B.add(this.getString(R.string.qsp21));
+        HSRG_B.add(this.getString(R.string.qsp22));
+
+        LogSheet20_B.add(this.getString(R.string.ssp1));
         LogSheet20_B.add(this.getString(R.string.ssp2));
         LogSheet20_B.add(this.getString(R.string.ssp3));
         LogSheet20_B.add(this.getString(R.string.ssp4));
@@ -334,7 +365,8 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         sheets_main.add(Generator_Board);
         sheets_main.add(Mark_V);
         sheets_main.add(Log_Sheet_6);
-        sheets_main.add(LogSheet20_A);
+        sheets_main.add(HSRG_A);
+        sheets_main.add(HSRG_B);
         sheets_main.add(LogSheet20_B);
 
     }
@@ -342,9 +374,9 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         switch(parent.getId()){
-            case R.id.rvAnimals:
-                prepare_recycle_view(parent.getItemAtPosition(position).toString());
-                break;
+          //  case R.id.rvAnimals:
+            //    prepare_recycle_view(parent.getItemAtPosition(position).toString());
+              //  break;
             case R.id.rvAnimals2:
                // prepare_recycle_view2(parent.getItemAtPosition(position).toString());
                 prepare_recycle_view2(parent.getItemAtPosition(position).toString());
@@ -373,8 +405,11 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                     case "Log_Sheet_6":
                         get_alias(Log_Sheet_6, spinner4);
                         break;
-                    case "LogSheet20_A":
-                        get_alias(LogSheet20_A, spinner4);
+                    case "HSRG_A":
+                        get_alias(HSRG_A, spinner4);
+                        break;
+                    case "HSRG_B":
+                        get_alias(HSRG_B, spinner4);
                         break;
                     case "LogSheet20_B":
                         get_alias(LogSheet20_B, spinner4);
@@ -421,6 +456,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     }
 
     void prepare_recycle_view(String item){
+
         DatabaseReference ref9 = firebaseDatabase.getReference("data2/" + item);
         ArrayList<String> newList = new ArrayList<>();
         path2 = "data2/" + item;

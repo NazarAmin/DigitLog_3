@@ -34,7 +34,7 @@
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Visualization"
+                android:text="Logs and Trends"
                 android:fontFamily="@font/microbrew_soft_one_inline"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="57dp"
@@ -114,7 +114,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:text="Trends"
 
@@ -151,9 +152,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:text="Trips Log"
+                        android:text="Trips"
 
                         ></TextView>
 
@@ -188,9 +190,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:text="Status Log"
+                        android:text="Status"
 
                         ></TextView>
 
@@ -226,9 +229,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:text="Faults Log"
+                        android:text="Faults"
 
                         ></TextView>
 
@@ -263,7 +267,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:text="Reports"
 

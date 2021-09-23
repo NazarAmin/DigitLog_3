@@ -79,6 +79,11 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
 
         help = (ImageView) findViewById(R.id.help2);
 
+        if ((GlobalClass.engine_number.equals("ST_1")) |(GlobalClass.engine_number.equals("ST_2")) |
+                (GlobalClass.engine_number.equals("ST_3")) |(GlobalClass.engine_number.equals("ST_4"))){
+            help.setVisibility(View.INVISIBLE);
+        }
+
         dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         Button ok2 = dialog2.findViewById(R.id.save);
         Button cancel2 = dialog2.findViewById(R.id.cancel);

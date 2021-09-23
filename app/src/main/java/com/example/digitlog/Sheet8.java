@@ -72,7 +72,7 @@ public class Sheet8 extends AppCompatActivity {
 
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_B");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/ST_LogSheet");
 
         p1 = (EditText) findViewById(R.id.p1);
         p2 = (EditText) findViewById(R.id.p2);

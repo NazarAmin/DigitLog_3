@@ -38,7 +38,8 @@ public class Sheet7 extends AppCompatActivity {
             isp12,isp13, isp14, isp15,isp16, isp17, isp18,isp19, isp20, isp21;
     TextInputLayout emailError, emailError2, emailError3, emailError4, emailError5, emailError6,
             emailError7, emailError8, emailError9, emailError10, emailError11, emailError12, emailError13,
-            emailError14, emailError15, emailError16, emailError17, emailError18, emailError19, emailError20,emailError21;
+            emailError14, emailError15, emailError16, emailError17, emailError18, emailError19, emailError20,emailError21
+            ,emailError22;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class Sheet7 extends AppCompatActivity {
 
         TextView eng = (TextView) findViewById(R.id.eng);
         eng.setText(GlobalClass.engine_number);
-        textView3.setText(engine + " LogSheet20_A");
+        textView3.setText(GlobalClass.hsrg);
 
         dialog = new Dialog(Sheet7.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback);
@@ -71,9 +72,31 @@ public class Sheet7 extends AppCompatActivity {
 
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_A");
+        DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + GlobalClass.hsrg);
 
-        p1 = (EditText) findViewById(R.id.p1);
+
+        emailError2 = (TextInputLayout) findViewById(R.id.emailError2);
+        emailError3 = (TextInputLayout) findViewById(R.id.emailError3);
+        emailError4 = (TextInputLayout) findViewById(R.id.emailError4);
+        emailError5 = (TextInputLayout) findViewById(R.id.emailError5);
+        emailError6 = (TextInputLayout) findViewById(R.id.emailError6);
+        emailError7 = (TextInputLayout) findViewById(R.id.emailError7);
+        emailError8 = (TextInputLayout) findViewById(R.id.emailError8);
+        emailError9 = (TextInputLayout) findViewById(R.id.emailError9);
+        emailError10 = (TextInputLayout) findViewById(R.id.emailError10);
+        emailError11 = (TextInputLayout) findViewById(R.id.emailError11);
+        emailError12 = (TextInputLayout) findViewById(R.id.emailError12);
+        emailError13 = (TextInputLayout) findViewById(R.id.emailError13);
+        emailError14 = (TextInputLayout) findViewById(R.id.emailError14);
+        emailError15 = (TextInputLayout) findViewById(R.id.emailError15);
+        emailError16 = (TextInputLayout) findViewById(R.id.emailError16);
+        emailError17 = (TextInputLayout) findViewById(R.id.emailError17);
+        emailError18 = (TextInputLayout) findViewById(R.id.emailError18);
+        emailError19 = (TextInputLayout) findViewById(R.id.emailError19);
+        emailError20 = (TextInputLayout) findViewById(R.id.emailError20);
+        emailError21 = (TextInputLayout) findViewById(R.id.emailError21);
+        emailError22 = (TextInputLayout) findViewById(R.id.emailError22);
+
         p2 = (EditText) findViewById(R.id.p2);
         p3 = (EditText) findViewById(R.id.p3);
         p4 = (EditText) findViewById(R.id.p4);
@@ -97,28 +120,58 @@ public class Sheet7 extends AppCompatActivity {
         p21 = (EditText) findViewById(R.id.p21);
         p22 = (EditText) findViewById(R.id.p22);
 
+        if ((GlobalClass.hsrg.equals("HSRG_A"))){
 
-        emailError = (TextInputLayout) findViewById(R.id.emailError);
-        emailError2 = (TextInputLayout) findViewById(R.id.emailError2);
-        emailError3 = (TextInputLayout) findViewById(R.id.emailError3);
-        emailError4 = (TextInputLayout) findViewById(R.id.emailError4);
-        emailError5 = (TextInputLayout) findViewById(R.id.emailError5);
-        emailError6 = (TextInputLayout) findViewById(R.id.emailError6);
-        emailError7 = (TextInputLayout) findViewById(R.id.emailError7);
-        emailError8 = (TextInputLayout) findViewById(R.id.emailError8);
-        emailError9 = (TextInputLayout) findViewById(R.id.emailError9);
-        emailError10 = (TextInputLayout) findViewById(R.id.emailError10);
-        emailError11 = (TextInputLayout) findViewById(R.id.emailError11);
-        emailError12 = (TextInputLayout) findViewById(R.id.emailError12);
-        emailError13 = (TextInputLayout) findViewById(R.id.emailError13);
-        emailError14 = (TextInputLayout) findViewById(R.id.emailError14);
-        emailError15 = (TextInputLayout) findViewById(R.id.emailError15);
-        emailError16 = (TextInputLayout) findViewById(R.id.emailError16);
-        emailError17 = (TextInputLayout) findViewById(R.id.emailError17);
-        emailError18 = (TextInputLayout) findViewById(R.id.emailError18);
-        emailError19 = (TextInputLayout) findViewById(R.id.emailError19);
-        emailError20 = (TextInputLayout) findViewById(R.id.emailError20);
-        emailError21 = (TextInputLayout) findViewById(R.id.emailError21);
+           emailError2.setHint(this.getString(R.string.sp2));
+           emailError3.setHint(this.getString(R.string.sp3));
+           emailError4.setHint(this.getString(R.string.sp4));
+           emailError5.setHint(this.getString(R.string.sp5));
+           emailError6.setHint(this.getString(R.string.sp6));
+           emailError7.setHint(this.getString(R.string.sp7));
+           emailError8.setHint(this.getString(R.string.sp8));
+           emailError9.setHint(this.getString(R.string.sp9));
+           emailError10.setHint(this.getString(R.string.sp10));
+           emailError11.setHint(this.getString(R.string.sp11));
+           emailError12.setHint(this.getString(R.string.sp12));
+           emailError13.setHint(this.getString(R.string.sp13));
+           emailError14.setHint(this.getString(R.string.sp14));
+           emailError15.setHint(this.getString(R.string.sp15));
+           emailError16.setHint(this.getString(R.string.sp16));
+           emailError17.setHint(this.getString(R.string.sp17));
+           emailError18.setHint(this.getString(R.string.sp18));
+           emailError19.setHint(this.getString(R.string.sp19));
+           emailError20.setHint(this.getString(R.string.sp20));
+           emailError21.setHint(this.getString(R.string.sp21));
+            emailError22.setHint(this.getString(R.string.sp22));
+
+
+        }else{
+
+            emailError2.setHint(this.getString(R.string.qsp2));
+            emailError3.setHint(this.getString(R.string.qsp3));
+           emailError4.setHint(this.getString(R.string.qsp4));
+           emailError5.setHint(this.getString(R.string.qsp5));
+           emailError6.setHint(this.getString(R.string.qsp6));
+           emailError7.setHint(this.getString(R.string.qsp7));
+           emailError8.setHint(this.getString(R.string.qsp8));
+           emailError9.setHint(this.getString(R.string.qsp9));
+           emailError10.setHint(this.getString(R.string.qsp10));
+           emailError11.setHint(this.getString(R.string.qsp11));
+           emailError12.setHint(this.getString(R.string.qsp12));
+           emailError13.setHint(this.getString(R.string.qsp13));
+           emailError14.setHint(this.getString(R.string.qsp14));
+           emailError15.setHint(this.getString(R.string.qsp15));
+           emailError16.setHint(this.getString(R.string.qsp16));
+           emailError17.setHint(this.getString(R.string.qsp17));
+           emailError18.setHint(this.getString(R.string.qsp18));
+           emailError19.setHint(this.getString(R.string.qsp19));
+           emailError20.setHint(this.getString(R.string.qsp20));
+           emailError21.setHint(this.getString(R.string.qsp21));
+            emailError22.setHint(this.getString(R.string.sp22));
+
+        }
+
+
 
 
 
@@ -359,7 +412,6 @@ public class Sheet7 extends AppCompatActivity {
 
     public void save_function(){
         try{
-            float iip1 = ParseDouble(p1.getText().toString().trim());
             float iip2 = ParseDouble(p2.getText().toString().trim());
             float iip3 = ParseDouble(p3.getText().toString().trim());
             float iip4 = ParseDouble(p4.getText().toString().trim());
@@ -388,7 +440,6 @@ public class Sheet7 extends AppCompatActivity {
 
 
 
-            data.setIp1(iip1);
             data.setIp2(iip2);
             data.setIp3(iip3);
             data.setIp4(iip4);
@@ -412,11 +463,11 @@ public class Sheet7 extends AppCompatActivity {
             data.setIp21(iip21);
             data.setIp22(iip22);
 
-            data.setLogsheet("LogSheet20_A");
+            data.setLogsheet(GlobalClass.hsrg);
             data.setUser(user);
 
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_A");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/" + GlobalClass.hsrg);
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
             String currentdateandTime = sdf.format(new Date());

@@ -71,7 +71,6 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
         }
         if ((GlobalClass.engine_number.equals("ST_1")) | (GlobalClass.engine_number.equals("ST_2"))
                 | (GlobalClass.engine_number.equals("ST_3")) | (GlobalClass.engine_number.equals("ST_4"))){
-                mExampleList.add(this.getString(R.string.sp1));
                 mExampleList.add(this.getString(R.string.sp2));
                 mExampleList.add(this.getString(R.string.sp3));
                 mExampleList.add(this.getString(R.string.sp4));
@@ -93,6 +92,28 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
                 mExampleList.add(this.getString(R.string.sp20));
                 mExampleList.add(this.getString(R.string.sp21));
                 mExampleList.add(this.getString(R.string.sp22));
+
+                mExampleList.add(this.getString(R.string.qsp2));
+                mExampleList.add(this.getString(R.string.qsp3));
+                mExampleList.add(this.getString(R.string.qsp4));
+                mExampleList.add(this.getString(R.string.qsp5));
+                mExampleList.add(this.getString(R.string.qsp6));
+                mExampleList.add(this.getString(R.string.qsp7));
+                mExampleList.add(this.getString(R.string.qsp8));
+                mExampleList.add(this.getString(R.string.qsp9));
+                mExampleList.add(this.getString(R.string.qsp10));
+                mExampleList.add(this.getString(R.string.qsp11));
+                mExampleList.add(this.getString(R.string.qsp12));
+                mExampleList.add(this.getString(R.string.qsp13));
+                mExampleList.add(this.getString(R.string.qsp14));
+                mExampleList.add(this.getString(R.string.qsp15));
+                mExampleList.add(this.getString(R.string.qsp16));
+                mExampleList.add(this.getString(R.string.qsp17));
+                mExampleList.add(this.getString(R.string.qsp18));
+                mExampleList.add(this.getString(R.string.qsp19));
+                mExampleList.add(this.getString(R.string.qsp20));
+                mExampleList.add(this.getString(R.string.qsp21));
+                mExampleList.add(this.getString(R.string.qsp22));
 
                 mExampleList.add(this.getString(R.string.ssp2));
                 mExampleList.add(this.getString(R.string.ssp3));

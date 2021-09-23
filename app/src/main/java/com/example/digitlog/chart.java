@@ -225,7 +225,6 @@ public class chart extends AppCompatActivity {
         sheet6.add(this.getString(R.string.p617));
         sheet6.add(this.getString(R.string.p618));
         ArrayList<String> sheet7 = new ArrayList<>();
-        sheet7.add(this.getString(R.string.sp1));
         sheet7.add(this.getString(R.string.sp2));
         sheet7.add(this.getString(R.string.sp3));
         sheet7.add(this.getString(R.string.sp4));
@@ -248,6 +247,7 @@ public class chart extends AppCompatActivity {
         sheet7.add(this.getString(R.string.sp21));
         sheet7.add(this.getString(R.string.sp22));
         ArrayList<String> sheet8 = new ArrayList<>();
+        sheet8.add(this.getString(R.string.ssp1));
         sheet8.add(this.getString(R.string.ssp2));
         sheet8.add(this.getString(R.string.ssp3));
         sheet8.add(this.getString(R.string.ssp4));
@@ -277,7 +277,32 @@ public class chart extends AppCompatActivity {
         sheet8.add(this.getString(R.string.ssp28));
         sheet8.add(this.getString(R.string.ssp29));
         sheet8.add(this.getString(R.string.ssp30));
+
+        ArrayList<String> sheet9 = new ArrayList<>();
+        sheet9.add(this.getString(R.string.qsp2));
+        sheet9.add(this.getString(R.string.qsp3));
+        sheet9.add(this.getString(R.string.qsp4));
+        sheet9.add(this.getString(R.string.qsp5));
+        sheet9.add(this.getString(R.string.qsp6));
+        sheet9.add(this.getString(R.string.qsp7));
+        sheet9.add(this.getString(R.string.qsp8));
+        sheet9.add(this.getString(R.string.qsp9));
+        sheet9.add(this.getString(R.string.qsp10));
+        sheet9.add(this.getString(R.string.qsp11));
+        sheet9.add(this.getString(R.string.qsp12));
+        sheet9.add(this.getString(R.string.qsp13));
+        sheet9.add(this.getString(R.string.qsp14));
+        sheet9.add(this.getString(R.string.qsp15));
+        sheet9.add(this.getString(R.string.qsp16));
+        sheet9.add(this.getString(R.string.qsp17));
+        sheet9.add(this.getString(R.string.qsp18));
+        sheet9.add(this.getString(R.string.qsp19));
+        sheet9.add(this.getString(R.string.qsp20));
+        sheet9.add(this.getString(R.string.qsp21));
+        sheet9.add(this.getString(R.string.qsp22));
+
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
+
         sheets_main.add(sheet1);
         sheets_main.add(sheet2);
         sheets_main.add(sheet3);
@@ -286,6 +311,8 @@ public class chart extends AppCompatActivity {
         sheets_main.add(sheet6);
         sheets_main.add(sheet7);
         sheets_main.add(sheet8);
+        sheets_main.add(sheet9);
+
         int counter;
         int inner_counter;
         items = GlobalClass.chart_params;
@@ -331,12 +358,18 @@ public class chart extends AppCompatActivity {
                                 inner_counter = 0;
                                 break;
                             case 7:
-                                final_sheets.add("LogSheet20_A");
+                                final_sheets.add("HSRG_A");
                                 inner_counts.add(inner_counter);
                                 inner_counter = 0;
                                 break;
                             case 8:
                                 final_sheets.add("LogSheet20_B");
+                                inner_counts.add(inner_counter);
+                                inner_counter = 0;
+                                break;
+
+                            case 9:
+                                final_sheets.add("HSRG_B");
                                 inner_counts.add(inner_counter);
                                 inner_counter = 0;
                                 break;

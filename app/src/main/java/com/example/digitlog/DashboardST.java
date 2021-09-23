@@ -34,13 +34,13 @@ package com.example.digitlog;
         import java.util.Locale;
 
 public class DashboardST extends AppCompatActivity {
-    TextView tv3;
+    TextView tv3, hsrg1, hsrg2;
     String engine;
-    LinearLayout sheet1, sheet2;
+    LinearLayout sheet1, sheet2, sheet9;
     ArrayList<Date> name = new ArrayList<Date>();
     String general_admin = GlobalClass.general_admin;
     String current_engine_focal_name;
-    ImageView sim_1,sim_2;
+    ImageView sim_1,sim_2, sim_9;
     Dialog dialog;
     String actual_user;
     String arr[] = {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain"};
@@ -78,10 +78,37 @@ public class DashboardST extends AppCompatActivity {
         // charts = (LinearLayout) findViewById(R.id.charts);
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
+        sheet9 = (LinearLayout) findViewById(R.id.sheet9);
         engine = GlobalClass.engine_number;
 
         sim_1 = (ImageView) findViewById(R.id.sim_1);
         sim_2 = (ImageView) findViewById(R.id.sim_2);
+        sim_9 = (ImageView) findViewById(R.id.sim_9);
+
+        hsrg1 = (TextView) findViewById(R.id.hsrg1);
+        hsrg2 = (TextView) findViewById(R.id.hsrg2);
+
+        if (GlobalClass.engine_number.equals("ST_1")) {
+
+            hsrg1.setText("HSRG_1 (A)");
+            hsrg2.setText("HSRG_2 (B)");
+        }
+        if (GlobalClass.engine_number.equals("ST_2")) {
+
+            hsrg1.setText("HSRG_3 (A)");
+            hsrg2.setText("HSRG_4 (B)");
+        }
+        if (GlobalClass.engine_number.equals("ST_3")) {
+
+            hsrg1.setText("HSRG_5 (A)");
+            hsrg2.setText("HSRG_6 (B)");
+        }
+        if (GlobalClass.engine_number.equals("ST_4")) {
+
+            hsrg1.setText("HSRG_7 (A)");
+            hsrg2.setText("HSRG_8 (B)");
+        }
+
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref3;
@@ -106,10 +133,23 @@ public class DashboardST extends AppCompatActivity {
                         //GlobalClass.current_engine_focal = actual_user;
                         if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
 
+                            if (GlobalClass.engine_number.equals("ST_1")) {
 
-                    //    current_engine_focal_name = dataSnapshot.getValue(String.class);
-                     //   GlobalClass.current_engine_focal = current_engine_focal_name;
-                     //   if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+                                GlobalClass.hsrg = "HSRG_A";
+                            }
+                            if (GlobalClass.engine_number.equals("ST_2")) {
+
+                                GlobalClass.hsrg = "HSRG_A";
+                            }
+                            if (GlobalClass.engine_number.equals("ST_3")) {
+
+                                GlobalClass.hsrg = "HSRG_A";
+                            }
+                            if (GlobalClass.engine_number.equals("ST_4")) {
+
+                                GlobalClass.hsrg = "HSRG_A";
+                            }
+
                             startActivity(new Intent(DashboardST.this, Sheet7.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -147,7 +187,47 @@ public class DashboardST extends AppCompatActivity {
                 });            }
         });
 
+        sheet9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ref3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
+
+
+                            if (GlobalClass.engine_number.equals("ST_1")) {
+
+                                GlobalClass.hsrg = "HSRG_B";
+                            }
+                            if (GlobalClass.engine_number.equals("ST_2")) {
+
+                                GlobalClass.hsrg = "HSRG_B";
+                            }
+                            if (GlobalClass.engine_number.equals("ST_3")) {
+
+                                GlobalClass.hsrg = "HSRG_B";
+                            }
+                            if (GlobalClass.engine_number.equals("ST_4")) {
+
+                                GlobalClass.hsrg = "HSRG_B";
+                            }
+
+
+                            startActivity(new Intent(DashboardST.this, Sheet7.class));
+                        }else{
+                            Toast.makeText(getApplicationContext(), "You are not authorized to " +
+                                    "enter data to " + engine, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });            }
+        });
 
     }
 

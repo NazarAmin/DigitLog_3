@@ -395,7 +395,7 @@ public class Dashboard_Engines extends AppCompatActivity {
         for (int counter = 0; counter < sheets_l.size(); counter++) {
             engine = sheets_l.get(counter);
 
-            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_A");
+            DatabaseReference ref2 = firebaseDatabase.getReference("data2/" + engine + "/LogSheet20_B");
             //LinearLayout finalItem_q = Item_q;
 
             String finalEngine = engine;
@@ -433,7 +433,7 @@ public class Dashboard_Engines extends AppCompatActivity {
                     ArrayList<Float> datavals = new ArrayList<Float>();
                     if (dataSnapshot.hasChildren()) {
                         for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
-                            DataS1 data = mydatasnapshot.getValue(DataS1.class);
+                            DataS2 data = mydatasnapshot.getValue(DataS2.class);
                             datavals.add(data.getIp1());
                             i = i + 1;
                         }

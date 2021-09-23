@@ -116,6 +116,12 @@ public class Trip_Activity extends AppCompatActivity  {
         ldo = (CheckBox) findViewById(R.id.ldo);
         hcgo = (CheckBox) findViewById(R.id.hcgo);
 
+        if ((GlobalClass.engine_number.equals("ST_1")) |(GlobalClass.engine_number.equals("ST_2")) |
+                (GlobalClass.engine_number.equals("ST_3")) |(GlobalClass.engine_number.equals("ST_4"))){
+            help.setVisibility(View.INVISIBLE);
+        }
+
+
         try{
             if (GlobalClass.engine_number.equals("ST_1")){
 

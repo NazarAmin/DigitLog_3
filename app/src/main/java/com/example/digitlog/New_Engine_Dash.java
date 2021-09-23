@@ -2,6 +2,7 @@ package com.example.digitlog;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 
 public class New_Engine_Dash extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet5, sheet20;
+    CardView card5;
     FirebaseDatabase firebaseDatabase;
     String engine;
     ImageView home;
@@ -72,7 +74,12 @@ public class New_Engine_Dash extends AppCompatActivity {
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         sheet5 = (LinearLayout) findViewById(R.id.sheet5);
         sheet20 = (LinearLayout) findViewById(R.id.sheet20);
+        card5 = (CardView) findViewById(R.id.card5);
 
+        if ((GlobalClass.engine_number.equals("ST_1")) |(GlobalClass.engine_number.equals("ST_2")) |
+                (GlobalClass.engine_number.equals("ST_3")) |(GlobalClass.engine_number.equals("ST_4"))){
+            card5.setVisibility(View.INVISIBLE);
+        }
 
         home = (ImageView) findViewById(R.id.home_image);
 
