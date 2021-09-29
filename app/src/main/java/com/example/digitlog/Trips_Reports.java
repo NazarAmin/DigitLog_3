@@ -54,8 +54,8 @@ public class Trips_Reports extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel__export);
 
-        TextView eng = (TextView) findViewById(R.id.eng);
-        eng.setText(GlobalClass.engine_number);
+        //TextView eng = (TextView) findViewById(R.id.eng);
+        //eng.setText(GlobalClass.engine_number);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
@@ -205,7 +205,7 @@ public class Trips_Reports extends AppCompatActivity {
 
 
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Insure spreadsheet app is installed", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                         startActivity(new Intent(Trips_Reports.this, Dashboard_chart.class));
                     }

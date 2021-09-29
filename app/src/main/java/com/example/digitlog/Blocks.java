@@ -82,8 +82,8 @@ public class Blocks extends AppCompatActivity implements LifecycleObserver {
         temp1 = (TextView) findViewById(R.id.temp99_1);
         temp2 = (TextView) findViewById(R.id.temp99_2);
 
-        arr_1 = (ImageView) findViewById(R.id.arr_1);
-        arr_2 = (ImageView) findViewById(R.id.arr_2);
+      //  arr_1 = (ImageView) findViewById(R.id.arr_1);
+      //  arr_2 = (ImageView) findViewById(R.id.arr_2);
 
         mw1 = (TextView) findViewById(R.id.mw1);
         mw2 = (TextView) findViewById(R.id.mw2);

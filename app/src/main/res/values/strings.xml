@@ -160,16 +160,7 @@
     <string name="sp10">(A) Detemp Water Opening Perc %</string>
     <string name="sp11">(A) LP Steam CV Open Perc %</string>
     <string name="sp12">(A) LP Steam Pressure Mpa</string>
-    <string name="sp13">(A) 85 M Tank Level mm</string>
-    <string name="sp14">(A) CCCW Water Level mm</string>
-    <string name="sp15">(A) Dearetor Pressrue Mpa</string>
-    <string name="sp16">(A) Dearetor Outlet Temp C</string>
-    <string name="sp17">(A) Dearetor Water Level mm</string>
-    <string name="sp18">(A) Circulating Water Inlet Temp C</string>
-    <string name="sp19">(A) Circulating Water Inlet Pressure Mpa</string>
-    <string name="sp20">(A) Cooling Air Inlet C</string>
-    <string name="sp21">(A) Cooling Air Outer C</string>
-    <string name="sp22">(A) Generator Stator Temperature Max C</string>
+    <string name="sp13">(A) Eth Temperature C</string>
 
     <string name="qsp2">(B) Water Level HP Drum mm</string>
     <string name="qsp3">(B) Water Level LP Drum mm</string>
@@ -182,16 +173,8 @@
     <string name="qsp10">(B) Detemp Water Opening Perc %</string>
     <string name="qsp11">(B) LP Steam CV Open Perc %</string>
     <string name="qsp12">(B) LP Steam Pressure Mpa</string>
-    <string name="qsp13">(B) 85 M Tank Level mm</string>
-    <string name="qsp14">(B) CCCW Water Level mm</string>
-    <string name="qsp15">(B) Dearetor Pressrue Mpa</string>
-    <string name="qsp16">(B) Dearetor Outlet Temp C</string>
-    <string name="qsp17">(B) Dearetor Water Level mm</string>
-    <string name="qsp18">(B) Circulating Water Inlet Temp C</string>
-    <string name="qsp19">(B) Circulating Water Inlet Pressure Mpa</string>
-    <string name="qsp20">(B) Cooling Air Inlet C</string>
-    <string name="qsp21">(B) Cooling Air Outer C</string>
-    <string name="qsp22">(B) Generator Stator Temperature Max C</string>
+    <string name="qsp13">(B) Eth Temperature C</string>
+
 
     <string name="ssp1">Load Mw</string>
     <string name="ssp2">Freq Hz</string>
@@ -200,7 +183,6 @@
     <string name="ssp5">Min Steam Pressure Mpa</string>
     <string name="ssp6">Min Steam Temperature C</string>
     <string name="ssp7">Min Steam Flow T/h</string>
-    <string name="ssp8">Eth Temperature C</string>
     <string name="ssp9">Condenser Vacuum Pressure Mpa</string>
     <string name="ssp10">Condenser Water Level mm</string>
     <string name="ssp11">Rear Speed Stage Pressure Mpa</string>
@@ -223,6 +205,16 @@
     <string name="ssp28">Turbine External L Um</string>
     <string name="ssp29">Turbine External R Um</string>
     <string name="ssp30">Unit Axial Replacement Um</string>
+    <string name="ssp31">85 M Tank Level mm</string>
+    <string name="ssp32">CCCW Water Level mm</string>
+    <string name="ssp33">Dearetor Pressrue Mpa</string>
+    <string name="ssp34">Dearetor Outlet Temp C</string>
+    <string name="ssp35">Dearetor Water Level mm</string>
+    <string name="ssp36">Circulating Water Inlet Temp C</string>
+    <string name="ssp37">Circulating Water Inlet Pressure Mpa</string>
+    <string name="ssp38">Cooling Air Inlet C</string>
+    <string name="ssp39">Cooling Air Outer C</string>
+    <string name="ssp40">Generator Stator Temperature Max C</string>
 
     <string name="digit_log">Digit Log</string>
     <string name="nav_open">Open</string>

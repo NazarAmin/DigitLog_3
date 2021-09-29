@@ -177,7 +177,7 @@ String Current_Status, radioButtonId;
     }
 
     public void go_out(View view) {
-        dialog.show();
+        dialog2.show();
 
     }
 }

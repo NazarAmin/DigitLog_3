@@ -34,6 +34,16 @@ public class DataS2 {
     private float ip28;
     private float ip29;
     private float ip30;
+    private float ip31;
+    private float ip32;
+    private float ip33;
+    private float ip34;
+    private float ip35;
+    private float ip36;
+    private float ip37;
+    private float ip38;
+    private float ip39;
+    private float ip40;
     private String user;
     private String logsheet;
     public DataS2() {
@@ -295,4 +305,83 @@ public class DataS2 {
         this.user = user;
     }
 
+    public float getIp31() {
+        return ip31;
+    }
+
+    public void setIp31(float ip31) {
+        this.ip31 = ip31;
+    }
+
+    public float getIp32() {
+        return ip32;
+    }
+
+    public void setIp32(float ip32) {
+        this.ip32 = ip32;
+    }
+
+    public float getIp33() {
+        return ip33;
+    }
+
+    public void setIp33(float ip33) {
+        this.ip33 = ip33;
+    }
+
+    public float getIp34() {
+        return ip34;
+    }
+
+    public void setIp34(float ip34) {
+        this.ip34 = ip34;
+    }
+
+    public float getIp35() {
+        return ip35;
+    }
+
+    public void setIp35(float ip35) {
+        this.ip35 = ip35;
+    }
+
+    public float getIp36() {
+        return ip36;
+    }
+
+    public void setIp36(float ip36) {
+        this.ip36 = ip36;
+    }
+
+    public float getIp37() {
+        return ip37;
+    }
+
+    public void setIp37(float ip37) {
+        this.ip37 = ip37;
+    }
+
+    public float getIp38() {
+        return ip38;
+    }
+
+    public void setIp38(float ip38) {
+        this.ip38 = ip38;
+    }
+
+    public float getIp39() {
+        return ip39;
+    }
+
+    public void setIp39(float ip39) {
+        this.ip39 = ip39;
+    }
+
+    public float getIp40() {
+        return ip40;
+    }
+
+    public void setIp40(float ip40) {
+        this.ip40 = ip40;
+    }
 }

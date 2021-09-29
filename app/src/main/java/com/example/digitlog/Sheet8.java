@@ -29,7 +29,7 @@ package com.example.digitlog;
 
 public class Sheet8 extends AppCompatActivity {
     EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,p16,p17,p18,p19,p20,p21, p22, p23
-            ,p24,p25,p26,p27,p28,p29,p30;
+            ,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39;
     Button button3;
     DataS2 data;
     TextView textView3;
@@ -38,7 +38,7 @@ public class Sheet8 extends AppCompatActivity {
     boolean isp1,isp2,isp3,isp4,isp5,isp6,isp7,isp8,isp9,isp10,isp11,
             isp12,isp13, isp14, isp15,isp16, isp17, isp18,isp19, isp20, isp21;
     TextInputLayout emailError, emailError2, emailError3, emailError4, emailError5, emailError6,
-            emailError7, emailError8, emailError9, emailError10, emailError11, emailError12, emailError13,
+            emailError7, emailError9, emailError10, emailError11, emailError12, emailError13,
             emailError14, emailError15, emailError16, emailError17, emailError18, emailError19, emailError20,emailError21;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +105,15 @@ public class Sheet8 extends AppCompatActivity {
         p28 = (EditText) findViewById(R.id.p28);
         p29 = (EditText) findViewById(R.id.p29);
         p30 = (EditText) findViewById(R.id.p30);
+        p31 = (EditText) findViewById(R.id.p31);
+        p32 = (EditText) findViewById(R.id.p32);
+        p33 = (EditText) findViewById(R.id.p33);
+        p34 = (EditText) findViewById(R.id.p34);
+        p35 = (EditText) findViewById(R.id.p35);
+        p36 = (EditText) findViewById(R.id.p36);
+        p37 = (EditText) findViewById(R.id.p37);
+        p38 = (EditText) findViewById(R.id.p38);
+        p39 = (EditText) findViewById(R.id.p39);
 
 
         emailError = (TextInputLayout) findViewById(R.id.emailError);
@@ -114,7 +123,6 @@ public class Sheet8 extends AppCompatActivity {
         emailError5 = (TextInputLayout) findViewById(R.id.emailError5);
         emailError6 = (TextInputLayout) findViewById(R.id.emailError6);
         emailError7 = (TextInputLayout) findViewById(R.id.emailError7);
-        emailError8 = (TextInputLayout) findViewById(R.id.emailError8);
         emailError9 = (TextInputLayout) findViewById(R.id.emailError9);
         emailError10 = (TextInputLayout) findViewById(R.id.emailError10);
         emailError11 = (TextInputLayout) findViewById(R.id.emailError11);
@@ -146,9 +154,6 @@ public class Sheet8 extends AppCompatActivity {
                 dialog.show();
 
             }
-
-
-
 
         });
 
@@ -246,19 +251,6 @@ public class Sheet8 extends AppCompatActivity {
 
         ////////////////////////////////////////////////////////////////////////////////////
 
-        if (p8.getText().toString().isEmpty()) {
-            emailError8.setError(getResources().getString(R.string.email_error));
-            isp8 = false;
-        } else if (ParseDouble(p8.getText().toString()) < 0.165) {
-            emailError8.setError(getResources().getString(R.string.pmin));
-            isp8 = false;
-        } else if (ParseDouble(p8.getText().toString()) < 0.1379) {
-            emailError8.setError(getResources().getString(R.string.pll));
-            isp8 = false;
-        } else  {
-            isp8 = true;
-            emailError8.setErrorEnabled(false);
-        }
 
         ////////////////////////////////////////////////////////////////////////////////////
 
@@ -375,7 +367,6 @@ public class Sheet8 extends AppCompatActivity {
             float iip5 = ParseDouble(p5.getText().toString().trim());
             float iip6 = ParseDouble(p6.getText().toString().trim());
             float iip7 = ParseDouble(p7.getText().toString().trim());
-            float iip8 = ParseDouble(p8.getText().toString().trim());
             float iip9 = ParseDouble(p9.getText().toString().trim());
             float iip10 = ParseDouble(p10.getText().toString().trim());
 
@@ -400,6 +391,15 @@ public class Sheet8 extends AppCompatActivity {
             float iip28 = ParseDouble(p28.getText().toString().trim());
             float iip29 = ParseDouble(p29.getText().toString().trim());
             float iip30 = ParseDouble(p30.getText().toString().trim());
+            float iip31 = ParseDouble(p31.getText().toString().trim());
+            float iip32 = ParseDouble(p32.getText().toString().trim());
+            float iip33 = ParseDouble(p33.getText().toString().trim());
+            float iip34 = ParseDouble(p34.getText().toString().trim());
+            float iip35 = ParseDouble(p35.getText().toString().trim());
+            float iip36 = ParseDouble(p36.getText().toString().trim());
+            float iip37 = ParseDouble(p37.getText().toString().trim());
+            float iip38 = ParseDouble(p38.getText().toString().trim());
+            float iip39 = ParseDouble(p39.getText().toString().trim());
 
 
             String user = GlobalClass.actual_user_name;
@@ -413,7 +413,6 @@ public class Sheet8 extends AppCompatActivity {
             data.setIp5(iip5);
             data.setIp6(iip6);
             data.setIp7(iip7);
-            data.setIp8(iip8);
             data.setIp9(iip9);
             data.setIp10(iip10);
             data.setIp11(iip11);
@@ -436,6 +435,15 @@ public class Sheet8 extends AppCompatActivity {
             data.setIp28(iip28);
             data.setIp29(iip29);
             data.setIp30(iip30);
+            data.setIp31(iip31);
+            data.setIp32(iip32);
+            data.setIp33(iip33);
+            data.setIp34(iip34);
+            data.setIp35(iip35);
+            data.setIp36(iip36);
+            data.setIp37(iip37);
+            data.setIp38(iip38);
+            data.setIp39(iip39);
 
             data.setLogsheet("LogSheet20_B");
             data.setUser(user);

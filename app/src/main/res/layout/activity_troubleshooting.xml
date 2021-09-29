@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@color/white"
     android:orientation="vertical">
     <RelativeLayout
@@ -69,35 +69,47 @@
             ></ImageView>
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold|italic"
-        android:id="@+id/chart_search"
-        android:textColor="@color/black"
-        android:layout_marginRight="10dp"
-        android:hint="Search engine alarm signals:"
-        android:textSize="14dp"
-        android:gravity="left"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="left"
-        >
-    </EditText>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/signal_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alarm Signal"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/green"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:id="@+id/short_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Signal Description"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/purple_700"
+                    android:textSize="15dp"></TextView>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -105,154 +117,183 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="2dp"
             android:background="#7E000000" />
-
-           <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="10dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvAnimals"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:layout_height="0dp"
+                android:layout_width="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Signals List:"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"></TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_search_24"
+                        android:textStyle="bold|italic"
+                        android:id="@+id/chart_search"
+                        android:textColor="@color/black"
+                        android:layout_marginRight="10dp"
+                        android:hint="Search engine alarm signals:"
+                        android:textSize="14dp"
+                        android:gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="left"
+                        >
+                    </EditText>
+                </LinearLayout>
+
+
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvAnimals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:defaultFocusHighlightEnabled="true"
+                        android:paddingRight="7dp" />
+                </ScrollView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:background="#7E000000" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="2dp"
+            android:background="#7E000000" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:layout_height="0dp"
+                android:layout_width="match_parent">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Signal Cause:"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"></TextView>
+
+
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:layout_marginTop="10dp">
+
+                        <EditText
+                            android:id="@+id/t_alarm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:background="@null"
+
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:maxLines="30"
+                            android:layout_marginRight="10dp"
+                            android:scrollbars="vertical"
+                            android:textColor="@color/green"
+                            android:layout_marginLeft="10dp"
+                            android:defaultFocusHighlightEnabled="true"
+                            android:paddingRight="7dp" />
+                    </ScrollView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="2dp"
+            android:background="#7E000000" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="3"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended Actions:"
                     android:layout_marginLeft="10dp"
-                    android:defaultFocusHighlightEnabled="true"
-                    android:paddingRight="7dp" />
-            </ScrollView>
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/black"></TextView>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="2dp"
-            android:background="#7E000000" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:layout_marginTop="10dp"
+                    >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Alarm Info:"
-            android:layout_marginLeft="10dp"
-            android:textSize="14dp"
-            android:textStyle="bold|italic"
-            android:textColor="@color/black"></TextView>
+                    <EditText
+                        android:id="@+id/t_actions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:inputType="textMultiLine"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:maxLines="30"
+                        android:layout_marginRight="10dp"
+                        android:defaultFocusHighlightEnabled="true"
+                        android:paddingRight="7dp"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/green" />
+                </ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/signal_selected"
-            android:layout_margin="10dp"
-            android:textSize="12dp"
-
-            android:textColor="@color/green"
-            >
-
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/short_name"
-            android:layout_margin="10dp"
-            android:textSize="12dp"
-
-            android:textColor="@color/purple_700"
-            >
-
-        </TextView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
-            android:background="#7E000000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Signal Cause:"
-            android:layout_marginLeft="10dp"
-            android:textSize="14dp"
-            android:textStyle="bold|italic"
-            android:textColor="@color/black"></TextView>
-
-
+            </LinearLayout>
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp">
-
-        <EditText
-            android:id="@+id/t_alarm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="false"
-            android:inputType="textMultiLine"
-            android:background="@null"
-
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:maxLines="30"
-            android:layout_marginRight="10dp"
-            android:scrollbars="vertical"
-            android:textColor="@color/green"
-            android:layout_marginLeft="10dp"
-            android:defaultFocusHighlightEnabled="true"
-            android:paddingRight="7dp" />
-    </ScrollView>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="2dp"
-            android:background="#7E000000" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recommended Actions:"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="14dp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"></TextView>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp"
->
-
-        <EditText
-            android:id="@+id/t_actions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="textMultiLine"
-            android:background="@null"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:maxLines="30"
-            android:layout_marginRight="10dp"
-            android:defaultFocusHighlightEnabled="true"
-            android:paddingRight="7dp"
-            android:scrollbars="vertical"
-            android:textColor="@color/green" />
-    </ScrollView>
-
-    </LinearLayout>
-    </ScrollView>
 </LinearLayout>

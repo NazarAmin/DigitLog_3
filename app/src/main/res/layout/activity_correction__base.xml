@@ -62,124 +62,160 @@
             ></ImageView>
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_marginTop="60dp"
-        android:id="@+id/scroll2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
 
         <LinearLayout
+            android:layout_marginTop="54dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+
+
             android:orientation="vertical">
 
-
-            <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"
-        android:text="Please select the data sheet:"
-        android:textSize="14dp"
-        android:gravity="left"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="left"
-        >
-    </TextView>
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <Spinner
-            android:id="@+id/rvAnimals2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black"
+            android:text="Please select the data sheet:"
+            android:textSize="14dp"
+            android:gravity="left"
             android:layout_marginLeft="10dp"
-            android:defaultFocusHighlightEnabled="true"
-            android:paddingRight="7dp" />
-    </ScrollView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/black"
-        android:text="Please select the date:"
-        android:textSize="14dp"
-        android:gravity="left"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="left"
-        >
-    </TextView>
+            android:layout_gravity="left"
+            >
+        </TextView>
 
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <Spinner
-            android:id="@+id/rvAnimals3"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:defaultFocusHighlightEnabled="true"
-            android:paddingRight="7dp" />
-    </ScrollView>
+            android:layout_height="match_parent"
+            >
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginTop="30dp"
-                android:textStyle="bold|italic"
-                android:textColor="@color/black"
-                android:text="Please select the Parameter:"
-                android:textSize="14dp"
-                android:gravity="left"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="left"
-                >
-            </TextView>
-
-
-
-            <ScrollView
+            <Spinner
+                android:id="@+id/rvAnimals2"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp">
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:defaultFocusHighlightEnabled="true"
+                android:paddingRight="7dp" />
+        </ScrollView>
 
-                <Spinner
-                    android:id="@+id/rvAnimals4"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginRight="10dp"
+
+    </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="2dp"
+                android:background="#7E000000" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/black"
+                    android:text="Please select the date:"
+                    android:textSize="14dp"
+                    android:gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:defaultFocusHighlightEnabled="true"
-                    android:paddingRight="7dp" />
-            </ScrollView>
+                    android:layout_gravity="left"
+                    >
+                </TextView>
+
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <Spinner
+                        android:id="@+id/rvAnimals3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:defaultFocusHighlightEnabled="true"
+                        android:paddingRight="7dp" />
+                </ScrollView>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="2dp"
+                android:background="#7E000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/black"
+                    android:text="Please select the Parameter:"
+                    android:textSize="14dp"
+                    android:gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="left"
+                    >
+                </TextView>
+
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <Spinner
+                        android:id="@+id/rvAnimals4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:defaultFocusHighlightEnabled="true"
+                        android:paddingRight="7dp" />
+                </ScrollView>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="2dp"
+                android:background="#7E000000" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="horizontal">
 
 <TextView
@@ -204,6 +240,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="horizontal">
 
                 <TextView
@@ -226,16 +263,25 @@
 
             </LinearLayout>
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:textSize="14dp"
-        android:id="@+id/but"
-        android:textColor="@color/white"
-        android:background="@color/green"
-        android:layout_marginLeft="10dp"
-        android:text="Update"></Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:textSize="14dp"
+            android:id="@+id/but"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:layout_marginLeft="10dp"
+            android:text="Update"></Button>
+
+    </LinearLayout>
+
+
 </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

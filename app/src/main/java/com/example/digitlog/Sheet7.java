@@ -28,7 +28,7 @@ package com.example.digitlog;
         import java.util.Locale;
 
 public class Sheet7 extends AppCompatActivity {
-    EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,p16,p17,p18,p19,p20,p21, p22;
+    EditText p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13;
     Button button3;
     DataS1 data;
     TextView textView3;
@@ -37,9 +37,7 @@ public class Sheet7 extends AppCompatActivity {
     boolean isp1,isp2,isp3,isp4,isp5,isp6,isp7,isp8,isp9,isp10,isp11,
             isp12,isp13, isp14, isp15,isp16, isp17, isp18,isp19, isp20, isp21;
     TextInputLayout emailError, emailError2, emailError3, emailError4, emailError5, emailError6,
-            emailError7, emailError8, emailError9, emailError10, emailError11, emailError12, emailError13,
-            emailError14, emailError15, emailError16, emailError17, emailError18, emailError19, emailError20,emailError21
-            ,emailError22;
+            emailError7, emailError8, emailError9, emailError10, emailError11, emailError12, emailError13;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,15 +85,6 @@ public class Sheet7 extends AppCompatActivity {
         emailError11 = (TextInputLayout) findViewById(R.id.emailError11);
         emailError12 = (TextInputLayout) findViewById(R.id.emailError12);
         emailError13 = (TextInputLayout) findViewById(R.id.emailError13);
-        emailError14 = (TextInputLayout) findViewById(R.id.emailError14);
-        emailError15 = (TextInputLayout) findViewById(R.id.emailError15);
-        emailError16 = (TextInputLayout) findViewById(R.id.emailError16);
-        emailError17 = (TextInputLayout) findViewById(R.id.emailError17);
-        emailError18 = (TextInputLayout) findViewById(R.id.emailError18);
-        emailError19 = (TextInputLayout) findViewById(R.id.emailError19);
-        emailError20 = (TextInputLayout) findViewById(R.id.emailError20);
-        emailError21 = (TextInputLayout) findViewById(R.id.emailError21);
-        emailError22 = (TextInputLayout) findViewById(R.id.emailError22);
 
         p2 = (EditText) findViewById(R.id.p2);
         p3 = (EditText) findViewById(R.id.p3);
@@ -110,15 +99,6 @@ public class Sheet7 extends AppCompatActivity {
         p11 = (EditText) findViewById(R.id.p11);
         p12 = (EditText) findViewById(R.id.p12);
         p13 = (EditText) findViewById(R.id.p13);
-        p14 = (EditText) findViewById(R.id.p14);
-        p15 = (EditText) findViewById(R.id.p15);
-        p16 = (EditText) findViewById(R.id.p16);
-        p17 = (EditText) findViewById(R.id.p17);
-        p18 = (EditText) findViewById(R.id.p18);
-        p19 = (EditText) findViewById(R.id.p19);
-        p20 = (EditText) findViewById(R.id.p20);
-        p21 = (EditText) findViewById(R.id.p21);
-        p22 = (EditText) findViewById(R.id.p22);
 
         if ((GlobalClass.hsrg.equals("HSRG_A"))){
 
@@ -134,15 +114,7 @@ public class Sheet7 extends AppCompatActivity {
            emailError11.setHint(this.getString(R.string.sp11));
            emailError12.setHint(this.getString(R.string.sp12));
            emailError13.setHint(this.getString(R.string.sp13));
-           emailError14.setHint(this.getString(R.string.sp14));
-           emailError15.setHint(this.getString(R.string.sp15));
-           emailError16.setHint(this.getString(R.string.sp16));
-           emailError17.setHint(this.getString(R.string.sp17));
-           emailError18.setHint(this.getString(R.string.sp18));
-           emailError19.setHint(this.getString(R.string.sp19));
-           emailError20.setHint(this.getString(R.string.sp20));
-           emailError21.setHint(this.getString(R.string.sp21));
-            emailError22.setHint(this.getString(R.string.sp22));
+
 
 
         }else{
@@ -159,15 +131,7 @@ public class Sheet7 extends AppCompatActivity {
            emailError11.setHint(this.getString(R.string.qsp11));
            emailError12.setHint(this.getString(R.string.qsp12));
            emailError13.setHint(this.getString(R.string.qsp13));
-           emailError14.setHint(this.getString(R.string.qsp14));
-           emailError15.setHint(this.getString(R.string.qsp15));
-           emailError16.setHint(this.getString(R.string.qsp16));
-           emailError17.setHint(this.getString(R.string.qsp17));
-           emailError18.setHint(this.getString(R.string.qsp18));
-           emailError19.setHint(this.getString(R.string.qsp19));
-           emailError20.setHint(this.getString(R.string.qsp20));
-           emailError21.setHint(this.getString(R.string.qsp21));
-            emailError22.setHint(this.getString(R.string.sp22));
+
 
         }
 
@@ -362,45 +326,6 @@ public class Sheet7 extends AppCompatActivity {
 
         ////////////////////////////////////////////////////////////////////////////////////
 
-        if (p14.getText().toString().isEmpty()) {
-            emailError14.setError(getResources().getString(R.string.email_error));
-            isp14 = false;
-        } else if (ParseDouble(p14.getText().toString()) > 4) {
-            emailError14.setError(getResources().getString(R.string.pmax));
-            isp14 = false;
-        } else  {
-            isp14 = true;
-            emailError14.setErrorEnabled(false);
-        }
-
-        ////////////////////////////////////////////////////////////////////////////////////
-
-        if (p16.getText().toString().isEmpty()) {
-            emailError16.setError(getResources().getString(R.string.email_error));
-            isp16 = false;
-        } else if (ParseDouble(p16.getText().toString()) > 1.0) {
-            emailError16.setError(getResources().getString(R.string.pmax));
-            isp16 = false;
-        } else  {
-            isp16 = true;
-            emailError16.setErrorEnabled(false);
-        }
-
-        ////////////////////////////////////////////////////////////////////////////////////
-
-        if (p17.getText().toString().isEmpty()) {
-            emailError17.setError(getResources().getString(R.string.email_error));
-            isp17 = false;
-        } else if (ParseDouble(p17.getText().toString()) > 0.65) {
-            emailError17.setError(getResources().getString(R.string.pmax));
-            isp17 = false;
-        } else if (ParseDouble(p17.getText().toString()) > 1.49) {
-            emailError17.setError(getResources().getString(R.string.phh));
-            isp17 = false;
-        } else  {
-            isp17 = true;
-            emailError17.setErrorEnabled(false);
-        }
 
         ////////////////////////////////////////////////////////////////////////////////////
         //  if (isEmailValid && isPasswordValid) {
@@ -425,16 +350,6 @@ public class Sheet7 extends AppCompatActivity {
             float iip11 = ParseDouble(p11.getText().toString().trim());
             float iip12 = ParseDouble(p12.getText().toString().trim());
             float iip13 = ParseDouble(p13.getText().toString().trim());
-            float iip14 = ParseDouble(p14.getText().toString().trim());
-            float iip15 = ParseDouble(p15.getText().toString().trim());
-            float iip16 = ParseDouble(p16.getText().toString().trim());
-            float iip17 = ParseDouble(p17.getText().toString().trim());
-            float iip18 = ParseDouble(p18.getText().toString().trim());
-            float iip19 = ParseDouble(p19.getText().toString().trim());
-            float iip20 = ParseDouble(p20.getText().toString().trim());
-
-            float iip21 = ParseDouble(p21.getText().toString().trim());
-            float iip22 = ParseDouble(p22.getText().toString().trim());
 
             String user = GlobalClass.actual_user_name;
 
@@ -453,15 +368,6 @@ public class Sheet7 extends AppCompatActivity {
             data.setIp11(iip11);
             data.setIp12(iip12);
             data.setIp13(iip13);
-            data.setIp14(iip14);
-            data.setIp15(iip15);
-            data.setIp16(iip16);
-            data.setIp17(iip17);
-            data.setIp18(iip18);
-            data.setIp19(iip19);
-            data.setIp20(iip20);
-            data.setIp21(iip21);
-            data.setIp22(iip22);
 
             data.setLogsheet(GlobalClass.hsrg);
             data.setUser(user);

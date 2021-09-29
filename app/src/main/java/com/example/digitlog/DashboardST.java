@@ -241,17 +241,20 @@ public class DashboardST extends AppCompatActivity {
     private void coloring_layouts() {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        List<String> sheets_l = Arrays.asList("LogSheet20_A", "LogSheet20_B");
-        List<ImageView> images = Arrays.asList(sim_1,sim_2);
+        List<String> sheets_l = Arrays.asList("HSRG_A","HSRG_B","LogSheet20_B");
+        List<ImageView> images = Arrays.asList(sim_1,sim_9, sim_2);
 
-        List<LinearLayout> sheets_q = Arrays.asList(sheet1, sheet2);
+        List<LinearLayout> sheets_q = Arrays.asList(sheet1, sheet2, sheet9);
+
+        int counter = 0;
+
 
         String Item_l;
         LinearLayout Item_q;
         for (int i = 0; i < sheets_l.size(); i++) {
             Item_l = sheets_l.get(i);
             Item_q = sheets_q.get(i);
-
+            int final_counter = counter;
             DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + Item_l);
             LinearLayout finalItem_q = Item_q;
             ref2.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -292,19 +295,18 @@ public class DashboardST extends AppCompatActivity {
                         long difference = Math.abs(time_now - hour);
                         long diff2 = start_long - end_long;
                         float diff3 = diff2/1000/60/60;
-                        System.out.println("Current Difference   ############: " + diff3);
                         if (diff3 <= 4) {
-                            //images.get(i).setBackgroundResource(R.drawable.ic_baseline_done_24);
+                            images.get(final_counter).setBackgroundResource(R.drawable.ic_baseline_done_24);
 
-                            finalItem_q.setBackgroundColor(Color.GREEN);
+                            //finalItem_q.setBackgroundColor(Color.GREEN);
                         } else if ((diff3 > 4) && (diff3 < 5)) {
-                            //images.get(i).setBackgroundResource(R.drawable.warning_dashboard);
+                            images.get(final_counter).setBackgroundResource(R.drawable.waiting);
 
-                             finalItem_q.setBackgroundColor(Color.YELLOW);
+                             //finalItem_q.setBackgroundColor(Color.YELLOW);
                         } else {
-                           // images.get(i).setBackgroundResource(R.drawable.ic_baseline_do_disturb_24);
+                            images.get(final_counter).setBackgroundResource(R.drawable.time_over);
 
-                            finalItem_q.setBackgroundColor(Color.LTGRAY);
+                            //finalItem_q.setBackgroundColor(Color.LTGRAY);
                         }
                     }
                 }//onDataChange
@@ -314,7 +316,7 @@ public class DashboardST extends AppCompatActivity {
 
                 }//onCancelled
             });
-
+            counter+=1;
         }
 
     }

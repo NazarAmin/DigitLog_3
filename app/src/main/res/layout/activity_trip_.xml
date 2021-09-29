@@ -295,7 +295,7 @@
                     android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:textStyle="bold"
-                    android:src="@drawable/ic_baseline_camera_alt_24"
+                    android:src="@drawable/camera"
                     android:background="@drawable/border"
                     android:id="@+id/im_v"></ImageView>
 

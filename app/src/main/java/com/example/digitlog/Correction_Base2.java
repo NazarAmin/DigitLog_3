@@ -77,6 +77,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         param = (EditText) findViewById(R.id.param);
         param2 = (EditText) findViewById(R.id.param2);
 
+        param.setText("----");
 
         dialog = new Dialog(Correction_Base2.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
@@ -256,15 +257,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         HSRG_A.add(this.getString(R.string.sp11));
         HSRG_A.add(this.getString(R.string.sp12));
         HSRG_A.add(this.getString(R.string.sp13));
-        HSRG_A.add(this.getString(R.string.sp14));
-        HSRG_A.add(this.getString(R.string.sp15));
-        HSRG_A.add(this.getString(R.string.sp16));
-        HSRG_A.add(this.getString(R.string.sp17));
-        HSRG_A.add(this.getString(R.string.sp18));
-        HSRG_A.add(this.getString(R.string.sp19));
-        HSRG_A.add(this.getString(R.string.sp20));
-        HSRG_A.add(this.getString(R.string.sp21));
-        HSRG_A.add(this.getString(R.string.sp22));
+
 
         HSRG_B.add(this.getString(R.string.qsp2));
         HSRG_B.add(this.getString(R.string.qsp3));
@@ -278,15 +271,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         HSRG_B.add(this.getString(R.string.qsp11));
         HSRG_B.add(this.getString(R.string.qsp12));
         HSRG_B.add(this.getString(R.string.qsp13));
-        HSRG_B.add(this.getString(R.string.qsp14));
-        HSRG_B.add(this.getString(R.string.qsp15));
-        HSRG_B.add(this.getString(R.string.qsp16));
-        HSRG_B.add(this.getString(R.string.qsp17));
-        HSRG_B.add(this.getString(R.string.qsp18));
-        HSRG_B.add(this.getString(R.string.qsp19));
-        HSRG_B.add(this.getString(R.string.qsp20));
-        HSRG_B.add(this.getString(R.string.qsp21));
-        HSRG_B.add(this.getString(R.string.qsp22));
+
 
         LogSheet20_B.add(this.getString(R.string.ssp1));
         LogSheet20_B.add(this.getString(R.string.ssp2));
@@ -295,7 +280,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         LogSheet20_B.add(this.getString(R.string.ssp5));
         LogSheet20_B.add(this.getString(R.string.ssp6));
         LogSheet20_B.add(this.getString(R.string.ssp7));
-        LogSheet20_B.add(this.getString(R.string.ssp8));
+
         LogSheet20_B.add(this.getString(R.string.ssp9));
         LogSheet20_B.add(this.getString(R.string.ssp10));
         LogSheet20_B.add(this.getString(R.string.ssp11));
@@ -318,7 +303,16 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         LogSheet20_B.add(this.getString(R.string.ssp28));
         LogSheet20_B.add(this.getString(R.string.ssp29));
         LogSheet20_B.add(this.getString(R.string.ssp30));
-
+        LogSheet20_B.add(this.getString(R.string.ssp31));
+        LogSheet20_B.add(this.getString(R.string.ssp32));
+        LogSheet20_B.add(this.getString(R.string.ssp33));
+        LogSheet20_B.add(this.getString(R.string.ssp33));
+        LogSheet20_B.add(this.getString(R.string.ssp34));
+        LogSheet20_B.add(this.getString(R.string.ssp35));
+        LogSheet20_B.add(this.getString(R.string.ssp36));
+        LogSheet20_B.add(this.getString(R.string.ssp37));
+        LogSheet20_B.add(this.getString(R.string.ssp38));
+        LogSheet20_B.add(this.getString(R.string.ssp39));
         parameters3.add("ip1");
         parameters3.add("ip2");
         parameters3.add("ip3");
@@ -348,6 +342,17 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         parameters3.add("ip27");
         parameters3.add("ip28");
         parameters3.add("ip29");
+        parameters3.add("ip30");
+        parameters3.add("ip31");
+        parameters3.add("ip32");
+        parameters3.add("ip33");
+        parameters3.add("ip34");
+        parameters3.add("ip35");
+        parameters3.add("ip36");
+        parameters3.add("ip37");
+        parameters3.add("ip38");
+        parameters3.add("ip39");
+
 
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
         sheets_main.add(GT_Log);

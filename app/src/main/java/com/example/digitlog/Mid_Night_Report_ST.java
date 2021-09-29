@@ -191,7 +191,7 @@ public class Mid_Night_Report_ST extends AppCompatActivity {
 
 
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Insure spreadsheet app is installed", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                         startActivity(new Intent(Mid_Night_Report_ST.this, Dashboard_chart.class));
                     }

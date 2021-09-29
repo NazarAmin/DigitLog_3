@@ -30,13 +30,6 @@ public class DataS1 {
     public DataS1() {
     }
 
-    public float getIp22() {
-        return ip22;
-    }
-
-    public void setIp22(float ip22) {
-        this.ip22 = ip22;
-    }
 
     public float getIp11() {
         return ip11;
@@ -62,69 +55,8 @@ public class DataS1 {
         this.ip13 = ip13;
     }
 
-    public float getIp14() {
-        return ip14;
-    }
 
-    public void setIp14(float ip14) {
-        this.ip14 = ip14;
-    }
 
-    public float getIp15() {
-        return ip15;
-    }
-
-    public void setIp15(float ip15) {
-        this.ip15 = ip15;
-    }
-
-    public float getIp16() {
-        return ip16;
-    }
-
-    public void setIp16(float ip16) {
-        this.ip16 = ip16;
-    }
-
-    public float getIp17() {
-        return ip17;
-    }
-
-    public void setIp17(float ip17) {
-        this.ip17 = ip17;
-    }
-
-    public float getIp18() {
-        return ip18;
-    }
-
-    public void setIp18(float ip18) {
-        this.ip18 = ip18;
-    }
-
-    public float getIp19() {
-        return ip19;
-    }
-
-    public void setIp19(float ip19) {
-        this.ip19 = ip19;
-    }
-
-    public float getIp20() {
-        return ip20;
-    }
-
-    public void setIp20(float ip20) {
-        this.ip20 = ip20;
-    }
-
-    public float getIp21() {
-        return ip21;
-    }
-
-    public void setIp21(float ip21) {
-        this.ip21 = ip21;
-    }
 
     public String getLogsheet() {
         return logsheet;

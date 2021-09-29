@@ -237,15 +237,7 @@ public class chart extends AppCompatActivity {
         sheet7.add(this.getString(R.string.sp11));
         sheet7.add(this.getString(R.string.sp12));
         sheet7.add(this.getString(R.string.sp13));
-        sheet7.add(this.getString(R.string.sp14));
-        sheet7.add(this.getString(R.string.sp15));
-        sheet7.add(this.getString(R.string.sp16));
-        sheet7.add(this.getString(R.string.sp17));
-        sheet7.add(this.getString(R.string.sp18));
-        sheet7.add(this.getString(R.string.sp19));
-        sheet7.add(this.getString(R.string.sp20));
-        sheet7.add(this.getString(R.string.sp21));
-        sheet7.add(this.getString(R.string.sp22));
+
         ArrayList<String> sheet8 = new ArrayList<>();
         sheet8.add(this.getString(R.string.ssp1));
         sheet8.add(this.getString(R.string.ssp2));
@@ -254,7 +246,6 @@ public class chart extends AppCompatActivity {
         sheet8.add(this.getString(R.string.ssp5));
         sheet8.add(this.getString(R.string.ssp6));
         sheet8.add(this.getString(R.string.ssp7));
-        sheet8.add(this.getString(R.string.ssp8));
         sheet8.add(this.getString(R.string.ssp9));
         sheet8.add(this.getString(R.string.ssp10));
         sheet8.add(this.getString(R.string.ssp11));
@@ -277,6 +268,15 @@ public class chart extends AppCompatActivity {
         sheet8.add(this.getString(R.string.ssp28));
         sheet8.add(this.getString(R.string.ssp29));
         sheet8.add(this.getString(R.string.ssp30));
+        sheet8.add(this.getString(R.string.ssp31));
+        sheet8.add(this.getString(R.string.ssp32));
+        sheet8.add(this.getString(R.string.ssp33));
+        sheet8.add(this.getString(R.string.ssp34));
+        sheet8.add(this.getString(R.string.ssp35));
+        sheet8.add(this.getString(R.string.ssp36));
+        sheet8.add(this.getString(R.string.ssp37));
+        sheet8.add(this.getString(R.string.ssp38));
+        sheet8.add(this.getString(R.string.ssp39));
 
         ArrayList<String> sheet9 = new ArrayList<>();
         sheet9.add(this.getString(R.string.qsp2));
@@ -291,15 +291,7 @@ public class chart extends AppCompatActivity {
         sheet9.add(this.getString(R.string.qsp11));
         sheet9.add(this.getString(R.string.qsp12));
         sheet9.add(this.getString(R.string.qsp13));
-        sheet9.add(this.getString(R.string.qsp14));
-        sheet9.add(this.getString(R.string.qsp15));
-        sheet9.add(this.getString(R.string.qsp16));
-        sheet9.add(this.getString(R.string.qsp17));
-        sheet9.add(this.getString(R.string.qsp18));
-        sheet9.add(this.getString(R.string.qsp19));
-        sheet9.add(this.getString(R.string.qsp20));
-        sheet9.add(this.getString(R.string.qsp21));
-        sheet9.add(this.getString(R.string.qsp22));
+
 
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
 
@@ -616,6 +608,46 @@ public class chart extends AppCompatActivity {
                                         break;
                                     case 29:
                                         datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
+                                        i = i + 1;
+                                        break;
+                                    case 30:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
+                                        i = i + 1;
+                                        break;
+                                    case 31:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp31()));
+                                        i = i + 1;
+                                        break;
+                                    case 32:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp32()));
+                                        i = i + 1;
+                                        break;
+                                    case 33:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp33()));
+                                        i = i + 1;
+                                        break;
+                                    case 34:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp34()));
+                                        i = i + 1;
+                                        break;
+                                    case 35:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp35()));
+                                        i = i + 1;
+                                        break;
+                                    case 36:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp36()));
+                                        i = i + 1;
+                                        break;
+                                    case 37:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp37()));
+                                        i = i + 1;
+                                        break;
+                                    case 38:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp38()));
+                                        i = i + 1;
+                                        break;
+                                    case 39:
+                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp39()));
                                         i = i + 1;
                                         break;
                                 }

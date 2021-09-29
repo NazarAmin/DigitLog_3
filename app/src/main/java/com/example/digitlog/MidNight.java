@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MidNight extends AppCompatActivity {
-    Dialog dialog;
+    Dialog dialog, dialog2;
     RadioGroup radioGroup;
     RadioButton radioButton;
     EditText generation_MN, fuel_MN, hp_MN, lp_MN, df_MN, generation_MV, fuel_MV, hp_efs;
@@ -61,6 +61,26 @@ public class MidNight extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
+        dialog2 = new Dialog(MidNight.this);
+        dialog2.setContentView(R.layout.custom_dialoge_feedback2);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok2 = dialog2.findViewById(R.id.save);
+        Button cancel2 = dialog2.findViewById(R.id.cancel);
+        ok2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MidNight.this.finishAffinity();
+            }
+        });
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog2.dismiss();
+            }
+        });
+
 
         generation_MN = (EditText) findViewById(R.id.generation_MN);
         generation_MV = (EditText) findViewById(R.id.generation_MV);
@@ -109,7 +129,7 @@ public class MidNight extends AppCompatActivity {
     }
 
     public void go_out(View view) {
-        dialog.show();
+        dialog2.show();
 
     }
 }

@@ -43,7 +43,7 @@ public class Excel_Export extends AppCompatActivity {
 
     //private EditText editTextExcel;
     ArrayList<String> name = new ArrayList<>();
-
+    boolean q = false;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
     private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Parameters/" + engine + " Parameters Report " + sdf.format(new Date()) + ".xls");
@@ -231,72 +231,61 @@ public class Excel_Export extends AppCompatActivity {
         sheet7.add(this.getString(R.string.sp11));
         sheet7.add(this.getString(R.string.sp12));
         sheet7.add(this.getString(R.string.sp13));
-        sheet7.add(this.getString(R.string.sp14));
-        sheet7.add(this.getString(R.string.sp15));
-        sheet7.add(this.getString(R.string.sp16));
-        sheet7.add(this.getString(R.string.sp17));
-        sheet7.add(this.getString(R.string.sp18));
-        sheet7.add(this.getString(R.string.sp19));
-        sheet7.add(this.getString(R.string.sp20));
-        sheet7.add(this.getString(R.string.sp21));
-        sheet7.add(this.getString(R.string.sp22));
-
 
         ArrayList<String> sheet8 = new ArrayList<>();
-        sheet8.add(this.getString(R.string.ssp1));
-        sheet8.add(this.getString(R.string.ssp2));
-        sheet8.add(this.getString(R.string.ssp3));
-        sheet8.add(this.getString(R.string.ssp4));
-        sheet8.add(this.getString(R.string.ssp5));
-        sheet8.add(this.getString(R.string.ssp6));
-        sheet8.add(this.getString(R.string.ssp7));
-        sheet8.add(this.getString(R.string.ssp8));
-        sheet8.add(this.getString(R.string.ssp9));
-        sheet8.add(this.getString(R.string.ssp10));
-        sheet8.add(this.getString(R.string.ssp11));
-        sheet8.add(this.getString(R.string.ssp12));
-        sheet8.add(this.getString(R.string.ssp13));
-        sheet8.add(this.getString(R.string.ssp14));
-        sheet8.add(this.getString(R.string.ssp15));
-        sheet8.add(this.getString(R.string.ssp16));
-        sheet8.add(this.getString(R.string.ssp17));
-        sheet8.add(this.getString(R.string.ssp18));
-        sheet8.add(this.getString(R.string.ssp19));
-        sheet8.add(this.getString(R.string.ssp20));
-        sheet8.add(this.getString(R.string.ssp21));
-        sheet8.add(this.getString(R.string.ssp22));
-        sheet8.add(this.getString(R.string.ssp23));
-        sheet8.add(this.getString(R.string.ssp24));
-        sheet8.add(this.getString(R.string.ssp25));
-        sheet8.add(this.getString(R.string.ssp26));
-        sheet8.add(this.getString(R.string.ssp27));
-        sheet8.add(this.getString(R.string.ssp28));
-        sheet8.add(this.getString(R.string.ssp29));
-        sheet8.add(this.getString(R.string.ssp30));
+        sheet8.add(this.getString(R.string.qsp2));
+        sheet8.add(this.getString(R.string.qsp3));
+        sheet8.add(this.getString(R.string.qsp4));
+        sheet8.add(this.getString(R.string.qsp5));
+        sheet8.add(this.getString(R.string.qsp6));
+        sheet8.add(this.getString(R.string.qsp7));
+        sheet8.add(this.getString(R.string.qsp8));
+        sheet8.add(this.getString(R.string.qsp9));
+        sheet8.add(this.getString(R.string.qsp10));
+        sheet8.add(this.getString(R.string.qsp11));
+        sheet8.add(this.getString(R.string.qsp12));
+        sheet8.add(this.getString(R.string.qsp13));
 
 
         ArrayList<String> sheet9 = new ArrayList<>();
-        sheet9.add(this.getString(R.string.qsp2));
-        sheet9.add(this.getString(R.string.qsp3));
-        sheet9.add(this.getString(R.string.qsp4));
-        sheet9.add(this.getString(R.string.qsp5));
-        sheet9.add(this.getString(R.string.qsp6));
-        sheet9.add(this.getString(R.string.qsp7));
-        sheet9.add(this.getString(R.string.qsp8));
-        sheet9.add(this.getString(R.string.qsp9));
-        sheet9.add(this.getString(R.string.qsp10));
-        sheet9.add(this.getString(R.string.qsp11));
-        sheet9.add(this.getString(R.string.qsp12));
-        sheet9.add(this.getString(R.string.qsp13));
-        sheet9.add(this.getString(R.string.qsp14));
-        sheet9.add(this.getString(R.string.qsp15));
-        sheet9.add(this.getString(R.string.qsp16));
-        sheet9.add(this.getString(R.string.qsp17));
-        sheet9.add(this.getString(R.string.qsp18));
-        sheet9.add(this.getString(R.string.qsp19));
-        sheet9.add(this.getString(R.string.qsp20));
-        sheet9.add(this.getString(R.string.qsp21));
-        sheet9.add(this.getString(R.string.qsp22));
+        sheet9.add(this.getString(R.string.ssp1));
+        sheet9.add(this.getString(R.string.ssp2));
+        sheet9.add(this.getString(R.string.ssp3));
+        sheet9.add(this.getString(R.string.ssp4));
+        sheet9.add(this.getString(R.string.ssp5));
+        sheet9.add(this.getString(R.string.ssp6));
+        sheet9.add(this.getString(R.string.ssp7));
+        sheet9.add(this.getString(R.string.ssp9));
+        sheet9.add(this.getString(R.string.ssp10));
+        sheet9.add(this.getString(R.string.ssp11));
+        sheet9.add(this.getString(R.string.ssp12));
+        sheet9.add(this.getString(R.string.ssp13));
+        sheet9.add(this.getString(R.string.ssp14));
+        sheet9.add(this.getString(R.string.ssp15));
+        sheet9.add(this.getString(R.string.ssp16));
+        sheet9.add(this.getString(R.string.ssp17));
+        sheet9.add(this.getString(R.string.ssp18));
+        sheet9.add(this.getString(R.string.ssp19));
+        sheet9.add(this.getString(R.string.ssp20));
+        sheet9.add(this.getString(R.string.ssp21));
+        sheet9.add(this.getString(R.string.ssp22));
+        sheet9.add(this.getString(R.string.ssp23));
+        sheet9.add(this.getString(R.string.ssp24));
+        sheet9.add(this.getString(R.string.ssp25));
+        sheet9.add(this.getString(R.string.ssp26));
+        sheet9.add(this.getString(R.string.ssp27));
+        sheet9.add(this.getString(R.string.ssp28));
+        sheet9.add(this.getString(R.string.ssp29));
+        sheet9.add(this.getString(R.string.ssp30));
+        sheet9.add(this.getString(R.string.ssp31));
+        sheet9.add(this.getString(R.string.ssp32));
+        sheet9.add(this.getString(R.string.ssp33));
+        sheet9.add(this.getString(R.string.ssp34));
+        sheet9.add(this.getString(R.string.ssp35));
+        sheet9.add(this.getString(R.string.ssp36));
+        sheet9.add(this.getString(R.string.ssp37));
+        sheet9.add(this.getString(R.string.ssp38));
+        sheet9.add(this.getString(R.string.ssp39));
 
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
         sheets_main.add(sheet1);
@@ -306,8 +295,9 @@ public class Excel_Export extends AppCompatActivity {
         sheets_main.add(sheet5);
         sheets_main.add(sheet6);
         sheets_main.add(sheet7);
-        sheets_main.add(sheet9);
         sheets_main.add(sheet8);
+        sheets_main.add(sheet9);
+
 
         List<String> sheets = Arrays.asList("GT_Log", "FO","Generator_Board","Generation", "Mark_V","Log_Sheet_6");
         List<String> sheets2 = Arrays.asList("HSRG_A","HSRG_B","LogSheet20_B");
@@ -336,26 +326,31 @@ public class Excel_Export extends AppCompatActivity {
         }
     }
     private void getDatawork(String item, HSSFWorkbook hssfWorkbook, DatabaseReference ref2, int kn, int type, ArrayList<ArrayList> sheet_nsme) {
-
+        q = false;
             HSSFSheet hssfSheet = hssfWorkbook.createSheet(item);
             int kkl, length5;
             switch (kn){
                 case 0:
                     if (type == 0) {
-                        length5 = 23;
+                        length5 = 13;
                     }else{
-                        length5 = 22;
+                        length5 = 22;  ///gt1
                     }
                     break;
                 case 1:
                     if (type == 0) {
-                        length5 = 31;
+                        length5 = 13;
                     }else{
-                        length5 = 22;
+                        length5 = 21;  ///gt2
                     }
                     break;
                 case 2:
-                    length5 = 22;
+                    if (type == 0) {
+                        length5 = 39;
+                        q = true;
+                    }else{
+                        length5 = 16;  ///gt3
+                    }
                     break;
                 case 3:
                     length5 = 21;
@@ -422,7 +417,11 @@ public class Excel_Export extends AppCompatActivity {
                             HSSFRow hssfRow = hssfSheet.createRow(i+1);
                             HSSFCell hssfCell = hssfRow.createCell(0);
                             HSSFCell col = hssfRow.createCell(1);
-                            hssfCell.setCellValue(name.get(i));
+                            try{
+                                hssfCell.setCellValue(name.get(i));
+                            }catch (Exception es){
+                                hssfCell.setCellValue("latest");
+                            }
                             col.setCellValue(String.valueOf(data.getIp1()));
 
                             HSSFCell col2 = hssfRow.createCell(2);
@@ -431,10 +430,8 @@ public class Excel_Export extends AppCompatActivity {
                             HSSFCell col3 = hssfRow.createCell(3);
                             col3.setCellValue(String.valueOf(data.getIp3()));
 
-
                             HSSFCell col4 = hssfRow.createCell(4);
                             col4.setCellValue(String.valueOf(data.getIp4()));
-
 
                             HSSFCell col5 = hssfRow.createCell(5);
                             col5.setCellValue(String.valueOf(data.getIp5()));
@@ -444,6 +441,195 @@ public class Excel_Export extends AppCompatActivity {
 
                             HSSFCell col7 = hssfRow.createCell(7);
                             col7.setCellValue(String.valueOf(data.getIp7()));
+///////////////////////////// for Logsheet20_B  /////////////////////////////////////////////
+                            if (q) {
+
+                                HSSFCell col9 = hssfRow.createCell(8);
+                                col9.setCellValue(String.valueOf(data.getIp9()));
+
+                                HSSFCell col10 = hssfRow.createCell(9);
+                                col10.setCellValue(String.valueOf(data.getIp10()));
+
+                                HSSFCell col11 = hssfRow.createCell(10);
+                                col11.setCellValue(String.valueOf(data.getIp11()));
+
+                                HSSFCell col12 = hssfRow.createCell(11);
+                                col12.setCellValue(String.valueOf(data.getIp12()));
+
+                                HSSFCell col13 = hssfRow.createCell(12);
+                                if(String.valueOf(data.getIp13()).equals("0.0")){
+                                    col13.setCellValue("");
+                                }else{
+                                    col13.setCellValue(String.valueOf(data.getIp13()));
+                                }
+
+                                HSSFCell col14 = hssfRow.createCell(13);
+                                if(String.valueOf(data.getIp14()).equals("0.0")){
+                                    col14.setCellValue("");
+                                }else{
+                                    col14.setCellValue(String.valueOf(data.getIp14()));
+                                }
+
+                                HSSFCell col15 = hssfRow.createCell(14);
+                                if(String.valueOf(data.getIp15()).equals("0.0")){
+                                    col15.setCellValue("");
+                                }else{
+                                    col15.setCellValue(String.valueOf(data.getIp15()));
+                                }
+
+                                HSSFCell col16 = hssfRow.createCell(15);
+                                if(String.valueOf(data.getIp16()).equals("0.0")){
+                                    col16.setCellValue("");
+                                }else{
+                                    col16.setCellValue(String.valueOf(data.getIp16()));
+                                }
+
+                                HSSFCell col17 = hssfRow.createCell(16);
+                                if(String.valueOf(data.getIp17()).equals("0.0")){
+                                    col17.setCellValue("");
+                                }else {
+                                    col17.setCellValue(String.valueOf(data.getIp17()));
+                                }
+
+                                HSSFCell col18 = hssfRow.createCell(17);
+                                if(String.valueOf(data.getIp18()).equals("0.0")){
+                                    col18.setCellValue("");
+                                }else {
+                                    col18.setCellValue(String.valueOf(data.getIp18()));
+                                }
+
+                                HSSFCell col19 = hssfRow.createCell(18);
+                                if(String.valueOf(data.getIp19()).equals("0.0")){
+                                    col19.setCellValue("");
+                                }else {
+                                    col19.setCellValue(String.valueOf(data.getIp19()));
+                                }
+
+                                HSSFCell col20 = hssfRow.createCell(19);
+
+                                if(String.valueOf(data.getIp20()).equals("0.0")){
+                                    col20.setCellValue("");
+                                }else {
+                                    col20.setCellValue(String.valueOf(data.getIp20()));
+                                }
+                                HSSFCell col21 = hssfRow.createCell(20);
+                                if(String.valueOf(data.getIp21()).equals("0.0")) {
+                                    col21.setCellValue("");
+                                }else {
+                                    col21.setCellValue(String.valueOf(data.getIp21()));
+                                }
+                                HSSFCell col22 = hssfRow.createCell(21);
+                                if(String.valueOf(data.getIp22()).equals("0.0")) {
+                                    col22.setCellValue("");
+                                }else {
+                                    col22.setCellValue(String.valueOf(data.getIp22()));
+                                }
+                                HSSFCell col23 = hssfRow.createCell(22);
+                                if(String.valueOf(data.getIp23()).equals("0.0")) {
+                                    col23.setCellValue("");
+                                }else {
+                                    col23.setCellValue(String.valueOf(data.getIp23()));
+                                }
+                                HSSFCell col24 = hssfRow.createCell(23);
+                                if(String.valueOf(data.getIp24()).equals("0.0")) {
+                                    col24.setCellValue("");
+                                }else {
+                                    col24.setCellValue(String.valueOf(data.getIp24()));
+                                }
+                                HSSFCell col25 = hssfRow.createCell(24);
+                                if(String.valueOf(data.getIp25()).equals("0.0")) {
+                                    col25.setCellValue("");
+                                }else {
+                                    col25.setCellValue(String.valueOf(data.getIp25()));
+                                }
+                                HSSFCell col26 = hssfRow.createCell(25);
+                                if(String.valueOf(data.getIp26()).equals("0.0")) {
+                                    col26.setCellValue("");
+                                }else {
+                                    col26.setCellValue(String.valueOf(data.getIp26()));
+                                }
+                                HSSFCell col27 = hssfRow.createCell(26);
+                                if(String.valueOf(data.getIp27()).equals("0.0")) {
+                                    col27.setCellValue("");
+                                }else {
+                                    col27.setCellValue(String.valueOf(data.getIp27()));
+                                }
+                                HSSFCell col28 = hssfRow.createCell(27);
+                                if(String.valueOf(data.getIp28()).equals("0.0")) {
+                                    col28.setCellValue("");}else{
+                                    col28.setCellValue(String.valueOf(data.getIp28()));
+
+                                }
+
+                                HSSFCell col29 = hssfRow.createCell(28);
+                                if(String.valueOf(data.getIp29()).equals("0.0")) {
+                                    col29.setCellValue("");
+                                }else {
+                                    col29.setCellValue(String.valueOf(data.getIp29()));
+                                }
+                                HSSFCell col30 = hssfRow.createCell(29);
+                                if(String.valueOf(data.getIp30()).equals("0.0")) {
+                                    col30.setCellValue("");
+                                }else{
+                                    col30.setCellValue(String.valueOf(data.getIp30()));
+                                }
+                                HSSFCell col31 = hssfRow.createCell(30);
+                                if(String.valueOf(data.getIp31()).equals("0.0")) {
+                                    col31.setCellValue("");
+                                }else{
+                                    col31.setCellValue(String.valueOf(data.getIp31()));
+                                }
+                                HSSFCell col32 = hssfRow.createCell(31);
+                                if(String.valueOf(data.getIp32()).equals("0.0")) {
+                                    col32.setCellValue("");
+                                }else{
+                                    col32.setCellValue(String.valueOf(data.getIp32()));
+                                }
+                                HSSFCell col33 = hssfRow.createCell(32);
+                                if(String.valueOf(data.getIp33()).equals("0.0")) {
+                                    col33.setCellValue("");
+                                }else{
+                                    col33.setCellValue(String.valueOf(data.getIp33()));
+                                }
+                                HSSFCell col34 = hssfRow.createCell(33);
+                                if(String.valueOf(data.getIp34()).equals("0.0")) {
+                                    col34.setCellValue("");
+                                }else{
+                                    col34.setCellValue(String.valueOf(data.getIp34()));
+                                }
+                                HSSFCell col35 = hssfRow.createCell(34);
+                                if(String.valueOf(data.getIp35()).equals("0.0")) {
+                                    col35.setCellValue("");
+                                }else{
+                                    col35.setCellValue(String.valueOf(data.getIp35()));
+                                }
+                                HSSFCell col36 = hssfRow.createCell(35);
+                                if(String.valueOf(data.getIp36()).equals("0.0")) {
+                                    col36.setCellValue("");
+                                }else{
+                                    col36.setCellValue(String.valueOf(data.getIp36()));
+                                }
+                                HSSFCell col37 = hssfRow.createCell(36);
+                                if(String.valueOf(data.getIp37()).equals("0.0")) {
+                                    col37.setCellValue("");
+                                }else{
+                                    col37.setCellValue(String.valueOf(data.getIp37()));
+                                }
+                                HSSFCell col38 = hssfRow.createCell(37);
+                                if(String.valueOf(data.getIp38()).equals("0.0")) {
+                                    col38.setCellValue("");
+                                }else{
+                                    col38.setCellValue(String.valueOf(data.getIp38()));
+                                }
+                                HSSFCell col39 = hssfRow.createCell(38);
+                                if(String.valueOf(data.getIp39()).equals("0.0")) {
+                                    col39.setCellValue("");
+                                }else {
+                                    col39.setCellValue(String.valueOf(data.getIp39()));
+                                }
+                 ////////////////////////////////////////////////////////////////////////////
+                            }else{
+
 
                             HSSFCell col8 = hssfRow.createCell(8);
                             col8.setCellValue(String.valueOf(data.getIp8()));
@@ -461,13 +647,25 @@ public class Excel_Export extends AppCompatActivity {
                             col12.setCellValue(String.valueOf(data.getIp12()));
 
                             HSSFCell col13 = hssfRow.createCell(13);
-                            col13.setCellValue(String.valueOf(data.getIp13()));
+                            if(String.valueOf(data.getIp13()).equals("0.0")){
+                                col13.setCellValue("");
+                            }else{
+                                col13.setCellValue(String.valueOf(data.getIp13()));
+                            }
 
                             HSSFCell col14 = hssfRow.createCell(14);
-                            col14.setCellValue(String.valueOf(data.getIp14()));
+                            if(String.valueOf(data.getIp14()).equals("0.0")){
+                                col14.setCellValue("");
+                            }else{
+                                col14.setCellValue(String.valueOf(data.getIp14()));
+                            }
 
                             HSSFCell col15 = hssfRow.createCell(15);
-                            col15.setCellValue(String.valueOf(data.getIp15()));
+                            if(String.valueOf(data.getIp15()).equals("0.0")){
+                                col15.setCellValue("");
+                            }else{
+                                col15.setCellValue(String.valueOf(data.getIp15()));
+                            }
 
                             HSSFCell col16 = hssfRow.createCell(16);
                             if(String.valueOf(data.getIp16()).equals("0.0")){
@@ -563,11 +761,63 @@ public class Excel_Export extends AppCompatActivity {
                             if(String.valueOf(data.getIp30()).equals("0.0")) {
                                 col30.setCellValue("");
                             }else{
-
                                 col30.setCellValue(String.valueOf(data.getIp30()));
-
                             }
-
+                            HSSFCell col31 = hssfRow.createCell(31);
+                            if(String.valueOf(data.getIp31()).equals("0.0")) {
+                                col31.setCellValue("");
+                            }else{
+                                col31.setCellValue(String.valueOf(data.getIp31()));
+                            }
+                            HSSFCell col32 = hssfRow.createCell(32);
+                            if(String.valueOf(data.getIp32()).equals("0.0")) {
+                                col32.setCellValue("");
+                            }else{
+                                col32.setCellValue(String.valueOf(data.getIp32()));
+                            }
+                            HSSFCell col33 = hssfRow.createCell(33);
+                            if(String.valueOf(data.getIp33()).equals("0.0")) {
+                                col33.setCellValue("");
+                            }else{
+                                col33.setCellValue(String.valueOf(data.getIp33()));
+                            }
+                            HSSFCell col34 = hssfRow.createCell(34);
+                            if(String.valueOf(data.getIp34()).equals("0.0")) {
+                                col34.setCellValue("");
+                            }else{
+                                col34.setCellValue(String.valueOf(data.getIp34()));
+                            }
+                            HSSFCell col35 = hssfRow.createCell(35);
+                            if(String.valueOf(data.getIp35()).equals("0.0")) {
+                                col35.setCellValue("");
+                            }else{
+                                col35.setCellValue(String.valueOf(data.getIp35()));
+                            }
+                            HSSFCell col36 = hssfRow.createCell(36);
+                            if(String.valueOf(data.getIp36()).equals("0.0")) {
+                                col36.setCellValue("");
+                            }else{
+                                col36.setCellValue(String.valueOf(data.getIp36()));
+                            }
+                            HSSFCell col37 = hssfRow.createCell(37);
+                            if(String.valueOf(data.getIp37()).equals("0.0")) {
+                                col37.setCellValue("");
+                            }else{
+                                col37.setCellValue(String.valueOf(data.getIp37()));
+                            }
+                            HSSFCell col38 = hssfRow.createCell(38);
+                            if(String.valueOf(data.getIp38()).equals("0.0")) {
+                                col38.setCellValue("");
+                            }else{
+                                col38.setCellValue(String.valueOf(data.getIp38()));
+                            }
+                            HSSFCell col39 = hssfRow.createCell(39);
+                            if(String.valueOf(data.getIp39()).equals("0.0")) {
+                                col39.setCellValue("");
+                            }else {
+                                col39.setCellValue(String.valueOf(data.getIp39()));
+                            }
+                            }
                             int index_o = 0;
                             if (item.equals("FO")) {
                                 index_o = 22;}
@@ -582,11 +832,11 @@ public class Excel_Export extends AppCompatActivity {
                             else if (item.equals("Log_Sheet_6")) {
                                 index_o = 19;}
                             else if (item.equals("HSRG_A")) {
-                                index_o = 22;}
+                                index_o = 13;}
                             else if (item.equals("HSRG_B")) {
-                                index_o = 22;}
+                                index_o = 13;}
                             else if (item.equals("LogSheet20_B")) {
-                                index_o = 31;}
+                                index_o = 40;}
 
                             HSSFCell col99 = hssfRow.createCell(index_o);
                             col99.setCellValue(String.valueOf(data.getUser()));
@@ -630,7 +880,7 @@ public class Excel_Export extends AppCompatActivity {
                                     openFolder();
 
                                 } catch (Exception e) {
-                                    Toast.makeText(getApplicationContext(), "Problem, excel might not installed", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Insure spreadsheet app is installed, excel might not installed", Toast.LENGTH_LONG).show();
                                     e.printStackTrace();
                                     startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 }
@@ -674,7 +924,7 @@ public class Excel_Export extends AppCompatActivity {
 
                                     //startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 } catch (Exception e) {
-                                    Toast.makeText(getApplicationContext(), "Problem", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Insure spreadsheet app is installed", Toast.LENGTH_LONG).show();
                                     e.printStackTrace();
                                     startActivity(new Intent(Excel_Export.this, Dashboard_chart.class));
                                 }

@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MidNight_ST extends AppCompatActivity {
-    Dialog dialog;
+    Dialog dialog, dialog2;
     RadioGroup radioGroup;
     RadioButton radioButton;
     EditText generation_MN, generation_MV, dem, starts;
@@ -44,7 +44,7 @@ public class MidNight_ST extends AppCompatActivity {
         eng.setText(GlobalClass.engine_number);
 
         dialog = new Dialog(MidNight_ST.this);
-        dialog.setContentView(R.layout.custom_dialoge_feedback);
+        dialog.setContentView(R.layout.custom_dialoge_feedback2);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         Button ok = dialog.findViewById(R.id.save);
         Button cancel = dialog.findViewById(R.id.cancel);
@@ -52,13 +52,32 @@ public class MidNight_ST extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                save_function();
+                MidNight_ST.this.finishAffinity();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+            }
+        });
+
+        dialog2 = new Dialog(MidNight_ST.this);
+        dialog2.setContentView(R.layout.custom_dialoge_feedback);
+        dialog2.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        Button ok2 = dialog2.findViewById(R.id.save);
+        Button cancel2 = dialog2.findViewById(R.id.cancel);
+        ok2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                save_function();
+            }
+        });
+        cancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog2.dismiss();
             }
         });
 
@@ -70,7 +89,7 @@ public class MidNight_ST extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.show();
+                dialog2.show();
             }
         });
     }

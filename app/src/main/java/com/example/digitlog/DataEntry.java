@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,15 +19,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 
 public class DataEntry extends AppCompatActivity {
     LinearLayout status, handover, sheet1, sheet2, sheet9, sheet10;
-    TextView engine_pic;
+    TextView engine_pic, shift;
     String actual_user;
     Dialog dialog;
     String engine = GlobalClass.engine_number;
+    ArrayList<Date> name = new ArrayList<java.util.Date>();
     ArrayList<String> arr; //= {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain", "Imad Hussein"};
 
     @Override
@@ -70,9 +73,10 @@ public class DataEntry extends AppCompatActivity {
         status = (LinearLayout) findViewById(R.id.status);
         handover = (LinearLayout) findViewById(R.id.handover);
         engine_pic = (TextView) findViewById(R.id.engine_pic);
+        shift = (TextView) findViewById(R.id.shift);
 
 
-        DatabaseReference ref3;
+        DatabaseReference ref3, ref99;
         ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
 
         ref3.addValueEventListener(new ValueEventListener() {
@@ -87,7 +91,29 @@ public class DataEntry extends AppCompatActivity {
 
             }
         });
+//////////////////////////////////////////////////////////////////
+        ref99 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC_History");
 
+        ref99.addValueEventListener(new ValueEventListener() {
+            int i = 0;
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+                if (snapshot.hasChildren()) {
+                    int i = 0;
+                    for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
+                        Handover_c data = mydatasnapshot.getValue(Handover_c.class);
+                        shift.setText(data.getShift());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+///////////////////////////////////////////////////////////////////////////
         status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
