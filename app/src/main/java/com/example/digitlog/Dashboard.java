@@ -40,7 +40,7 @@ import java.util.Locale;
 public class Dashboard extends AppCompatActivity {
     TextView tv3;
     String engine;
-    LinearLayout prob, charts, sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
+    LinearLayout sheet1, sheet2, sheet3, sheet4, sheet5, sheet6;
     ArrayList<Date> name = new ArrayList<Date>();
     Auth auth;
     String general_admin = "Nazar Amin";
@@ -77,22 +77,8 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        // drawer layout instance to toggle the menu icon to open
-        // drawer and back button to close drawer
-      //  drawerLayout = findViewById(R.id.mydrawerlayout);
-    //    actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-
-        // pass the Open and Close toggle for the drawer layout listener
-        // to toggle the button
-    //    drawerLayout.addDrawerListener(actionBarDrawerToggle);
-     //   actionBarDrawerToggle.syncState();
-
-        // to make the Navigation drawer icon always appear on the action bar
-  //      this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tv3 = (TextView) findViewById(R.id.tv1);
-        //prob = (LinearLayout) findViewById(R.id.problems);
-       // charts = (LinearLayout) findViewById(R.id.charts);
+
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
         sheet3 = (LinearLayout) findViewById(R.id.sheet3);
@@ -114,23 +100,8 @@ public class Dashboard extends AppCompatActivity {
         DatabaseReference ref3;
         ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
 
-
-        //tv3.setText( engine + " Dashboard");
         coloring_layouts();
-/**
-        charts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Dashboard.this, Dashboard_chart.class));
-            }
-        });
-        prob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Dashboard.this, Dashboard_problem.class));
-            }
-        });
-**/
+
         sheet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

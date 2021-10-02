@@ -12,7 +12,9 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:background="#23FF9800"
+
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,12 +38,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textColor="@color/redshine"
-            android:text="Log Sheet OP"
+            android:textColor="#3F51B5"
+            android:text="GT Log Sheet 1"
             android:textSize="20dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="2dp"
+            android:background="#7E000000" />
 
 
     </LinearLayout>
@@ -50,7 +61,7 @@
         android:id="@+id/scroll2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="100dp"
+        android:paddingTop="140dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -491,9 +502,17 @@
 
                 <Button
                     android:id="@+id/button10"
-                    android:layout_width="80dp"
+                    android:background="@color/green"
+
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/microbrew_soft_one_inline"
+                    android:layout_width="150dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+
                     android:text="Save">
 
                 </Button>

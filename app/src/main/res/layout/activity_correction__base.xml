@@ -222,15 +222,19 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
+    android:layout_marginTop="20dp"
     android:textStyle="bold|italic"
     android:textColor="@color/black"
     android:text="Old Value:">
 
 </TextView>
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:background="#57FF9800"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/param">
 
         </EditText>
@@ -256,7 +260,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number|numberDecimal|numberSigned"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:id="@+id/param2">
 
                 </EditText>

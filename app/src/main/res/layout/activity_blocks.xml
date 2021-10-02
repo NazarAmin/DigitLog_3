@@ -106,129 +106,169 @@
             </RelativeLayout>
 
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="#32FBFBFB"
+                android:background="@color/black"
                 android:gravity="center"
                 android:padding="8dp"
+                android:orientation="horizontal"
                 android:paddingTop="10dp"
 
                 >
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/im11"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_electrical_services_24">
+    <ImageView
+        android:id="@+id/im11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_baseline_electrical_services_24">
 
-                </ImageView>
+    </ImageView>
 
-                <TextView
-                    android:id="@+id/gen_l"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/im11"
-                    android:text="Total Generation"
-                    android:textColor="@color/white"
-                    android:textSize="13dp">
+    <TextView
+        android:id="@+id/gen_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:text="Total Generation"
+        android:textColor="@color/white"
+        android:textSize="13dp">
 
-                </TextView>
+    </TextView>
+</LinearLayout>
 
-                <TextView
-                    android:id="@+id/tot_gen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/gen_l"
-                    android:text="--------"
-                    android:textColor="@color/redshine"
-                    android:textSize="20dp"
-                    android:textStyle="bold|italic">
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_weight="1">
 
-                </TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/tot_gen"
-                    android:text="MW"
-                    android:textColor="@color/white"
-                    android:textSize="13dp">
+    <TextView
+        android:id="@+id/tot_gen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:gravity="left"
+        android:paddingRight="5dp"
+        android:text="-----------"
+        android:textColor="@color/redshine"
+        android:textSize="20dp"
+        android:textStyle="bold|italic">
 
-                </TextView>
+    </TextView>
 
-            </RelativeLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="MW"
+        android:textColor="@color/white"
+        android:textSize="13dp">
 
-            <RelativeLayout
+    </TextView>
+
+
+</LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#32FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
                 android:gravity="center"
                 android:padding="8dp"
-                android:paddingTop="100dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
 
                 >
-
-                <ImageView
-                    android:id="@+id/im1234"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_local_gas_station_24">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/fue_l"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/im1234"
-                    android:text="Fuel Stock"
-                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                    android:textSize="13dp">
+                    <ImageView
+                        android:id="@+id/im1234"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_baseline_local_gas_station_24">
 
-                </TextView>
+                    </ImageView>
 
-                <TextView
-                    android:id="@+id/tot_fue"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/fue_l"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:text="Fuel Stock          "
+                        android:textColor="@color/white"
+                        android:textSize="13dp">
+
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:layout_toRightOf="@id/fue_l"
-                    android:text="--------"
-                    android:textColor="@color/redshine"
-                    android:textSize="20dp"
-                    android:textStyle="bold|italic">
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                </TextView>
+                    <TextView
+                        android:id="@+id/tot_fue"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/tot_fue"
-                    android:text="Tons"
-                    android:textColor="@color/white"
-                    android:textSize="13dp">
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:text="-----------"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/redshine"
+                        android:textSize="20dp"
+                        android:textStyle="bold|italic">
 
-                </TextView>
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="1dp"
+                        android:text="Tons"
+                        android:textColor="@color/white"
+                        android:textSize="13dp">
+
+                    </TextView>
+
+                </LinearLayout>
 
 
-            </RelativeLayout>
-
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -274,6 +314,8 @@
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
     >
     <TextView
         android:id="@+id/temp55"
@@ -284,7 +326,7 @@
         android:layout_marginLeft="10dp"
         android:text="180 Mw"
         android:textColor="@color/white"
-        android:textSize="12dp"></TextView>
+        android:textSize="15dp"></TextView>
 </LinearLayout>
 
 
@@ -332,11 +374,12 @@
                             android:orientation="horizontal">
 
 
-                            >
+
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:text="Block 1"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
@@ -348,9 +391,11 @@
 
                             <TextView
                                 android:id="@+id/mw1"
-                                android:layout_width="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_gravity="right"
+                                android:gravity="right"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
                                 android:text="------"
                                 android:textColor="@color/green"
                                 android:textSize="15dp"
@@ -398,9 +443,10 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:text="Block 2"
+                                android:layout_weight="1"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
                                 android:textStyle="bold|italic"
@@ -411,10 +457,12 @@
 
                             <TextView
                                 android:id="@+id/mw2"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
                                 android:text="------"
+                                android:layout_gravity="right"
+                                android:gravity="right"
                                 android:textColor="@color/green"
                                 android:textSize="15dp"
                                 android:textStyle="bold|italic">
@@ -448,142 +496,202 @@
             android:elevation="100dp"
             android:orientation="vertical">
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/microbrew_soft_one_inline"
-                android:text="Garri 2 Power Plant"
-                android:textColor="@color/white"
-
-                android:textSize="24dp">
-
-            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#7E000000" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="#32FBFBFB"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/microbrew_soft_one_inline"
+
+                    android:text="Garri 1 Power Plant"
+                    android:textColor="@color/white"
+                    android:textSize="24dp"
+
+                    >
+
+                </TextView>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
                 android:gravity="center"
                 android:padding="8dp"
+                android:orientation="horizontal"
                 android:paddingTop="10dp"
 
                 >
-
-                <ImageView
-                    android:id="@+id/im12"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_electrical_services_24">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/gen_l2"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/im12"
-                    android:text="Total Generation"
-                    android:textColor="@color/white"
-                    android:textSize="13dp">
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                </TextView>
+                    <ImageView
+                        android:id="@+id/im12"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_baseline_electrical_services_24">
 
-                <TextView
-                    android:id="@+id/tot_gen2"
-                    android:layout_width="wrap_content"
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/gen_l2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:text="Total Generation"
+                        android:textColor="@color/white"
+                        android:textSize="13dp">
+
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/gen_l2"
-                    android:text="--------"
-                    android:textColor="@color/redshine"
-                    android:textSize="20dp"
-                    android:textStyle="bold|italic">
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                </TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/tot_gen2"
-                    android:text="MW"
-                    android:textColor="@color/white"
-                    android:textSize="13dp">
+                    <TextView
+                        android:id="@+id/tot_gen2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:paddingRight="5dp"
+                        android:text="-----------"
+                        android:textColor="@color/redshine"
+                        android:textSize="20dp"
+                        android:textStyle="bold|italic">
 
-                </TextView>
+                    </TextView>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="MW"
+                        android:textColor="@color/white"
+                        android:textSize="13dp">
 
-            <RelativeLayout
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#32FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
                 android:gravity="center"
                 android:padding="8dp"
-                android:paddingTop="100dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
 
                 >
-
-                <ImageView
-                    android:id="@+id/im123"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_local_gas_station_24">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/fue_l2"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/im123"
-                    android:text="Fuel Stock"
-                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                    android:textSize="13dp">
+                    <ImageView
+                        android:id="@+id/im123"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_baseline_local_gas_station_24">
 
-                </TextView>
+                    </ImageView>
 
-                <TextView
-                    android:id="@+id/tot_fue2"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/fue_l2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:text="Fuel Stock          "
+                        android:textColor="@color/white"
+                        android:textSize="13dp">
+
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:layout_toRightOf="@id/fue_l2"
-                    android:text="--------"
-                    android:textColor="@color/redshine"
-                    android:textSize="20dp"
-                    android:textStyle="bold|italic">
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                </TextView>
+                    <TextView
+                        android:id="@+id/tot_fue2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/tot_fue2"
-                    android:text="Tons"
-                    android:textColor="@color/white"
-                    android:textSize="13dp">
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:text="-----------"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/redshine"
+                        android:textSize="20dp"
+                        android:textStyle="bold|italic">
 
-                </TextView>
+                    </TextView>
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="1dp"
+                        android:text="Tons"
+                        android:textColor="@color/white"
+                        android:textSize="13dp">
 
+                    </TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -629,6 +737,8 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     >
                     <TextView
                         android:id="@+id/temp66"
@@ -639,7 +749,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="180 Mw"
                         android:textColor="@color/white"
-                        android:textSize="12dp"></TextView>
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
 
@@ -684,15 +794,15 @@
                             android:layout_height="match_parent"
                             android:background="#65FFFFFF"
                             android:gravity="center"
-
                             android:orientation="horizontal">
 
 
-                            >
+
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:text="Block 3"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
@@ -704,9 +814,11 @@
 
                             <TextView
                                 android:id="@+id/mw12"
-                                android:layout_width="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_gravity="right"
+                                android:gravity="right"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
                                 android:text="------"
                                 android:textColor="@color/green"
                                 android:textSize="15dp"
@@ -749,14 +861,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="#65FFFFFF"
-
                             android:gravity="center"
+
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:text="Block 4"
+                                android:layout_weight="1"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
                                 android:textStyle="bold|italic"
@@ -767,10 +880,12 @@
 
                             <TextView
                                 android:id="@+id/mw23"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
                                 android:text="------"
+                                android:layout_gravity="right"
+                                android:gravity="right"
                                 android:textColor="@color/green"
                                 android:textSize="15dp"
                                 android:textStyle="bold|italic">
@@ -794,7 +909,8 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginRight="2dp"
-                android:background="#7E000000" />
+
+                android:background="@color/white" />
         </LinearLayout>
     </LinearLayout>
 

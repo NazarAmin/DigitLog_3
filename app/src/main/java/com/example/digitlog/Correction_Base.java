@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,6 +51,9 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     int counter = 0;
     Map<String, String> map = new HashMap<String, String>();
 
+    ArrayList<String> newList;
+
+
     Dialog dialog;
     Spinner spinner,spinner2,spinner3,spinner4;
     FirebaseDatabase firebaseDatabase;
@@ -59,23 +63,23 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_correction__base);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         engine = GlobalClass.engine_number;
-        prepare_recycle_view(engine);
-
 
         //  spinner = (Spinner) findViewById(R.id.rvAnimals);
         spinner2 = (Spinner) findViewById(R.id.rvAnimals2);
         spinner3 = (Spinner) findViewById(R.id.rvAnimals3);
         spinner4 = (Spinner) findViewById(R.id.rvAnimals4);
 
-
+        newList = new ArrayList<>();
+        prepare_recycle_view(engine);
 
         param = (EditText) findViewById(R.id.param);
         param2 = (EditText) findViewById(R.id.param2);
 
         param.setText("----");
-
+        param.setFocusable(false);
         dialog = new Dialog(Correction_Base.this);
         dialog.setContentView(R.layout.custom_dialoge_feedback2);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -104,27 +108,25 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
 
         but = (Button) findViewById(R.id.but);
 
-     //   if ((GlobalClass.engine_number.equals("ST_1")) | (GlobalClass.engine_number.equals("ST_2"))
-     //           | (GlobalClass.engine_number.equals("ST_3")) | (GlobalClass.engine_number.equals("ST_4"))){
-       // String shifts[] = {"GT_1","GT_2","GT_3","GT_4","GT_5","GT_6","GT_7","GT_8","ST_1","ST_2","ST_3","ST_4"};
-        //ArrayAdapter<String> dataAdapter90 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, shifts);
-        //dataAdapter90.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spinner.setAdapter(dataAdapter90);
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 DatabaseReference ref9 = firebaseDatabase.getReference(path5);
-                try{
-                    ref9.setValue(Float.parseFloat(param2.getText().toString()));
-                    Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
-                }catch (Exception e){
-                    try{
-                        ref9.setValue(param2.getText().toString());
+                if (param2.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "New Value is empty", Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        ref9.setValue(Float.parseFloat(param2.getText().toString()));
                         Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
-                    }catch (Exception ex){
-                        Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        try {
+                            ref9.setValue(param2.getText().toString());
+                            Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
+                        } catch (Exception ex) {
+                            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
@@ -176,6 +178,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         FO.add(this.getString(R.string.pp20));
         FO.add(this.getString(R.string.pp21));
 
+
         Generator_Board.add(this.getString(R.string.gp1));
         Generator_Board.add(this.getString(R.string.gp2));
         Generator_Board.add(this.getString(R.string.gp3));
@@ -192,6 +195,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         Generator_Board.add(this.getString(R.string.gp14));
         Generator_Board.add(this.getString(R.string.gp15));
         Generator_Board.add(this.getString(R.string.gp16));
+
 
         Generation.add(this.getString(R.string.gg1));
         Generation.add(this.getString(R.string.gg2));
@@ -235,6 +239,8 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         Mark_V.add(this.getString(R.string.mp18));
         Mark_V.add(this.getString(R.string.mp19));
 
+
+
         Log_Sheet_6.add(this.getString(R.string.p61));
         Log_Sheet_6.add(this.getString(R.string.p62));
         Log_Sheet_6.add(this.getString(R.string.p63));
@@ -267,7 +273,6 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         HSRG_A.add(this.getString(R.string.sp12));
         HSRG_A.add(this.getString(R.string.sp13));
 
-
         HSRG_B.add(this.getString(R.string.qsp2));
         HSRG_B.add(this.getString(R.string.qsp3));
         HSRG_B.add(this.getString(R.string.qsp4));
@@ -281,7 +286,6 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         HSRG_B.add(this.getString(R.string.qsp12));
         HSRG_B.add(this.getString(R.string.qsp13));
 
-
         LogSheet20_B.add(this.getString(R.string.ssp1));
         LogSheet20_B.add(this.getString(R.string.ssp2));
         LogSheet20_B.add(this.getString(R.string.ssp3));
@@ -289,7 +293,6 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         LogSheet20_B.add(this.getString(R.string.ssp5));
         LogSheet20_B.add(this.getString(R.string.ssp6));
         LogSheet20_B.add(this.getString(R.string.ssp7));
-
         LogSheet20_B.add(this.getString(R.string.ssp9));
         LogSheet20_B.add(this.getString(R.string.ssp10));
         LogSheet20_B.add(this.getString(R.string.ssp11));
@@ -444,9 +447,9 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try{
-                    param.setText(snapshot.getValue().toString());
+                    param.setText(String.format("%.3f",snapshot.getValue()));
                 }catch (Exception e){
-
+                    param.setText(snapshot.getValue().toString());
                 }
             }
             @Override
@@ -463,31 +466,25 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
 
     void prepare_recycle_view(String item){
 
-        DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/" + item);
-        ArrayList<String> newList = new ArrayList<>();
         path2 = GlobalClass.database + "/" + item;
-        ref9.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChildren()) {
-                    for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
-                        if ((mydatasnapshot.getKey().equals("OIC")) |(mydatasnapshot.getKey().equals("Status"))){
-                            continue;
-                        }else {
-                            newList.add(mydatasnapshot.getKey());
-                        }
-                    }
-                    ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, newList);
-                    // Drop down layout style - list view with radio button
-                    dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    // attaching data adapter to spinner
-                    spinner2.setAdapter(dataAdapter2);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }});
-        // recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        if (item.substring(0, 2).equals("ST")) {
+            newList.add("HSRG_A");
+            newList.add("HSRG_B");
+            newList.add("LogSheet20_B");
+        }else{
+            newList.add("GT_Log");
+            newList.add("FO");
+            newList.add("Generator_Board");
+            newList.add("Generation");
+            newList.add("Mark_V");
+            newList.add("Log_Sheet_6");
+        }
+
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, newList);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(dataAdapter2);
+
         }
 
     void prepare_recycle_view2(String item){
@@ -548,8 +545,9 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try{
-                            param.setText(snapshot.getValue().toString());
+                            param.setText(String.format("%.3f",snapshot.getValue()));
                         }catch (Exception e){
+                            param.setText(snapshot.getValue().toString());
 
                         }
                     }

@@ -172,9 +172,6 @@ public class DashboardST extends AppCompatActivity {
                         //GlobalClass.current_engine_focal = actual_user;
                         if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
 
-                      //  current_engine_focal_name = dataSnapshot.getValue(String.class);
-                    //    GlobalClass.current_engine_focal = current_engine_focal_name;
-                   //     if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
                             startActivity(new Intent(DashboardST.this, Sheet8.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +

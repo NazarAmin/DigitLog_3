@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -57,6 +58,9 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
     EditText param, param2;
     String engine;
 
+    ArrayList<String> newList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,18 +69,19 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         engine = GlobalClass.engine_number;
-        prepare_recycle_view(engine);
 
        // spinner = (Spinner) findViewById(R.id.rvAnimals);
         spinner2 = (Spinner) findViewById(R.id.rvAnimals2);
         spinner3 = (Spinner) findViewById(R.id.rvAnimals3);
         spinner4 = (Spinner) findViewById(R.id.rvAnimals4);
 
+        newList = new ArrayList<>();
+        prepare_recycle_view(engine);
 
 
         param = (EditText) findViewById(R.id.param);
         param2 = (EditText) findViewById(R.id.param2);
-
+        param.setFocusable(false);
         param.setText("----");
 
         dialog = new Dialog(Correction_Base2.this);
@@ -115,10 +120,14 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View v) {
                 DatabaseReference ref9 = firebaseDatabase.getReference(path5);
-                try{
-                    ref9.setValue(Float.parseFloat(param2.getText().toString()));
-                }catch (Exception e){
-                    ref9.setValue(param2.getText().toString());
+                if (param2.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "New value is empty", Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        ref9.setValue(Float.parseFloat(param2.getText().toString()));
+                    } catch (Exception e) {
+                        ref9.setValue(param2.getText().toString());
+                    }
                 }
             }
         });
@@ -434,7 +443,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try{
-                    param.setText(snapshot.getValue().toString());
+                    param.setText(String.format("%.3f",snapshot.getValue()));
                 }catch (Exception e){
 
                 }
@@ -452,30 +461,24 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
     }
 
     void prepare_recycle_view(String item){
-        DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/" + item);
-        ArrayList<String> newList = new ArrayList<>();
         path2 = GlobalClass.database + "/" + item;
-        ref9.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChildren()) {
-                    for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
-                        if ((mydatasnapshot.getKey().equals("OIC")) |(mydatasnapshot.getKey().equals("Status"))){
-                            continue;
-                        }else {
-                            newList.add(mydatasnapshot.getKey());
-                        }
-                    }
-                    ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, newList);
-                    // Drop down layout style - list view with radio button
-                    dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    // attaching data adapter to spinner
-                    spinner2.setAdapter(dataAdapter2);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }});
+
+        if (item.substring(0, 2).equals("ST")) {
+            newList.add("HSRG_A");
+            newList.add("HSRG_B");
+            newList.add("LogSheet20_B");
+        }else{
+            newList.add("GT_Log");
+            newList.add("FO");
+            newList.add("Generator_Board");
+            newList.add("Generation");
+            newList.add("Mark_V");
+            newList.add("Log_Sheet_6");
+        }
+
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, newList);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(dataAdapter2);
     }
 
     void prepare_recycle_view2(String item){
@@ -541,9 +544,9 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try{
-                    param.setText(snapshot.getValue().toString());
+                    param.setText(String.format("%.3f",snapshot.getValue()));
                 }catch (Exception e){
-
+                    param.setText(snapshot.getValue().toString());
                 }
             }
             @Override

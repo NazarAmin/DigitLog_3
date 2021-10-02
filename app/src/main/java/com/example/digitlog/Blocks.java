@@ -327,6 +327,8 @@ public void coloring_generation(String engine, String sheet) {
                             } else {
 
                                     Data data = mydatasnapshot.getValue(Data.class);
+                                    System.out.println(mydatasnapshot.getKey());
+                                    //System.out.println(sheet);
                                     datavals.add(data.getIp1());
 
                                 i = i + 1;

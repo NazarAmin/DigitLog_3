@@ -98,7 +98,7 @@ public class Chart_List extends AppCompatActivity implements MyRecyclerViewAdapt
                 mExampleList.add(this.getString(R.string.qsp12));
                 mExampleList.add(this.getString(R.string.qsp13));
 
-
+                mExampleList.add(this.getString(R.string.ssp1));
                 mExampleList.add(this.getString(R.string.ssp2));
                 mExampleList.add(this.getString(R.string.ssp3));
                 mExampleList.add(this.getString(R.string.ssp4));
