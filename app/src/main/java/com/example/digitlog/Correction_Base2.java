@@ -119,16 +119,28 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference ref9 = firebaseDatabase.getReference(path5);
-                if (param2.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "New value is empty", Toast.LENGTH_LONG).show();
-                } else {
-                    try {
-                        ref9.setValue(Float.parseFloat(param2.getText().toString()));
-                    } catch (Exception e) {
-                        ref9.setValue(param2.getText().toString());
+                if (path5 != null && !path5.isEmpty()) {
+                    DatabaseReference ref9 = firebaseDatabase.getReference(path5);
+                    if (param2.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "New Value is empty", Toast.LENGTH_LONG).show();
+                    } else {
+                        try {
+                            ref9.setValue(Float.parseFloat(param2.getText().toString()));
+                            Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
+                        } catch (Exception e) {
+                            try {
+                                ref9.setValue(param2.getText().toString());
+                                Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
+                            } catch (Exception ex) {
+                                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
+                }else{
+                    Toast.makeText(getApplicationContext(), "No data to update!", Toast.LENGTH_LONG).show();
+
                 }
+
             }
         });
 
@@ -289,7 +301,6 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         LogSheet20_B.add(this.getString(R.string.ssp5));
         LogSheet20_B.add(this.getString(R.string.ssp6));
         LogSheet20_B.add(this.getString(R.string.ssp7));
-
         LogSheet20_B.add(this.getString(R.string.ssp9));
         LogSheet20_B.add(this.getString(R.string.ssp10));
         LogSheet20_B.add(this.getString(R.string.ssp11));
@@ -315,13 +326,15 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
         LogSheet20_B.add(this.getString(R.string.ssp31));
         LogSheet20_B.add(this.getString(R.string.ssp32));
         LogSheet20_B.add(this.getString(R.string.ssp33));
-        LogSheet20_B.add(this.getString(R.string.ssp33));
         LogSheet20_B.add(this.getString(R.string.ssp34));
         LogSheet20_B.add(this.getString(R.string.ssp35));
         LogSheet20_B.add(this.getString(R.string.ssp36));
         LogSheet20_B.add(this.getString(R.string.ssp37));
         LogSheet20_B.add(this.getString(R.string.ssp38));
         LogSheet20_B.add(this.getString(R.string.ssp39));
+        LogSheet20_B.add(this.getString(R.string.ssp40));
+
+
         parameters3.add("ip1");
         parameters3.add("ip2");
         parameters3.add("ip3");

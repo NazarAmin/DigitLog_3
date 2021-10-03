@@ -22,8 +22,8 @@ ImageView test_mode;
         test_mode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GlobalClass.database = "data2";
-                Toast.makeText(getApplicationContext(), "Test Mode Activated!", Toast.LENGTH_LONG).show();
+               // GlobalClass.database = "data2";
+               // Toast.makeText(getApplicationContext(), "Test Mode Activated!", Toast.LENGTH_LONG).show();
             }
         });
 

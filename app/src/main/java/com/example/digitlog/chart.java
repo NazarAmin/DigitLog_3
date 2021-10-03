@@ -277,6 +277,7 @@ public class chart extends AppCompatActivity {
         sheet8.add(this.getString(R.string.ssp37));
         sheet8.add(this.getString(R.string.ssp38));
         sheet8.add(this.getString(R.string.ssp39));
+        sheet8.add(this.getString(R.string.ssp40));
 
         ArrayList<String> sheet9 = new ArrayList<>();
         sheet9.add(this.getString(R.string.qsp2));
@@ -374,10 +375,8 @@ public class chart extends AppCompatActivity {
             }
         }
         Set<String> set = new HashSet<>(final_sheets);
-        //final_sheets.clear();
         unique_sheets.addAll(set);
-        // Working to link any label in items arraylist with its parent sheet: --- to put it in get reference path:
-        // System.out.println("Number of items are: " + final_sheets.size());
+
         int chart_c = 0;
         for (String sheet_i2 : final_sheets) {
             DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/" + sheet_i2);

@@ -47,8 +47,9 @@ public class Dashboard extends AppCompatActivity {
     String current_engine_focal_name;
     ImageView im_1,im_2,im_3,im_4,im_5,im_6;
     Dialog dialog;
+    String arr[] = {"Nazar Amin", "Khalid Abbadi", "Tarig Eljack", "Nasreldein Elzain"};
+    String actual_user;
 
-    public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
@@ -106,13 +107,18 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
+
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
 
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
                             startActivity(new Intent(Dashboard.this, Sheet_1.class));
                         }else{
                              Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -129,12 +135,19 @@ public class Dashboard extends AppCompatActivity {
         sheet2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
+
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
                             startActivity(new Intent(Dashboard.this, Sheet_2.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -150,12 +163,19 @@ public class Dashboard extends AppCompatActivity {
         sheet3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
+
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
                             startActivity(new Intent(Dashboard.this, Sheet_3.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -171,12 +191,19 @@ public class Dashboard extends AppCompatActivity {
         sheet4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
+
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
                             startActivity(new Intent(Dashboard.this, Sheet_4.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -192,12 +219,19 @@ public class Dashboard extends AppCompatActivity {
         sheet5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
+
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
                             startActivity(new Intent(Dashboard.this, Sheet_5.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +
@@ -213,12 +247,19 @@ public class Dashboard extends AppCompatActivity {
         sheet6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference ref3;
+                ref3 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/OIC");
+
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        current_engine_focal_name = dataSnapshot.getValue(String.class);
-                        GlobalClass.current_engine_focal = current_engine_focal_name;
-                        if (current_engine_focal_name.equals(GlobalClass.actual_user_name) | current_engine_focal_name.equals(general_admin)){
+
+
+                        actual_user = dataSnapshot.getValue(String.class);
+                        //GlobalClass.current_engine_focal = actual_user;
+                        if (actual_user.equals(GlobalClass.actual_user_name) | Arrays.asList(arr).contains(GlobalClass.actual_user_name)){
                             startActivity(new Intent(Dashboard.this, Sheet_6.class));
                         }else{
                             Toast.makeText(getApplicationContext(), "You are not authorized to " +

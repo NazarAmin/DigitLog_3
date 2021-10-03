@@ -48,6 +48,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
     ArrayList<String> Mark_V = new ArrayList<>();
     ArrayList<String> Log_Sheet_6 = new ArrayList<>();
     ArrayList<String> parameters3 = new ArrayList<>();
+    String Temp_sheet = " ";
     int counter = 0;
     Map<String, String> map = new HashMap<String, String>();
 
@@ -113,22 +114,28 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
             @Override
             public void onClick(View v) {
 
-                DatabaseReference ref9 = firebaseDatabase.getReference(path5);
-                if (param2.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "New Value is empty", Toast.LENGTH_LONG).show();
-                } else {
-                    try {
-                        ref9.setValue(Float.parseFloat(param2.getText().toString()));
-                        Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
-                    } catch (Exception e) {
+                if (path5 != null && !path5.isEmpty()) {
+                    DatabaseReference ref9 = firebaseDatabase.getReference(path5);
+                    if (param2.getText().toString().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "New Value is empty", Toast.LENGTH_LONG).show();
+                    } else {
                         try {
-                            ref9.setValue(param2.getText().toString());
+                            ref9.setValue(Float.parseFloat(param2.getText().toString()));
                             Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
-                        } catch (Exception ex) {
-                            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            try {
+                                ref9.setValue(param2.getText().toString());
+                                Toast.makeText(getApplicationContext(), "Successfully Updated, screen is reset", Toast.LENGTH_LONG).show();
+                            } catch (Exception ex) {
+                                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
+                }else{
+                    Toast.makeText(getApplicationContext(), "No data to update!", Toast.LENGTH_LONG).show();
+
                 }
+
             }
         });
 
@@ -318,13 +325,15 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
         LogSheet20_B.add(this.getString(R.string.ssp31));
         LogSheet20_B.add(this.getString(R.string.ssp32));
         LogSheet20_B.add(this.getString(R.string.ssp33));
-        LogSheet20_B.add(this.getString(R.string.ssp33));
         LogSheet20_B.add(this.getString(R.string.ssp34));
         LogSheet20_B.add(this.getString(R.string.ssp35));
         LogSheet20_B.add(this.getString(R.string.ssp36));
         LogSheet20_B.add(this.getString(R.string.ssp37));
         LogSheet20_B.add(this.getString(R.string.ssp38));
         LogSheet20_B.add(this.getString(R.string.ssp39));
+        LogSheet20_B.add(this.getString(R.string.ssp40));
+
+
         parameters3.add("ip1");
         parameters3.add("ip2");
         parameters3.add("ip3");
@@ -367,6 +376,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
 
 
 
+
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
         sheets_main.add(GT_Log);
         sheets_main.add(FO);
@@ -394,7 +404,7 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                 break;
             case R.id.rvAnimals3:
                 //prepare_recycle_view3(parent.getItemAtPosition(position).toString());
-                System.out.println(parent.getItemAtPosition(position).toString());
+                Temp_sheet = item_o;
                 switch (item_o){
                     case "GT_Log":
                         get_alias(GT_Log, spinner4);
@@ -434,7 +444,8 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                         | (item_o.equals("mid_night")) | (item_o.equals("Status_History"))){
                     prepare_recycle_view5(parent.getItemAtPosition(position).toString());
                 }else{
-                    prepare_recycle_view4(position);
+                        prepare_recycle_view4(position);
+
                 }
                 break;
         } }
@@ -529,16 +540,25 @@ public class Correction_Base extends AppCompatActivity implements AdapterView.On
                     dataAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     // attaching data adapter to spinner
                     spinner4.setAdapter(dataAdapter4);
-                } }
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-            }});
+            }
+        });
     }
 
     void prepare_recycle_view4(int item5){
+        String item;
+        item = parameters3.get(item5);
 
-        String item = parameters3.get(item5);
-
+/**
+        if ((Temp_sheet.equals("LogSheet20_B")) && (item5 >= 7)) {
+            item = parameters3.get(item5 - 1);
+        }else{
+            item = parameters3.get(item5);
+        }
+**/
         DatabaseReference ref9 = firebaseDatabase.getReference(path4 + "/" + item);
         path5 = path4 + "/" + item;
         ref9.addValueEventListener(new ValueEventListener() {

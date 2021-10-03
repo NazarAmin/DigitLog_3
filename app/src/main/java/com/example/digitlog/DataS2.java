@@ -377,11 +377,5 @@ public class DataS2 {
         this.ip39 = ip39;
     }
 
-    public float getIp40() {
-        return ip40;
-    }
 
-    public void setIp40(float ip40) {
-        this.ip40 = ip40;
-    }
 }

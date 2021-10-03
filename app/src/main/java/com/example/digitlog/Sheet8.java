@@ -367,6 +367,8 @@ public class Sheet8 extends AppCompatActivity {
             float iip5 = ParseDouble(p5.getText().toString().trim());
             float iip6 = ParseDouble(p6.getText().toString().trim());
             float iip7 = ParseDouble(p7.getText().toString().trim());
+            float iip8 = ParseDouble(p8.getText().toString().trim());
+
             float iip9 = ParseDouble(p9.getText().toString().trim());
             float iip10 = ParseDouble(p10.getText().toString().trim());
 
@@ -413,6 +415,7 @@ public class Sheet8 extends AppCompatActivity {
             data.setIp5(iip5);
             data.setIp6(iip6);
             data.setIp7(iip7);
+            data.setIp8(iip8);
             data.setIp9(iip9);
             data.setIp10(iip10);
             data.setIp11(iip11);

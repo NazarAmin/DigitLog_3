@@ -286,6 +286,7 @@ public class Excel_Export extends AppCompatActivity {
         sheet9.add(this.getString(R.string.ssp37));
         sheet9.add(this.getString(R.string.ssp38));
         sheet9.add(this.getString(R.string.ssp39));
+        sheet9.add(this.getString(R.string.ssp40));
 
         ArrayList<ArrayList> sheets_main = new ArrayList<>();
         sheets_main.add(sheet1);
@@ -441,7 +442,7 @@ public class Excel_Export extends AppCompatActivity {
 
                             HSSFCell col7 = hssfRow.createCell(7);
                             col7.setCellValue(String.valueOf(data.getIp7()));
-///////////////////////////// for Logsheet20_B  /////////////////////////////////////////////
+/**
                             if (q) {
 
                                 HSSFCell col9 = hssfRow.createCell(8);
@@ -629,7 +630,7 @@ public class Excel_Export extends AppCompatActivity {
                                 }
                  ////////////////////////////////////////////////////////////////////////////
                             }else{
-
+**/
 
                             HSSFCell col8 = hssfRow.createCell(8);
                             col8.setCellValue(String.valueOf(data.getIp8()));
@@ -817,7 +818,7 @@ public class Excel_Export extends AppCompatActivity {
                             }else {
                                 col39.setCellValue(String.valueOf(data.getIp39()));
                             }
-                            }
+                            //}
                             int index_o = 0;
                             if (item.equals("FO")) {
                                 index_o = 22;}

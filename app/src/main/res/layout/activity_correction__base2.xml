@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:text="Please select the data parent:"
         android:textSize="14dp"
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:text="Please select the data sheet:"
         android:textSize="14dp"
@@ -142,7 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:text="Please select the date:"
         android:textSize="14dp"
@@ -174,7 +174,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="30dp"
-                android:textStyle="bold|italic"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="Please select the Parameter:"
                 android:textSize="14dp"
@@ -209,7 +209,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
-    android:textStyle="bold|italic"
+    android:textStyle="bold"
     android:textColor="@color/black"
     android:text="Old Value:">
 
@@ -234,7 +234,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold|italic"
+                    android:textStyle="bold"
 
                     android:text="New Value:">
 
