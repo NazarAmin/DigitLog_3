@@ -1,16 +1,25 @@
 package com.example.digitlog;
 
 public class Faults_Trips {
-    String category, datetime, urgency, user_2, comment, image_name;
+    String category, datetime, urgency, user_2, comment, image_name, is_image;
 
-    public Faults_Trips(String category, String urgency, String user_2, String comment,String datetime, String image_name) {
+    public Faults_Trips(String category, String urgency, String user_2, String comment,String datetime, String image_name, String is_image) {
         this.urgency = urgency;
         this.user_2 = user_2;
         this.comment = comment;
         this.category = category;
         this.datetime = datetime;
         this.image_name = image_name;
+        this.is_image = is_image;
 
+    }
+
+    public String getIs_image() {
+        return is_image;
+    }
+
+    public void setIs_image(String is_image) {
+        this.is_image = is_image;
     }
 
     public String getImage_name() {

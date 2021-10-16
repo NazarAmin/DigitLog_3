@@ -77,9 +77,9 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 // redirect to RegisterActivity
 
-              // Intent intent = new Intent(getApplicationContext(), register.class);
-              // startActivity(intent);
-              Toast.makeText(getApplicationContext(), "Please call admin (0123495541 Nasreldein) for adding new user", Toast.LENGTH_SHORT).show();
+               Intent intent = new Intent(getApplicationContext(), register.class);
+               startActivity(intent);
+             // Toast.makeText(getApplicationContext(), "Please call admin (0123495541 Nasreldein) for adding new user", Toast.LENGTH_SHORT).show();
 
             }
         });

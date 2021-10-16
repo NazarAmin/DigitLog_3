@@ -410,320 +410,336 @@ public class chart extends AppCompatActivity {
                         ArrayList<Entry> datavals = new ArrayList<Entry>();
                         if (dataSnapshot.hasChildren()) {
                             int i = 0;
-                            for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
-                                DataS2 data = mydatasnapshot.getValue(DataS2.class);
-                                switch (integer) {
-                                    case 0:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp1()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 1:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp2()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 2:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp3()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 3:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp4()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 4:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp5()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 5:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp6()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 6:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp7()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 7:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp8()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 8:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp9()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 9:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp10()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 10:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp11()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 11:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp12()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 12:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp13()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 13:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp14()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 14:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp15()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 15:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp16()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 16:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp17()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 17:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp18()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 18:
-                                        try {
-                                            datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp19()));
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        i = i + 1;
-                                        break;
-                                    case 19:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp20()));
-                                        i = i + 1;
-                                        break;
-                                    case 20:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp21()));
-                                        i = i + 1;
-                                        break;
-                                    case 21:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp22()));
-                                        i = i + 1;
-                                        break;
-                                    case 22:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp23()));
-                                        i = i + 1;
-                                        break;
-                                    case 23:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp24()));
-                                        i = i + 1;
-                                        break;
-                                    case 24:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp25()));
-                                        i = i + 1;
-                                        break;
-                                    case 25:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp26()));
-                                        i = i + 1;
-                                        break;
-                                    case 26:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp27()));
-                                        i = i + 1;
-                                        break;
-                                    case 27:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp28()));
-                                        i = i + 1;
-                                        break;
-                                    case 28:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp29()));
-                                        i = i + 1;
-                                        break;
-                                    case 29:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
-                                        i = i + 1;
-                                        break;
-                                    case 30:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
-                                        i = i + 1;
-                                        break;
-                                    case 31:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp31()));
-                                        i = i + 1;
-                                        break;
-                                    case 32:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp32()));
-                                        i = i + 1;
-                                        break;
-                                    case 33:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp33()));
-                                        i = i + 1;
-                                        break;
-                                    case 34:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp34()));
-                                        i = i + 1;
-                                        break;
-                                    case 35:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp35()));
-                                        i = i + 1;
-                                        break;
-                                    case 36:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp36()));
-                                        i = i + 1;
-                                        break;
-                                    case 37:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp37()));
-                                        i = i + 1;
-                                        break;
-                                    case 38:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp38()));
-                                        i = i + 1;
-                                        break;
-                                    case 39:
-                                        datavals.add(new Entry(name.get(i).getTime(), data.getIp39()));
-                                        i = i + 1;
-                                        break;
-                                }
-                            }
-                            LineDataSet lineDataSet = new LineDataSet(null, item);
-                            lineDataSet.setValues(datavals);
-                            lineDataSet.setLabel(item);
-                            lineDataSet.setValueTextSize(14);
-                            lineDataSet.setDrawValues(false);
-                            lineDataSet.setDrawCircleHole(true);
-                            lineDataSet.setCircleRadius(3f);
-                            lineDataSet.setLineWidth(2f);
-                            //lineDataSet.setDrawFilled(true);
-                            k = k + 1;
-                            //int rand = new Random().nextInt(colors.size());
-                            try {
-                                lineDataSet.setColor(colors.get(k));
-                                lineDataSet.setCircleColor(colors.get(k));
-                            } catch (Exception e) {
-                            }
-                            outer_counter = outer_counter + 1;
-                            //  iLineDataSets.add(lineDataSet);
-                            //  if (iLineDataSets.size() == items.size()) {
-                            //  lineData = new LineData(iLineDataSets);
-                            //    lineDataSet.setDrawCubic(true);
-                            lineDataSet.setDrawHighlightIndicators(true);
-                            lineDataSet.setMode(LineDataSet.Mode.LINEAR);
-                            lineData.addDataSet(lineDataSet);
-                            //iLineDataSets.clear();
-                            //  if (item.equals(GlobalClass.chart_params.get(0))){
-                            // referenceTimestamp = name.get(0).getTime() / 1000;
-                            referenceTimestamp = (long) 1623535.2;
-                            AxisValueFormatter xAxisFormatter = new HourAxisValueFormatter(referenceTimestamp);
-                            XAxis xAxis = Data_of_Temp.getXAxis();
-                            //  xAxis.setAxisMinValue(name.get(0).getTime() - (60*60*12*1000));
-                            //  if (max_steal < (name.get(name.size() - 1).getTime() + (60*60*12*1000))){
-                            //      max_steal = name.get(name.size() - 1).getTime() + (60*60*12*1000);
-                            //   }
-                            //  xAxis.setAxisMaxValue(max_steal);
-                            xAxis.setValueFormatter(xAxisFormatter);
-                            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                            xAxis.setTextSize(14);
-                            YAxis leftYAxis = Data_of_Temp.getAxisLeft();
-                            leftYAxis.setTextSize(14);
-                            YAxis rigtYAxis = Data_of_Temp.getAxisRight();
-                            rigtYAxis.setEnabled(false);
-                            //}
-                            MyMarkerView myMarkerView = new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp );
-                            Data_of_Temp.setMarkerView(myMarkerView);
-                            Data_of_Temp.clear();
-                            Data_of_Temp.setData(lineData);
-                            Data_of_Temp.getLegend().setEnabled(true);
-                            Data_of_Temp.getLegend().setWordWrapEnabled(true);
-                            Data_of_Temp.setDescription(null);
-                            Data_of_Temp.invalidate();
-                            if (unique_sheets.size() == 1){
 
-                                switch(GlobalClass.chart_params.size()) {
-                                    case 1:
-                                        tv1.setText(GlobalClass.chart_params.get(0));
-                                        tv1.setTextColor(colors.get(1));
-                                        break;
-                                    case 2:
-                                        tv1.setText(GlobalClass.chart_params.get(0));
-                                        tv1.setTextColor(colors.get(1));
-                                        tv2.setText(GlobalClass.chart_params.get(1));
-                                        tv2.setTextColor(colors.get(2));
-                                        break;
-                                    case 3:
-                                        tv1.setText(GlobalClass.chart_params.get(0));
-                                        tv1.setTextColor(colors.get(1));
-                                        tv2.setText(GlobalClass.chart_params.get(1));
-                                        tv2.setTextColor(colors.get(2));
-                                        tv3.setText(GlobalClass.chart_params.get(2));
-                                        tv3.setTextColor(colors.get(3));
-                                        break;
+
+                            try {
+
+                                for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+
+
+                                    if ((sdf.parse(mydatasnapshot.getKey()).before(GlobalClass.start_date)) ||  //sdf.parse(String.valueOf(
+                                            (sdf.parse(mydatasnapshot.getKey()).after(GlobalClass.end_date))) {
+                                        System.out.println("Continued !!!!");
+                                        continue;
+                                    } else {
+
+                                        DataS2 data = mydatasnapshot.getValue(DataS2.class);
+                                        switch (integer) {
+                                            case 0:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp1()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 1:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp2()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 2:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp3()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 3:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp4()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 4:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp5()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 5:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp6()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 6:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp7()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 7:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp8()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 8:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp9()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 9:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp10()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 10:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp11()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 11:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp12()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 12:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp13()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 13:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp14()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 14:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp15()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 15:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp16()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 16:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp17()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 17:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp18()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 18:
+                                                try {
+                                                    datavals.add(new Entry(sdf.parse(mydatasnapshot.getKey()).getTime(), data.getIp19()));
+                                                } catch (ParseException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                i = i + 1;
+                                                break;
+                                            case 19:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp20()));
+                                                i = i + 1;
+                                                break;
+                                            case 20:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp21()));
+                                                i = i + 1;
+                                                break;
+                                            case 21:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp22()));
+                                                i = i + 1;
+                                                break;
+                                            case 22:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp23()));
+                                                i = i + 1;
+                                                break;
+                                            case 23:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp24()));
+                                                i = i + 1;
+                                                break;
+                                            case 24:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp25()));
+                                                i = i + 1;
+                                                break;
+                                            case 25:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp26()));
+                                                i = i + 1;
+                                                break;
+                                            case 26:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp27()));
+                                                i = i + 1;
+                                                break;
+                                            case 27:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp28()));
+                                                i = i + 1;
+                                                break;
+                                            case 28:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp29()));
+                                                i = i + 1;
+                                                break;
+                                            case 29:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
+                                                i = i + 1;
+                                                break;
+                                            case 30:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp30()));
+                                                i = i + 1;
+                                                break;
+                                            case 31:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp31()));
+                                                i = i + 1;
+                                                break;
+                                            case 32:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp32()));
+                                                i = i + 1;
+                                                break;
+                                            case 33:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp33()));
+                                                i = i + 1;
+                                                break;
+                                            case 34:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp34()));
+                                                i = i + 1;
+                                                break;
+                                            case 35:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp35()));
+                                                i = i + 1;
+                                                break;
+                                            case 36:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp36()));
+                                                i = i + 1;
+                                                break;
+                                            case 37:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp37()));
+                                                i = i + 1;
+                                                break;
+                                            case 38:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp38()));
+                                                i = i + 1;
+                                                break;
+                                            case 39:
+                                                datavals.add(new Entry(name.get(i).getTime(), data.getIp39()));
+                                                i = i + 1;
+                                                break;
+                                        }
+                                    }
                                 }
+                                LineDataSet lineDataSet = new LineDataSet(null, item);
+                                lineDataSet.setValues(datavals);
+                                lineDataSet.setLabel(item);
+                                lineDataSet.setValueTextSize(14);
+                                lineDataSet.setDrawValues(false);
+                                lineDataSet.setDrawCircleHole(true);
+                                lineDataSet.setCircleRadius(3f);
+                                lineDataSet.setLineWidth(2f);
+                                //lineDataSet.setDrawFilled(true);
+                                k = k + 1;
+                                //int rand = new Random().nextInt(colors.size());
+                                try {
+                                    lineDataSet.setColor(colors.get(k));
+                                    lineDataSet.setCircleColor(colors.get(k));
+                                } catch (Exception e) {
+                                }
+                                outer_counter = outer_counter + 1;
+                                //  iLineDataSets.add(lineDataSet);
+                                //  if (iLineDataSets.size() == items.size()) {
+                                //  lineData = new LineData(iLineDataSets);
+                                //    lineDataSet.setDrawCubic(true);
+                                lineDataSet.setDrawHighlightIndicators(true);
+                                lineDataSet.setMode(LineDataSet.Mode.LINEAR);
+                                lineData.addDataSet(lineDataSet);
+                                //iLineDataSets.clear();
+                                //  if (item.equals(GlobalClass.chart_params.get(0))){
+                                // referenceTimestamp = name.get(0).getTime() / 1000;
+                                referenceTimestamp = (long) 1623535.2;
+                                AxisValueFormatter xAxisFormatter = new HourAxisValueFormatter(referenceTimestamp);
+                                XAxis xAxis = Data_of_Temp.getXAxis();
+                                //  xAxis.setAxisMinValue(name.get(0).getTime() - (60*60*12*1000));
+                                //  if (max_steal < (name.get(name.size() - 1).getTime() + (60*60*12*1000))){
+                                //      max_steal = name.get(name.size() - 1).getTime() + (60*60*12*1000);
+                                //   }
+                                //  xAxis.setAxisMaxValue(max_steal);
+                                xAxis.setValueFormatter(xAxisFormatter);
+                                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                                xAxis.setTextSize(14);
+                                YAxis leftYAxis = Data_of_Temp.getAxisLeft();
+                                leftYAxis.setTextSize(14);
+                                YAxis rigtYAxis = Data_of_Temp.getAxisRight();
+                                rigtYAxis.setEnabled(false);
+                                //}
+                                MyMarkerView myMarkerView = new MyMarkerView(getApplicationContext(), R.layout.my_marker_view_layout, referenceTimestamp);
+                                Data_of_Temp.setMarkerView(myMarkerView);
+                                Data_of_Temp.clear();
+                                Data_of_Temp.setData(lineData);
+                                Data_of_Temp.getLegend().setEnabled(true);
+                                Data_of_Temp.getLegend().setWordWrapEnabled(true);
+                                Data_of_Temp.setDescription(null);
+                                Data_of_Temp.invalidate();
+                                if (unique_sheets.size() == 1) {
+
+                                    switch (GlobalClass.chart_params.size()) {
+                                        case 1:
+                                            tv1.setText(GlobalClass.chart_params.get(0));
+                                            tv1.setTextColor(colors.get(1));
+                                            break;
+                                        case 2:
+                                            tv1.setText(GlobalClass.chart_params.get(0));
+                                            tv1.setTextColor(colors.get(1));
+                                            tv2.setText(GlobalClass.chart_params.get(1));
+                                            tv2.setTextColor(colors.get(2));
+                                            break;
+                                        case 3:
+                                            tv1.setText(GlobalClass.chart_params.get(0));
+                                            tv1.setTextColor(colors.get(1));
+                                            tv2.setText(GlobalClass.chart_params.get(1));
+                                            tv2.setTextColor(colors.get(2));
+                                            tv3.setText(GlobalClass.chart_params.get(2));
+                                            tv3.setTextColor(colors.get(3));
+                                            break;
+                                    }
+                                }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
                             }
                         }
                     }

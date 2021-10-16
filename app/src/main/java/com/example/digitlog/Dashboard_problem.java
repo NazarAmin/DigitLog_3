@@ -52,7 +52,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     String conseq;
     String current_date;
     ImageView help;
-
+    String image_url = "No Image";
 
     private Uri mImageUri = null;
 
@@ -209,7 +209,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         byte bb[] = bytes.toByteArray();
         image.setImageBitmap(thumbnail);
         uploadToFirebase(bb);
@@ -226,8 +226,16 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
             t_co = "NSet";
         }
 
+        String is_image_attached;
+
+        if (image_url.equals("No Image")) {
+            is_image_attached = "No image Attached";
+        }else{
+            is_image_attached = "Click to find the image";
+        }
+
         faults_trips = new Faults_Trips(cat, conseq,user_2, t_co, sdf.format(new Date()).trim(), "Faults_Trips/" + engine + "/" +
-                cat + "/" + current_date);
+                cat + "/" + current_date, is_image_attached);
 
         ref2.child(sdf.format(new Date()).trim()).setValue(faults_trips);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
@@ -252,8 +260,7 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
                 Toast.makeText(Dashboard_problem.this, "Failed !", Toast.LENGTH_LONG).show();
             }
         });
-        String image_url = filepath.getDownloadUrl().toString();
-        System.out.println(image_url);
+        image_url = filepath.getDownloadUrl().toString();
 
 
     }

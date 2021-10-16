@@ -33,22 +33,21 @@ package com.example.digitlog;
 
 public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapter3.ItemClickListener {
 
-    ArrayList<Trip_Class> mExampleList;
+    ArrayList<Trip_Class> mExampleList = new ArrayList<>();
+    ArrayList<String> images = new ArrayList<>();
+    ArrayList<String> is_images = new ArrayList<>();
     MyRecyclerViewAdapter3 adapter;
     String engine;
     Post post;
     DatabaseReference ref2;
     EditText editText;
     RecyclerView recyclerView;
-    ArrayList<String> fuel = new ArrayList<>();
-    ArrayList<String> user = new ArrayList<>();
-    ArrayList<String> comment = new ArrayList<>();
-    ArrayList<String> load = new ArrayList<>();
-    ArrayList<String> alarms = new ArrayList<>();
-    ArrayList<Date> name = new ArrayList<>();
-    ArrayList<String> name_2 = new ArrayList<>();
-    ArrayList<String> images = new ArrayList<>();
+
+
+
+
     Dialog dialog;
+    ArrayList<String> name_string = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +80,7 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
         editText = (EditText) findViewById(R.id.edittext);
 
         post = new Post();
-        name = new ArrayList<Date>();
+       // name = new ArrayList<Date>();
 
         engine = GlobalClass.engine_number;
 
@@ -91,77 +90,80 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
 
         ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/tips_log");
 
-        ref2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
-                if (dataSnapshot.exists()) {
-                    int i = 0;
-                    for (DataSnapshot d : dataSnapshot.getChildren()) {
-                        try {
-                            System.out.println("#########################################################################");
-                            name.add(sdf.parse(d.getKey()));
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                        i++;
-                    }
-                }
-            }//onDataChange
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-            }//onCancelled
-        });
-
-
 
         ref2.addValueEventListener(new ValueEventListener() {
             int i = 0;
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mExampleList.clear();
+                name_string.clear();
+                images.clear();
+                is_images.clear();
+
+
+                ArrayList<String> fuel = new ArrayList<>();
+                ArrayList<String> user = new ArrayList<>();
+                ArrayList<String> comment = new ArrayList<>();
+                ArrayList<String> load = new ArrayList<>();
+                ArrayList<String> alarms = new ArrayList<>();
+                ArrayList<Date> name = new ArrayList<>();
+                ArrayList<String> name_2 = new ArrayList<>();
+
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
                 if (dataSnapshot.hasChildren()) {
-                    for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                        Trip_Class trip_class = mydatasnapshot.getValue(Trip_Class.class);
-
-                        fuel.add(trip_class.getFuel());
-                        user.add(trip_class.getUser_2());
-                        comment.add(trip_class.getComment());
-                        load.add(trip_class.getLoad());
-                        alarms.add(trip_class.getAlarms());
-                        name_2.add(trip_class.getDatetime());
-                        images.add(trip_class.getImage_name());
-                    }
-
-                    ArrayList<String> name_string = new ArrayList<String>();
-
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
-
-                    for (Date dateString : name) {
-                        name_string.add(sdf.format(dateString));
-                    }
-
-                    mExampleList = new ArrayList<>();
                     try {
-                        for (i = (name_string.size() - 1); i>=0 ; i--){
 
-                            mExampleList.add(new Trip_Class(load.get(i), fuel.get(i), user.get(i), comment.get(i), name_2.get(i), alarms.get(i), images.get(i)));
+                        for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+
+
+                            if ((sdf.parse(mydatasnapshot.getKey()).before(GlobalClass.start_date)) ||  //sdf.parse(String.valueOf(
+                                    (sdf.parse(mydatasnapshot.getKey()).after(GlobalClass.end_date))) {
+                                System.out.println("Continued !!!!");
+                                continue;
+                            } else {
+                                System.out.println("   |||||    Loop 1");
+                                Trip_Class trip_class = mydatasnapshot.getValue(Trip_Class.class);
+
+                                fuel.add(trip_class.getFuel());
+                                user.add(trip_class.getUser_2());
+                                comment.add(trip_class.getComment());
+                                load.add(trip_class.getLoad());
+                                alarms.add(trip_class.getAlarms());
+                                name_2.add(trip_class.getDatetime());
+                                images.add(trip_class.getImage_name());
+                                is_images.add(trip_class.getUrl());
+                                name.add(sdf.parse(mydatasnapshot.getKey()));
+                            }
+                        }
+                        for (java.util.Date dateString : name) {
+                            name_string.add(sdf.format(dateString));
+                            System.out.println(dateString);
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        for (i = (name_string.size()); i>0 ; i--){
+                            System.out.println(i + "   |||||    counter is working...");
+                            mExampleList.add(new Trip_Class(load.get(i-1), fuel.get(i-1), user.get(i-1),
+                                    comment.get(i-1), name_2.get(i-1), alarms.get(i-1), images.get(i-1), is_images.get(i-1)));
                         }
                     }catch (Exception e){
 
-                    }
+                   }
                     recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     try {
                         // adapter = new MyRecyclerViewAdapter2(Faults_List.this, category, urgency, user, comment, name_string);
-                        adapter = new MyRecyclerViewAdapter3(mExampleList);
-                        adapter.setClickListener(TripsList.this);
-                        recyclerView.setAdapter(adapter);
+                    adapter = new MyRecyclerViewAdapter3(mExampleList);
+                    adapter.setClickListener(TripsList.this);
+                    recyclerView.setAdapter(adapter);
                     }catch(Exception e){
-
+                        System.out.println(e.getCause());
                     }
 
                     editText.addTextChangedListener(new TextWatcher() {
@@ -178,18 +180,12 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
                             filter(s.toString());
                         }
                     });
-
                 }
-
-
             }
-
             @Override
             public void onCancelled(DatabaseError error) {
-
             }
         });
-
     }
     private void filter(String text) {
 
@@ -197,7 +193,9 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
 
         for (Trip_Class item : mExampleList) {
             try {
-                if ((item.getFuel().toLowerCase().contains(text.toLowerCase())) | (item.getComment().toLowerCase().contains(text.toLowerCase()))){
+                if ((item.getFuel().toLowerCase().contains(text.toLowerCase())) |
+                        (item.getComment().toLowerCase().contains(text.toLowerCase()))){
+
                     filteredList.add(item);
                 }
             }catch (Exception ex){
@@ -210,12 +208,20 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
     @Override
     public void onItemClick(View view, int position) {
 
-        String image_location = adapter.getItem4(images, images.size()-1 - position);
-        System.out.println(image_location + "############################################# ////////");
-        System.out.println(position + "############################################# ////////");
-        Intent i = new Intent(TripsList.this, Fault_Trip_Image.class);
-        i.putExtra("Loc", image_location + ".jpeg");
-        startActivity(i);
+        try{
+
+            if (is_images.get(is_images.size()-1-position).equals("No image Attached")) {
+                Toast.makeText(getApplicationContext(), "No Image to Show", Toast.LENGTH_SHORT).show();
+            }else{
+                String image_location = adapter.getItem4(images, images.size()-1 - position);
+                Intent i = new Intent(TripsList.this, Fault_Trip_Image.class);
+                i.putExtra("Loc", image_location + ".jpeg");
+                startActivity(i);
+            }
+
+        }catch (Exception e){
+
+        }
     }
 
     @Override
@@ -228,6 +234,5 @@ public class TripsList extends AppCompatActivity implements MyRecyclerViewAdapte
 
     public void go_out(View view) {
         dialog.show();
-
     }
 }

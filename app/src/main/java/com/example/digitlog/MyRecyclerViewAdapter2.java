@@ -17,13 +17,13 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
 
     private int textSize;
     private ArrayList<Faults_Trips> mExampleList;
-    private List<String> category, urgency, user, comment, datetime;
+    private List<String> category, urgency, user, comment, datetime, is_images;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
     MyRecyclerViewAdapter2(Context context, List<String> category, List<String> urgency, List<String> user,
-                           List<String> comment, List<String> datetime) {
+                           List<String> comment, List<String> datetime, List<String> is_images) {
 
         this.mInflater = LayoutInflater.from(context);
         this.category = category;
@@ -31,6 +31,7 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
         this.user = user;
         this.datetime = datetime;
         this.comment = comment;
+        this.is_images = is_images;
         this.textSize = 10;
     }
 
@@ -58,6 +59,7 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
         holder.user_tv.setText(current_item.getUser_2());
         holder.comment_tv.setText(current_item.getComment());
         holder.datetime_tv.setText(current_item.getDatetime());
+        holder.is_images.setText(current_item.getIs_image());
        /**
         holder.category_tv.setText(category_s);
         holder.urgency_tv.setText(urgency_s);
@@ -81,7 +83,7 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView datetime_tv, category_tv, urgency_tv, user_tv, comment_tv;
+        TextView datetime_tv, category_tv, urgency_tv, user_tv, comment_tv, is_images;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -90,6 +92,7 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
             urgency_tv = itemView.findViewById(R.id.urgency);
             comment_tv = itemView.findViewById(R.id.comment);
             user_tv = itemView.findViewById(R.id.user);
+            is_images = itemView.findViewById(R.id.is_image_2);
 
             itemView.setOnClickListener(this);
         }

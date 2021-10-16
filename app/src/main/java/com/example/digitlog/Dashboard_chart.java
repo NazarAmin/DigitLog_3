@@ -22,8 +22,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class Dashboard_chart extends AppCompatActivity {
     LinearLayout sheet1, sheet2, sheet3, sheet9, sheet10, sheet6;
@@ -34,6 +39,8 @@ public class Dashboard_chart extends AppCompatActivity {
     int ho, mi, ye, mo, da;
     DatabaseReference ref3;
     ArrayList<String> arr;
+    TextView from, to;
+    SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +63,6 @@ public class Dashboard_chart extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Dashboard_chart.this.finishAffinity();
             }
         });
@@ -67,7 +73,15 @@ public class Dashboard_chart extends AppCompatActivity {
             }
         });
 
+        from = (TextView) findViewById(R.id.tv_from);
+        to = (TextView) findViewById(R.id.tv_to);
 
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+        SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+
+        from.setText(formatter2.format(GlobalClass.start_date));
+        to.setText(formatter2.format(GlobalClass.end_date));
 
         sheet1 = (LinearLayout) findViewById(R.id.sheet1);
         sheet2 = (LinearLayout) findViewById(R.id.sheet2);
@@ -75,29 +89,27 @@ public class Dashboard_chart extends AppCompatActivity {
         sheet9 = (LinearLayout) findViewById(R.id.sheet9);
         sheet10 = (LinearLayout) findViewById(R.id.sheet10);
 
-
-
         sheet1.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(Dashboard_chart.this, Faults_List.class));
             }
         });
 
         sheet2.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(Dashboard_chart.this, Chart_List.class));
             }
         });
 
         sheet3.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(), "Reports are under design with management", Toast.LENGTH_SHORT).show();
-
                 arr.clear();
                 ref3.addValueEventListener(new ValueEventListener() {
 
@@ -108,9 +120,9 @@ public class Dashboard_chart extends AppCompatActivity {
 
                         DatabaseReference ref9 = firebaseDatabase.getReference(GlobalClass.database + "/Admins");
                         ref9.addValueEventListener(new ValueEventListener() {
+
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                                 if (dataSnapshot.hasChildren()) {
                                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                                         //Admins admin = mydatasnapshot.getValue(Admins.class);
@@ -127,19 +139,17 @@ public class Dashboard_chart extends AppCompatActivity {
                                             for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                                                 arr.add(mydatasnapshot.getValue(String.class));
                                             }
-
                                         }
+
                                         DatabaseReference ref10 = firebaseDatabase.getReference(GlobalClass.database + "/Plant_2");
 
                                         ref10.addValueEventListener(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                                                 if (dataSnapshot.hasChildren()) {
                                                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
                                                         arr.add(mydatasnapshot.getValue(String.class));
                                                     }
-
                                                 }
 
                                                 if ((actual_user.equals(GlobalClass.actual_user_name)) | (arr.contains(GlobalClass.actual_user_name))) {
@@ -211,11 +221,28 @@ public class Dashboard_chart extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 yeare = String.valueOf(year);
-                day = String.valueOf(dayOfMonth);
-                monthe = String.valueOf(month);
-                ye = year;
-                mo = month;
-                da = dayOfMonth;
+
+                if (dayOfMonth<10) {
+                    day = "0" + String.valueOf(dayOfMonth);
+                }else{
+                    day = String.valueOf(dayOfMonth);
+                }
+
+                if (month+1<10) {
+                    monthe = "0" + String.valueOf(month+1);
+                }else{
+                    monthe = String.valueOf(month + 1);
+                }
+
+                String temp_date_2 = yeare + "_" + monthe + "_" + day + " 00:00:00";
+
+                try {
+                    GlobalClass.end_date = formatter2.parse(temp_date_2);
+                } catch (ParseException e) {
+                    System.out.println("Not Parsed Successfully Date line233");
+                    e.printStackTrace();
+                }
+                to.setText(yeare + "-" + monthe + "-" + day);
             }
         };
 
@@ -229,4 +256,35 @@ public class Dashboard_chart extends AppCompatActivity {
         datePickerDialog.show();
     }
 
+
+    public void showDatePickerDialog_From(View v) {
+        //DialogFragment newFragment = new DatePickerFragment();
+        //newFragment.show(getSupportFragmentManager(), "datePicker");
+
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                yeare = String.valueOf(year);
+                day = String.valueOf(dayOfMonth);
+                monthe = String.valueOf(month + 1);
+
+                String temp_date = yeare + "_" + monthe + "_" + day + " 00:00:00";
+
+                try {
+                    GlobalClass.start_date = formatter2.parse(temp_date);
+                    System.out.println(temp_date);
+                    System.out.println(GlobalClass.start_date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                from.setText(yeare + "-" + monthe + "-" + day);
+            }
+        };
+
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, 2021, 5, 18);
+        datePickerDialog.setTitle("Select Date:");
+        datePickerDialog.show();
+    }
 }

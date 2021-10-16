@@ -29,28 +29,30 @@ import com.google.firebase.storage.StorageReference;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
 public class Faults_List extends AppCompatActivity implements MyRecyclerViewAdapter2.ItemClickListener {
 
-        ArrayList<Faults_Trips> mExampleList;
+        ArrayList<Faults_Trips> mExampleList = new ArrayList<>();
         MyRecyclerViewAdapter2 adapter;
         String engine;
         Post post;
         DatabaseReference ref2;
-        ArrayList<Date> name;
+
         EditText editText;
         RecyclerView recyclerView;
-        ArrayList<String> urgency = new ArrayList<>();
-        ArrayList<String> user = new ArrayList<>();
-        ArrayList<String> comment = new ArrayList<>();
-        ArrayList<String> category = new ArrayList<>();
-        ArrayList<String> images = new ArrayList<>();
+
         private StorageReference storageRef;
         Dialog dialog;
 
+        Date start_date = GlobalClass.start_date;
+        Date end_date = GlobalClass.end_date;
+        ArrayList<String> images = new ArrayList<>();
+        ArrayList<String> is_images = new ArrayList<>();
+        ArrayList<String> name_string = new ArrayList<String>();
 @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,12 +84,12 @@ protected void onCreate(Bundle savedInstanceState) {
         editText = (EditText) findViewById(R.id.edittext);
 
         post = new Post();
-        name = new ArrayList<Date>();
+
 
         engine = GlobalClass.engine_number;
 
         ref2 = post.getref(engine, "test", false);
-        name = post.retrieve_dates(ref2);
+        //name = post.retrieve_dates(ref2);
 
 
 
@@ -96,31 +98,60 @@ protected void onCreate(Bundle savedInstanceState) {
 
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+
+                ArrayList<String> urgency = new ArrayList<>();
+                ArrayList<String> user = new ArrayList<>();
+                ArrayList<String> comment = new ArrayList<>();
+                ArrayList<String> category = new ArrayList<>();
+
+                ArrayList<Date> name = new ArrayList<>();
+
+                images.clear();
+                is_images.clear();
+                mExampleList.clear();
+                name_string.clear();
+
 
                 if (dataSnapshot.hasChildren()) {
-                        for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                                Faults_Trips faults_trips = mydatasnapshot.getValue(Faults_Trips.class);
 
-                                urgency.add(faults_trips.getUrgency());
-                                user.add(faults_trips.getUser_2());
-                                comment.add(faults_trips.getComment());
-                                category.add(faults_trips.getCategory());
-                                images.add(faults_trips.getImage_name());
-                        }
+                        try {
 
-                        ArrayList<String> name_string = new ArrayList<String>();
+                                for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+
+                                        if ((sdf.parse(mydatasnapshot.getKey()).before(GlobalClass.start_date)) ||  //sdf.parse(String.valueOf(
+                                                (sdf.parse(mydatasnapshot.getKey()).after(GlobalClass.end_date))) {
+                                                System.out.println("Continued !!!!");
+                                                continue;
+                                        } else {
+
+                                                Faults_Trips faults_trips = mydatasnapshot.getValue(Faults_Trips.class);
+
+                                                urgency.add(faults_trips.getUrgency());
+                                                user.add(faults_trips.getUser_2());
+                                                comment.add(faults_trips.getComment());
+                                                category.add(faults_trips.getCategory());
+                                                images.add(faults_trips.getImage_name());
+                                                is_images.add(faults_trips.getIs_image());
+                                                name.add(sdf.parse(mydatasnapshot.getKey()));
+
+                                        }
+                                }
 
                         for (Date dateString : name) {
                                 name_string.add(sdf.format(dateString));
                         }
 
-                        mExampleList = new ArrayList<>();
+                        } catch (ParseException e) {
+                                e.printStackTrace();
+                        }
 
-                        for (i = (category.size() - 1); i>=0 ; i--){
-                                mExampleList.add(new Faults_Trips(category.get(i), urgency.get(i), user.get(i), comment.get(i), name_string.get(i), images.get(i)));
+
+                        for (i = (category.size()); i>0 ; i--){
+                                mExampleList.add(new Faults_Trips(category.get(i-1), urgency.get(i-1), user.get(i-1),
+                                        comment.get(i-1), name_string.get(i-1), images.get(i-1), is_images.get(i-1)));
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         try {
@@ -128,6 +159,7 @@ protected void onCreate(Bundle savedInstanceState) {
                                 adapter = new MyRecyclerViewAdapter2(mExampleList);
                                 adapter.setClickListener(Faults_List.this);
                                 recyclerView.setAdapter(adapter);
+
                         }catch(Exception e){
                                 }
 
@@ -164,7 +196,8 @@ protected void onCreate(Bundle savedInstanceState) {
 
                 for (Faults_Trips item : mExampleList) {
                         try {
-                                if ((item.getUrgency().toLowerCase().contains(text.toLowerCase())) | (item.getComment().toLowerCase().contains(text.toLowerCase()))){
+                                if ((item.getUrgency().toLowerCase().contains(text.toLowerCase())) |
+                                        (item.getComment().toLowerCase().contains(text.toLowerCase()))){
                                         filteredList.add(item);
                                 }
                         }catch (Exception ex){
@@ -176,23 +209,20 @@ protected void onCreate(Bundle savedInstanceState) {
 
         @Override
         public void onItemClick(View view, int position) {
+                try{
+                        if (is_images.get(is_images.size()-1-position).equals("No image Attached")) {
+                                Toast.makeText(getApplicationContext(), "No Image to Show", Toast.LENGTH_SHORT).show();
+                        }else {
 
-                String image_location = adapter.getItem4(images, images.size()-1 - position);
-                System.out.println(image_location + "############################################# ////////");
-                System.out.println(position + "############################################# ////////");
-                Intent i = new Intent(Faults_List.this, Fault_Trip_Image.class);
-                i.putExtra("Loc", image_location + ".jpeg");
-                startActivity(i);
+                                String image_location = adapter.getItem4(images, images.size() - 1 - position);
+                                Intent i = new Intent(Faults_List.this, Fault_Trip_Image.class);
+                                i.putExtra("Loc", image_location + ".jpeg");
+                                startActivity(i);
+                        }
+                }catch (Exception e){
 
-               /**
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference ref2 = firebaseDatabase.getReference(GlobalClass.database + "/" + engine + "/faults_trips");
+                }
 
-
-                storageRef = FirebaseStorage.getInstance().getReference();
-
-                StorageReference pathReference = storageRef.child(image_location + ".JPEG");
-**/
                 }
         public void go_home(View view) {
                 startActivity(new Intent(Faults_List.this, Blocks.class));

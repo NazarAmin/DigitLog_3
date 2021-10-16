@@ -77,6 +77,7 @@ public class Trip_Activity extends AppCompatActivity  {
     TextView fuel_nasr;
     String current_date;
     private static final int CAMERA_REQUEST_CODE = 1;
+    String image_url = "No Image";
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
     String currentdateandTime = sdf.format(new Date());
@@ -212,7 +213,7 @@ public class Trip_Activity extends AppCompatActivity  {
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         byte bb[] = bytes.toByteArray();
         image.setImageBitmap(thumbnail);
         uploadToFirebase(bb);
@@ -220,7 +221,7 @@ public class Trip_Activity extends AppCompatActivity  {
 
 
     private void uploadToFirebase(byte[] bb) {
-        StorageReference filepath = storageRef.child("Trips/" + engine + "/" + "/" + current_date + ".jpeg");
+        StorageReference filepath = storageRef.child("Trips/" + engine + "/" + current_date + ".jpeg");
 
         filepath.putBytes(bb).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -235,8 +236,7 @@ public class Trip_Activity extends AppCompatActivity  {
                 Toast.makeText(Trip_Activity.this, "Failed !", Toast.LENGTH_LONG).show();
             }
         });
-        String image_url = filepath.getDownloadUrl().toString();
-        System.out.println(image_url);
+        image_url = filepath.getDownloadUrl().toString();
 
 
     }
@@ -313,9 +313,16 @@ public class Trip_Activity extends AppCompatActivity  {
         }
 
 
+        String is_image_attached;
 
-        trip_class = new Trip_Class(radioButton.getText().toString(), checkchoise,user_2, description5.getText().toString(), dateformat5, alarms.getText().toString(),
-                "Trips/" + engine + "/" + current_date);
+        if (image_url.equals("No Image")) {
+            is_image_attached = "No image Attached";
+        }else{
+            is_image_attached = "Click to find the image";
+        }
+        trip_class = new Trip_Class(radioButton.getText().toString(), checkchoise,user_2, description5.getText().toString()
+                , dateformat5, alarms.getText().toString(),
+                "Trips/" + engine + "/" + current_date, is_image_attached);
 
         ref2.child(sdf.format(new Date()).trim()).setValue(trip_class);
         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
