@@ -27,6 +27,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,10 +39,11 @@ public class Operator_Handover extends AppCompatActivity {
 
     //private EditText editTextExcel;
     ArrayList<String> name = new ArrayList<>();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
 
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Handover/" + engine + " Operators Handover Report " + sdf.format(new Date()) + ".xls");
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Handover/" + engine + " Operators Handover Report " + sdf2.format(new Date()) + ".xls");
     private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Handover");
     String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Handover";
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
@@ -51,6 +53,8 @@ public class Operator_Handover extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel__export);
 
+        getDatawork();
+       /**
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             && (getApplicationContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
@@ -60,7 +64,7 @@ public class Operator_Handover extends AppCompatActivity {
                         Manifest.permission.READ_EXTERNAL_STORAGE},1);
             }
         }
-
+*/
     }
 
     @Override
@@ -85,7 +89,6 @@ public class Operator_Handover extends AppCompatActivity {
             ref2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                     name.clear();
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
@@ -110,6 +113,7 @@ public class Operator_Handover extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                    int j = 0;
                     HSSFRow hssfRow2 = hssfSheet.createRow(0);
                     HSSFCell hssfCell1 = hssfRow2.createCell(0);
                     hssfCell1.setCellValue("Date");
@@ -123,9 +127,16 @@ public class Operator_Handover extends AppCompatActivity {
                     if (dataSnapshot.hasChildren()) {
                         for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
+                            try {
+                                if ((sdf.parse(mydatasnapshot.getKey()).before(GlobalClass.start_date)) ||  //sdf.parse(String.valueOf(
+                                        (sdf.parse(mydatasnapshot.getKey()).after(GlobalClass.end_date))) {
+                                    i++;
+                                    continue;
+                                }
+
                             Handover_c data = mydatasnapshot.getValue(Handover_c.class);
 
-                            HSSFRow hssfRow = hssfSheet.createRow(i + 1);
+                            HSSFRow hssfRow = hssfSheet.createRow(j + 1);
                             HSSFCell hssfCell = hssfRow.createCell(0);
                             hssfCell.setCellValue(name.get(i));
 
@@ -139,8 +150,11 @@ public class Operator_Handover extends AppCompatActivity {
 
                             HSSFCell col4 = hssfRow.createCell(3);
                             col4.setCellValue(String.valueOf(data.getDescription()));
-                        i = i + 1;
-
+                            i++;
+                            j++;
+                            } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                         }
 
                         try {
@@ -168,7 +182,6 @@ public class Operator_Handover extends AppCompatActivity {
 
                             hssfWorkbook.write(fileOutputStream);
 
-
                             if (fileOutputStream != null) {
 
                                 fileOutputStream.flush();
@@ -176,9 +189,6 @@ public class Operator_Handover extends AppCompatActivity {
                             }
                             Toast.makeText(getApplicationContext(), "Ok", Toast.LENGTH_LONG).show();
                             openFolder();
-
-
-
 
                         } catch (Exception e) {
                             Toast.makeText(getApplicationContext(), "Insure spreadsheet app is installed", Toast.LENGTH_LONG).show();
@@ -188,7 +198,6 @@ public class Operator_Handover extends AppCompatActivity {
 
                     }
                 }
-
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {

@@ -78,260 +78,263 @@
                 ></ImageView>
         </RelativeLayout>
 
+
+
         <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
-            <Button
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/sheet_from"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="From"
-                android:textColor="@color/white"
-                android:background="@color/green"
-                android:paddingRight="15dp"
-                android:drawableStart="@drawable/ic_baseline_access_time_24_white"
-                android:onClick="showDatePickerDialog_From" />
-
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="25dp"
-                android:id="@+id/tv_from"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
                 android:layout_weight="1"
-                android:text="From"></TextView>
+                android:background="@drawable/curved_items"
+                android:layout_margin="10dp"
 
-            <Button
-                android:layout_width="wrap_content"
+                android:orientation="vertical"
+
+                android:padding="16dp"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   From"
+                    android:textColor="@color/purple_700"
+                    android:background="@drawable/curved_items_2"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:drawableStart="@drawable/ic_baseline_access_time_24"
+                    android:onClick="showDatePickerDialog_From" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/tv_from"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="From"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sheet_to"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="To"
-                android:textColor="@color/white"
-                android:background="@color/green"
-                android:elevation="20dp"
-                android:paddingRight="15dp"
-                android:drawableStart="@drawable/ic_baseline_access_time_24_white"
-                android:onClick="showDatePickerDialog" />
-
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="25dp"
-                android:id="@+id/tv_to"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
+                android:background="@drawable/curved_items"
                 android:layout_weight="1"
-                android:text="To"></TextView>
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+
+                android:padding="16dp"
+                android:gravity="center">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   Up to"
+                    android:textColor="@color/purple_700"
+                    android:background="@drawable/curved_items_2"
+                    android:elevation="20dp"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:drawableStart="@drawable/ic_baseline_access_time_24"
+                    android:onClick="showDatePickerDialog" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/tv_to"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="To"></TextView>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <GridLayout
-            android:columnOrderPreserved="false"
+        <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alignmentMode="alignMargins"
-            android:paddingTop="40dp"
-            android:columnCount="2"
-            android:rowCount="3"
-            >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/sheet2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
+                android:layout_weight="1"
+                android:background="@drawable/curved_items"
+                android:layout_margin="10dp"
 
-                <LinearLayout
-                    android:id="@+id/sheet2"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/visualization"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                android:orientation="vertical"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:text="Trends"
+                android:padding="16dp"
+                android:gravity="center">
 
-                        ></TextView>
+                <ImageView
+                    android:src="@drawable/visualization"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Trends"
 
-                </LinearLayout>
+                    ></TextView>
+            </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/sheet9"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
+                android:background="@drawable/curved_items"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
 
-                <LinearLayout
-                    android:id="@+id/sheet9"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/ic_baseline_warning_24"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                android:padding="16dp"
+                android:gravity="center">
+                <ImageView
+                    android:src="@drawable/ic_baseline_warning_24"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:text="Trips"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Trips"
 
-                        ></TextView>
+                    ></TextView>
 
+            </LinearLayout>
 
-                </LinearLayout>
+        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+        <LinearLayout
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/sheet10"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
+                android:layout_weight="1"
+                android:background="@drawable/curved_items"
+                android:layout_margin="10dp"
 
-                <LinearLayout
-                    android:id="@+id/sheet10"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/ic_baseline_auto_stories_24"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                android:orientation="vertical"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:text="Status"
+                android:padding="16dp"
+                android:gravity="center">
 
-                        ></TextView>
+                <ImageView
+                    android:src="@drawable/ic_baseline_auto_stories_24"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Status"
 
-                </LinearLayout>
+                    ></TextView>
+            </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/sheet1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
+                android:background="@drawable/curved_items"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
 
-                <LinearLayout
-                    android:id="@+id/sheet1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/faults"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                android:padding="16dp"
+                android:gravity="center">
+                <ImageView
+                    android:src="@drawable/faults"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:text="Faults"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Faults"
 
-                        ></TextView>
+                    ></TextView>
 
+            </LinearLayout>
 
-                </LinearLayout>
+        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+        <LinearLayout
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/sheet3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="15dp"
-                >
+                android:layout_weight="1"
+                android:background="@drawable/curved_items"
+                android:layout_margin="10dp"
 
-                <LinearLayout
-                    android:id="@+id/sheet3"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:src="@drawable/handover"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                android:orientation="vertical"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:text="Reports"
+                android:padding="16dp"
+                android:gravity="center">
 
-                        ></TextView>
+                <ImageView
+                    android:src="@drawable/handover"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Reports"
+
+                    ></TextView>
+            </LinearLayout>
 
 
-                </LinearLayout>
+        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-        </GridLayout>
+
 
 
     </LinearLayout>

@@ -81,7 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:text="Please select the data sheet:"
@@ -128,7 +128,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:text="Please select the date:"
@@ -175,7 +175,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:text="Please select the Parameter:"
@@ -222,7 +222,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="10dp"
     android:textStyle="bold"
     android:textColor="@color/black"
     android:text="Old Value:">
@@ -232,7 +232,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#57FF9800"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="17dp"
             android:layout_marginRight="10dp"
             android:id="@+id/param">

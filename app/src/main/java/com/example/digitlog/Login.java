@@ -32,16 +32,11 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     EditText email, password;
-    String user_check;
     String pass_check;
     String email_check;
-
-    String name_final;
     Button login;
     TextView register;
     ProgressBar progressBar;
-    Users users;
-    boolean isEmailValid, isPasswordValid;
     TextInputLayout emailError, passError;
 
     @Override
@@ -57,12 +52,10 @@ public class Login extends AppCompatActivity {
         emailError = (TextInputLayout) findViewById(R.id.emailError);
         passError = (TextInputLayout) findViewById(R.id.passError);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        //users = new Users();
         progressBar.setVisibility(View.INVISIBLE);
         email_check = email.getText().toString().trim();
         pass_check = password.getText().toString().trim();
 
-        //System.out.println(users.getPassword());
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,13 +68,12 @@ public class Login extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
 
                Intent intent = new Intent(getApplicationContext(), register.class);
                startActivity(intent);
-             // Toast.makeText(getApplicationContext(), "Please call admin (0123495541 Nasreldein) for adding new user", Toast.LENGTH_SHORT).show();
-
+              //Toast.makeText(getApplicationContext(), "Please call admin (0123495541 Nasreldein) for adding new user", Toast.LENGTH_SHORT).show();
             }
+
         });
     }
 

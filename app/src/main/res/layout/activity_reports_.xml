@@ -81,22 +81,7 @@
                 ></ImageView>
         </RelativeLayout>
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnCount="1"
-            android:paddingTop="10dp"
-            android:rowCount="3">
 
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
 
 
                 <LinearLayout
@@ -106,13 +91,6 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginRight="2dp"
-                        android:background="#7E000000" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,17 +102,7 @@
                         />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
 
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
 
 
                 <LinearLayout
@@ -167,17 +135,6 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
-
-
                 <LinearLayout
                     android:id="@+id/sheet3"
                     android:layout_width="match_parent"
@@ -203,16 +160,6 @@
                         />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
 
 
                 <LinearLayout
@@ -240,16 +187,6 @@
                         />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
-
 
                 <LinearLayout
                     android:id="@+id/sheet5"
@@ -276,16 +213,6 @@
                         />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
 
 
                 <LinearLayout
@@ -311,11 +238,16 @@
                         android:fontFamily="@font/microbrew_soft_one_inline"
                         android:textSize="30dp"
                         />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#7E000000" />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
 
-        </GridLayout>
 
     </LinearLayout>
 

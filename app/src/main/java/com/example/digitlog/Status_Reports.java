@@ -27,6 +27,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,10 +39,10 @@ public class Status_Reports extends AppCompatActivity {
 
     //private EditText editTextExcel;
     ArrayList<String> name = new ArrayList<>();
-
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Status/" + engine + " Status Report " + sdf.format(new Date()) + ".xls");
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Status/" + engine + " Status Report " + sdf2.format(new Date()) + ".xls");
     private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Engine Status");
     String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Engine Status";
     HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
@@ -50,6 +51,9 @@ public class Status_Reports extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel__export);
+
+        getDatawork();
+/**
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if ((getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
@@ -60,7 +64,7 @@ public class Status_Reports extends AppCompatActivity {
                         Manifest.permission.READ_EXTERNAL_STORAGE},1);
             }
         }
-
+*/
     }
 
     @Override
@@ -85,7 +89,6 @@ public class Status_Reports extends AppCompatActivity {
         ref2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
                 name.clear();
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot d : dataSnapshot.getChildren()) {
@@ -109,7 +112,7 @@ public class Status_Reports extends AppCompatActivity {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                int j = 0;
                 HSSFRow hssfRow2 = hssfSheet.createRow(0);
                 HSSFCell hssfCell1 = hssfRow2.createCell(0);
                 hssfCell1.setCellValue("Date");
@@ -124,25 +127,38 @@ public class Status_Reports extends AppCompatActivity {
 
                     for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
 
-                        E_Status data = mydatasnapshot.getValue(E_Status.class);
+                        try {
+                            if ((sdf.parse(mydatasnapshot.getKey()).before(GlobalClass.start_date)) ||  //sdf.parse(String.valueOf(
+                                    (sdf.parse(mydatasnapshot.getKey()).after(GlobalClass.end_date))) {
+                                i++;
+                                continue;
+                            }
 
-                        HSSFRow hssfRow = hssfSheet.createRow(i + 1);
+                            E_Status data = mydatasnapshot.getValue(E_Status.class);
 
-                        HSSFCell hssfCell = hssfRow.createCell(0);
-                        hssfCell.setCellValue(name.get(i));
+                            HSSFRow hssfRow = hssfSheet.createRow(j + 1);
 
-                        HSSFCell col2 = hssfRow.createCell(1);
-                        col2.setCellValue(String.valueOf(data.getStatus()));
+                            HSSFCell hssfCell = hssfRow.createCell(0);
+                            hssfCell.setCellValue(name.get(i));
 
-                        HSSFCell col3 = hssfRow.createCell(2);
-                        col3.setCellValue(String.valueOf(data.getUser()));
+                            HSSFCell col2 = hssfRow.createCell(1);
+                            col2.setCellValue(String.valueOf(data.getStatus()));
 
-                        HSSFCell col4 = hssfRow.createCell(3);
-                        col4.setCellValue(String.valueOf(data.getDescription()));
+                            HSSFCell col3 = hssfRow.createCell(2);
+                            col3.setCellValue(String.valueOf(data.getUser()));
 
-                        i = i + 1;
+                            HSSFCell col4 = hssfRow.createCell(3);
+                            col4.setCellValue(String.valueOf(data.getDescription()));
 
+                            i++;
+                            j++;
+
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                     }
+
 
                     try {
                         if (!filePath.exists()) {

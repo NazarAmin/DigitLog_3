@@ -38,7 +38,7 @@ public class register extends AppCompatActivity {
     Users users;
     Dialog dialog;
     Users user22;
-    boolean isNameValid, isEmailValid, isPhoneValid, isPasswordValid;
+    boolean isNameValid, isEmailValid, isPasswordValid;
     TextInputLayout nameError, emailError, phoneError, passError;
 
     @Override
@@ -138,7 +138,7 @@ public void save_function() {
         user22.setEmail(email);
         user22.setPassword(password2);
 
-        if (isPasswordValid & isNameValid & isNameValid){
+        if (isPasswordValid & isEmailValid & isNameValid){
 
 
             ref2.child(user_name).setValue(user22);
@@ -158,7 +158,7 @@ public void save_function() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()){
-                                            Toast.makeText(getApplicationContext(), "User Added Successfully", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), user_name + " Added Successfully", Toast.LENGTH_SHORT).show();
                                             register.this.finish();
 
                                         }else{
@@ -173,7 +173,7 @@ public void save_function() {
                         }
                     });
         }else{
-            Toast.makeText(getApplicationContext(), "Wrong Fields Entry", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Insure all fields are correct", Toast.LENGTH_SHORT).show();
 
         }
 

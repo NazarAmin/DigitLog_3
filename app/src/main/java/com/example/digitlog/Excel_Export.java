@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.content.PermissionChecker;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -42,11 +45,12 @@ import io.grpc.util.GracefulSwitchLoadBalancer;
 public class Excel_Export extends AppCompatActivity {
 
     //private EditText editTextExcel;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     ArrayList<String> name = new ArrayList<>();
     boolean q = false;
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd", Locale.ENGLISH);
     String engine = GlobalClass.engine_number;
-    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Parameters/" + engine + " Parameters Report " + sdf.format(new Date()) + ".xls");
+    private File filePath2 = new File(Environment.getExternalStorageDirectory() + "/Digit Log/Reports/Engine Parameters/" + engine + " Parameters Report " + sdf2.format(new Date()) + ".xls");
 
     private File filePath = new File(Environment.getExternalStorageDirectory(), "Digit Log/Reports/Engine Parameters");
     String file_path_string = Environment.getExternalStorageDirectory().toString() + "Digit Log/Reports/Engine Parameters";
@@ -57,16 +61,66 @@ public class Excel_Export extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel__export);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        prepare_work();
+
+        /**
+         *         Context mContext=Excel_Export.this;
+         * String[] PERMISSIONS = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE};
+
+        int permission = PermissionChecker.checkSelfPermission(mContext, String.valueOf(PERMISSIONS));
+
+        if (permission == PermissionChecker.PERMISSION_GRANTED) {
+            prepare_work();
+        } else {
+            ActivityCompat.requestPermissions((Activity) mContext, PERMISSIONS, 112 );            }
+
+         */
+/**
+        final int REQUEST = 112;
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            String[] PERMISSIONS = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                    Manifest.permission.READ_EXTERNAL_STORAGE};
+            if (!hasPermissions(mContext, PERMISSIONS)) {
+                ActivityCompat.requestPermissions((Activity) mContext, PERMISSIONS, REQUEST );
+            } else {
+                //do here
+            }
+        } else {
+            //do here
+        }
+*/
+
+
+//##################################
+        /**
+        if (Build.VERSION.SDK_INT >= 26) {
+            System.out.println("Entered Above.........######################");
+
             if ((getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             && (getApplicationContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
-            prepare_work();
+                prepare_work();
             }else{
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_EXTERNAL_STORAGE},1);
             }
-        }
+        }else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            System.out.println("Reached.........######################");
+            String[] PERMISSIONS = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE};
 
+            int permission = PermissionChecker.checkSelfPermission(mContext, String.valueOf(PERMISSIONS));
+
+            if (permission == PermissionChecker.PERMISSION_GRANTED) {
+                prepare_work();
+            } else {
+                ActivityCompat.requestPermissions((Activity) mContext, PERMISSIONS, 112 );            }
+
+        } else {
+            //do here
+        }
+*/
     }
 
     @Override
@@ -410,438 +464,449 @@ public class Excel_Export extends AppCompatActivity {
 
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    int j = 0;
                     if (dataSnapshot.hasChildren()) {
                         for (DataSnapshot mydatasnapshot : dataSnapshot.getChildren()) {
+                            try {
+                                if ((sdf.parse(mydatasnapshot.getKey()).before(GlobalClass.start_date)) ||  //sdf.parse(String.valueOf(
+                                        (sdf.parse(mydatasnapshot.getKey()).after(GlobalClass.end_date))) {
+                                    i++;
+                                    continue;
+                                } else {
+                                DataS2 data = mydatasnapshot.getValue(DataS2.class);
 
-                            DataS2 data = mydatasnapshot.getValue(DataS2.class);
+                                HSSFRow hssfRow = hssfSheet.createRow(j+1);
+                                HSSFCell hssfCell = hssfRow.createCell(0);
+                                HSSFCell col = hssfRow.createCell(1);
+                                try{
+                                    hssfCell.setCellValue(name.get(i));
+                                }catch (Exception es){
+                                    hssfCell.setCellValue("latest");
+                                }
+                                col.setCellValue(String.valueOf(data.getIp1()));
 
-                            HSSFRow hssfRow = hssfSheet.createRow(i+1);
-                            HSSFCell hssfCell = hssfRow.createCell(0);
-                            HSSFCell col = hssfRow.createCell(1);
-                            try{
-                                hssfCell.setCellValue(name.get(i));
-                            }catch (Exception es){
-                                hssfCell.setCellValue("latest");
-                            }
-                            col.setCellValue(String.valueOf(data.getIp1()));
+                                HSSFCell col2 = hssfRow.createCell(2);
+                                col2.setCellValue(String.valueOf(data.getIp2()));
 
-                            HSSFCell col2 = hssfRow.createCell(2);
-                            col2.setCellValue(String.valueOf(data.getIp2()));
+                                HSSFCell col3 = hssfRow.createCell(3);
+                                col3.setCellValue(String.valueOf(data.getIp3()));
 
-                            HSSFCell col3 = hssfRow.createCell(3);
-                            col3.setCellValue(String.valueOf(data.getIp3()));
+                                HSSFCell col4 = hssfRow.createCell(4);
+                                col4.setCellValue(String.valueOf(data.getIp4()));
 
-                            HSSFCell col4 = hssfRow.createCell(4);
-                            col4.setCellValue(String.valueOf(data.getIp4()));
+                                HSSFCell col5 = hssfRow.createCell(5);
+                                col5.setCellValue(String.valueOf(data.getIp5()));
 
-                            HSSFCell col5 = hssfRow.createCell(5);
-                            col5.setCellValue(String.valueOf(data.getIp5()));
+                                HSSFCell col6 = hssfRow.createCell(6);
+                                col6.setCellValue(String.valueOf(data.getIp6()));
 
-                            HSSFCell col6 = hssfRow.createCell(6);
-                            col6.setCellValue(String.valueOf(data.getIp6()));
+                                HSSFCell col7 = hssfRow.createCell(7);
+                                col7.setCellValue(String.valueOf(data.getIp7()));
+    /**
+                                if (q) {
 
-                            HSSFCell col7 = hssfRow.createCell(7);
-                            col7.setCellValue(String.valueOf(data.getIp7()));
-/**
-                            if (q) {
+                                    HSSFCell col9 = hssfRow.createCell(8);
+                                    col9.setCellValue(String.valueOf(data.getIp9()));
 
-                                HSSFCell col9 = hssfRow.createCell(8);
+                                    HSSFCell col10 = hssfRow.createCell(9);
+                                    col10.setCellValue(String.valueOf(data.getIp10()));
+
+                                    HSSFCell col11 = hssfRow.createCell(10);
+                                    col11.setCellValue(String.valueOf(data.getIp11()));
+
+                                    HSSFCell col12 = hssfRow.createCell(11);
+                                    col12.setCellValue(String.valueOf(data.getIp12()));
+
+                                    HSSFCell col13 = hssfRow.createCell(12);
+                                    if(String.valueOf(data.getIp13()).equals("0.0")){
+                                        col13.setCellValue("");
+                                    }else{
+                                        col13.setCellValue(String.valueOf(data.getIp13()));
+                                    }
+
+                                    HSSFCell col14 = hssfRow.createCell(13);
+                                    if(String.valueOf(data.getIp14()).equals("0.0")){
+                                        col14.setCellValue("");
+                                    }else{
+                                        col14.setCellValue(String.valueOf(data.getIp14()));
+                                    }
+
+                                    HSSFCell col15 = hssfRow.createCell(14);
+                                    if(String.valueOf(data.getIp15()).equals("0.0")){
+                                        col15.setCellValue("");
+                                    }else{
+                                        col15.setCellValue(String.valueOf(data.getIp15()));
+                                    }
+
+                                    HSSFCell col16 = hssfRow.createCell(15);
+                                    if(String.valueOf(data.getIp16()).equals("0.0")){
+                                        col16.setCellValue("");
+                                    }else{
+                                        col16.setCellValue(String.valueOf(data.getIp16()));
+                                    }
+
+                                    HSSFCell col17 = hssfRow.createCell(16);
+                                    if(String.valueOf(data.getIp17()).equals("0.0")){
+                                        col17.setCellValue("");
+                                    }else {
+                                        col17.setCellValue(String.valueOf(data.getIp17()));
+                                    }
+
+                                    HSSFCell col18 = hssfRow.createCell(17);
+                                    if(String.valueOf(data.getIp18()).equals("0.0")){
+                                        col18.setCellValue("");
+                                    }else {
+                                        col18.setCellValue(String.valueOf(data.getIp18()));
+                                    }
+
+                                    HSSFCell col19 = hssfRow.createCell(18);
+                                    if(String.valueOf(data.getIp19()).equals("0.0")){
+                                        col19.setCellValue("");
+                                    }else {
+                                        col19.setCellValue(String.valueOf(data.getIp19()));
+                                    }
+
+                                    HSSFCell col20 = hssfRow.createCell(19);
+
+                                    if(String.valueOf(data.getIp20()).equals("0.0")){
+                                        col20.setCellValue("");
+                                    }else {
+                                        col20.setCellValue(String.valueOf(data.getIp20()));
+                                    }
+                                    HSSFCell col21 = hssfRow.createCell(20);
+                                    if(String.valueOf(data.getIp21()).equals("0.0")) {
+                                        col21.setCellValue("");
+                                    }else {
+                                        col21.setCellValue(String.valueOf(data.getIp21()));
+                                    }
+                                    HSSFCell col22 = hssfRow.createCell(21);
+                                    if(String.valueOf(data.getIp22()).equals("0.0")) {
+                                        col22.setCellValue("");
+                                    }else {
+                                        col22.setCellValue(String.valueOf(data.getIp22()));
+                                    }
+                                    HSSFCell col23 = hssfRow.createCell(22);
+                                    if(String.valueOf(data.getIp23()).equals("0.0")) {
+                                        col23.setCellValue("");
+                                    }else {
+                                        col23.setCellValue(String.valueOf(data.getIp23()));
+                                    }
+                                    HSSFCell col24 = hssfRow.createCell(23);
+                                    if(String.valueOf(data.getIp24()).equals("0.0")) {
+                                        col24.setCellValue("");
+                                    }else {
+                                        col24.setCellValue(String.valueOf(data.getIp24()));
+                                    }
+                                    HSSFCell col25 = hssfRow.createCell(24);
+                                    if(String.valueOf(data.getIp25()).equals("0.0")) {
+                                        col25.setCellValue("");
+                                    }else {
+                                        col25.setCellValue(String.valueOf(data.getIp25()));
+                                    }
+                                    HSSFCell col26 = hssfRow.createCell(25);
+                                    if(String.valueOf(data.getIp26()).equals("0.0")) {
+                                        col26.setCellValue("");
+                                    }else {
+                                        col26.setCellValue(String.valueOf(data.getIp26()));
+                                    }
+                                    HSSFCell col27 = hssfRow.createCell(26);
+                                    if(String.valueOf(data.getIp27()).equals("0.0")) {
+                                        col27.setCellValue("");
+                                    }else {
+                                        col27.setCellValue(String.valueOf(data.getIp27()));
+                                    }
+                                    HSSFCell col28 = hssfRow.createCell(27);
+                                    if(String.valueOf(data.getIp28()).equals("0.0")) {
+                                        col28.setCellValue("");}else{
+                                        col28.setCellValue(String.valueOf(data.getIp28()));
+
+                                    }
+
+                                    HSSFCell col29 = hssfRow.createCell(28);
+                                    if(String.valueOf(data.getIp29()).equals("0.0")) {
+                                        col29.setCellValue("");
+                                    }else {
+                                        col29.setCellValue(String.valueOf(data.getIp29()));
+                                    }
+                                    HSSFCell col30 = hssfRow.createCell(29);
+                                    if(String.valueOf(data.getIp30()).equals("0.0")) {
+                                        col30.setCellValue("");
+                                    }else{
+                                        col30.setCellValue(String.valueOf(data.getIp30()));
+                                    }
+                                    HSSFCell col31 = hssfRow.createCell(30);
+                                    if(String.valueOf(data.getIp31()).equals("0.0")) {
+                                        col31.setCellValue("");
+                                    }else{
+                                        col31.setCellValue(String.valueOf(data.getIp31()));
+                                    }
+                                    HSSFCell col32 = hssfRow.createCell(31);
+                                    if(String.valueOf(data.getIp32()).equals("0.0")) {
+                                        col32.setCellValue("");
+                                    }else{
+                                        col32.setCellValue(String.valueOf(data.getIp32()));
+                                    }
+                                    HSSFCell col33 = hssfRow.createCell(32);
+                                    if(String.valueOf(data.getIp33()).equals("0.0")) {
+                                        col33.setCellValue("");
+                                    }else{
+                                        col33.setCellValue(String.valueOf(data.getIp33()));
+                                    }
+                                    HSSFCell col34 = hssfRow.createCell(33);
+                                    if(String.valueOf(data.getIp34()).equals("0.0")) {
+                                        col34.setCellValue("");
+                                    }else{
+                                        col34.setCellValue(String.valueOf(data.getIp34()));
+                                    }
+                                    HSSFCell col35 = hssfRow.createCell(34);
+                                    if(String.valueOf(data.getIp35()).equals("0.0")) {
+                                        col35.setCellValue("");
+                                    }else{
+                                        col35.setCellValue(String.valueOf(data.getIp35()));
+                                    }
+                                    HSSFCell col36 = hssfRow.createCell(35);
+                                    if(String.valueOf(data.getIp36()).equals("0.0")) {
+                                        col36.setCellValue("");
+                                    }else{
+                                        col36.setCellValue(String.valueOf(data.getIp36()));
+                                    }
+                                    HSSFCell col37 = hssfRow.createCell(36);
+                                    if(String.valueOf(data.getIp37()).equals("0.0")) {
+                                        col37.setCellValue("");
+                                    }else{
+                                        col37.setCellValue(String.valueOf(data.getIp37()));
+                                    }
+                                    HSSFCell col38 = hssfRow.createCell(37);
+                                    if(String.valueOf(data.getIp38()).equals("0.0")) {
+                                        col38.setCellValue("");
+                                    }else{
+                                        col38.setCellValue(String.valueOf(data.getIp38()));
+                                    }
+                                    HSSFCell col39 = hssfRow.createCell(38);
+                                    if(String.valueOf(data.getIp39()).equals("0.0")) {
+                                        col39.setCellValue("");
+                                    }else {
+                                        col39.setCellValue(String.valueOf(data.getIp39()));
+                                    }
+                     ////////////////////////////////////////////////////////////////////////////
+                                }else{
+    **/
+
+                                HSSFCell col8 = hssfRow.createCell(8);
+                                col8.setCellValue(String.valueOf(data.getIp8()));
+
+                                HSSFCell col9 = hssfRow.createCell(9);
                                 col9.setCellValue(String.valueOf(data.getIp9()));
 
-                                HSSFCell col10 = hssfRow.createCell(9);
+                                HSSFCell col10 = hssfRow.createCell(10);
                                 col10.setCellValue(String.valueOf(data.getIp10()));
 
-                                HSSFCell col11 = hssfRow.createCell(10);
+                                HSSFCell col11 = hssfRow.createCell(11);
                                 col11.setCellValue(String.valueOf(data.getIp11()));
 
-                                HSSFCell col12 = hssfRow.createCell(11);
+                                HSSFCell col12 = hssfRow.createCell(12);
                                 col12.setCellValue(String.valueOf(data.getIp12()));
 
-                                HSSFCell col13 = hssfRow.createCell(12);
+                                HSSFCell col13 = hssfRow.createCell(13);
                                 if(String.valueOf(data.getIp13()).equals("0.0")){
                                     col13.setCellValue("");
                                 }else{
                                     col13.setCellValue(String.valueOf(data.getIp13()));
                                 }
 
-                                HSSFCell col14 = hssfRow.createCell(13);
+                                HSSFCell col14 = hssfRow.createCell(14);
                                 if(String.valueOf(data.getIp14()).equals("0.0")){
                                     col14.setCellValue("");
                                 }else{
                                     col14.setCellValue(String.valueOf(data.getIp14()));
                                 }
 
-                                HSSFCell col15 = hssfRow.createCell(14);
+                                HSSFCell col15 = hssfRow.createCell(15);
                                 if(String.valueOf(data.getIp15()).equals("0.0")){
                                     col15.setCellValue("");
                                 }else{
                                     col15.setCellValue(String.valueOf(data.getIp15()));
                                 }
 
-                                HSSFCell col16 = hssfRow.createCell(15);
+                                HSSFCell col16 = hssfRow.createCell(16);
                                 if(String.valueOf(data.getIp16()).equals("0.0")){
                                     col16.setCellValue("");
                                 }else{
                                     col16.setCellValue(String.valueOf(data.getIp16()));
                                 }
 
-                                HSSFCell col17 = hssfRow.createCell(16);
+                                HSSFCell col17 = hssfRow.createCell(17);
                                 if(String.valueOf(data.getIp17()).equals("0.0")){
                                     col17.setCellValue("");
                                 }else {
                                     col17.setCellValue(String.valueOf(data.getIp17()));
                                 }
 
-                                HSSFCell col18 = hssfRow.createCell(17);
+                                HSSFCell col18 = hssfRow.createCell(18);
                                 if(String.valueOf(data.getIp18()).equals("0.0")){
                                     col18.setCellValue("");
                                 }else {
                                     col18.setCellValue(String.valueOf(data.getIp18()));
                                 }
 
-                                HSSFCell col19 = hssfRow.createCell(18);
+                                HSSFCell col19 = hssfRow.createCell(19);
                                 if(String.valueOf(data.getIp19()).equals("0.0")){
                                     col19.setCellValue("");
                                 }else {
                                     col19.setCellValue(String.valueOf(data.getIp19()));
                                 }
 
-                                HSSFCell col20 = hssfRow.createCell(19);
+                                HSSFCell col20 = hssfRow.createCell(20);
 
                                 if(String.valueOf(data.getIp20()).equals("0.0")){
                                     col20.setCellValue("");
                                 }else {
                                     col20.setCellValue(String.valueOf(data.getIp20()));
                                 }
-                                HSSFCell col21 = hssfRow.createCell(20);
+                                HSSFCell col21 = hssfRow.createCell(21);
                                 if(String.valueOf(data.getIp21()).equals("0.0")) {
                                     col21.setCellValue("");
                                 }else {
                                     col21.setCellValue(String.valueOf(data.getIp21()));
                                 }
-                                HSSFCell col22 = hssfRow.createCell(21);
+                                HSSFCell col22 = hssfRow.createCell(22);
                                 if(String.valueOf(data.getIp22()).equals("0.0")) {
                                     col22.setCellValue("");
                                 }else {
                                     col22.setCellValue(String.valueOf(data.getIp22()));
                                 }
-                                HSSFCell col23 = hssfRow.createCell(22);
+                                HSSFCell col23 = hssfRow.createCell(23);
                                 if(String.valueOf(data.getIp23()).equals("0.0")) {
                                     col23.setCellValue("");
                                 }else {
                                     col23.setCellValue(String.valueOf(data.getIp23()));
                                 }
-                                HSSFCell col24 = hssfRow.createCell(23);
+                                HSSFCell col24 = hssfRow.createCell(24);
                                 if(String.valueOf(data.getIp24()).equals("0.0")) {
                                     col24.setCellValue("");
                                 }else {
                                     col24.setCellValue(String.valueOf(data.getIp24()));
                                 }
-                                HSSFCell col25 = hssfRow.createCell(24);
+                                HSSFCell col25 = hssfRow.createCell(25);
                                 if(String.valueOf(data.getIp25()).equals("0.0")) {
                                     col25.setCellValue("");
                                 }else {
                                     col25.setCellValue(String.valueOf(data.getIp25()));
                                 }
-                                HSSFCell col26 = hssfRow.createCell(25);
+                                HSSFCell col26 = hssfRow.createCell(26);
                                 if(String.valueOf(data.getIp26()).equals("0.0")) {
                                     col26.setCellValue("");
                                 }else {
                                     col26.setCellValue(String.valueOf(data.getIp26()));
                                 }
-                                HSSFCell col27 = hssfRow.createCell(26);
+                                HSSFCell col27 = hssfRow.createCell(27);
                                 if(String.valueOf(data.getIp27()).equals("0.0")) {
                                     col27.setCellValue("");
                                 }else {
                                     col27.setCellValue(String.valueOf(data.getIp27()));
                                 }
-                                HSSFCell col28 = hssfRow.createCell(27);
+                                HSSFCell col28 = hssfRow.createCell(28);
                                 if(String.valueOf(data.getIp28()).equals("0.0")) {
                                     col28.setCellValue("");}else{
                                     col28.setCellValue(String.valueOf(data.getIp28()));
 
                                 }
 
-                                HSSFCell col29 = hssfRow.createCell(28);
+                                HSSFCell col29 = hssfRow.createCell(29);
                                 if(String.valueOf(data.getIp29()).equals("0.0")) {
                                     col29.setCellValue("");
                                 }else {
                                     col29.setCellValue(String.valueOf(data.getIp29()));
                                 }
-                                HSSFCell col30 = hssfRow.createCell(29);
+                                HSSFCell col30 = hssfRow.createCell(30);
                                 if(String.valueOf(data.getIp30()).equals("0.0")) {
                                     col30.setCellValue("");
                                 }else{
                                     col30.setCellValue(String.valueOf(data.getIp30()));
                                 }
-                                HSSFCell col31 = hssfRow.createCell(30);
+                                HSSFCell col31 = hssfRow.createCell(31);
                                 if(String.valueOf(data.getIp31()).equals("0.0")) {
                                     col31.setCellValue("");
                                 }else{
                                     col31.setCellValue(String.valueOf(data.getIp31()));
                                 }
-                                HSSFCell col32 = hssfRow.createCell(31);
+                                HSSFCell col32 = hssfRow.createCell(32);
                                 if(String.valueOf(data.getIp32()).equals("0.0")) {
                                     col32.setCellValue("");
                                 }else{
                                     col32.setCellValue(String.valueOf(data.getIp32()));
                                 }
-                                HSSFCell col33 = hssfRow.createCell(32);
+                                HSSFCell col33 = hssfRow.createCell(33);
                                 if(String.valueOf(data.getIp33()).equals("0.0")) {
                                     col33.setCellValue("");
                                 }else{
                                     col33.setCellValue(String.valueOf(data.getIp33()));
                                 }
-                                HSSFCell col34 = hssfRow.createCell(33);
+                                HSSFCell col34 = hssfRow.createCell(34);
                                 if(String.valueOf(data.getIp34()).equals("0.0")) {
                                     col34.setCellValue("");
                                 }else{
                                     col34.setCellValue(String.valueOf(data.getIp34()));
                                 }
-                                HSSFCell col35 = hssfRow.createCell(34);
+                                HSSFCell col35 = hssfRow.createCell(35);
                                 if(String.valueOf(data.getIp35()).equals("0.0")) {
                                     col35.setCellValue("");
                                 }else{
                                     col35.setCellValue(String.valueOf(data.getIp35()));
                                 }
-                                HSSFCell col36 = hssfRow.createCell(35);
+                                HSSFCell col36 = hssfRow.createCell(36);
                                 if(String.valueOf(data.getIp36()).equals("0.0")) {
                                     col36.setCellValue("");
                                 }else{
                                     col36.setCellValue(String.valueOf(data.getIp36()));
                                 }
-                                HSSFCell col37 = hssfRow.createCell(36);
+                                HSSFCell col37 = hssfRow.createCell(37);
                                 if(String.valueOf(data.getIp37()).equals("0.0")) {
                                     col37.setCellValue("");
                                 }else{
                                     col37.setCellValue(String.valueOf(data.getIp37()));
                                 }
-                                HSSFCell col38 = hssfRow.createCell(37);
+                                HSSFCell col38 = hssfRow.createCell(38);
                                 if(String.valueOf(data.getIp38()).equals("0.0")) {
                                     col38.setCellValue("");
                                 }else{
                                     col38.setCellValue(String.valueOf(data.getIp38()));
                                 }
-                                HSSFCell col39 = hssfRow.createCell(38);
+                                HSSFCell col39 = hssfRow.createCell(39);
                                 if(String.valueOf(data.getIp39()).equals("0.0")) {
                                     col39.setCellValue("");
                                 }else {
                                     col39.setCellValue(String.valueOf(data.getIp39()));
                                 }
-                 ////////////////////////////////////////////////////////////////////////////
-                            }else{
-**/
+                                //}
+                                int index_o = 0;
+                                if (item.equals("FO")) {
+                                    index_o = 22;}
+                                else if (item.equals("GT_Log")) {
+                                    index_o = 22;}
+                                else if (item.equals("Generation")) {
+                                    index_o = 22;}
+                                else if (item.equals("Mark_V")) {
+                                    index_o = 20;}
+                                else if (item.equals("Generator_Board")) {
+                                    index_o = 17;}
+                                else if (item.equals("Log_Sheet_6")) {
+                                    index_o = 19;}
+                                else if (item.equals("HSRG_A")) {
+                                    index_o = 13;}
+                                else if (item.equals("HSRG_B")) {
+                                    index_o = 13;}
+                                else if (item.equals("LogSheet20_B")) {
+                                    index_o = 40;}
 
-                            HSSFCell col8 = hssfRow.createCell(8);
-                            col8.setCellValue(String.valueOf(data.getIp8()));
-
-                            HSSFCell col9 = hssfRow.createCell(9);
-                            col9.setCellValue(String.valueOf(data.getIp9()));
-
-                            HSSFCell col10 = hssfRow.createCell(10);
-                            col10.setCellValue(String.valueOf(data.getIp10()));
-
-                            HSSFCell col11 = hssfRow.createCell(11);
-                            col11.setCellValue(String.valueOf(data.getIp11()));
-
-                            HSSFCell col12 = hssfRow.createCell(12);
-                            col12.setCellValue(String.valueOf(data.getIp12()));
-
-                            HSSFCell col13 = hssfRow.createCell(13);
-                            if(String.valueOf(data.getIp13()).equals("0.0")){
-                                col13.setCellValue("");
-                            }else{
-                                col13.setCellValue(String.valueOf(data.getIp13()));
+                                HSSFCell col99 = hssfRow.createCell(index_o);
+                                col99.setCellValue(String.valueOf(data.getUser()));
+                                i++;
+                                j++;
                             }
-
-                            HSSFCell col14 = hssfRow.createCell(14);
-                            if(String.valueOf(data.getIp14()).equals("0.0")){
-                                col14.setCellValue("");
-                            }else{
-                                col14.setCellValue(String.valueOf(data.getIp14()));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
                             }
-
-                            HSSFCell col15 = hssfRow.createCell(15);
-                            if(String.valueOf(data.getIp15()).equals("0.0")){
-                                col15.setCellValue("");
-                            }else{
-                                col15.setCellValue(String.valueOf(data.getIp15()));
-                            }
-
-                            HSSFCell col16 = hssfRow.createCell(16);
-                            if(String.valueOf(data.getIp16()).equals("0.0")){
-                                col16.setCellValue("");
-                            }else{
-                                col16.setCellValue(String.valueOf(data.getIp16()));
-                            }
-
-                            HSSFCell col17 = hssfRow.createCell(17);
-                            if(String.valueOf(data.getIp17()).equals("0.0")){
-                                col17.setCellValue("");
-                            }else {
-                                col17.setCellValue(String.valueOf(data.getIp17()));
-                            }
-
-                            HSSFCell col18 = hssfRow.createCell(18);
-                            if(String.valueOf(data.getIp18()).equals("0.0")){
-                                col18.setCellValue("");
-                            }else {
-                                col18.setCellValue(String.valueOf(data.getIp18()));
-                            }
-
-                            HSSFCell col19 = hssfRow.createCell(19);
-                            if(String.valueOf(data.getIp19()).equals("0.0")){
-                                col19.setCellValue("");
-                            }else {
-                                col19.setCellValue(String.valueOf(data.getIp19()));
-                            }
-
-                            HSSFCell col20 = hssfRow.createCell(20);
-
-                            if(String.valueOf(data.getIp20()).equals("0.0")){
-                                col20.setCellValue("");
-                            }else {
-                                col20.setCellValue(String.valueOf(data.getIp20()));
-                            }
-                            HSSFCell col21 = hssfRow.createCell(21);
-                            if(String.valueOf(data.getIp21()).equals("0.0")) {
-                                col21.setCellValue("");
-                            }else {
-                                col21.setCellValue(String.valueOf(data.getIp21()));
-                            }
-                            HSSFCell col22 = hssfRow.createCell(22);
-                            if(String.valueOf(data.getIp22()).equals("0.0")) {
-                                col22.setCellValue("");
-                            }else {
-                                col22.setCellValue(String.valueOf(data.getIp22()));
-                            }
-                            HSSFCell col23 = hssfRow.createCell(23);
-                            if(String.valueOf(data.getIp23()).equals("0.0")) {
-                                col23.setCellValue("");
-                            }else {
-                                col23.setCellValue(String.valueOf(data.getIp23()));
-                            }
-                            HSSFCell col24 = hssfRow.createCell(24);
-                            if(String.valueOf(data.getIp24()).equals("0.0")) {
-                                col24.setCellValue("");
-                            }else {
-                                col24.setCellValue(String.valueOf(data.getIp24()));
-                            }
-                            HSSFCell col25 = hssfRow.createCell(25);
-                            if(String.valueOf(data.getIp25()).equals("0.0")) {
-                                col25.setCellValue("");
-                            }else {
-                                col25.setCellValue(String.valueOf(data.getIp25()));
-                            }
-                            HSSFCell col26 = hssfRow.createCell(26);
-                            if(String.valueOf(data.getIp26()).equals("0.0")) {
-                                col26.setCellValue("");
-                            }else {
-                                col26.setCellValue(String.valueOf(data.getIp26()));
-                            }
-                            HSSFCell col27 = hssfRow.createCell(27);
-                            if(String.valueOf(data.getIp27()).equals("0.0")) {
-                                col27.setCellValue("");
-                            }else {
-                                col27.setCellValue(String.valueOf(data.getIp27()));
-                            }
-                            HSSFCell col28 = hssfRow.createCell(28);
-                            if(String.valueOf(data.getIp28()).equals("0.0")) {
-                                col28.setCellValue("");}else{
-                                col28.setCellValue(String.valueOf(data.getIp28()));
-
-                            }
-
-                            HSSFCell col29 = hssfRow.createCell(29);
-                            if(String.valueOf(data.getIp29()).equals("0.0")) {
-                                col29.setCellValue("");
-                            }else {
-                                col29.setCellValue(String.valueOf(data.getIp29()));
-                            }
-                            HSSFCell col30 = hssfRow.createCell(30);
-                            if(String.valueOf(data.getIp30()).equals("0.0")) {
-                                col30.setCellValue("");
-                            }else{
-                                col30.setCellValue(String.valueOf(data.getIp30()));
-                            }
-                            HSSFCell col31 = hssfRow.createCell(31);
-                            if(String.valueOf(data.getIp31()).equals("0.0")) {
-                                col31.setCellValue("");
-                            }else{
-                                col31.setCellValue(String.valueOf(data.getIp31()));
-                            }
-                            HSSFCell col32 = hssfRow.createCell(32);
-                            if(String.valueOf(data.getIp32()).equals("0.0")) {
-                                col32.setCellValue("");
-                            }else{
-                                col32.setCellValue(String.valueOf(data.getIp32()));
-                            }
-                            HSSFCell col33 = hssfRow.createCell(33);
-                            if(String.valueOf(data.getIp33()).equals("0.0")) {
-                                col33.setCellValue("");
-                            }else{
-                                col33.setCellValue(String.valueOf(data.getIp33()));
-                            }
-                            HSSFCell col34 = hssfRow.createCell(34);
-                            if(String.valueOf(data.getIp34()).equals("0.0")) {
-                                col34.setCellValue("");
-                            }else{
-                                col34.setCellValue(String.valueOf(data.getIp34()));
-                            }
-                            HSSFCell col35 = hssfRow.createCell(35);
-                            if(String.valueOf(data.getIp35()).equals("0.0")) {
-                                col35.setCellValue("");
-                            }else{
-                                col35.setCellValue(String.valueOf(data.getIp35()));
-                            }
-                            HSSFCell col36 = hssfRow.createCell(36);
-                            if(String.valueOf(data.getIp36()).equals("0.0")) {
-                                col36.setCellValue("");
-                            }else{
-                                col36.setCellValue(String.valueOf(data.getIp36()));
-                            }
-                            HSSFCell col37 = hssfRow.createCell(37);
-                            if(String.valueOf(data.getIp37()).equals("0.0")) {
-                                col37.setCellValue("");
-                            }else{
-                                col37.setCellValue(String.valueOf(data.getIp37()));
-                            }
-                            HSSFCell col38 = hssfRow.createCell(38);
-                            if(String.valueOf(data.getIp38()).equals("0.0")) {
-                                col38.setCellValue("");
-                            }else{
-                                col38.setCellValue(String.valueOf(data.getIp38()));
-                            }
-                            HSSFCell col39 = hssfRow.createCell(39);
-                            if(String.valueOf(data.getIp39()).equals("0.0")) {
-                                col39.setCellValue("");
-                            }else {
-                                col39.setCellValue(String.valueOf(data.getIp39()));
-                            }
-                            //}
-                            int index_o = 0;
-                            if (item.equals("FO")) {
-                                index_o = 22;}
-                            else if (item.equals("GT_Log")) {
-                                index_o = 22;}
-                            else if (item.equals("Generation")) {
-                                index_o = 22;}
-                            else if (item.equals("Mark_V")) {
-                                index_o = 20;}
-                            else if (item.equals("Generator_Board")) {
-                                index_o = 17;}
-                            else if (item.equals("Log_Sheet_6")) {
-                                index_o = 19;}
-                            else if (item.equals("HSRG_A")) {
-                                index_o = 13;}
-                            else if (item.equals("HSRG_B")) {
-                                index_o = 13;}
-                            else if (item.equals("LogSheet20_B")) {
-                                index_o = 40;}
-
-                            HSSFCell col99 = hssfRow.createCell(index_o);
-                            col99.setCellValue(String.valueOf(data.getUser()));
-                            i++;
                         }
 
                             if (type == 0 && kn == 1) {

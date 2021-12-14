@@ -5,15 +5,16 @@
 
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.digitlog"
-        minSdkVersion 22
-        targetSdkVersion 29
+        minSdkVersion 19
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
       /**  ndk {
@@ -67,6 +68,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.multidex:multidex:2.0.1'
     //implementation 'android.support.design.widget.TextInputLayout'
     //implementation 'android.support.v7.app.AppCompatActivity'
     //noinspection GradleCompatible

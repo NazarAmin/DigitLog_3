@@ -164,7 +164,7 @@
         android:layout_gravity="left"
         android:gravity="left"
         android:paddingRight="5dp"
-        android:text="-----------"
+        android:text="--------"
         android:textColor="@color/redshine"
         android:textSize="20dp"
         android:textStyle="bold">
@@ -245,7 +245,7 @@
 
                         android:layout_gravity="left"
                         android:gravity="left"
-                        android:text="-----------"
+                        android:text="--------"
                         android:paddingRight="5dp"
                         android:textColor="@color/redshine"
                         android:textSize="20dp"
@@ -334,29 +334,19 @@
             </LinearLayout>
 
 
-            <GridLayout
+            <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                android:rowCount="1">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="95dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:padding="20dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="10dp">
 
                     <LinearLayout
                         android:id="@+id/sheet1"
-                        android:layout_width="match_parent"
-
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:elevation="30dp"
@@ -409,23 +399,12 @@
                     </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="95dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:layout_marginTop="10dp"
-
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="10dp">
-
                     <LinearLayout
                         android:id="@+id/sheet2"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_margin="10dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:background="@color/white"
                         android:elevation="30dp"
                         android:orientation="horizontal"
@@ -473,12 +452,8 @@
                         </LinearLayout>
 
                     </LinearLayout>
+            </LinearLayout>
 
-
-                </androidx.cardview.widget.CardView>
-
-
-            </GridLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -519,7 +494,7 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/microbrew_soft_one_inline"
 
-                    android:text="Garri 1 Power Plant"
+                    android:text="Garri 2 Power Plant"
                     android:textColor="@color/white"
                     android:textSize="24dp"
 
@@ -587,7 +562,7 @@
                         android:layout_gravity="left"
                         android:gravity="left"
                         android:paddingRight="5dp"
-                        android:text="-----------"
+                        android:text="--------"
                         android:textColor="@color/redshine"
                         android:textSize="20dp"
                         android:textStyle="bold">
@@ -668,7 +643,7 @@
 
                         android:layout_gravity="left"
                         android:gravity="left"
-                        android:text="-----------"
+                        android:text="--------"
                         android:paddingRight="5dp"
                         android:textColor="@color/redshine"
                         android:textSize="20dp"
@@ -757,29 +732,19 @@
             </LinearLayout>
 
 
-            <GridLayout
+            <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                android:rowCount="1">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="95dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:padding="20dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="10dp">
 
-                    <LinearLayout
-                        android:id="@+id/sheet3"
-                        android:layout_width="match_parent"
-
+                <LinearLayout
+                    android:id="@+id/sheet3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:elevation="30dp"
@@ -826,35 +791,21 @@
 
                             </TextView>
 
-
                         </LinearLayout>
-
                     </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="95dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:layout_marginTop="10dp"
-
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="10dp">
 
                     <LinearLayout
                         android:id="@+id/sheet4"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:elevation="30dp"
                         android:orientation="horizontal"
                         android:padding="14dp"
-
-
                         >
 
                         <LinearLayout
@@ -862,7 +813,6 @@
                             android:layout_height="match_parent"
                             android:background="#65FFFFFF"
                             android:gravity="center"
-
                             android:orientation="horizontal">
 
                             <TextView
@@ -898,10 +848,7 @@
                     </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
-
-
-            </GridLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

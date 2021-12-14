@@ -468,7 +468,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
 
     private void get_alias(ArrayList sheet, Spinner spinner) {
 
-        ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, sheet);
+        ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(Correction_Base2.this, android.R.layout.simple_spinner_item, sheet);
         dataAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter4);
     }
@@ -489,7 +489,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
             newList.add("Log_Sheet_6");
         }
 
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, newList);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(Correction_Base2.this, android.R.layout.simple_spinner_item, newList);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(dataAdapter2);
     }
@@ -513,7 +513,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
                             }
                         }
                     }
-                    ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, newList2);
+                    ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(Correction_Base2.this, android.R.layout.simple_spinner_item, newList2);
                     // Drop down layout style - list view with radio button
                     dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     // attaching data adapter to spinner
@@ -536,7 +536,7 @@ public class Correction_Base2 extends AppCompatActivity implements AdapterView.O
                     for (DataSnapshot mydatasnapshot : snapshot.getChildren()) {
                         newList3.add(mydatasnapshot.getKey());
                     }
-                    ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, newList3);
+                    ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(Correction_Base2.this, android.R.layout.simple_spinner_item, newList3);
                     // Drop down layout style - list view with radio button
                     dataAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     // attaching data adapter to spinner

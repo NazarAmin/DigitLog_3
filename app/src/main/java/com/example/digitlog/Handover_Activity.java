@@ -130,7 +130,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
         spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
         String shifts[] = {"A", "B", "C", "D", "E"};
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, shifts);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(Handover_Activity.this, android.R.layout.simple_spinner_item, shifts);
         // Drop down layout style - list view with radio button
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // attaching data adapter to spinner
@@ -150,7 +150,7 @@ public class Handover_Activity extends AppCompatActivity implements AdapterView.
                     }
 
                     // Creating adapter for spinner
-                    ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, categories);
+                    ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Handover_Activity.this, android.R.layout.simple_spinner_item, categories);
                     // Drop down layout style - list view with radio button
                     dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     // attaching data adapter to spinner

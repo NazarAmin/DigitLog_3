@@ -220,12 +220,16 @@ public class Dashboard_chart extends AppCompatActivity {
 
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                String day_1;
                 yeare = String.valueOf(year);
 
-                if (dayOfMonth<10) {
-                    day = "0" + String.valueOf(dayOfMonth);
+                if (dayOfMonth+1<10) {
+                    day = "0" + String.valueOf(dayOfMonth+1);
+                    day_1 = "0" + String.valueOf(dayOfMonth);
+
                 }else{
-                    day = String.valueOf(dayOfMonth);
+                    day = String.valueOf(dayOfMonth+1);
+                    day_1 = String.valueOf(dayOfMonth);
                 }
 
                 if (month+1<10) {
@@ -242,14 +246,14 @@ public class Dashboard_chart extends AppCompatActivity {
                     System.out.println("Not Parsed Successfully Date line233");
                     e.printStackTrace();
                 }
-                to.setText(yeare + "-" + monthe + "-" + day);
+                to.setText(yeare + "-" + monthe + "-" + day_1);
             }
         };
 
         Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR);
         int mMonth = c.get(Calendar.MONTH);
-        int mDay = c.get(Calendar.DAY_OF_MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH) + 1;
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, mYear, mMonth, mDay);
         datePickerDialog.setTitle("Select Date:");

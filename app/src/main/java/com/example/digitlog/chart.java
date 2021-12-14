@@ -64,6 +64,7 @@ public class chart extends AppCompatActivity {
     List<Integer> colors = new ArrayList<Integer>();
     Dialog dialog;
     int k = 0;
+    String test;
 
     long referenceTimestamp = 0;
     @Override
@@ -71,8 +72,9 @@ public class chart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
-        TextView eng = (TextView) findViewById(R.id.eng);
-        eng.setText(GlobalClass.engine_number);
+       // TextView eng = (TextView) findViewById(R.id.eng);
+        //test = GlobalClass.engine_number;
+        //eng.setText(test);
 
         tv1 = (TextView) findViewById(R.id.tv1999);
         tv2 = (TextView) findViewById(R.id.tv2999);

@@ -161,12 +161,12 @@ public class Dashboard_problem extends AppCompatActivity implements AdapterView.
         categories2.add("Site Observation");
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(Dashboard_problem.this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, categories2);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(Dashboard_problem.this, android.R.layout.simple_spinner_item, categories2);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(dataAdapter2);
         spinner2.setOnItemSelectedListener(this);

@@ -29,7 +29,9 @@ public static String general_admin = "Nazar Amin";
 public static String database = "data";
 
 public static long now = System.currentTimeMillis();
-public static Date end_date = new Date(now);
+//public static Date end_date = new Date(now);
+
+public static Date end_date = new Date(new Date(now).getTime() + (1000 * 60 * 60 * 24));
 
 public static String date = "2021_06_18 00:00:00";
 public static SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss", Locale.ENGLISH);
